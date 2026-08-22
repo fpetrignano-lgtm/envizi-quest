@@ -275,6 +275,8 @@ body{font-size:18px}.eyebrow{font-size:13px}.brand{font-size:14px}.step,.mission
 .nextStepBtn.primary{background:var(--teal);color:#06110d;box-shadow:0 8px 28px rgba(57,239,180,.18)}
 .nextStepBtn.primary:hover{background:#8affda}
 .nextStepScreen .secondaryAction{align-self:flex-start;margin-top:4px}
+.nextStepActions{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+
 @media(max-width:900px){.nextStepCards{grid-template-columns:1fr}.nextStepBody{padding:42px 7vw 50px}}
 @media(max-width:650px){.nextStepBody{padding:32px 20px 50px}.nextStepBody h1{font-size:42px}}
 
