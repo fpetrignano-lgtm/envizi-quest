@@ -25,9 +25,9 @@ cd envizi-quest/source
 # Sviluppo locale con hot-reload
 npm run dev
 
-# Anteprima del build (come Netlify)
+# Anteprima del build locale
 npm run build && npx vite preview --port 4173
-# → apri http://localhost:4173
+# → apri http://localhost:4173/envizi-quest/
 
 # Build standalone (senza deploy)
 npm run build
@@ -87,4 +87,8 @@ Sono già copiate in `source/public/` con questi nomi:
 - Immagini: versioni luminose (chiare) per tutti e 5 gli scenari
 - Overlay characterStage: rgba(4,12,9,.55) — ridotto per visibilità immagini
 - Ultima slide: email contatto rimossa da [`nextContactEmail`](src/App.tsx)
+- CTA finale: flusso corretto verso schermata `Grazie / Thank you`
+- GitHub Pages attivo con workflow [`deploy-pages.yml`](../.github/workflows/deploy-pages.yml)
+- Vite configurato per GitHub Pages con base path `/envizi-quest/`
+- Asset pubblici aggiornati con path compatibili GitHub Pages
 - CSS sorgente pulito: rimossa direttiva Tailwind non utilizzata da [`styles.css`](src/styles.css) per evitare warning inutili in build
