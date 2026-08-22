@@ -277,6 +277,11 @@ body{font-size:18px}.eyebrow{font-size:13px}.brand{font-size:14px}.step,.mission
 .nextStepScreen .secondaryAction{align-self:flex-start;margin-top:4px}
 @media(max-width:900px){.nextStepCards{grid-template-columns:1fr}.nextStepBody{padding:42px 7vw 50px}}
 @media(max-width:650px){.nextStepBody{padding:32px 20px 50px}.nextStepBody h1{font-size:42px}}
+
+.thankYouScreen{min-height:100vh;background:#07110e;padding:76px 0 0;display:grid;grid-template-rows:76px 1fr}
+.thankYouBody{display:grid;place-items:center;padding:40px 20px 80px}
+.thankYouBody h1{margin:0;font-size:clamp(54px,9vw,132px);line-height:.92;letter-spacing:-.08em;color:var(--text-bright);text-align:center}
+
 @media(max-width:900px){.nextStepContent{grid-template-columns:1fr}.nextStepScreen section{padding:42px 7vw 50px}}
 @media(max-width:650px){.nextStepScreen section{padding:32px 20px 50px}.nextStepContent{gap:28px}.nextStepIntro p{font-size:17px}.nextStepScreen h1{text-align:left}}
 
