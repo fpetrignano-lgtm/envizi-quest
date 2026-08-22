@@ -15,7 +15,7 @@ envizi-quest/
     └── package.json
 ```
 
-`envizi-quest/source` è l'**unica fonte di verità**. Il deploy avviene automaticamente tramite GitHub + Netlify (vedi sezione Flusso di deploy).
+`envizi-quest/source` è l'**unica fonte di verità**. Il deploy avviene automaticamente tramite GitHub Pages (vedi sezione Flusso di deploy).
 
 ## Comandi
 
@@ -57,17 +57,17 @@ Sono già copiate in `source/public/` con questi nomi:
 | planning-intermediate.png          | 4 · Net Zero      | B Statica|
 | planning-asis.png                  | 4 · Net Zero      | C AS-IS  |
 
-## Flusso di deploy (GitHub + Netlify)
+## Flusso di deploy (GitHub Pages)
 
 1. Modifica `source/src/App.tsx` o `source/src/styles.css`
 2. `git add . && git commit -m "descrizione" && git push`
-3. Netlify rileva il push e lancia automaticamente il build da `source/` con `npm run build`
-4. Il sito viene pubblicato dalla directory `source/dist` — nessun copia-incolla manuale
+3. GitHub Actions builda automaticamente il progetto da `source/` con `npm ci && npm run build`
+4. GitHub Pages pubblica il contenuto generato di `source/dist`
 
-**Parametri Netlify** (da impostare una sola volta nell'UI o nel collegamento GitHub):
-- Base directory: `source`
-- Build command: `npm run build`
-- Publish directory: `dist`
+**Configurazione GitHub Pages**:
+- Source: `GitHub Actions`
+- Workflow: [`.github/workflows/deploy-pages.yml`](../.github/workflows/deploy-pages.yml)
+- Base path Vite: `/envizi-quest/`
 
 ## Regole
 
