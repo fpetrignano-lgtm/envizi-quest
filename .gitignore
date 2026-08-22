@@ -1,0 +1,15 @@
+# Dependencies
+source/node_modules/
+
+# Build output
+source/dist/
+dist/
+
+# Netlify CLI local cache
+.netlify/
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
