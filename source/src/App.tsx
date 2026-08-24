@@ -50,7 +50,7 @@ const copy = {
     approachOptionsLabel:"Le tre macro-opzioni che valuterai", approachOptions:[
       {key:"asis",icon:"⏸",label:"Attendere con l'AS-IS",detail:"Nessun investimento immediato, ma i problemi restano e la pressione cresce: da banche, clienti, normativa."},
       {key:"simple",icon:"🔧",label:"Adottare una soluzione percepita come semplice",detail:"Un tool puntuale o un workflow digitale: abbassa la complessità percepita, ma spesso non scala e non integra."},
-      {key:"platform",icon:"🚀",label:"Adottare una piattaforma ESG enterprise",detail:"Un sistema integrato che unisce raccolta, calcolo, reporting e pianificazione su una fonte unica verificabile."}
+      {key:"platform",icon:"🚀",label:"Adottare una piattaforma ESG enterprise",detail:"Un sistema integrato che unisce raccolta, calcolo, reporting e pianificazione su una fonte unica verificabile. Nel nostro Quest esploreremo le capacità di IBM Envizi, soluzione leader e sperimentata di ESG Reporting e Performance Management."}
     ],
     approachImpactNote:"Per ogni use case valuterai l'impatto sulla fiducia di CdA, banche, clienti e auditor. Le decisioni si accumulano: la roadmap finale è il risultato delle tue scelte.",
     approachCta:"Entra nell'azienda",
