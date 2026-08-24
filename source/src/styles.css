@@ -371,15 +371,16 @@ body{font-size:18px}.eyebrow{font-size:13px}.brand{font-size:14px}.step,.mission
 .approachBody{padding:28px 3.5vw 40px;max-width:none;width:100%;display:grid;grid-template-columns:minmax(540px,1.02fr) minmax(480px,.98fr);gap:28px;align-items:stretch}
 .approachSectionLabel{display:block;font:700 12px var(--font-geist-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--text-accent);margin-bottom:14px}
 
-/* Left column: visual only */
+/* Left column: visual + people track */
 .approachLeft{min-width:0}
-.approachVisual{display:flex;align-items:stretch}
-.approachTeamImage{width:100%;height:100%;min-height:calc(100dvh - 150px);object-fit:cover;object-position:center;border-radius:24px;border:1px solid rgba(255,255,255,.08);box-shadow:0 24px 60px rgba(0,0,0,.28)}
+.approachVisual{display:flex;flex-direction:column;align-items:stretch;gap:16px}
+.approachTeamImage{width:100%;height:100%;min-height:calc(100dvh - 280px);object-fit:cover;object-position:center;border-radius:24px;border:1px solid rgba(255,255,255,.08);box-shadow:0 24px 60px rgba(0,0,0,.28)}
+.approachPeopleNote{padding:18px 20px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)}
+.approachPeopleNote p{margin:0;color:#d7efe6;font-size:18px;line-height:1.65}
 
 /* Right column */
 .approachRight{display:flex;flex-direction:column;gap:20px;min-width:0;padding:10px 2px 8px}
 .approachRight h1{font-size:clamp(40px,4.1vw,64px);font-weight:700;line-height:.98;color:var(--text-bright);margin:0}
-.approachRight .storyText{color:#ddf3ea;font-size:clamp(18px,1.45vw,24px);line-height:1.55;margin:0}
 
 /* Data challenge block */
 .approachDataBlock{padding:22px 24px;border-radius:18px;background:rgba(57,239,180,.06);border-left:4px solid rgba(57,239,180,.5);border-top:1px solid rgba(57,239,180,.15);border-right:1px solid rgba(57,239,180,.08);border-bottom:1px solid rgba(57,239,180,.08)}
@@ -408,8 +409,8 @@ body{font-size:18px}.eyebrow{font-size:13px}.brand{font-size:14px}.step,.mission
 @media(max-width:580px){
   .approachBody{padding:24px 20px 40px}
   .approachRight h1{font-size:40px;line-height:1}
-  .approachRight .storyText{font-size:18px}
   .approachTeamImage{min-height:260px;max-height:320px;border-radius:18px}
+  .approachPeopleNote p{font-size:16px}
   .approachOptionCard strong,.approachDataBlock strong{font-size:19px}
   .approachOptionCard p,.approachDataBlock p{font-size:16px}
 }
