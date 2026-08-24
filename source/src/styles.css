@@ -124,15 +124,16 @@ body{font-size:18px}.eyebrow{font-size:13px}.brand{font-size:14px}.step,.mission
 .profileTitleHighlighted h2{color:var(--teal)!important}
 .mouseDemo{display:inline-flex;align-items:center;justify-content:center;position:absolute;pointer-events:none;filter:drop-shadow(0 8px 18px rgba(0,0,0,.4));font-size:26px;line-height:1}
 .profilesWrap{position:relative;padding-top:0}
-.profilesMouseLane{position:absolute;top:102px;left:0;right:0;height:54px;pointer-events:none;overflow:visible;z-index:4}
-.profileMouse{top:0;left:calc(25% - 22px);display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.55);box-shadow:0 0 0 6px rgba(255,255,255,.08),0 10px 24px rgba(0,0,0,.35);font-size:28px;color:#fff;text-shadow:0 0 1px rgba(0,0,0,.4);animation:profileMouseMove 2.8s ease-in-out infinite}
+.profilesGuided{position:relative}
+.profilesMouseLane{position:absolute;top:102px;left:0;width:100%;height:54px;pointer-events:none;overflow:visible;z-index:4}
+.profileMouse{position:absolute;top:0;left:calc(25% - 22px);display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.55);box-shadow:0 0 0 6px rgba(255,255,255,.08),0 10px 24px rgba(0,0,0,.35);font-size:28px;color:#fff;text-shadow:0 0 1px rgba(0,0,0,.4);animation:profileMouseMove 2.8s ease-in-out infinite}
 .profileMouse::before,.questMouse::before{content:"☝︎";color:#fff;filter:grayscale(1) brightness(2.3)}
 .profileMouse,.questMouse{font-size:0}
 
 .questLaunchBtn{position:relative;overflow:visible;padding-right:72px}
 .questMouse{right:18px;bottom:14px;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.4);box-shadow:0 8px 18px rgba(0,0,0,.32);animation:questMouseWiggle 1.4s ease-in-out infinite}
 .characterTagRaised{bottom:12% !important}
-@keyframes profileMouseMove{0%,100%{transform:translateX(0) translateY(0) rotate(-8deg) scale(1)}45%{transform:translateX(calc(100% + 236px)) translateY(0) rotate(6deg) scale(1.05)}50%{transform:translateX(calc(100% + 236px)) translateY(2px) rotate(8deg) scale(.96)}55%{transform:translateX(calc(100% + 236px)) translateY(0) rotate(6deg) scale(1.05)}}
+@keyframes profileMouseMove{0%,100%{left:calc(25% - 22px);transform:translateY(0) rotate(-8deg) scale(1)}45%{left:calc(75% - 22px);transform:translateY(0) rotate(6deg) scale(1.05)}50%{left:calc(75% - 22px);transform:translateY(2px) rotate(8deg) scale(.96)}55%{left:calc(75% - 22px);transform:translateY(0) rotate(6deg) scale(1.05)}}
 @keyframes questMouseWiggle{0%,100%{transform:translateY(0) rotate(-10deg)}50%{transform:translateY(-6px) rotate(8deg)}}
 
 .globalBack{position:fixed;left:24px;bottom:28px;z-index:90;display:inline-flex;align-items:center;gap:9px;padding:9px 13px;border:1px solid rgba(114,247,202,.42);border-radius:999px;background:rgba(5,18,13,.92);color:#f2fff9;box-shadow:0 4px 20px rgba(0,0,0,.35);backdrop-filter:blur(14px);cursor:pointer;font:11px var(--font-geist-mono);letter-spacing:.07em;text-transform:uppercase;transition:opacity .2s}.globalBack:hover:not(:disabled){color:#07120f;background:#72f7ca;border-color:#72f7ca}.globalBack:disabled{opacity:0;pointer-events:none}.globalBack span{display:inline-block}@media(max-width:650px){.globalBack{left:14px;bottom:18px;padding:8px 11px;font-size:9px}}
