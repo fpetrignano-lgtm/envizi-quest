@@ -123,15 +123,14 @@ body{font-size:18px}.eyebrow{font-size:13px}.brand{font-size:14px}.step,.mission
 .profileTitleHighlighted{position:relative;padding:10px 14px 10px 16px;border:1px solid rgba(57,239,180,.35);border-radius:12px;background:rgba(57,239,180,.07);box-shadow:0 0 0 1px rgba(57,239,180,.08),0 10px 30px rgba(0,0,0,.12)}
 .profileTitleHighlighted h2{color:var(--teal)!important}
 .mouseDemo{display:inline-flex;align-items:center;justify-content:center;position:absolute;pointer-events:none;filter:drop-shadow(0 6px 14px rgba(0,0,0,.35));font-size:26px;line-height:1}
-.profileMouse{top:76px;left:52px;animation:profileMouseMove 2.2s ease-in-out infinite}
-.profilesWrap{position:relative;padding-top:42px}
-.profilesMouseLane{position:absolute;top:2px;left:0;right:0;height:34px;pointer-events:none;overflow:visible}
-.profileMouse{top:0;left:calc(25% - 18px);animation:profileMouseMove 2.4s ease-in-out infinite}
+.profilesWrap{position:relative;padding-top:18px}
+.profilesMouseLane{position:absolute;top:92px;left:0;right:0;height:44px;pointer-events:none;overflow:visible;z-index:3}
+.profileMouse{top:0;left:calc(25% - 16px);animation:profileMouseMove 6.2s ease-in-out infinite}
 
 .questLaunchBtn{position:relative;overflow:visible;padding-right:72px}
 .questMouse{right:18px;bottom:14px;animation:questMouseWiggle 1.4s ease-in-out infinite}
 .characterTagRaised{bottom:12% !important}
-@keyframes profileMouseMove{0%,100%{transform:translateX(0) translateY(0) rotate(-10deg)}50%{transform:translateX(calc(50vw - 96px)) translateY(2px) rotate(8deg)}}
+@keyframes profileMouseMove{0%,100%{transform:translateX(0) translateY(0) rotate(-10deg)}50%{transform:translateX(calc(50% + 16px)) translateY(0) rotate(8deg)}}
 @keyframes questMouseWiggle{0%,100%{transform:translateY(0) rotate(-10deg)}50%{transform:translateY(-6px) rotate(8deg)}}
 
 .globalBack{position:fixed;left:24px;bottom:28px;z-index:90;display:inline-flex;align-items:center;gap:9px;padding:9px 13px;border:1px solid rgba(114,247,202,.42);border-radius:999px;background:rgba(5,18,13,.92);color:#f2fff9;box-shadow:0 4px 20px rgba(0,0,0,.35);backdrop-filter:blur(14px);cursor:pointer;font:11px var(--font-geist-mono);letter-spacing:.07em;text-transform:uppercase;transition:opacity .2s}.globalBack:hover:not(:disabled){color:#07120f;background:#72f7ca;border-color:#72f7ca}.globalBack:disabled{opacity:0;pointer-events:none}.globalBack span{display:inline-block}@media(max-width:650px){.globalBack{left:14px;bottom:18px;padding:8px 11px;font-size:9px}}
