@@ -38,7 +38,7 @@ const copy = {
     ],
     asiaOffice:"ASIA · 1 SEDE UFFICIO", europeOffices:"EUROPA · 3 UFFICI", hqShort:"HQ · MILANO",
     introKicker:"La tua sfida", introTitle:"Guadagna la fiducia.", introBody:"Il tuo obiettivo è conquistare la fiducia di CdA, Finanziatori, Clienti e Auditor. Ogni scelta influenza reputazione, accesso ai capitali e crescita del business. Raccogli punti fiducia e sblocca il livello \"Trusted ESG Leader\".", introScoreLabel:"Punteggio fiducia attuale", introLegend:"Decisioni Envizi +15 · Intermedie +7 · Rimandare +0", introStart:"Inizia il Quest", trustedLabel:"Trusted ESG Leader", trustLabel:"Fiducia stakeholder",
-    approachKicker:"Due filoni paralleli", approachTitle:"ESG · un percorso basato su due filoni paralleli: Persone e Dati.", approachBody:"Il primo filone è agire sulle sfide di cambiamento con le persone. Formazione, responsabilizzazione, coinvolgimento e leadership sono fondamentali per rendere credibile e duraturo qualsiasi percorso ESG.",
+    approachKicker:"Due filoni paralleli", approachTitle:"ESG · un percorso basato su Persone e Dati.", approachBody:"Il primo filone è agire sulle sfide di cambiamento con le persone. Formazione, responsabilizzazione, coinvolgimento e leadership sono fondamentali per rendere credibile e duraturo qualsiasi percorso ESG.",
     approachLeversLabel:"Le leve operative in campo", approachLevers:[
       {icon:"📐",label:"Governance e struttura",detail:"Policy, ruoli ESG, sistema di obiettivi e integrazione con il piano strategico."},
       {icon:"📊",label:"Dati e misurazione",detail:"Qualità, auditabilità e tracciabilità delle informazioni ambientali, sociali e di governance."},
@@ -150,7 +150,7 @@ const copy = {
     ],
     asiaOffice:"ASIA · 1 OFFICE", europeOffices:"EUROPE · 3 OFFICES", hqShort:"HQ · MILAN",
     introKicker:"Your challenge", introTitle:"Earn their trust.", introBody:"Your goal is to earn the trust of Board, Financiers, Customers and Auditors. Every choice shapes reputation, access to capital and business growth. Collect trust points and unlock the \"Trusted ESG Leader\" status.", introScoreLabel:"Current trust score", introLegend:"Envizi decisions +15 · Intermediate +7 · Postponing +0", introStart:"Start the Quest", trustedLabel:"Trusted ESG Leader", trustLabel:"Stakeholder trust",
-    approachKicker:"Two parallel tracks", approachTitle:"ESG · a journey built on two parallel tracks: People and Data.", approachBody:"The first track is acting on change challenges with people. Training, accountability, engagement and leadership are essential to make any ESG journey credible and durable.",
+    approachKicker:"Two parallel tracks", approachTitle:"ESG · a journey built on People and Data.", approachBody:"The first track is acting on change challenges with people. Training, accountability, engagement and leadership are essential to make any ESG journey credible and durable.",
     approachLeversLabel:"The operational levers at play", approachLevers:[
       {icon:"📐",label:"Governance and structure",detail:"Policies, ESG roles, objective-setting and integration with the strategic plan."},
       {icon:"📊",label:"Data and measurement",detail:"Quality, auditability and traceability of environmental, social and governance information."},
