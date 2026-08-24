@@ -127,7 +127,7 @@ body{font-size:18px}.eyebrow{font-size:13px}.brand{font-size:14px}.step,.mission
 .profilesWrap{position:relative;padding-top:0}
 .profilesGuided{position:relative}
 .profilesMouseLane{position:absolute;top:102px;left:0;width:100%;height:54px;pointer-events:none;overflow:visible;z-index:4}
-.profileMouse{position:absolute;top:0;left:calc(25% - 22px);display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.55);box-shadow:0 0 0 6px rgba(255,255,255,.08),0 10px 24px rgba(0,0,0,.35);animation:profileMouseMove 2.8s ease-in-out infinite}
+.profileMouse{position:absolute;top:0;left:calc(25% - 22px);display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.55);box-shadow:0 0 0 6px rgba(255,255,255,.08),0 10px 24px rgba(0,0,0,.35);animation:profileMouseMove 4.4s ease-in-out infinite}
 .profileMouse img{width:34px;height:34px;filter:drop-shadow(0 1px 1px rgba(0,0,0,.18))}
 .questLaunchBtn{position:relative;overflow:visible;padding-right:72px}
 .questMouse{right:18px;bottom:14px;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.4);box-shadow:0 8px 18px rgba(0,0,0,.32);animation:questMouseWiggle 1.4s ease-in-out infinite}
