@@ -368,7 +368,9 @@ body{font-size:18px}.eyebrow{font-size:13px}.brand{font-size:14px}.step,.mission
 
 /* ─── Approach screen ─────────────────────────────────────────────────────── */
 .approachScreen{display:grid;grid-template-rows:auto 1fr;min-height:100dvh;background:var(--bg)}
-.approachBody{padding:28px 3.5vw 40px;max-width:none;width:100%;display:grid;grid-template-columns:minmax(540px,1.02fr) minmax(480px,.98fr);gap:28px;align-items:stretch}
+.approachBody{padding:28px 3.5vw 40px;max-width:none;width:100%;display:grid;grid-template-columns:minmax(540px,1.02fr) minmax(480px,.98fr);grid-template-rows:auto 1fr;gap:28px;align-items:stretch}
+.approachTopTitle{grid-column:1/-1;padding:0 2px 6px}
+.approachTopTitle h1{margin:0;font-size:clamp(42px,4.2vw,70px);line-height:.96;color:#f2fff9;max-width:none}
 .approachSectionLabel{display:block;font:700 12px var(--font-geist-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--text-accent);margin-bottom:14px}
 
 /* Left column: visual + people track */
@@ -413,7 +415,7 @@ body{font-size:18px}.eyebrow{font-size:13px}.brand{font-size:14px}.step,.mission
 }
 @media(max-width:580px){
   .approachBody{padding:24px 20px 40px}
-  .approachRight h1{font-size:40px;line-height:1}
+  .approachTopTitle h1{font-size:40px;line-height:1}
   .approachTeamImage{min-height:260px;max-height:320px;border-radius:18px}
   .approachPeopleNote p{font-size:16px}
   .approachOptionCard strong,.approachDataBlock strong{font-size:19px}
