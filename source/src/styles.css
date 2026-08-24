@@ -389,6 +389,8 @@ body{font-size:18px}.eyebrow{font-size:13px}.brand{font-size:14px}.step,.mission
 .approachRight{display:flex;flex-direction:column;gap:20px;min-width:0;padding:10px 2px 8px}
 
 /* Data challenge block */
+.approachDataIntro h2{margin:0;font-size:clamp(28px,2.5vw,40px);line-height:1.12;color:#f2fff9}
+
 .approachDataIntro{min-height:126px}
 .approachDataBlock{padding:22px 24px;border-radius:18px;background:rgba(57,239,180,.06);border-left:4px solid rgba(57,239,180,.5);border-top:1px solid rgba(57,239,180,.15);border-right:1px solid rgba(57,239,180,.08);border-bottom:1px solid rgba(57,239,180,.08);min-height:124px}
 .approachDataBlock strong{display:block;font-size:22px;color:#39efb4;margin-bottom:10px;line-height:1.2}
