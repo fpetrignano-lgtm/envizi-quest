@@ -368,58 +368,50 @@ body{font-size:18px}.eyebrow{font-size:13px}.brand{font-size:14px}.step,.mission
 
 /* ─── Approach screen ─────────────────────────────────────────────────────── */
 .approachScreen{display:grid;grid-template-rows:auto 1fr;min-height:100dvh;background:var(--bg)}
-.approachBody{padding:32px 3.5vw 44px;max-width:none;width:100%;display:grid;grid-template-columns:minmax(520px,.98fr) minmax(520px,1.02fr);gap:34px;align-items:stretch}
+.approachBody{padding:28px 3.5vw 40px;max-width:none;width:100%;display:grid;grid-template-columns:minmax(540px,1.02fr) minmax(480px,.98fr);gap:28px;align-items:stretch}
 .approachSectionLabel{display:block;font:700 12px var(--font-geist-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--text-accent);margin-bottom:14px}
 
-/* Left column */
-.approachLeft{display:flex;flex-direction:column;gap:28px;padding-right:6px}
-.approachLeft h1{font-size:clamp(42px,4.8vw,72px);font-weight:700;line-height:.96;color:var(--text-bright);margin:0;max-width:760px}
-.approachLeft .storyText{color:#ddf3ea;font-size:clamp(20px,1.7vw,28px);line-height:1.55;margin:0;max-width:860px}
+/* Left column: visual only */
+.approachLeft{min-width:0}
+.approachVisual{display:flex;align-items:stretch}
+.approachTeamImage{width:100%;height:100%;min-height:calc(100dvh - 150px);object-fit:cover;object-position:center;border-radius:24px;border:1px solid rgba(255,255,255,.08);box-shadow:0 24px 60px rgba(0,0,0,.28)}
 
 /* Right column */
-.approachRight{display:flex;flex-direction:column;gap:22px;min-width:0}
-
-/* Levers grid */
-.approachLeversGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.approachLeverCard{display:flex;align-items:flex-start;gap:16px;padding:20px 22px;border-radius:18px;background:#0c1f18;border:1px solid #1a3028;min-height:150px}
-.approachLeverCard:nth-child(2){border-color:rgba(57,239,180,.35);background:rgba(57,239,180,.06)}
-.approachLeverIcon{font-size:28px;line-height:1;flex-shrink:0;margin-top:2px}
-.approachLeverCard strong{display:block;font-size:21px;color:var(--text-bright);margin-bottom:8px;line-height:1.2}
-.approachLeverCard p{margin:0;font-size:17px;color:#d4ece2;line-height:1.55}
+.approachRight{display:flex;flex-direction:column;gap:20px;min-width:0;padding:10px 2px 8px}
+.approachRight h1{font-size:clamp(40px,4.1vw,64px);font-weight:700;line-height:.98;color:var(--text-bright);margin:0}
+.approachRight .storyText{color:#ddf3ea;font-size:clamp(18px,1.45vw,24px);line-height:1.55;margin:0}
 
 /* Data challenge block */
 .approachDataBlock{padding:22px 24px;border-radius:18px;background:rgba(57,239,180,.06);border-left:4px solid rgba(57,239,180,.5);border-top:1px solid rgba(57,239,180,.15);border-right:1px solid rgba(57,239,180,.08);border-bottom:1px solid rgba(57,239,180,.08)}
 .approachDataBlock strong{display:block;font-size:22px;color:#39efb4;margin-bottom:10px;line-height:1.2}
 .approachDataBlock p{margin:0;font-size:18px;color:#d7efe6;line-height:1.65}
 
-/* Options grid — larger, full-height cards */
-.approachOptionsGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:stretch}
-.approachOptionCard{padding:20px 20px 22px;border-radius:18px;background:#0c1f18;border:1px solid #1a3028;display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto auto;column-gap:14px;row-gap:10px;align-items:start;min-height:250px}
+/* Decision options */
+.approachOptionsGrid{display:flex;flex-direction:column;gap:12px}
+.approachOptionCard{padding:18px 20px 20px;border-radius:18px;background:#0c1f18;border:1px solid #1a3028;display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto auto;column-gap:14px;row-gap:8px;align-items:start}
 .approachOptionCard.asis{border-color:rgba(255,119,119,.3);background:rgba(255,119,119,.04)}
 .approachOptionCard.simple{border-color:rgba(255,192,124,.3);background:rgba(255,192,124,.04)}
 .approachOptionCard.platform{border-color:rgba(57,239,180,.35);background:rgba(57,239,180,.08);box-shadow:0 0 0 1px rgba(57,239,180,.08),0 18px 36px rgba(0,0,0,.18)}
 .approachOptionNum{font:700 12px var(--font-geist-mono);letter-spacing:.12em;color:#6d9084;grid-row:1;grid-column:1/3}
-.approachOptionIcon{font-size:34px;line-height:1;grid-row:2;grid-column:1;align-self:start;margin-top:2px}
-.approachOptionCard strong{font-size:22px;color:var(--text-bright);line-height:1.2;grid-row:2;grid-column:2}
-.approachOptionCard p{margin:0;font-size:17px;color:#d4ece2;line-height:1.6;grid-row:3;grid-column:1/3}
+.approachOptionIcon{font-size:30px;line-height:1;grid-row:2;grid-column:1;align-self:start;margin-top:2px}
+.approachOptionCard strong{font-size:21px;color:var(--text-bright);line-height:1.2;grid-row:2;grid-column:2}
+.approachOptionCard p{margin:0;font-size:16px;color:#d4ece2;line-height:1.6;grid-row:3;grid-column:1/3}
 .approachOptionCard.platform strong{color:#39efb4}
 
 /* Impact note */
 .approachImpactNote{font-size:15px;color:#88a79b;line-height:1.7;padding:15px 18px;border:1px dashed #1e3a30;border-radius:12px;margin:0}
 
 @media(max-width:1100px){
-  .approachBody{grid-template-columns:1fr;gap:24px}
-  .approachLeversGrid{grid-template-columns:1fr 1fr}
-  .approachOptionsGrid{grid-template-columns:1fr}
-  .approachOptionCard{min-height:0}
+  .approachBody{grid-template-columns:1fr;gap:22px}
+  .approachTeamImage{min-height:360px;max-height:460px}
 }
 @media(max-width:580px){
   .approachBody{padding:24px 20px 40px}
-  .approachLeft h1{font-size:42px;line-height:1}
-  .approachLeft .storyText{font-size:18px}
-  .approachLeversGrid{grid-template-columns:1fr}
-  .approachLeverCard strong,.approachOptionCard strong,.approachDataBlock strong{font-size:19px}
-  .approachLeverCard p,.approachOptionCard p,.approachDataBlock p{font-size:16px}
+  .approachRight h1{font-size:40px;line-height:1}
+  .approachRight .storyText{font-size:18px}
+  .approachTeamImage{min-height:260px;max-height:320px;border-radius:18px}
+  .approachOptionCard strong,.approachDataBlock strong{font-size:19px}
+  .approachOptionCard p,.approachDataBlock p{font-size:16px}
 }
 
 /* AS-IS edit hint — pre-fill notice */
