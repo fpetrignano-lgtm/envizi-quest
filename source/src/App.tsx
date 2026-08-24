@@ -47,7 +47,7 @@ const copy = {
       {icon:"🎯",label:"Pianificazione e target",detail:"Scenari di decarbonizzazione, obiettivi Net Zero e monitoraggio dell'esecuzione nel tempo."}
     ],
     approachDataTitle:"Il secondo filone è agire sulle sfide di dati.", approachDataBody:"La sfida è decidere come affrontare dati frammentati, processi manuali e tracciabilità assente. È qui che dovrai scegliere quale soluzione adottare per rendere misurabili, difendibili e scalabili le iniziative ESG.",
-    approachOptionsLabel:"Le opzioni di soluzione che valuterai", approachOptions:[
+    approachOptionsLabel:"Le opzioni di soluzione che valuterai attraverso questo Quest", approachOptions:[
       {key:"asis",icon:"⏸",label:"Attendere con l'AS-IS",detail:"Nessun investimento immediato, ma i problemi restano e la pressione cresce: da banche, clienti, normativa."},
       {key:"simple",icon:"🔧",label:"Adottare una soluzione percepita come semplice",detail:"Un tool puntuale o un workflow digitale: abbassa la complessità percepita, ma spesso non scala e non integra."},
       {key:"platform",icon:"🚀",label:"Adottare una piattaforma ESG enterprise",detail:"Un sistema integrato che unisce raccolta, calcolo, reporting e pianificazione su una fonte unica verificabile. Nel nostro Quest esploreremo le capacità di IBM Envizi, soluzione leader e sperimentata di ESG Reporting e Performance Management."}
@@ -159,7 +159,7 @@ const copy = {
       {icon:"🎯",label:"Planning and targets",detail:"Decarbonisation scenarios, Net Zero objectives and execution monitoring over time."}
     ],
     approachDataTitle:"The second track is acting on data challenges.", approachDataBody:"The challenge is deciding how to address fragmented data, manual processes and missing traceability. This is where you will choose which solution to adopt to make ESG initiatives measurable, defensible and scalable.",
-    approachOptionsLabel:"The solution options you will evaluate", approachOptions:[
+    approachOptionsLabel:"The solution options you will evaluate through this Quest", approachOptions:[
       {key:"asis",icon:"⏸",label:"Wait with the AS-IS",detail:"No immediate investment, but problems persist and pressure grows: from banks, clients, regulation."},
       {key:"simple",icon:"🔧",label:"A solution perceived as simple",detail:"A point tool or digital workflow: lowers perceived complexity, but often does not scale or integrate."},
       {key:"platform",icon:"🚀",label:"An enterprise ESG platform",detail:"An integrated system that combines collection, calculation, reporting and planning on one verifiable source."}
