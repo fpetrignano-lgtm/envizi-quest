@@ -376,6 +376,8 @@ body{font-size:18px}.eyebrow{font-size:13px}.brand{font-size:14px}.step,.mission
 .approachVisual{display:flex;flex-direction:column;align-items:stretch;gap:16px}
 .approachTeamImage{width:100%;height:100%;min-height:calc(100dvh - 280px);object-fit:cover;object-position:center;border-radius:24px;border:1px solid rgba(255,255,255,.08);box-shadow:0 24px 60px rgba(0,0,0,.28)}
 .approachPeopleNote{padding:18px 20px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)}
+.approachPeopleNote h2{margin:0 0 10px;font-size:26px;line-height:1.15;color:#f2fff9}
+
 .approachPeopleNote p{margin:0;color:#d7efe6;font-size:18px;line-height:1.65}
 
 /* Right column */
