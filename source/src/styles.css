@@ -369,8 +369,9 @@ body{font-size:18px}.eyebrow{font-size:13px}.brand{font-size:14px}.step,.mission
 /* ─── Approach screen ─────────────────────────────────────────────────────── */
 .approachScreen{display:grid;grid-template-rows:auto 1fr;min-height:100dvh;background:var(--bg)}
 .approachBody{padding:28px 3.5vw 40px;max-width:none;width:100%;display:grid;grid-template-columns:minmax(540px,1.02fr) minmax(480px,.98fr);grid-template-rows:auto 1fr;gap:28px;align-items:stretch}
-.approachTopTitle{grid-column:1/-1;padding:0 2px 6px}
+.approachTopTitle{grid-column:1/-1;padding:0 2px 6px;display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
 .approachTopTitle h1{margin:0;font-size:clamp(42px,4.2vw,70px);line-height:.96;color:#f2fff9;max-width:none}
+.approachTopCta{flex-shrink:0;font-size:28px!important;padding:16px 40px!important}
 .approachSectionLabel{display:block;font:700 12px var(--font-geist-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--text-accent);margin-bottom:14px}
 
 /* Left column: visual + people track */
@@ -390,7 +391,7 @@ body{font-size:18px}.eyebrow{font-size:13px}.brand{font-size:14px}.step,.mission
 .approachDataBlock p{margin:0;color:#d7efe6;font-size:18px;line-height:1.65}
 
 .approachBottomAction{grid-column:1/-1;display:flex;flex-direction:column;align-items:flex-start;gap:16px;padding-top:6px}
-.approachBottomAction .actionButton{font-size:34px;padding:18px 48px}
+.approachBottomAction .actionButton{display:none}
 .approachQuestBox{display:flex;align-items:flex-start;gap:14px;width:100%;padding:16px 20px;border-radius:16px;background:rgba(57,239,180,.07);border:1px solid rgba(57,239,180,.28);box-shadow:0 0 0 1px rgba(57,239,180,.06)}
 .approachQuestIcon{font-size:22px;line-height:1;flex-shrink:0;margin-top:2px}
 .approachQuestBox p{margin:0;font-size:28px;line-height:1.65;color:#d9f2e9}
