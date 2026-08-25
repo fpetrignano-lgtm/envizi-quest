@@ -460,3 +460,42 @@ body{font-size:18px}.eyebrow{font-size:13px}.brand{font-size:14px}.step,.mission
 @media(max-width:1100px){.csFormTwoCol{grid-template-columns:1fr}.csFormRight{position:static}}
 @media(max-width:900px){.csBody{grid-template-columns:1fr}.csLeft{min-height:300px;border-right:none;border-bottom:1px solid #1a3028}.csProfileImg{max-width:220px}}
 @media(max-width:580px){.csTwoCol{grid-template-columns:1fr}.csRight{padding:24px 20px 40px}.csGeoGrid{grid-template-columns:1fr 1fr}}
+
+/* ── DATA FOUNDATION SLIDE ─────────────────────────────────────── */
+.dfScreen{min-height:100vh;background:var(--bg,#071913);display:flex;flex-direction:column}
+.dfBody{flex:1;max-width:860px;width:100%;margin:0 auto;padding:48px 24px 80px}
+.dfIntro{margin-bottom:36px}
+.dfIntro h1{font-size:clamp(22px,4vw,32px);font-weight:700;color:#f2fff9;margin:8px 0 12px;line-height:1.25}
+.dfSubtitle{font-size:15px;color:#a8d4c4;line-height:1.55;max-width:660px}
+.dfList{display:flex;flex-direction:column;gap:12px}
+.dfItem{border:1px solid rgba(57,239,180,.15);border-radius:10px;background:rgba(7,32,24,.6);overflow:hidden;transition:border-color .2s}
+.dfItem.dfItemActive{border-color:rgba(57,239,180,.45)}
+.dfItemTop{display:flex;align-items:flex-start;gap:14px;padding:16px 18px}
+.dfItemNum{flex-shrink:0;font-size:11px;font-weight:700;color:#39efb4;opacity:.7;letter-spacing:.05em;margin-top:3px;min-width:20px}
+.dfItemQ{flex:1;font-size:14px;color:#d9f2e9;line-height:1.5;margin:0}
+.dfRatingGroup{flex-shrink:0;display:flex;gap:5px;align-items:center}
+.dfRatingBtn{padding:5px 11px;border-radius:6px;border:1px solid rgba(57,239,180,.25);background:transparent;color:#7ba898;font-size:12px;font-weight:500;cursor:pointer;transition:all .15s}
+.dfRatingBtn:hover{border-color:rgba(57,239,180,.55);color:#c9e8dc}
+.dfRatingBtn--low.dfRatingBtnActive{background:rgba(255,119,119,.12);border-color:#ff7777;color:#ff9999}
+.dfRatingBtn--medium.dfRatingBtnActive{background:rgba(255,192,124,.13);border-color:#ffc07c;color:#ffd49a}
+.dfRatingBtn--high.dfRatingBtnActive{background:rgba(57,239,180,.14);border-color:#39efb4;color:#39efb4}
+.dfItemDetail{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid rgba(57,239,180,.12)}
+.dfCapBlock,.dfBenBlock{padding:14px 18px}
+.dfCapBlock{border-right:1px solid rgba(57,239,180,.1);background:rgba(57,239,180,.04)}
+.dfBenBlock{background:rgba(7,32,24,.4)}
+.dfCapLabel,.dfBenLabel{display:block;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+.dfCapLabel{color:#39efb4}
+.dfBenLabel{color:#ffc07c}
+.dfCapBlock p,.dfBenBlock p{font-size:13px;color:#a8d4c4;line-height:1.55;margin:0}
+.dfFooter{margin-top:36px;display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.dfSources{font-size:11px;color:#4a7a6a;margin:0}
+.dfSources a{color:#6ab89a;text-decoration:none;border-bottom:1px solid rgba(106,184,154,.3)}
+.dfSources a:hover{color:#39efb4;border-color:#39efb4}
+.dfContinueBtn{margin-top:4px}
+.dfHint{font-size:12px;color:#5a7a6c;margin:0}
+@media(max-width:680px){
+  .dfItemTop{flex-wrap:wrap;gap:10px}
+  .dfRatingGroup{order:3;width:100%}
+  .dfItemDetail{grid-template-columns:1fr}
+  .dfCapBlock{border-right:none;border-bottom:1px solid rgba(57,239,180,.1)}
+}
