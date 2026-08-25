@@ -3,7 +3,10 @@
 import { useEffect, useState } from "react";
 type Language = "it" | "en";
 type Profile = "marco" | "luisa";
-type Screen = "cover" | "onboarding" | "intro" | "approach" | "missions" | "company" | "priorities" | "priorityData" | "bridge" | "briefing" | "asis" | "decision" | "compare" | "tobe" | "trust" | "negative" | "success" | "summary" | "nextStep" | "thankYou";
+type Screen = "cover" | "onboarding" | "intro" | "approach" | "companySetup" | "missions" | "company" | "priorities" | "priorityData" | "bridge" | "briefing" | "asis" | "decision" | "compare" | "tobe" | "trust" | "negative" | "success" | "summary" | "nextStep" | "thankYou";
+type Market = "italia" | "europa" | "mondo";
+type EsgReadiness = "primi" | "consolidamento" | "decisioni";
+type SectorKey = "manifatturiero"|"bancario"|"assicurativo"|"utilities"|"distribuzione"|"farmaceutico"|"sanitario"|"logistico"|"alberghiero"|"telecomunicazioni"|"trasporti"|"costruzioni"|"immobiliare"|"media"|"tecnologico"|"pa"|"universitario"|"nonprofit";
 type Priority = "credit" | "compliance" | "customers" | "efficiency" | "supply" | "reputation";
 type Outcome = "positive" | "warning" | "critical";
 
@@ -260,8 +263,47 @@ const planningModule = {
 };
 const imageFor = (profile: Profile, screen: Screen) => `./characters/${profile}-${screen === "decision" || screen === "asis" ? "thoughtful" : screen === "negative" ? "negative" : screen === "success" ? "success" : "neutral"}.png`;
 
+type SectorDef={label:{it:string,en:string};dimLabel:{it:string,en:string};dimUnit:{it:string,en:string};opsLabel:{it:string,en:string};opsUnit:{it:string,en:string};defaults:[number,number,number,number,number]};
+const SECTORS:Record<SectorKey,SectorDef>={
+  manifatturiero:{label:{it:"Gruppo manifatturiero",en:"Manufacturing group"},dimLabel:{it:"Dimensione economica",en:"Economic size"},dimUnit:{it:"€mln ricavi",en:"€M revenue"},opsLabel:{it:"Unità operative",en:"Operational units"},opsUnit:{it:"stabilimenti",en:"plants"},defaults:[100,3,5,1,500]},
+  bancario:{label:{it:"Gruppo bancario",en:"Banking group"},dimLabel:{it:"Attivi",en:"Assets"},dimUnit:{it:"€mld attivi",en:"€B assets"},opsLabel:{it:"Filiali",en:"Branches"},opsUnit:{it:"filiali",en:"branches"},defaults:[30,150,5,2,3000]},
+  assicurativo:{label:{it:"Gruppo assicurativo",en:"Insurance group"},dimLabel:{it:"Premi",en:"Premiums"},dimUnit:{it:"€mld premi",en:"€B premiums"},opsLabel:{it:"Agenzie",en:"Agencies"},opsUnit:{it:"agenzie",en:"agencies"},defaults:[1,300,10,2,1000]},
+  utilities:{label:{it:"Gruppo utilities",en:"Utilities group"},dimLabel:{it:"Ricavi",en:"Revenue"},dimUnit:{it:"€mld ricavi",en:"€B revenue"},opsLabel:{it:"Impianti",en:"Plants"},opsUnit:{it:"impianti",en:"plants"},defaults:[1,30,20,2,3000]},
+  distribuzione:{label:{it:"Gruppo distribuzione/GDO",en:"Retail/Distribution group"},dimLabel:{it:"Ricavi",en:"Revenue"},dimUnit:{it:"€mld ricavi",en:"€B revenue"},opsLabel:{it:"Punti vendita",en:"Stores"},opsUnit:{it:"punti vendita",en:"stores"},defaults:[1,100,10,2,5000]},
+  farmaceutico:{label:{it:"Gruppo farmaceutico",en:"Pharma group"},dimLabel:{it:"Ricavi",en:"Revenue"},dimUnit:{it:"€mln ricavi",en:"€M revenue"},opsLabel:{it:"Stabilimenti/laboratori",en:"Plants/labs"},opsUnit:{it:"stabilimenti/laboratori",en:"plants/labs"},defaults:[500,4,8,1,1500]},
+  sanitario:{label:{it:"Gruppo sanitario",en:"Healthcare group"},dimLabel:{it:"Ricavi",en:"Revenue"},dimUnit:{it:"€mln ricavi",en:"€M revenue"},opsLabel:{it:"Ospedali/cliniche",en:"Hospitals/clinics"},opsUnit:{it:"ospedali/cliniche",en:"hospitals/clinics"},defaults:[500,15,10,2,5000]},
+  logistico:{label:{it:"Gruppo logistico",en:"Logistics group"},dimLabel:{it:"Ricavi",en:"Revenue"},dimUnit:{it:"€mln ricavi",en:"€M revenue"},opsLabel:{it:"Hub/magazzini",en:"Hubs/warehouses"},opsUnit:{it:"hub/magazzini",en:"hubs/warehouses"},defaults:[500,30,15,1,3000]},
+  alberghiero:{label:{it:"Gruppo alberghiero",en:"Hotel group"},dimLabel:{it:"Ricavi",en:"Revenue"},dimUnit:{it:"€mln ricavi",en:"€M revenue"},opsLabel:{it:"Hotel",en:"Hotels"},opsUnit:{it:"hotel",en:"hotels"},defaults:[300,30,5,1,2000]},
+  telecomunicazioni:{label:{it:"Gruppo telecomunicazioni",en:"Telecom group"},dimLabel:{it:"Ricavi",en:"Revenue"},dimUnit:{it:"€mld ricavi",en:"€B revenue"},opsLabel:{it:"Siti di rete",en:"Network sites"},opsUnit:{it:"siti di rete",en:"network sites"},defaults:[1,5000,30,5,4000]},
+  trasporti:{label:{it:"Gruppo trasporti",en:"Transport group"},dimLabel:{it:"Ricavi",en:"Revenue"},dimUnit:{it:"€mld ricavi",en:"€B revenue"},opsLabel:{it:"Mezzi/stazioni",en:"Vehicles/stations"},opsUnit:{it:"mezzi/stazioni",en:"vehicles/stations"},defaults:[1,1000,20,2,6000]},
+  costruzioni:{label:{it:"Gruppo costruzioni",en:"Construction group"},dimLabel:{it:"Ricavi",en:"Revenue"},dimUnit:{it:"€mln ricavi",en:"€M revenue"},opsLabel:{it:"Cantieri",en:"Sites"},opsUnit:{it:"cantieri",en:"construction sites"},defaults:[500,20,10,1,2000]},
+  immobiliare:{label:{it:"Gruppo immobiliare",en:"Real estate group"},dimLabel:{it:"Ricavi",en:"Revenue"},dimUnit:{it:"€mln ricavi",en:"€M revenue"},opsLabel:{it:"Immobili",en:"Properties"},opsUnit:{it:"immobili",en:"properties"},defaults:[300,100,10,1,500]},
+  media:{label:{it:"Gruppo media",en:"Media group"},dimLabel:{it:"Ricavi",en:"Revenue"},dimUnit:{it:"€mln ricavi",en:"€M revenue"},opsLabel:{it:"Testate/canali",en:"Titles/channels"},opsUnit:{it:"testate/canali",en:"titles/channels"},defaults:[300,10,8,2,1000]},
+  tecnologico:{label:{it:"Gruppo tecnologico/IT",en:"Tech/IT group"},dimLabel:{it:"Ricavi",en:"Revenue"},dimUnit:{it:"€mln ricavi",en:"€M revenue"},opsLabel:{it:"Strutture operative",en:"Operational units"},opsUnit:{it:"strutture operative",en:"operational units"},defaults:[300,5,15,5,2000]},
+  pa:{label:{it:"Pubblica amministrazione",en:"Public administration"},dimLabel:{it:"Bilancio",en:"Budget"},dimUnit:{it:"€mld bilancio",en:"€B budget"},opsLabel:{it:"Strutture",en:"Structures"},opsUnit:{it:"strutture",en:"structures"},defaults:[1,100,50,3,5000]},
+  universitario:{label:{it:"Gruppo universitario",en:"University group"},dimLabel:{it:"Bilancio",en:"Budget"},dimUnit:{it:"€mln bilancio",en:"€M budget"},opsLabel:{it:"Campus/dipartimenti",en:"Campuses/depts"},opsUnit:{it:"campus e dipartimenti",en:"campuses and departments"},defaults:[500,30,30,2,4000]},
+  nonprofit:{label:{it:"Fondazione/non profit",en:"Foundation/non-profit"},dimLabel:{it:"Risorse annue",en:"Annual resources"},dimUnit:{it:"€mln risorse annue",en:"€M annual resources"},opsLabel:{it:"Progetti/centri",en:"Projects/centres"},opsUnit:{it:"progetti/centri",en:"projects/centres"},defaults:[100,20,10,1,500]},
+};
+const SECTOR_KEYS=Object.keys(SECTORS) as SectorKey[];
+const ESG_READINESS_IT=[
+  {key:"primi" as EsgReadiness,label:"Primi passi — Readiness dati: bassa",desc:"L'organizzazione sta iniziando il percorso ESG. I dati sono pochi e frammentati. Cerca una soluzione per raccogliere i dati, capire cosa manca e organizzare le informazioni."},
+  {key:"consolidamento" as EsgReadiness,label:"Consolidamento — Readiness dati: media",desc:"L'organizzazione dispone dei principali dati ESG, ma deve renderli completi, affidabili e confrontabili. Cerca una piattaforma per unificare e controllare i dati, calcolare le emissioni e preparare la rendicontazione."},
+  {key:"decisioni" as EsgReadiness,label:"Decisioni ESG — Readiness dati: alta",desc:"L'organizzazione dispone di dati ESG strutturati e affidabili e vuole utilizzarli nelle decisioni aziendali. Cerca analisi, scenari e KPI per monitorare i risultati, gestire i rischi e raggiungere gli obiettivi ESG."},
+];
+const ESG_READINESS_EN=[
+  {key:"primi" as EsgReadiness,label:"First steps — Data readiness: low",desc:"The organisation is starting its ESG journey. Data is scarce and fragmented. Looking for a solution to collect data, identify gaps and organise information."},
+  {key:"consolidamento" as EsgReadiness,label:"Consolidation — Data readiness: medium",desc:"The organisation has the main ESG data but needs to make it complete, reliable and comparable. Looking for a platform to unify and control data, calculate emissions and prepare reporting."},
+  {key:"decisioni" as EsgReadiness,label:"ESG decisions — Data readiness: high",desc:"The organisation has structured, reliable ESG data and wants to use it in business decisions. Looking for analytics, scenarios and KPIs to monitor results, manage risks and achieve ESG targets."},
+];
 export default function Home(){
   const [language,setLanguage]=useState<Language>("it"); const [profile,setProfile]=useState<Profile|null>(null); const [screen,setScreenState]=useState<Screen>("cover"); const [screenHistory,setScreenHistory]=useState<Screen[]>([]); const [priorities,setPriorities]=useState<Priority[]>(defaultPriorities); const [selectedMission,setSelectedMission]=useState(0); const [negativeChoice,setNegativeChoice]=useState<"form"|"postpone">("form"); const [pendingOutcome,setPendingOutcome]=useState<Outcome>("positive"); const [missionParameters,setMissionParameters]=useState<Record<number,string[]>>({}); const [missionOutcomes,setMissionOutcomes]=useState<Record<number,Outcome>>({}); const [missionOrder,setMissionOrder]=useState<number[]>([0,3,2,1,4]); const [trustScore,setTrustScore]=useState(30); const [approachBiz,setApproachBiz]=useState(""); const [approachData,setApproachData]=useState(""); const [contactEmail,setContactEmail]=useState("");
+  const [companyName,setCompanyName]=useState("NovaForge Industries");
+  const [companySector,setCompanySector]=useState<SectorKey>("manifatturiero");
+  const [companyMarket,setCompanyMarket]=useState<Market>("mondo");
+  const [esgReadiness,setEsgReadiness]=useState<EsgReadiness>("primi");
+  const [companyDims,setCompanyDims]=useState<[number,number,number,number,number]>([100,3,5,1,500]);
+  const [geoDistrib,setGeoDistrib]=useState<Record<string,number>>({italia:70,europa:30,asia:0,nordamerica:0,sudamerica:0,africa:0,australia:0});
+  const updateCompanyDim=(i:number,v:number)=>{const next=[...companyDims] as [number,number,number,number,number];next[i]=v;setCompanyDims(next);};
   type DataNeedItem={id:string,priority:Priority,label:string};
   const buildDefaultDataNeeds=(lang:"it"|"en",prioOrder:Priority[]):DataNeedItem[]=>{
     const needs=copy[lang].priorityDataNeeds as Record<Priority,{id:string,label:string}[]>;
@@ -355,7 +397,7 @@ export default function Home(){
 
   if(screen==="intro"&&profile)return <main className="introScreen"><header className="missionNav"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> YOUR CHALLENGE</div><button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><section className="characterStage"><img src={`./characters/${profile}-neutral.png`} alt={name}/><div className="characterTag characterTagRaised"><span className="statusDot"/><div><small>ESG MANAGER</small><strong>{name}</strong></div></div></section><section className="introBody"><p className="eyebrow">{t.introKicker}</p><h1>{t.introTitle}</h1><p className="storyText">{t.introBody}</p><div className="introTrustBox"><p className="introScoreLabel">{t.introScoreLabel}</p>{renderTrustBar()}</div><button className="actionButton questLaunchBtn" onClick={()=>setScreen("approach")}>{t.introStart}<b>→</b><span className="mouseDemo questMouse" aria-hidden="true"><img src="./hand-pointer.svg" alt=""/></span></button></section></main>;
 
-  if(screen==="approach"&&profile)return <main className="approachScreen"><header className="missionNav"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> PEOPLE & DATA</div><button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><section className="approachBody"><div className="approachTopTitle"><h1>{t.approachTitle}</h1><button className="actionButton approachTopCta" onClick={()=>setScreen("company")}>{t.approachQuestCta}<b>→</b></button></div><div className="approachLeft approachVisual"><div className="approachPeopleIntro"><small className="approachSectionLabel">{language==="it"?"FILONE 01 · PERSONE":"TRACK 01 · PEOPLE"}</small><h2>{language==="it"?"La sfida è agire sul cambiamento con le persone: coinvolgimento, formazione, responsabilizzazione.":"The challenge is acting on change with people: engagement, training, accountability."}</h2></div><img className="approachTeamImage" src="./approach-team-scene.png" alt={language==="it"?"Team ESG che discute una dashboard di sostenibilità":"ESG team discussing a sustainability dashboard"}/></div><div className="approachRight"><div className="approachDataIntro"><small className="approachSectionLabel">{language==="it"?"FILONE 02 · DATI":"TRACK 02 · DATA"}</small><h2>{language==="it"?<><span>Il secondo filone è agire</span><br/><span>sulla complessità di oltre 500 tipi di dati ESG.</span></>:<><span>The second track is acting</span><br/><span>on the complexity of 500+ ESG data types.</span></>}</h2></div><img className="approachDataImage" src="./approach-data-scene.png" alt={language==="it"?"Dashboard e dati ESG":"ESG data dashboard"}/></div><div className="approachBottomAction"><div className="approachQuestBox"><span className="approachQuestIcon">🚀</span><p>{t.approachQuestCallout}</p></div><button className="actionButton" onClick={()=>setScreen("company")}>{t.approachQuestCta}<b>→</b></button></div></section></main>;
+  if(screen==="approach"&&profile)return <main className="approachScreen"><header className="missionNav"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> PEOPLE & DATA</div><button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><section className="approachBody"><div className="approachTopTitle"><h1>{t.approachTitle}</h1><button className="actionButton approachTopCta" onClick={()=>setScreen("companySetup")}>{t.approachQuestCta}<b>→</b></button></div><div className="approachLeft approachVisual"><div className="approachPeopleIntro"><small className="approachSectionLabel">{language==="it"?"FILONE 01 · PERSONE":"TRACK 01 · PEOPLE"}</small><h2>{language==="it"?"La sfida è agire sul cambiamento con le persone: coinvolgimento, formazione, responsabilizzazione.":"The challenge is acting on change with people: engagement, training, accountability."}</h2></div><img className="approachTeamImage" src="./approach-team-scene.png" alt={language==="it"?"Team ESG che discute una dashboard di sostenibilità":"ESG team discussing a sustainability dashboard"}/></div><div className="approachRight"><div className="approachDataIntro"><small className="approachSectionLabel">{language==="it"?"FILONE 02 · DATI":"TRACK 02 · DATA"}</small><h2>{language==="it"?<><span>Il secondo filone è agire</span><br/><span>sulla complessità di oltre 500 tipi di dati ESG.</span></>:<><span>The second track is acting</span><br/><span>on the complexity of 500+ ESG data types.</span></>}</h2></div><img className="approachDataImage" src="./approach-data-scene.png" alt={language==="it"?"Dashboard e dati ESG":"ESG data dashboard"}/></div><div className="approachBottomAction"><div className="approachQuestBox"><span className="approachQuestIcon">🚀</span><p>{t.approachQuestCallout}</p></div><button className="actionButton" onClick={()=>setScreen("company")}>{t.approachQuestCta}<b>→</b></button></div></section></main>;
 
   const renderMissionHub=()=>{const completed=Object.keys(missionOutcomes).length;const foundationDone=!!missionOutcomes[0];return <main className="missionMenuScreen"><header className="missionNav missionNavTrust"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> MISSION HUB</div>{renderTrustBar()}<button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><section className="missionMenuIntro"><div><p className="eyebrow">{t.roadmapKicker}</p><h1>{t.roadmapTitle}</h1><p>{t.roadmapIntro}</p><div className="roadmapProgress"><span style={{width:`${completed*20}%`}}/><b>{t.roadmapProgress}: {completed}/5</b></div>{completed===5&&<button className="summaryCta" onClick={()=>setScreen("summary")}>{t.summaryCta}<b>→</b></button>}</div><div className="priorityPersona"><img src={`./characters/${profile}-neutral.png`} alt={name}/><span>{name}<small>ESG MANAGER</small></span></div></section><section className="missionCards roadmapCards">{missionOrder.map((missionIndex,position)=>{const m=missionCatalog[missionIndex];const outcome=missionOutcomes[missionIndex];const isLocked=!foundationDone&&missionIndex!==0;const isStartHere=!foundationDone&&missionIndex===0;return <article key={m.value} className={`missionCard ${outcome?`completed ${outcome}`:""}${isLocked?" missionCardLocked":""}`}><button className="missionCardOpen" disabled={isLocked} onClick={()=>{if(isLocked)return;setSelectedMission(missionIndex);localStorage.setItem("envizi-quest-mission",String(missionIndex+1));setScreen("briefing")}}>{(()=>{const raw=needsByMissionHub.find(([mi])=>mi===missionIndex)?.[1]||[];const needs=missionIndex===0?[{id:"__foundation__",label:language==="it"?"Una data foundation solida e tracciabile":"A solid and traceable data foundation"},...raw]:raw;const needsLabel=language==="it"?"Esigenze specifiche":"Specific needs";return <><div className="missionCardNeedsBox"><small className="missionCardNeedsLabel">{needsLabel}</small>{needs.length>0?needs.map(n=><span key={n.id} className="missionCardNeed">⬡ {n.label}</span>):<span className="missionCardNeed">—</span>}</div><div className="missionCardChallengeBox"><div className="missionCardTop"><span>{String(position+1).padStart(2,"0")}</span><i>{outcome?"✓":m.icon}</i></div><h2>{language==="it"?m.it:m.en}</h2><p>{language==="it"?m.itSub:m.enSub}</p></div></>;})()}{isLocked&&<div className="missionCardLockedOverlay"><span>⊘</span><small>{t.missionLocked}</small></div>}{isStartHere&&<div className="missionCardStartHere"><span>{t.missionStartHere}</span><b>→</b></div>}{outcome&&<div className="missionImpact"><div><small>{t.adoptedDecision}</small><strong>{decisionLabel(missionIndex,outcome)}</strong></div><div><small>{t.expectedImpact}</small><p>{outcomeLabel(missionIndex,outcome)}</p></div></div>}<div className="missionCardBottom"><small>{outcome?`${position+1}/5 · ROADMAP`:isLocked?"🔒":t.missionDuration}</small><b>{outcome?t.missionReview:isLocked?"":t.missionSelect+" →"}</b></div></button></article>})}</section></main>};
 
@@ -367,14 +409,91 @@ export default function Home(){
 
   if(screen==="thankYou"&&profile)return <main className="thankYouScreen"><header className="missionNav"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> FINAL</div><button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><section className="thankYouBody"><h1>{t.thankYouTitle}</h1></section></main>;
 
-  if(screen==="company"&&profile)return <main className="companyScreen">
-    <header className="missionNav missionNavTrust"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> COMPANY PROFILE</div>{renderTrustBar()}<button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header>
-    <section className="companyCopy"><p className="eyebrow">{t.companyIntro}</p><h1>{t.companyTitle}</h1><p className="companyLead">{t.companyStory}</p><div className="companyStats"><div><strong>€400M</strong><span>{t.revenue}</span></div><div><strong>8</strong><span>{t.plants}</span></div><div><strong>5</strong><span>{t.offices}</span></div><div><strong>2.850</strong><span>{t.people}</span></div></div><blockquote>{t.evolving}</blockquote><button className="actionButton" onClick={()=>setScreen("priorities")}>{t.explore}<b>→</b></button></section>
-    <section className="worldMap" aria-label="NovaForge global footprint"><div className="mapGrid"/><div className="region americas">AMERICAS</div><div className="region emea">EMEA</div><div className="region apac">APAC</div>
-      <div className="mapPoint plant us" title="Detroit"><i/><span>{t.usa}</span></div><div className="mapPoint plant eu1" title="Torino"><i/></div><div className="mapPoint plant eu2" title="Lyon"><i/></div><div className="mapPoint plant eu3" title="Stuttgart"><i/></div><div className="mapPoint plant eu4" title="Katowice"><i/></div><div className="mapPoint plant eu5" title="Bilbao"><i/></div><div className="mapPoint plant eu6" title="Brno"><i/><span style={{left:"28px",top:"-34px"}}>{t.europe}</span></div><div className="mapPoint plant asia" title="Penang"><i/><span>{t.asia}</span></div>
-      <div className="mapPoint office milan" title="Milano"><i/><span style={{left:"24px",top:"-46px",bottom:"auto",lineHeight:"1.45"}}><b style={{display:"block",color:"#effff9"}}>{t.europeOffices}</b><small style={{display:"block",color:"#72f7ca",fontSize:"8px"}}>{t.hqShort}</small></span></div><div className="mapPoint office london" title="London"/><div className="mapPoint office ny" title="New York"/><div className="mapPoint office frankfurt" title="Madrid" style={{left:"45.5%",top:"43.5%"}}/><div className="mapPoint office singapore" title="Singapore"><span>{t.asiaOffice}</span></div><div className="mapLegend"><b><i className="plantDot"/> PLANT</b><b><i className="officeDot"/> OFFICE</b></div>
-    </section>
-  </main>;
+  if(screen==="companySetup"&&profile){
+    const isIt=language==="it";
+    const sec=SECTORS[companySector];
+    const readinessList=isIt?ESG_READINESS_IT:ESG_READINESS_EN;
+    const activeReadiness=readinessList.find(r=>r.key===esgReadiness)!;
+    const geoKeys=["italia","europa","asia","nordamerica","sudamerica","africa","australia"];
+    const geoLabels:Record<string,{it:string,en:string}>={italia:{it:"Italia",en:"Italy"},europa:{it:"Europa",en:"Europe"},asia:{it:"Asia",en:"Asia"},nordamerica:{it:"Nord America",en:"N. America"},sudamerica:{it:"Sud America",en:"S. America"},africa:{it:"Africa",en:"Africa"},australia:{it:"Australia",en:"Australia"}};
+    const dimLabelsFull:[{it:string,en:string},{it:string,en:string},{it:string,en:string},{it:string,en:string},{it:string,en:string}]=[sec.dimUnit,sec.opsUnit,{it:"sedi uffici",en:"office locations"},{it:"data center",en:"data centres"},{it:"dipendenti",en:"employees"}];
+    const handleSectorChange=(sk:SectorKey)=>{setCompanySector(sk);setCompanyDims([...SECTORS[sk].defaults] as [number,number,number,number,number]);};
+    const handleGeoChange=(key:string,val:number)=>{setGeoDistrib(prev=>({...prev,[key]:isNaN(val)?0:val}));};
+    return <main className="csScreen">
+      <header className="missionNav"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> {isIt?"LA TUA AZIENDA":"YOUR COMPANY"}</div><button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header>
+      <div className="csBody">
+        <div className="csLeft"><img className="csProfileImg" src={`./characters/${profile}-neutral.png`} alt={name}/><div className="csProfileTag"><span className="statusDot"/><div><small>ESG MANAGER</small><strong>{name}</strong></div></div></div>
+        <div className="csRight">
+          <p className="eyebrow">{isIt?"RACCONTACI LA TUA AZIENDA":"TELL US ABOUT YOUR COMPANY"}</p>
+          <h1 className="csTitle">{isIt?"La tua azienda":"Your company"}</h1>
+          <div className="csForm">
+            <div className="csField"><label>{isIt?"Nome azienda":"Company name"}</label><input className="csInput" value={companyName} onChange={e=>setCompanyName(e.target.value||"NovaForge Industries")}/></div>
+            <div className="csTwoCol">
+              <div className="csField"><label>{isIt?"Presenza mercati":"Market presence"}</label>
+                <select className="csSelect" value={companyMarket} onChange={e=>setCompanyMarket(e.target.value as Market)}>
+                  <option value="italia">{isIt?"Solo Italia":"Italy only"}</option>
+                  <option value="europa">{isIt?"Europa":"Europe"}</option>
+                  <option value="mondo">{isIt?"Mondo":"Global"}</option>
+                </select>
+              </div>
+              <div className="csField"><label>{isIt?"Settore":"Sector"}</label>
+                <select className="csSelect" value={companySector} onChange={e=>handleSectorChange(e.target.value as SectorKey)}>
+                  {SECTOR_KEYS.map(sk=><option key={sk} value={sk}>{isIt?SECTORS[sk].label.it:SECTORS[sk].label.en}</option>)}
+                </select>
+              </div>
+            </div>
+            <div className="csField"><label>{isIt?"Dimensioni organizzazione":"Organisation size"}</label>
+              <div className="csDimsGrid">
+                {companyDims.map((v,i)=><div key={i} className="csDimRow"><input className="csDimInput" type="number" min={0} value={v} onChange={e=>updateCompanyDim(i,parseFloat(e.target.value))}/><span className="csDimUnit">{isIt?dimLabelsFull[i].it:dimLabelsFull[i].en}</span></div>)}
+              </div>
+            </div>
+            {(companyMarket==="europa"||companyMarket==="mondo")&&<div className="csField"><label>{isIt?"Distribuzione sedi (%)":"Location distribution (%)"}</label>
+              <div className="csGeoGrid">
+                {(companyMarket==="mondo"?geoKeys:["italia","europa"]).map(k=><div key={k} className="csGeoRow"><span>{isIt?geoLabels[k].it:geoLabels[k].en}</span><input className="csDimInput" type="number" min={0} max={100} value={geoDistrib[k]??0} onChange={e=>handleGeoChange(k,parseInt(e.target.value))}/><span>%</span></div>)}
+              </div>
+            </div>}
+            <div className="csField"><label>{isIt?"Stato attuale dati ESG":"Current ESG data status"}</label>
+              <select className="csSelect" value={esgReadiness} onChange={e=>setEsgReadiness(e.target.value as EsgReadiness)}>
+                {readinessList.map(r=><option key={r.key} value={r.key}>{r.label}</option>)}
+              </select>
+              <p className="csReadinessDesc">{activeReadiness.desc}</p>
+            </div>
+            <button className="actionButton csConfirmBtn" onClick={()=>setScreen("company")}>{isIt?"Entra nell'azienda":"Enter the company"}<b>→</b></button>
+          </div>
+        </div>
+      </div>
+    </main>;
+  }
+
+  if(screen==="company"&&profile){
+    const isIt=language==="it";
+    const sec=SECTORS[companySector];
+    const readinessList=isIt?ESG_READINESS_IT:ESG_READINESS_EN;
+    const activeReadiness=readinessList.find(r=>r.key===esgReadiness)!;
+    const sectorLabel=isIt?sec.label.it:sec.label.en;
+    const dimVal=companyDims[0]; const opsVal=companyDims[1]; const officesVal=companyDims[2]; const peopleVal=companyDims[4];
+    const dimUnit=isIt?sec.dimUnit.it:sec.dimUnit.en;
+    const opsUnit=isIt?sec.opsUnit.it:sec.opsUnit.en;
+    const offUnit=isIt?"sedi uffici":"office locations";
+    const pepUnit=isIt?"dipendenti":"employees";
+    const companyStoryGen=isIt?`Un ${sectorLabel.toLowerCase()} da ${dimVal} ${dimUnit}, con ${opsVal} ${opsUnit} e ${officesVal} sedi operative.`:`A ${sectorLabel.toLowerCase()} with ${dimVal} ${dimUnit}, ${opsVal} ${opsUnit} and ${officesVal} operational locations.`;
+    const evolvingGen=`${companyName} — ${activeReadiness.desc}`;
+    const geoKeys=["italia","europa","asia","nordamerica","sudamerica","africa","australia"];
+    const geoLabelsShort:Record<string,{it:string,en:string}>={italia:{it:"ITALIA",en:"ITALY"},europa:{it:"EUROPA",en:"EUROPE"},asia:{it:"ASIA",en:"ASIA"},nordamerica:{it:"N. AMERICA",en:"N. AMERICA"},sudamerica:{it:"S. AMERICA",en:"S. AMERICA"},africa:{it:"AFRICA",en:"AFRICA"},australia:{it:"AUSTRALIA",en:"AUSTRALIA"}};
+    const activeGeo=geoKeys.filter(k=>(geoDistrib[k]??0)>0&&(companyMarket==="mondo"||(companyMarket==="europa"&&(k==="italia"||k==="europa"))||companyMarket==="italia"&&k==="italia"));
+    const posMap:Record<string,{left:string,top:string}[]>={europa:[{left:"48%",top:"38%"},{left:"51%",top:"42%"},{left:"44%",top:"40%"},{left:"53%",top:"36%"}],asia:[{left:"72%",top:"42%"},{left:"75%",top:"46%"},{left:"68%",top:"44%"}],nordamerica:[{left:"18%",top:"40%"},{left:"22%",top:"36%"},{left:"15%",top:"44%"}],sudamerica:[{left:"28%",top:"64%"},{left:"24%",top:"68%"}],africa:[{left:"50%",top:"58%"},{left:"46%",top:"62%"}],australia:[{left:"78%",top:"66%"},{left:"82%",top:"62%"}]};
+    return <main className="companyScreen">
+      <header className="missionNav missionNavTrust"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> COMPANY PROFILE</div>{renderTrustBar()}<button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header>
+      <section className="companyCopy"><p className="eyebrow">{t.companyIntro}</p><h1>{companyName}</h1><p className="companyLead">{companyStoryGen}</p><div className="companyStats"><div><strong>{dimVal}</strong><span>{dimUnit}</span></div><div><strong>{opsVal}</strong><span>{opsUnit}</span></div><div><strong>{officesVal}</strong><span>{offUnit}</span></div><div><strong>{peopleVal.toLocaleString()}</strong><span>{pepUnit}</span></div></div><blockquote>{evolvingGen}</blockquote><button className="actionButton" onClick={()=>setScreen("priorities")}>{t.explore}<b>→</b></button></section>
+      <section className="worldMap" aria-label={`${companyName} footprint`}>
+        <div className="mapGrid"/>
+        <div className="region americas">AMERICAS</div><div className="region emea">EMEA</div><div className="region apac">APAC</div>
+        <div className="mapPoint office milan" title="Milano HQ"><i/><span style={{left:"24px",top:"-46px",bottom:"auto",lineHeight:"1.45"}}><b style={{display:"block",color:"#effff9"}}>HQ · {companyName}</b><small style={{display:"block",color:"#72f7ca",fontSize:"8px"}}>MILAN</small></span></div>
+        {activeGeo.filter(k=>k!=="italia").map(k=>{const pct=geoDistrib[k]??0;const count=Math.max(1,Math.round(pct/10));const positions=posMap[k]||[];return Array.from({length:Math.min(count,positions.length)}).map((_,idx)=><div key={`${k}-${idx}`} className="mapPoint office" style={{left:positions[idx].left,top:positions[idx].top}} title={isIt?geoLabelsShort[k].it:geoLabelsShort[k].en}><i/>{idx===0&&<span>{isIt?geoLabelsShort[k].it:geoLabelsShort[k].en} · {pct}%</span>}</div>);})}
+        <div className="mapLegend"><b><i className="officeDot"/> {isIt?"SEDE":"OFFICE"}</b></div>
+      </section>
+    </main>;
+  }
 
   if(screen==="priorities"&&profile)return <main className="priorityScreen"><header className="missionNav missionNavTrust"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> BUSINESS PRIORITIES</div>{renderTrustBar()}<button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><section className="priorityIntro"><p className="eyebrow">{t.priorityKicker}</p><h1>{t.priorityTitle}</h1><p>{t.priorityIntro}</p><div className="priorityPersona"><img src={`./characters/${profile}-neutral.png`} alt={name}/><span>{name}<small>ESG MANAGER</small></span></div></section><section className="priorityBoard"><div className="priorityList">{priorities.map((p,i)=><div className="priorityItem" key={p}><input className={`priorityRankInput${i<3?" priorityRankInputTop":""}`} type="number" min="1" max="6" value={i+1} onChange={e=>{const v=parseInt(e.target.value,10);if(!isNaN(v))rankPriority(i,v);}} onFocus={e=>e.target.select()} aria-label={`Posizione di ${t.priorityNames[p]}`}/><div><b>{t.priorityNames[p]}</b><small>{t.priorityDetails[p]}</small></div></div>)}</div><button className="actionButton" onClick={()=>{localStorage.setItem("envizi-quest-priorities",JSON.stringify(priorities));setScreen("priorityData")}}>{t.confirm}<b>→</b></button></section></main>;
 

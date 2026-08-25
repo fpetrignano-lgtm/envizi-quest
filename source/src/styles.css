@@ -416,3 +416,37 @@ body{font-size:18px}.eyebrow{font-size:13px}.brand{font-size:14px}.step,.mission
 /* Approach quest callout — simple invitation to start */
 .approachQuestCallout{padding:16px 20px;border-radius:14px;background:rgba(57,239,180,.06);border:1px solid rgba(57,239,180,.28);display:flex;flex-direction:column;gap:14px}
 .approachQuestCallout p{margin:0;font-size:14px;color:#c9e8dc;line-height:1.6}
+
+/* Company Setup screen */
+.csScreen{min-height:100vh;background:#07110e;display:grid;grid-template-rows:76px 1fr}
+.csBody{display:grid;grid-template-columns:minmax(280px,.38fr) minmax(480px,1.62fr);min-height:0;overflow-y:auto}
+.csLeft{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;background:radial-gradient(circle at 50% 80%,#0e2a1e,transparent 60%),#07120f;border-right:1px solid #1a3028;overflow:hidden;min-height:calc(100vh - 76px)}
+.csProfileImg{width:100%;max-width:320px;object-fit:cover;object-position:center top;display:block;margin-top:auto}
+.csProfileTag{position:absolute;bottom:24px;left:20px;display:flex;align-items:center;gap:10px;background:rgba(5,18,13,.88);border:1px solid rgba(57,239,180,.28);border-radius:10px;padding:10px 14px;backdrop-filter:blur(8px)}
+.csProfileTag .statusDot{width:8px;height:8px;border-radius:50%;background:#39efb4;flex-shrink:0}
+.csProfileTag small{display:block;font:700 9px var(--font-geist-mono);letter-spacing:.16em;color:#72f7ca;margin-bottom:3px}
+.csProfileTag strong{display:block;font-size:14px;color:#f2fff9}
+.csRight{padding:36px 4vw 48px;overflow-y:auto}
+.csTitle{font-size:clamp(38px,4vw,62px);line-height:.94;letter-spacing:-.055em;margin:8px 0 28px;color:#f2fff9}
+.csForm{display:flex;flex-direction:column;gap:20px;max-width:680px}
+.csField{display:flex;flex-direction:column;gap:8px}
+.csField>label{font:700 10px var(--font-geist-mono);letter-spacing:.16em;text-transform:uppercase;color:#72c4a8}
+.csInput,.csSelect{background:#0a1a14;border:1px solid #1e3a2e;border-radius:10px;color:#f2fff9;font:inherit;font-size:16px;padding:12px 14px;outline:none;transition:.18s;width:100%}
+.csInput:focus,.csSelect:focus{border-color:var(--teal);box-shadow:0 0 0 2px rgba(57,239,180,.12)}
+.csSelect{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2339efb4' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.csTwoCol{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.csDimsGrid{display:flex;flex-direction:column;gap:8px}
+.csDimRow{display:flex;align-items:center;gap:10px}
+.csDimInput{width:100px;background:#0a1a14;border:1px solid #1e3a2e;border-radius:8px;color:#f2fff9;font:700 16px var(--font-geist-mono);padding:8px 12px;outline:none;transition:.18s;-moz-appearance:textfield;appearance:textfield;text-align:right}
+.csDimInput::-webkit-inner-spin-button,.csDimInput::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.csDimInput:focus{border-color:var(--teal);box-shadow:0 0 0 2px rgba(57,239,180,.12)}
+.csDimUnit{font-size:14px;color:#9db3aa}
+.csGeoGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
+.csGeoRow{display:flex;align-items:center;gap:8px;background:#0a1a14;border:1px solid #1a3028;border-radius:8px;padding:8px 12px}
+.csGeoRow span:first-child{font-size:13px;color:#9db3aa;flex:1}
+.csGeoRow span:last-child{font-size:13px;color:#72c4a8;flex-shrink:0}
+.csGeoRow .csDimInput{width:58px;padding:4px 8px;font-size:14px}
+.csReadinessDesc{margin:8px 0 0;font-size:13px;line-height:1.6;color:#7a9e92;padding:10px 14px;background:rgba(57,239,180,.05);border:1px solid rgba(57,239,180,.18);border-radius:8px}
+.csConfirmBtn{align-self:flex-start;margin-top:8px}
+@media(max-width:900px){.csBody{grid-template-columns:1fr}.csLeft{min-height:300px;border-right:none;border-bottom:1px solid #1a3028}.csProfileImg{max-width:220px}}
+@media(max-width:580px){.csTwoCol{grid-template-columns:1fr}.csRight{padding:24px 20px 40px}.csGeoGrid{grid-template-columns:1fr 1fr}}
