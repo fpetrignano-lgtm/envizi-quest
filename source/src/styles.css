@@ -377,8 +377,8 @@ body{font-size:18px}.eyebrow{font-size:13px}.brand{font-size:14px}.step,.mission
 .approachLeft{min-width:0;display:flex;flex-direction:column}
 .approachVisual{display:flex;flex-direction:column;align-items:stretch;gap:16px;height:100%}
 .approachTeamImage{width:100%;height:100%;min-height:280px;max-height:360px;object-fit:cover;object-position:center;border-radius:24px;border:1px solid rgba(255,255,255,.08);box-shadow:0 18px 42px rgba(0,0,0,.22)}
-.approachPeopleIntro{padding:0 2px 2px;min-height:126px}
-.approachPeopleIntro h2{margin:0;font-size:clamp(28px,2.5vw,40px);line-height:1.12;color:#f2fff9}
+.approachPeopleIntro,.approachDataIntro{padding:0 2px 2px;min-height:132px;display:flex;flex-direction:column;justify-content:flex-start}
+.approachPeopleIntro h2,.approachDataIntro h2{margin:0;font-size:clamp(28px,2.5vw,40px);line-height:1.12;color:#f2fff9}
 
 .approachPeopleNote{padding:18px 20px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);min-height:124px}
 .approachPeopleNote h2{margin:0 0 10px;font-size:26px;line-height:1.15;color:#f2fff9}
@@ -389,11 +389,7 @@ body{font-size:18px}.eyebrow{font-size:13px}.brand{font-size:14px}.step,.mission
 .approachRight{display:flex;flex-direction:column;gap:20px;min-width:0;padding:10px 2px 8px}
 
 /* Data challenge block */
-.approachDataIntro h2{margin:0;font-size:clamp(28px,2.5vw,40px);line-height:1.12;color:#f2fff9}
 .approachDataImage{width:100%;height:100%;min-height:280px;max-height:360px;object-fit:cover;object-position:center;border-radius:24px;border:1px solid rgba(255,255,255,.08);box-shadow:0 18px 42px rgba(0,0,0,.22)}
-
-
-.approachDataIntro{min-height:126px}
 .approachDataBlock{padding:22px 24px;border-radius:18px;background:rgba(57,239,180,.06);border-left:4px solid rgba(57,239,180,.5);border-top:1px solid rgba(57,239,180,.15);border-right:1px solid rgba(57,239,180,.08);border-bottom:1px solid rgba(57,239,180,.08);min-height:124px}
 .approachDataBlock strong{display:block;font-size:22px;color:#39efb4;margin-bottom:10px;line-height:1.2}
 .approachDataBlock p{margin:0;font-size:18px;color:#d7efe6;line-height:1.65}
