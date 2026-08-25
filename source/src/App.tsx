@@ -554,7 +554,7 @@ export default function Home(){
               </div>}
             </div>
             <div className="csFormRight">
-              <div className="csField"><label>{isIt?"Stato attuale dati ESG":"Current ESG data status"}</label>
+              <div className="csField"><label>{isIt?"Seleziona il tuo stato attuale dati ESG":"Select your current ESG data status"}</label>
                 <select className="csSelect" value={esgReadiness} onChange={e=>setEsgReadiness(e.target.value as EsgReadiness)}>
                   {readinessList.map(r=><option key={r.key} value={r.key}>{r.label}</option>)}
                 </select>
