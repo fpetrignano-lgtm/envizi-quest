@@ -380,11 +380,6 @@ body{font-size:18px}.eyebrow{font-size:13px}.brand{font-size:14px}.step,.mission
 .approachPeopleIntro,.approachDataIntro{padding:0 2px 2px;min-height:132px;display:flex;flex-direction:column;justify-content:flex-start}
 .approachPeopleIntro h2,.approachDataIntro h2{margin:0;font-size:clamp(28px,2.5vw,40px);line-height:1.12;color:#f2fff9}
 
-.approachPeopleNote{padding:18px 20px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);min-height:124px}
-.approachPeopleNote h2{margin:0 0 10px;font-size:26px;line-height:1.15;color:#f2fff9}
-
-.approachPeopleNote p{margin:0;color:#d7efe6;font-size:18px;line-height:1.65}
-
 /* Right column */
 .approachRight{display:flex;flex-direction:column;gap:20px;min-width:0;padding:10px 2px 8px}
 
@@ -394,20 +389,9 @@ body{font-size:18px}.eyebrow{font-size:13px}.brand{font-size:14px}.step,.mission
 .approachDataBlock strong{display:block;font-size:22px;color:#39efb4;margin-bottom:10px;line-height:1.2}
 .approachDataBlock p{margin:0;color:#d7efe6;font-size:18px;line-height:1.65}
 
-/* Decision options */
-.approachOptionsGrid{display:flex;flex-direction:column;gap:12px}
-.approachOptionCard{padding:18px 20px 20px;border-radius:18px;background:#0c1f18;border:1px solid #1a3028;display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto auto;column-gap:14px;row-gap:8px;align-items:start}
-.approachOptionCard.asis{border-color:rgba(255,119,119,.3);background:rgba(255,119,119,.04)}
-.approachOptionCard.simple{border-color:rgba(255,192,124,.3);background:rgba(255,192,124,.04)}
-.approachOptionCard.platform{border-color:rgba(57,239,180,.35);background:rgba(57,239,180,.08);box-shadow:0 0 0 1px rgba(57,239,180,.08),0 18px 36px rgba(0,0,0,.18)}
-.approachOptionNum{font:700 12px var(--font-geist-mono);letter-spacing:.12em;color:#6d9084;grid-row:1;grid-column:1/3}
-.approachOptionIcon{font-size:30px;line-height:1;grid-row:2;grid-column:1;align-self:start;margin-top:2px}
-.approachOptionCard strong{font-size:21px;color:var(--text-bright);line-height:1.2;grid-row:2;grid-column:2}
-.approachOptionCard p{margin:0;font-size:16px;color:#d4ece2;line-height:1.6;grid-row:3;grid-column:1/3}
-.approachOptionCard.platform strong{color:#39efb4}
-
-/* Impact note */
-.approachImpactNote{font-size:15px;color:#88a79b;line-height:1.7;padding:15px 18px;border:1px dashed #1e3a30;border-radius:12px;margin:0}
+.approachBottomAction{grid-column:1/-1;display:flex;flex-direction:column;align-items:flex-start;gap:16px;padding-top:6px}
+.approachUnifiedNote{width:100%;padding:18px 20px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)}
+.approachUnifiedNote p{margin:0;color:#d7efe6;font-size:18px;line-height:1.65}
 
 @media(max-width:1100px){
   .approachBody{grid-template-columns:1fr;gap:22px}
