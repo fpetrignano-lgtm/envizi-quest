@@ -325,6 +325,7 @@ export default function Home(){
   const [dataNeeds,setDataNeeds]=useState<DataNeedItem[]>(()=>buildDefaultDataNeeds("it",defaultPriorities));
   const [dfRatings,setDfRatings]=useState<Record<string,DFRating>>({});
   const setDfRating=(id:string,val:DFRating)=>setDfRatings(prev=>({...prev,[id]:val}));
+  const [dfFocusId,setDfFocusId]=useState<string|null>(null);
   useEffect(()=>{setDataNeeds(buildDefaultDataNeeds(language,priorities));},[language,priorities]);
   const moveNeed=(index:number,direction:-1|1)=>{const next=[...dataNeeds];const target=index+direction;if(target<0||target>=next.length)return;[next[index],next[target]]=[next[target],next[index]];setDataNeeds(next);};
   const rankNeed=(fromIdx:number,toRank:number)=>{const clamped=Math.max(1,Math.min(dataNeeds.length,toRank));const toIdx=clamped-1;if(toIdx===fromIdx)return;const next=[...dataNeeds];const [item]=next.splice(fromIdx,1);next.splice(toIdx,0,item);setDataNeeds(next);};
@@ -429,38 +430,70 @@ export default function Home(){
   if(screen==="dataFoundation"&&profile){
     const isIt=language==="it";
     const allRated=DF_REQUIREMENTS.every(r=>dfRatings[r.id]);
+    const dfScore=Object.values(dfRatings).reduce((s,v)=>s+(v==="medium"?3:v==="high"?6:0),0);
+    const dfMax=DF_REQUIREMENTS.length*6;
+    const dfHighlight=dfScore>=30;
+    const focusedReq=DF_REQUIREMENTS.find(r=>r.id===dfFocusId)??null;
+    const focusedRating=dfFocusId?dfRatings[dfFocusId]:null;
     return <main className="dfScreen">
       <header className="missionNav missionNavTrust"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> DATA FOUNDATION</div>{renderTrustBar()}<button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header>
-      <section className="dfBody">
-        <div className="dfIntro">
-          <p className="eyebrow">{isIt?"REQUISITI DATA FOUNDATION":"DATA FOUNDATION REQUIREMENTS"}</p>
-          <h1>{isIt?"Quanto contano per te questi requisiti?":"How important are these requirements for you?"}</h1>
-          <p className="dfSubtitle">{isIt?"Valuta ogni esigenza. Per quelle più importanti, scopri come IBM Envizi risponde con capacità concrete e vantaggi misurabili.":"Rate each requirement. For the most important ones, discover how IBM Envizi responds with concrete capabilities and measurable benefits."}</p>
-        </div>
-        <div className="dfList">
-          {DF_REQUIREMENTS.map((req,i)=>{
-            const rating=dfRatings[req.id];
-            const isActive=rating==="medium"||rating==="high";
-            return <div key={req.id} className={`dfItem${isActive?" dfItemActive":""}`}>
-              <div className="dfItemTop">
-                <span className="dfItemNum">{String(i+1).padStart(2,"0")}</span>
-                <p className="dfItemQ">{isIt?req.it:req.en}</p>
-                <div className="dfRatingGroup">
-                  {(["low","medium","high"] as DFRating[]).map(v=><button key={v} className={`dfRatingBtn dfRatingBtn--${v}${rating===v?" dfRatingBtnActive":""}`} onClick={()=>setDfRating(req.id,v)}>{isIt?(v==="low"?"Basso":v==="medium"?"Medio":"Alto"):(v==="low"?"Low":v==="medium"?"Medium":"High")}</button>)}
+      <section className="dfLayout">
+        <div className="dfLeft">
+          <div className="dfIntro">
+            <p className="eyebrow">{isIt?"REQUISITI DATA FOUNDATION":"DATA FOUNDATION REQUIREMENTS"}</p>
+            <h1>{isIt?"Quanto contano per te questi requisiti?":"How important are these requirements for you?"}</h1>
+            <p className="dfSubtitle">{isIt?"Seleziona ogni requisito e valutalo. Per Medio o Alto scopri come risponde IBM Envizi.":"Select each requirement and rate it. For Medium or High, see how IBM Envizi responds."}</p>
+          </div>
+          <div className="dfScoreBar">
+            <div className="dfScoreLabel">
+              <span>{isIt?"Punteggio rilevanza":"Relevance score"}</span>
+              <strong className={dfHighlight?"dfScoreHigh":""}>{dfScore}<em>/{dfMax}</em></strong>
+            </div>
+            <div className="dfScoreTrack"><span className="dfScoreFill" style={{width:`${Math.min(100,(dfScore/dfMax)*100)}%`,background:dfHighlight?"#39efb4":"#ffc07c"}}/></div>
+            {dfHighlight&&<p className="dfScoreMsg">{isIt?"⬡ Molto probabilmente IBM Envizi è la soluzione enterprise per te.":"⬡ IBM Envizi is very likely the enterprise solution for you."}</p>}
+          </div>
+          <div className="dfList">
+            {DF_REQUIREMENTS.map((req,i)=>{
+              const rating=dfRatings[req.id];
+              const isActive=rating==="medium"||rating==="high";
+              const isFocused=dfFocusId===req.id;
+              return <div key={req.id} className={`dfItem${isActive?" dfItemActive":""}${isFocused?" dfItemFocused":""}`} onClick={()=>setDfFocusId(req.id)}>
+                <div className="dfItemTop">
+                  <span className="dfItemNum">{String(i+1).padStart(2,"0")}</span>
+                  <p className="dfItemQ">{isIt?req.it:req.en}</p>
+                  <div className="dfRatingGroup" onClick={e=>e.stopPropagation()}>
+                    {(["low","medium","high"] as DFRating[]).map(v=><button key={v} className={`dfRatingBtn dfRatingBtn--${v}${rating===v?" dfRatingBtnActive":""}`} onClick={()=>{setDfRating(req.id,v);setDfFocusId(req.id);}}>{isIt?(v==="low"?"Basso":v==="medium"?"Medio":"Alto"):(v==="low"?"Low":v==="medium"?"Medium":"High")}</button>)}
+                  </div>
                 </div>
-              </div>
-              {isActive&&<div className="dfItemDetail">
-                <div className="dfCapBlock"><span className="dfCapLabel">⬡ IBM Envizi</span><p>{isIt?req.capIt:req.capEn}</p></div>
-                <div className="dfBenBlock"><span className="dfBenLabel">{isIt?"Vantaggio ESG Manager":"ESG Manager benefit"}</span><p>{isIt?req.benIt:req.benEn}</p></div>
-              </div>}
-            </div>;
-          })}
+              </div>;
+            })}
+          </div>
+          <footer className="dfFooter">
+            <p className="dfSources">{isIt?"Capacità basate su: ":"Capabilities based on: "}<a href="https://www.ibm.com/products/envizi/esg-data-management" target="_blank" rel="noreferrer">ESG Data Management ↗</a>{" · "}<a href="https://www.ibm.com/docs/en/envizi-esg-suite?topic=managing-normalizing-data" target="_blank" rel="noreferrer">{isIt?"Normalizzazione dati":"Data normalisation"} ↗</a>{" · "}<a href="https://www.ibm.com/products/envizi/scope-1-2-ghg-accounting-reporting" target="_blank" rel="noreferrer">Scope 1–2 GHG ↗</a></p>
+            <button className="actionButton dfContinueBtn" disabled={!allRated} onClick={()=>setScreen("decision")}>{isIt?"Continua verso la decisione":"Continue to the decision"}<b>→</b></button>
+            {!allRated&&<p className="dfHint">{isIt?"Valuta tutti i requisiti per continuare.":"Rate all requirements to continue."}</p>}
+          </footer>
         </div>
-        <footer className="dfFooter">
-          <p className="dfSources">{isIt?"Capacità basate su: ":"Capabilities based on: "}<a href="https://www.ibm.com/products/envizi/esg-data-management" target="_blank" rel="noreferrer">ESG Data Management ↗</a>{" · "}<a href="https://www.ibm.com/docs/en/envizi-esg-suite?topic=managing-normalizing-data" target="_blank" rel="noreferrer">{isIt?"Normalizzazione dati":"Data normalisation"} ↗</a>{" · "}<a href="https://www.ibm.com/products/envizi/scope-1-2-ghg-accounting-reporting" target="_blank" rel="noreferrer">Scope 1–2 GHG ↗</a></p>
-          <button className="actionButton dfContinueBtn" disabled={!allRated} onClick={()=>setScreen("decision")}>{isIt?"Continua verso la decisione":"Continue to the decision"}<b>→</b></button>
-          {!allRated&&<p className="dfHint">{isIt?"Valuta tutti i requisiti per continuare.":"Rate all requirements to continue."}</p>}
-        </footer>
+        <div className="dfRight">
+          {focusedReq&&(focusedRating==="medium"||focusedRating==="high")?<>
+            <div className="dfDetailHeader">
+              <span className="dfDetailNum">{String(DF_REQUIREMENTS.indexOf(focusedReq)+1).padStart(2,"0")}</span>
+              <p className="dfDetailQ">{isIt?focusedReq.it:focusedReq.en}</p>
+              <span className={`dfDetailBadge dfDetailBadge--${focusedRating}`}>{isIt?(focusedRating==="medium"?"Medio · +3 pt":"Alto · +6 pt"):(focusedRating==="medium"?"Medium · +3 pts":"High · +6 pts")}</span>
+            </div>
+            <div className="dfDetailCapBlock">
+              <span className="dfCapLabel">⬡ IBM Envizi</span>
+              <p>{isIt?focusedReq.capIt:focusedReq.capEn}</p>
+            </div>
+            <div className="dfDetailBenBlock">
+              <span className="dfBenLabel">{isIt?"Vantaggio ESG Manager":"ESG Manager benefit"}</span>
+              <p>{isIt?focusedReq.benIt:focusedReq.benEn}</p>
+            </div>
+          </>:<div className="dfRightEmpty">
+            <span className="dfRightEmptyIcon">⬡</span>
+            <p>{isIt?"Seleziona un requisito e scegli Medio o Alto per vedere come risponde IBM Envizi.":"Select a requirement and choose Medium or High to see how IBM Envizi responds."}</p>
+          </div>}
+        </div>
       </section>
     </main>;
   }
