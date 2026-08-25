@@ -76,7 +76,7 @@ const copy = {
       {num:"05",label:"Rotta verso Net Zero",need:"Scenari what-if e programmi di abbattimento verificabili nel tempo."}
     ],
     bridgeNote:"Puoi affrontare le missioni nell'ordine che preferisci. Le scelte si accumulano: ogni decisione influenza le successive.",
-    priorityDataKicker:"Le tue esigenze di dati", priorityDataTitle:"Ordina le 15 esigenze di dati.", priorityDataIntro:"Ogni priorità genera cinque esigenze specifiche. Inserisci i numeri di priorità: la tua classifica da 1 a 15 orienterà le cinque sfide della quest.", priorityDataCta:"Conferma l'ordine →",
+    priorityDataKicker:"Le tue esigenze di dati", priorityDataTitle:"Ordina le 15 esigenze di dati.", priorityDataIntro:"Hai definito le priorità e le esigenze di dati. Ora affronterai cinque scenari reali: per ognuno dovrai scegliere come rispondere alla sfida. Ogni decisione accumula fiducia e costruisce la tua roadmap ESG.", priorityDataCta:"Conferma l'ordine →",
     priorityDataNeeds:{
       credit:[
         {id:"credit-1",label:"Emissioni Scope 1, 2 e 3 verificabili e auditabili"},
