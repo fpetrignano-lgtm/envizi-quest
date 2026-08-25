@@ -418,7 +418,14 @@ export default function Home(){
     const geoLabels:Record<string,{it:string,en:string}>={italia:{it:"Italia",en:"Italy"},europa:{it:"Europa",en:"Europe"},asia:{it:"Asia",en:"Asia"},nordamerica:{it:"Nord America",en:"N. America"},sudamerica:{it:"Sud America",en:"S. America"},africa:{it:"Africa",en:"Africa"},australia:{it:"Australia",en:"Australia"}};
     const dimLabelsFull:[{it:string,en:string},{it:string,en:string},{it:string,en:string},{it:string,en:string},{it:string,en:string}]=[sec.dimUnit,sec.opsUnit,{it:"sedi uffici",en:"office locations"},{it:"data center",en:"data centres"},{it:"dipendenti",en:"employees"}];
     const handleSectorChange=(sk:SectorKey)=>{setCompanySector(sk);setCompanyDims([...SECTORS[sk].defaults] as [number,number,number,number,number]);};
-    const handleGeoChange=(key:string,val:number)=>{setGeoDistrib(prev=>({...prev,[key]:isNaN(val)?0:val}));};
+    const nonItalyKeys=(companyMarket==="mondo"?geoKeys:["europa"]).filter(k=>k!=="italia");
+    const otherSum=nonItalyKeys.reduce((s,k)=>s+(geoDistrib[k]??0),0);
+    const italyVal=Math.max(0,100-otherSum);
+    const handleGeoChange=(key:string,val:number)=>{
+      if(key==="italia")return;
+      const clamped=Math.max(0,Math.min(100,isNaN(val)?0:val));
+      setGeoDistrib(prev=>{const next={...prev,[key]:clamped};const sum=nonItalyKeys.reduce((s,k)=>s+(k===key?clamped:(next[k]??0)),0);next.italia=Math.max(0,100-sum);return next;});
+    };
     return <main className="csScreen">
       <header className="missionNav"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> {isIt?"LA TUA AZIENDA":"YOUR COMPANY"}</div><button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header>
       <div className="csBody">
@@ -426,39 +433,44 @@ export default function Home(){
         <div className="csRight">
           <p className="eyebrow">{isIt?"RACCONTACI LA TUA AZIENDA":"TELL US ABOUT YOUR COMPANY"}</p>
           <h1 className="csTitle">{isIt?"La tua azienda":"Your company"}</h1>
-          <div className="csForm">
-            <div className="csField"><label>{isIt?"Nome azienda":"Company name"}</label><input className="csInput" value={companyName} onChange={e=>setCompanyName(e.target.value||"NovaForge Industries")}/></div>
-            <div className="csTwoCol">
-              <div className="csField"><label>{isIt?"Presenza mercati":"Market presence"}</label>
-                <select className="csSelect" value={companyMarket} onChange={e=>setCompanyMarket(e.target.value as Market)}>
-                  <option value="italia">{isIt?"Solo Italia":"Italy only"}</option>
-                  <option value="europa">{isIt?"Europa":"Europe"}</option>
-                  <option value="mondo">{isIt?"Mondo":"Global"}</option>
+          <div className="csFormTwoCol">
+            <div className="csFormLeft">
+              <div className="csField"><label>{isIt?"Nome azienda":"Company name"}</label><input className="csInput" value={companyName} onChange={e=>setCompanyName(e.target.value||"NovaForge Industries")}/></div>
+              <div className="csTwoCol">
+                <div className="csField"><label>{isIt?"Presenza mercati":"Market presence"}</label>
+                  <select className="csSelect" value={companyMarket} onChange={e=>setCompanyMarket(e.target.value as Market)}>
+                    <option value="italia">{isIt?"Solo Italia":"Italy only"}</option>
+                    <option value="europa">{isIt?"Europa":"Europe"}</option>
+                    <option value="mondo">{isIt?"Mondo":"Global"}</option>
+                  </select>
+                </div>
+                <div className="csField"><label>{isIt?"Settore":"Sector"}</label>
+                  <select className="csSelect" value={companySector} onChange={e=>handleSectorChange(e.target.value as SectorKey)}>
+                    {SECTOR_KEYS.map(sk=><option key={sk} value={sk}>{isIt?SECTORS[sk].label.it:SECTORS[sk].label.en}</option>)}
+                  </select>
+                </div>
+              </div>
+              <div className="csField"><label>{isIt?"Dimensioni organizzazione":"Organisation size"}</label>
+                <div className="csDimsGrid">
+                  {companyDims.map((v,i)=><div key={i} className="csDimRow"><input className="csDimInput" type="number" min={0} value={v} onChange={e=>updateCompanyDim(i,parseFloat(e.target.value))}/><span className="csDimUnit">{isIt?dimLabelsFull[i].it:dimLabelsFull[i].en}</span></div>)}
+                </div>
+              </div>
+              {(companyMarket==="europa"||companyMarket==="mondo")&&<div className="csField"><label>{isIt?"Distribuzione sedi (%, totale 100)":"Location distribution (%, total 100)"}</label>
+                <div className="csGeoGrid">
+                  <div className="csGeoRow csGeoRowItalia"><span>{isIt?"Italia":"Italy"}</span><input className="csDimInput" type="number" readOnly value={italyVal}/><span>%</span></div>
+                  {nonItalyKeys.map(k=><div key={k} className="csGeoRow"><span>{isIt?geoLabels[k].it:geoLabels[k].en}</span><input className="csDimInput" type="number" min={0} max={100} value={geoDistrib[k]??0} onChange={e=>handleGeoChange(k,parseInt(e.target.value))}/><span>%</span></div>)}
+                </div>
+              </div>}
+            </div>
+            <div className="csFormRight">
+              <div className="csField"><label>{isIt?"Stato attuale dati ESG":"Current ESG data status"}</label>
+                <select className="csSelect" value={esgReadiness} onChange={e=>setEsgReadiness(e.target.value as EsgReadiness)}>
+                  {readinessList.map(r=><option key={r.key} value={r.key}>{r.label}</option>)}
                 </select>
+                <p className="csReadinessDesc">{activeReadiness.desc}</p>
               </div>
-              <div className="csField"><label>{isIt?"Settore":"Sector"}</label>
-                <select className="csSelect" value={companySector} onChange={e=>handleSectorChange(e.target.value as SectorKey)}>
-                  {SECTOR_KEYS.map(sk=><option key={sk} value={sk}>{isIt?SECTORS[sk].label.it:SECTORS[sk].label.en}</option>)}
-                </select>
-              </div>
+              <button className="actionButton csConfirmBtn" onClick={()=>setScreen("company")}>{isIt?"Entra nell'azienda":"Enter the company"}<b>→</b></button>
             </div>
-            <div className="csField"><label>{isIt?"Dimensioni organizzazione":"Organisation size"}</label>
-              <div className="csDimsGrid">
-                {companyDims.map((v,i)=><div key={i} className="csDimRow"><input className="csDimInput" type="number" min={0} value={v} onChange={e=>updateCompanyDim(i,parseFloat(e.target.value))}/><span className="csDimUnit">{isIt?dimLabelsFull[i].it:dimLabelsFull[i].en}</span></div>)}
-              </div>
-            </div>
-            {(companyMarket==="europa"||companyMarket==="mondo")&&<div className="csField"><label>{isIt?"Distribuzione sedi (%)":"Location distribution (%)"}</label>
-              <div className="csGeoGrid">
-                {(companyMarket==="mondo"?geoKeys:["italia","europa"]).map(k=><div key={k} className="csGeoRow"><span>{isIt?geoLabels[k].it:geoLabels[k].en}</span><input className="csDimInput" type="number" min={0} max={100} value={geoDistrib[k]??0} onChange={e=>handleGeoChange(k,parseInt(e.target.value))}/><span>%</span></div>)}
-              </div>
-            </div>}
-            <div className="csField"><label>{isIt?"Stato attuale dati ESG":"Current ESG data status"}</label>
-              <select className="csSelect" value={esgReadiness} onChange={e=>setEsgReadiness(e.target.value as EsgReadiness)}>
-                {readinessList.map(r=><option key={r.key} value={r.key}>{r.label}</option>)}
-              </select>
-              <p className="csReadinessDesc">{activeReadiness.desc}</p>
-            </div>
-            <button className="actionButton csConfirmBtn" onClick={()=>setScreen("company")}>{isIt?"Entra nell'azienda":"Enter the company"}<b>→</b></button>
           </div>
         </div>
       </div>
