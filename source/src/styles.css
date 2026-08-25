@@ -44,12 +44,12 @@
 .pdItemRankInputTop:focus{color:#fff;box-shadow:0 0 0 4px rgba(57,239,180,.18)}
 .bridgeScreen{min-height:100vh;background:#07110e;display:grid;grid-template-rows:76px auto 1fr}
 .bridgeIntroBar{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 4vw 16px;border-bottom:1px solid #152920;background:rgba(6,14,11,.8)}
-.bridgeIntroBar h1{font-size:clamp(20px,2.2vw,32px);line-height:1;letter-spacing:-.04em;margin:0 0 4px}
-.bridgeIntroText{font-size:13px;color:#7a9e92;line-height:1.4;margin:0;max-width:680px}
+.bridgeIntroBar h1{font-size:clamp(28px,3vw,52px);line-height:1;letter-spacing:-.04em;margin:0 0 4px}
+.bridgeIntroText{font-size:26px;color:#7a9e92;line-height:1.4;margin:0;max-width:860px}
 .bridgeMapping{display:flex;flex-direction:column;gap:12px;padding:16px 4vw 24px;overflow-y:auto}
 .bridgePrereqBlock{border:2px solid rgba(57,239,180,.45);border-radius:14px;overflow:hidden;background:rgba(57,239,180,.03)}
 .bridgeCapBlock{border:1px solid #1e3a2e;border-radius:14px;overflow:hidden}
-.bridgeBlockLabel{font:700 9px var(--font-geist-mono);letter-spacing:.16em;padding:7px 16px;border-bottom:1px solid rgba(255,255,255,.06)}
+.bridgeBlockLabel{font:700 18px var(--font-geist-mono);letter-spacing:.16em;padding:9px 16px;border-bottom:1px solid rgba(255,255,255,.06)}
 .bridgePrereqBlock .bridgeBlockLabel{color:var(--teal);background:rgba(57,239,180,.08)}
 .bridgeCapBlock .bridgeBlockLabel{color:#4a7060;background:rgba(255,255,255,.02)}
 .bridgeMapRow{display:grid;grid-template-columns:1fr 44px 1fr;align-items:stretch;border-bottom:1px solid #0e1f18;padding:0 16px;gap:0;transition:.2s;min-height:64px}
@@ -61,44 +61,44 @@
 .bridgeMapNeedsCol{display:flex;flex-direction:column;gap:0;padding:10px 14px 10px 0;justify-content:center}
 .bridgeMapNeed{display:flex;align-items:flex-start;gap:12px;padding:5px 0}
 .bridgeMapNeed+.bridgeMapNeed{border-top:1px dashed #0f2018;padding-top:7px;margin-top:2px}
-.bridgeMapNeedRank{font:700 20px var(--font-geist-mono);color:var(--teal);flex-shrink:0;line-height:1;padding-top:2px}
-.bridgeMapNeed small{display:block;font:700 9px var(--font-geist-mono);color:#7ecfb8;letter-spacing:.12em;margin-bottom:3px}
-.bridgeMapNeed strong{display:block;font-size:13px;font-weight:600;color:#ffffff;line-height:1.35;margin-bottom:4px}
-.bridgeMapNeedPrio{display:inline-block;font:700 9px var(--font-geist-mono);color:var(--teal);background:rgba(57,239,180,.12);border:1px solid rgba(57,239,180,.3);border-radius:4px;padding:2px 7px;letter-spacing:.08em}
+.bridgeMapNeedRank{font:700 36px var(--font-geist-mono);color:var(--teal);flex-shrink:0;line-height:1;padding-top:2px}
+.bridgeMapNeed small{display:block;font:700 18px var(--font-geist-mono);color:#7ecfb8;letter-spacing:.12em;margin-bottom:3px}
+.bridgeMapNeed strong{display:block;font-size:26px;font-weight:600;color:#ffffff;line-height:1.35;margin-bottom:4px}
+.bridgeMapNeedPrio{display:inline-block;font:700 18px var(--font-geist-mono);color:var(--teal);background:rgba(57,239,180,.12);border:1px solid rgba(57,239,180,.3);border-radius:4px;padding:2px 7px;letter-spacing:.08em}
 .bridgeMapNeedEmpty{display:flex;align-items:center;gap:10px;padding:5px 0}
-.bridgeMapNeedEmptyDash{font:700 16px var(--font-geist-mono);color:#7ecfb8}
-.bridgeMapNeedEmpty small{font:700 9px var(--font-geist-mono);color:#a8d8ca;letter-spacing:.1em}
+.bridgeMapNeedEmptyDash{font:700 28px var(--font-geist-mono);color:#7ecfb8}
+.bridgeMapNeedEmpty small{font:700 18px var(--font-geist-mono);color:#a8d8ca;letter-spacing:.1em}
 .bridgeMapConnector{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:0 4px}
 .bridgeMapConnectorLine{display:block;width:2px;flex:1;background:linear-gradient(180deg,rgba(57,239,180,.2),rgba(57,239,180,.6));min-height:12px}
 .bridgeMapConnectorLine.empty{background:linear-gradient(180deg,rgba(57,239,180,.04),rgba(57,239,180,.1))}
-.bridgeMapConnectorArrow{font-size:9px;color:var(--teal);opacity:.9}
+.bridgeMapConnectorArrow{font-size:18px;color:var(--teal);opacity:.9}
 .bridgeMapConnectorArrow.empty{color:#7ecfb8;opacity:1}
 .bridgeMapMission{display:flex;align-items:center;gap:14px;padding:12px 0 12px 16px;border-left:2px solid rgba(57,239,180,.4)}
 .bridgeMapMissionEmpty{border-left-color:rgba(57,239,180,.25)}
-.bridgeMapMissionNum{font:700 22px var(--font-geist-mono);color:var(--teal);flex-shrink:0;line-height:1}
-.bridgeMapMission small{display:block;font:700 9px var(--font-geist-mono);color:#7ecfb8;letter-spacing:.12em;margin-bottom:5px}
-.bridgeMapMissionTitle{display:block;font-size:16px;font-weight:650;color:#ffffff;line-height:1.25;margin-bottom:5px}
-.bridgeMapMissionNeed{font-size:13px;color:#a8d8ca;line-height:1.5;margin:0}
+.bridgeMapMissionNum{font:700 40px var(--font-geist-mono);color:var(--teal);flex-shrink:0;line-height:1}
+.bridgeMapMission small{display:block;font:700 18px var(--font-geist-mono);color:#7ecfb8;letter-spacing:.12em;margin-bottom:5px}
+.bridgeMapMissionTitle{display:block;font-size:28px;font-weight:650;color:#ffffff;line-height:1.25;margin-bottom:5px}
+.bridgeMapMissionNeed{font-size:24px;color:#a8d8ca;line-height:1.5;margin:0}
 .bridgeBody{display:grid;grid-template-columns:minmax(360px,.62fr) minmax(540px,1.38fr);align-items:center;padding:4vw 6vw;gap:0;background:radial-gradient(circle at 80% 40%,rgba(57,239,180,.06),transparent 38%)}
 .bridgeLeft{padding:2vw 5vw 2vw 0}
-.bridgeLeft h1{font-size:clamp(38px,4.8vw,70px);line-height:.94;letter-spacing:-.055em;margin:0 0 20px}
-.bridgeLeft .storyText{color:#9db3aa;font-size:16px;line-height:1.6;max-width:500px;margin-bottom:28px}
+.bridgeLeft h1{font-size:clamp(52px,5.5vw,96px);line-height:.94;letter-spacing:-.055em;margin:0 0 20px}
+.bridgeLeft .storyText{color:#9db3aa;font-size:28px;line-height:1.6;max-width:600px;margin-bottom:28px}
 .bridgeTop3{display:grid;gap:8px;margin-bottom:22px}
-.bridgeTop3Label{display:block;font:700 9px var(--font-geist-mono);color:#4a7060;letter-spacing:.14em;margin-bottom:10px}
-.bridgeTop3Item{display:flex;align-items:center;gap:12px;padding:10px 14px;border:1px solid #1f3a2e;border-radius:10px;background:rgba(10,24,18,.8)}
-.bridgeTop3Item span{font:700 15px var(--font-geist-mono);color:var(--teal);flex-shrink:0}
-.bridgeTop3Item strong{font-size:13px}
-.bridgeNote{font-size:12px;color:#4a6d5e;line-height:1.55;margin-bottom:28px}
+.bridgeTop3Label{display:block;font:700 18px var(--font-geist-mono);color:#4a7060;letter-spacing:.14em;margin-bottom:10px}
+.bridgeTop3Item{display:flex;align-items:center;gap:12px;padding:12px 16px;border:1px solid #1f3a2e;border-radius:10px;background:rgba(10,24,18,.8)}
+.bridgeTop3Item span{font:700 28px var(--font-geist-mono);color:var(--teal);flex-shrink:0}
+.bridgeTop3Item strong{font-size:24px}
+.bridgeNote{font-size:22px;color:#4a6d5e;line-height:1.55;margin-bottom:28px}
 .bridgeCta{max-width:none}
 .bridgeRight{border-left:1px solid #1a3028;padding:2vw 0 2vw 4vw}
-.bridgeMissionsLabel{display:block;font:700 9px var(--font-geist-mono);color:#4a7060;letter-spacing:.14em;margin-bottom:16px}
+.bridgeMissionsLabel{display:block;font:700 18px var(--font-geist-mono);color:#4a7060;letter-spacing:.14em;margin-bottom:16px}
 .bridgeMissionList{display:grid;gap:10px}
-.bridgeMissionItem{display:grid;grid-template-columns:44px 1fr 24px;align-items:center;gap:14px;padding:16px 18px;border:1px solid #1f3a30;border-radius:14px;background:rgba(8,20,16,.9);transition:.2s;cursor:default}
+.bridgeMissionItem{display:grid;grid-template-columns:60px 1fr 32px;align-items:center;gap:14px;padding:18px 20px;border:1px solid #1f3a30;border-radius:14px;background:rgba(8,20,16,.9);transition:.2s;cursor:default}
 .bridgeMissionItem:hover{border-color:#325c4a;transform:translateX(4px)}
-.bridgeMissionNum{font:700 22px var(--font-geist-mono);color:var(--teal);line-height:1}
-.bridgeMissionItem strong{display:block;font-size:14px;font-weight:650;margin-bottom:4px}
-.bridgeMissionItem small{display:block;font-size:11px;color:#728c82;line-height:1.4}
-.bridgeMissionArrow{font-size:14px;color:#2e5244;text-align:right}
+.bridgeMissionNum{font:700 40px var(--font-geist-mono);color:var(--teal);line-height:1}
+.bridgeMissionItem strong{display:block;font-size:26px;font-weight:650;margin-bottom:4px}
+.bridgeMissionItem small{display:block;font-size:20px;color:#728c82;line-height:1.4}
+.bridgeMissionArrow{font-size:26px;color:#2e5244;text-align:right}
 @media(max-width:950px){.companyScreen{grid-template-columns:1fr;overflow:visible}.companyCopy{padding:55px 7vw 25px}.worldMap{min-height:clamp(480px,60vh,620px);margin:20px 5vw 50px}.priorityScreen{grid-template-columns:1fr;overflow:visible}.priorityIntro{padding:55px 7vw 20px}.priorityBoard{padding:20px 7vw 60px}.priorityDataBody{grid-template-columns:1fr;padding:55px 7vw 20px}.priorityDataLeft{position:static;padding:0 0 24px}.priorityDataRight{border-left:none;padding:0}.priorityDataFooter{padding:20px 7vw 50px}.bridgeBody{grid-template-columns:1fr;padding:55px 7vw 30px;align-items:start}.bridgeLeft{padding:0 0 32px}.bridgeRight{border-left:none;padding:0}}
 @media(max-width:650px){.companyScreen,.priorityScreen{display:block;padding-top:68px}.companyScreen .missionNav,.priorityScreen .missionNav{position:fixed}.companyCopy{padding:42px 20px 15px}.companyCopy h1,.priorityIntro h1{font-size:48px}.companyStats{grid-template-columns:1fr 1fr}.worldMap{min-height:430px;margin:20px 12px 40px}.eu6 span{left:auto;right:0;top:18px}.mapPoint span{font-size:7px}.priorityIntro{padding:42px 20px 15px}.priorityBoard{padding:15px 14px 45px}.priorityItem{grid-template-columns:34px 1fr auto;gap:8px;padding:12px 10px}.priorityItem small{display:none}.orderButtons{flex-direction:column}.orderButtons button{width:28px;height:25px}.priorityPersona{margin-top:22px}}
 
