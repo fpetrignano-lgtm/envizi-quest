@@ -447,6 +447,11 @@ body{font-size:18px}.eyebrow{font-size:13px}.brand{font-size:14px}.step,.mission
 .csGeoRow{display:flex;align-items:center;gap:8px;background:#0a1a14;border:1px solid #1a3028;border-radius:8px;padding:10px 14px}
 .csGeoRowItalia{border-color:rgba(57,239,180,.35);background:rgba(57,239,180,.06)}
 .csGeoRowItalia .csDimInput{border-color:rgba(57,239,180,.4);color:var(--teal);background:#071510}
+.csGeoRowError{border-color:rgba(255,119,119,.5);background:rgba(255,119,119,.07)}
+.csGeoRowError .csDimInput{border-color:rgba(255,119,119,.5);color:#ff7777;background:#1a0a0a}
+.csGeoErrorMsg{margin:6px 0 0;font-size:14px;color:#ff7777}
+.csConfirmBtn:disabled{opacity:.35;cursor:not-allowed}
+
 .csGeoRow span:first-child{font-size:16px;color:#9db3aa;flex:1}
 .csGeoRow span:last-child{font-size:16px;color:#72c4a8;flex-shrink:0}
 .csGeoRow .csDimInput{width:68px;padding:6px 10px;font-size:18px}

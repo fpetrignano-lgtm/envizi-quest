@@ -420,11 +420,12 @@ export default function Home(){
     const handleSectorChange=(sk:SectorKey)=>{setCompanySector(sk);setCompanyDims([...SECTORS[sk].defaults] as [number,number,number,number,number]);};
     const nonItalyKeys=(companyMarket==="mondo"?geoKeys:["europa"]).filter(k=>k!=="italia");
     const otherSum=nonItalyKeys.reduce((s,k)=>s+(geoDistrib[k]??0),0);
-    const italyVal=Math.max(0,100-otherSum);
+    const italyVal=100-otherSum;
+    const geoError=(companyMarket==="europa"||companyMarket==="mondo")&&italyVal<0;
     const handleGeoChange=(key:string,val:number)=>{
       if(key==="italia")return;
-      const clamped=Math.max(0,Math.min(100,isNaN(val)?0:val));
-      setGeoDistrib(prev=>{const next={...prev,[key]:clamped};const sum=nonItalyKeys.reduce((s,k)=>s+(k===key?clamped:(next[k]??0)),0);next.italia=Math.max(0,100-sum);return next;});
+      const v=isNaN(val)?0:Math.max(0,val);
+      setGeoDistrib(prev=>{const next={...prev,[key]:v};const sum=nonItalyKeys.reduce((s,k)=>s+(k===key?v:(next[k]??0)),0);next.italia=100-sum;return next;});
     };
     return <main className="csScreen">
       <header className="missionNav"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> {isIt?"LA TUA AZIENDA":"YOUR COMPANY"}</div><button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header>
@@ -457,9 +458,10 @@ export default function Home(){
               </div>
               {(companyMarket==="europa"||companyMarket==="mondo")&&<div className="csField"><label>{isIt?"Distribuzione sedi (%, totale 100)":"Location distribution (%, total 100)"}</label>
                 <div className="csGeoGrid">
-                  <div className="csGeoRow csGeoRowItalia"><span>{isIt?"Italia":"Italy"}</span><input className="csDimInput" type="number" readOnly value={italyVal}/><span>%</span></div>
-                  {nonItalyKeys.map(k=><div key={k} className="csGeoRow"><span>{isIt?geoLabels[k].it:geoLabels[k].en}</span><input className="csDimInput" type="number" min={0} max={100} value={geoDistrib[k]??0} onChange={e=>handleGeoChange(k,parseInt(e.target.value))}/><span>%</span></div>)}
+                  <div className={`csGeoRow${geoError?" csGeoRowError":" csGeoRowItalia"}`}><span>{isIt?"Italia":"Italy"}</span><input className="csDimInput" type="number" readOnly value={italyVal}/><span>%</span></div>
+                  {nonItalyKeys.map(k=><div key={k} className="csGeoRow"><span>{isIt?geoLabels[k].it:geoLabels[k].en}</span><input className="csDimInput" type="number" min={0} value={geoDistrib[k]??0} onChange={e=>handleGeoChange(k,parseInt(e.target.value))}/><span>%</span></div>)}
                 </div>
+                {geoError&&<p className="csGeoErrorMsg">{isIt?"⚠ La somma delle altre regioni supera 100%. Riduci i valori.":"⚠ The sum of other regions exceeds 100%. Please reduce the values."}</p>}
               </div>}
             </div>
             <div className="csFormRight">
@@ -469,7 +471,7 @@ export default function Home(){
                 </select>
                 <p className="csReadinessDesc">{activeReadiness.desc}</p>
               </div>
-              <button className="actionButton csConfirmBtn" onClick={()=>setScreen("company")}>{isIt?"Entra nell'azienda":"Enter the company"}<b>→</b></button>
+              <button className="actionButton csConfirmBtn" disabled={geoError} onClick={()=>setScreen("company")}>{isIt?"Entra nell'azienda":"Enter the company"}<b>→</b></button>
             </div>
           </div>
         </div>
