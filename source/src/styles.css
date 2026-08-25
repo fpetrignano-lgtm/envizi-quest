@@ -376,7 +376,7 @@ body{font-size:18px}.eyebrow{font-size:13px}.brand{font-size:14px}.step,.mission
 /* Left column: visual + people track */
 .approachLeft{min-width:0;display:flex;flex-direction:column;flex:1}
 .approachVisual{display:flex;flex-direction:column;align-items:stretch;gap:14px;flex:1}
-.approachTeamImage{width:100%;height:220px;object-fit:cover;object-position:center;border-radius:20px;border:1px solid rgba(255,255,255,.08);box-shadow:0 18px 42px rgba(0,0,0,.22)}
+.approachTeamImage{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center;border-radius:20px;border:1px solid rgba(255,255,255,.08);box-shadow:0 18px 42px rgba(0,0,0,.22)}
 .approachPeopleIntro,.approachDataIntro{padding:0 2px 2px;display:flex;flex-direction:column;justify-content:flex-start}
 .approachPeopleIntro h2,.approachDataIntro h2{margin:0;font-size:clamp(22px,2vw,32px);line-height:1.15;color:#f2fff9}
 
@@ -384,7 +384,7 @@ body{font-size:18px}.eyebrow{font-size:13px}.brand{font-size:14px}.step,.mission
 .approachRight{display:flex;flex-direction:column;gap:14px;min-width:0;padding:10px 2px 8px;flex:1}
 
 /* Data challenge block */
-.approachDataImage{width:100%;height:220px;object-fit:cover;object-position:center;border-radius:20px;border:1px solid rgba(255,255,255,.08);box-shadow:0 18px 42px rgba(0,0,0,.22)}
+.approachDataImage{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center;border-radius:20px;border:1px solid rgba(255,255,255,.08);box-shadow:0 18px 42px rgba(0,0,0,.22)}
 .approachDataBlock{padding:18px 20px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);min-height:124px}
 .approachDataBlock strong{display:block;font-size:22px;color:#39efb4;margin-bottom:10px;line-height:1.2}
 .approachDataBlock p{margin:0;color:#d7efe6;font-size:18px;line-height:1.65}
@@ -398,12 +398,11 @@ body{font-size:18px}.eyebrow{font-size:13px}.brand{font-size:14px}.step,.mission
 
 @media(max-width:1100px){
   .approachBody{grid-template-columns:1fr;gap:22px}
-  .approachTeamImage,.approachDataImage{height:260px}
 }
 @media(max-width:580px){
   .approachBody{padding:24px 20px 40px}
   .approachTopTitle h1{font-size:40px;line-height:1}
-  .approachTeamImage,.approachDataImage{height:200px;border-radius:16px}
+  .approachTeamImage,.approachDataImage{border-radius:16px}
   .approachPeopleNote p{font-size:16px}
   .approachOptionCard strong,.approachDataBlock strong{font-size:19px}
   .approachOptionCard p,.approachDataBlock p{font-size:16px}
