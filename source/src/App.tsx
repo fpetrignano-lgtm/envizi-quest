@@ -606,21 +606,21 @@ export default function Home(){
           {highReqs.length>0&&<section className="dfcSection">
             <p className="dfcSectionLabel" style={{color:"#39efb4"}}>{isIt?"FATTORI MOLTO RILEVANTI":"HIGHLY RELEVANT FACTORS"}</p>
             <ul className="dfcFactorList">
-              {highReqs.map(r=><li key={r.id}><span className="dfcFactorDot" style={{background:"#39efb4"}}/>{isIt?r.it:r.en}</li>)}
+              {highReqs.map(r=><li key={r.id} style={{fontSize:"clamp(26px,2.4vw,32px)"}}><span className="dfcFactorDot" style={{background:"#39efb4"}}/>{isIt?r.it:r.en}</li>)}
             </ul>
           </section>}
 
           {medReqs.length>0&&<section className="dfcSection">
             <p className="dfcSectionLabel" style={{color:"#ffc07c"}}>{isIt?"FATTORI MEDIAMENTE RILEVANTI":"MODERATELY RELEVANT FACTORS"}</p>
             <ul className="dfcFactorList">
-              {medReqs.map(r=><li key={r.id}><span className="dfcFactorDot" style={{background:"#ffc07c"}}/>{isIt?r.it:r.en}</li>)}
+              {medReqs.map(r=><li key={r.id} style={{fontSize:"clamp(26px,2.4vw,32px)"}}><span className="dfcFactorDot" style={{background:"#ffc07c"}}/>{isIt?r.it:r.en}</li>)}
             </ul>
           </section>}
 
           {lowReqs.length>0&&<section className="dfcSection">
             <p className="dfcSectionLabel" style={{color:"#57606a"}}>{isIt?"FATTORI NON RILEVANTI":"NON-RELEVANT FACTORS"}</p>
             <ul className="dfcFactorList">
-              {lowReqs.map(r=><li key={r.id}><span className="dfcFactorDot" style={{background:"#57606a"}}/>{isIt?r.it:r.en}</li>)}
+              {lowReqs.map(r=><li key={r.id} style={{fontSize:"clamp(26px,2.4vw,32px)"}}><span className="dfcFactorDot" style={{background:"#57606a"}}/>{isIt?r.it:r.en}</li>)}
             </ul>
           </section>}
         </div>
