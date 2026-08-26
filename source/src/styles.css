@@ -654,3 +654,22 @@ body{font-size:18px}.eyebrow{font-size:22px}.brand{font-size:14px}.step,.mission
 .milestoneActions{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:8px}
 .milestoneBack{background:transparent;border:1px solid #2b4a3c;color:#9db3aa;padding:14px 24px;border-radius:12px;font-size:15px;font-weight:600;cursor:pointer;transition:.15s}.milestoneBack:hover{border-color:var(--teal);color:var(--teal)}
 @media(max-width:900px){.milestoneBody{grid-template-columns:1fr}.milestoneStage{min-height:40vh}.milestoneContent{padding:32px 24px 48px}}
+
+/* dfConclusion screen */
+.dfConclusionBody{max-width:860px;margin:0 auto;padding:40px 32px 80px;display:flex;flex-direction:column;gap:40px}
+.dfcSection{display:flex;flex-direction:column;gap:16px}
+.dfcSectionLabel{font-size:11px;font-weight:700;letter-spacing:.14em;color:#7a9a90;text-transform:uppercase;margin:0}
+.dfcDecisionCard{display:flex;align-items:center;gap:24px;background:rgba(57,239,180,.05);border:1px solid rgba(57,239,180,.15);border-radius:16px;overflow:hidden;padding:0}
+.dfcDecisionImg{width:200px;height:130px;object-fit:cover;object-position:center;flex-shrink:0;display:block}
+.dfcDecisionInfo{padding:20px 24px;flex:1}
+.dfcScoreRow{display:flex;align-items:stretch;gap:20px;flex-wrap:wrap}
+.dfcFactorList{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.dfcFactorList li{display:flex;align-items:flex-start;gap:12px;font-size:clamp(14px,1.3vw,17px);color:#c8ddd6;line-height:1.5}
+.dfcFactorDot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:6px}
+.dfcActions{display:flex;gap:12px;flex-wrap:wrap;padding-top:8px}
+@media(max-width:640px){
+  .dfConclusionBody{padding:24px 16px 60px;gap:28px}
+  .dfcDecisionCard{flex-direction:column}
+  .dfcDecisionImg{width:100%;height:160px}
+  .dfcScoreRow{flex-direction:column}
+}

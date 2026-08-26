@@ -547,8 +547,15 @@ export default function Home(){
     const dfScore=Object.values(dfRatings).reduce((s,v)=>s+(v==="medium"?5:v==="high"?10:0),0);
     const dfPct=Math.min(100,Math.round(dfScore));
     const dfHighlight=dfScore>=40;
-    const ratingColor=(v:DFRating)=>v==="high"?"#39efb4":v==="medium"?"#ffc07c":"#57606a";
-    const ratingLabel=(v:DFRating)=>isIt?(v==="high"?"Alto":v==="medium"?"Medio":"Basso"):(v==="high"?"High":v==="medium"?"Medium":"Low");
+    // decisione M0 presa
+    const m0outcome=missionOutcomes[0];
+    const decisionTaken=m0outcome?t.decisionLabels[m0outcome]:null;
+    const decisionImg=m0outcome==="positive"?"./envizi-data-automation.png":m0outcome==="warning"?"./envizi-manual-forms.png":"./envizi-spreadsheets-email.png";
+    const decisionColor=m0outcome==="positive"?"#39efb4":m0outcome==="warning"?"#ffc07c":"#ff7777";
+    // gruppi fattori
+    const highReqs=DF_REQUIREMENTS.filter(r=>dfRatings[r.id]==="high");
+    const medReqs=DF_REQUIREMENTS.filter(r=>dfRatings[r.id]==="medium");
+    const lowReqs=DF_REQUIREMENTS.filter(r=>dfRatings[r.id]==="low");
     return <main className="dfScreen">
       <header className="missionNav missionNavTrust">
         <button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button>
@@ -557,52 +564,71 @@ export default function Home(){
         <button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button>
       </header>
 
-      <div className="dfStickyBar">
-        <div className="dfStickyLeft">
+      <div className="dfConclusionBody">
+
+        {/* BLOCCO 1 — Decisione presa */}
+        <section className="dfcSection dfcDecision">
           <p className="eyebrow">{isIt?"CONCLUSIONI · DATA FOUNDATION":"CONCLUSIONS · DATA FOUNDATION"}</p>
-          <h1>{isIt?"La tua valutazione dei requisiti IBM Envizi":"Your IBM Envizi requirements assessment"}</h1>
-          <p className="dfSubtitle">{isIt?"Riepilogo dei requisiti valutati e del punteggio di rilevanza complessivo.":"Summary of the requirements you rated and your overall relevance score."}</p>
-          {dfHighlight&&<div className="dfScoreMsg"><span className="dfScoreMsgIcon">⬡</span><p>{isIt?"Molto probabilmente IBM Envizi è la soluzione per la tua azienda.":"IBM Envizi is very likely the right solution for your organisation."}</p></div>}
-          {!dfHighlight&&<div className="dfScoreMsg" style={{borderColor:"#ffc07c"}}><span className="dfScoreMsgIcon" style={{color:"#ffc07c"}}>⬡</span><p style={{color:"#ffc07c"}}>{isIt?"Alcuni requisiti sono prioritari: approfondisci con il tuo team IBM.":"Some requirements are a priority — explore further with your IBM team."}</p></div>}
-        </div>
-        <div className="dfStickyRight">
-          <div className="dfScoreBox">
-            <span className="dfScoreBoxLabel">{isIt?"Punteggio rilevanza":"Relevance score"}</span>
-            <strong className={dfHighlight?"dfScoreHigh":""}>{dfScore}<em>/100</em></strong>
-            <div className="dfScoreTrack"><span className="dfScoreFill" style={{width:`${dfPct}%`,background:dfHighlight?"#39efb4":"#ffc07c"}}/></div>
-          </div>
-          <div style={{display:"flex",gap:"10px",flexWrap:"wrap"}}>
-            <button className="actionButton" style={{flex:"0 0 auto"}} onClick={()=>goBack()}>{isIt?"← Indietro":"← Back"}</button>
-            <button className="actionButton" style={{flex:"1 1 auto"}} onClick={()=>setScreen("missions")}>{isIt?"Entra nella roadmap →":"Enter the roadmap →"}</button>
-          </div>
-        </div>
-      </div>
-
-      <div className="dfGrid" style={{paddingTop:"16px"}}>
-        {DF_REQUIREMENTS.map((req,i)=>{
-          const rating=dfRatings[req.id];
-          const pts=rating==="high"?10:rating==="medium"?5:0;
-          const col=ratingColor(rating);
-          return <div key={req.id} className={`dfRow${rating!=="low"?" dfRowActive":""}${rating==="low"?" dfRowLow":""}`} style={{gridTemplateColumns:"1fr auto"}}>
-            <div className="dfRowReq">
-              <div className="dfRowReqTop">
-                <span className="dfItemNum">{String(i+1).padStart(2,"0")}</span>
-                <p className="dfItemQ">{isIt?req.it:req.en}</p>
-              </div>
+          <h1>{isIt?"La tua scelta per la gestione dei dati ESG":"Your ESG data management choice"}</h1>
+          {decisionTaken&&<div className="dfcDecisionCard">
+            <img src={decisionImg} alt={decisionTaken} className="dfcDecisionImg"/>
+            <div className="dfcDecisionInfo">
+              <small style={{color:"#7a9a90"}}>{isIt?"DECISIONE ADOTTATA · MISSIONE 01":"DECISION ADOPTED · MISSION 01"}</small>
+              <strong style={{color:decisionColor,fontSize:"clamp(16px,1.6vw,22px)",lineHeight:1.3,display:"block",marginTop:"6px"}}>{decisionTaken}</strong>
             </div>
-            <div style={{display:"flex",alignItems:"center",gap:"10px",padding:"0 20px 0 0"}}>
-              <span style={{fontSize:"13px",fontWeight:700,color:col,border:`1px solid ${col}`,borderRadius:"6px",padding:"4px 12px",whiteSpace:"nowrap"}}>{ratingLabel(rating)}{pts>0?` +${pts}`:" +0"}</span>
-            </div>
-          </div>;
-        })}
-      </div>
+          </div>}
+        </section>
 
-      <footer className="dfFooter" style={{paddingBottom:"32px"}}>
-        <div style={{display:"flex",gap:"12px",justifyContent:"flex-end",marginTop:"24px",flexWrap:"wrap"}}>
+        {/* BLOCCO 2 — Valutazione rilevanza */}
+        <section className="dfcSection dfcScore">
+          <p className="dfcSectionLabel">{isIt?"RILEVANZA IBM ENVIZI PER LA TUA AZIENDA":"IBM ENVIZI RELEVANCE FOR YOUR ORGANISATION"}</p>
+          <div className="dfcScoreRow">
+            <div className="dfScoreBox" style={{minWidth:"180px"}}>
+              <span className="dfScoreBoxLabel">{isIt?"Punteggio rilevanza":"Relevance score"}</span>
+              <strong className={dfHighlight?"dfScoreHigh":""}>{dfScore}<em>/100</em></strong>
+              <div className="dfScoreTrack"><span className="dfScoreFill" style={{width:`${dfPct}%`,background:dfHighlight?"#39efb4":"#ffc07c"}}/></div>
+            </div>
+            <div className={`dfScoreMsg${dfHighlight?"":" dfScoreMsgWarn"}`} style={{flex:1,margin:0,borderColor:dfHighlight?"#39efb4":"#ffc07c"}}>
+              <span className="dfScoreMsgIcon" style={{color:dfHighlight?"#39efb4":"#ffc07c"}}>⬡</span>
+              <p style={{color:dfHighlight?"#39efb4":"#ffc07c"}}>{dfHighlight
+                ?(isIt?"Molto probabilmente IBM Envizi è la soluzione per la tua azienda.":"IBM Envizi is very likely the right solution for your organisation.")
+                :(isIt?"Alcuni requisiti sono prioritari: approfondisci con il tuo team IBM.":"Some requirements are a priority — explore further with your IBM team.")
+              }</p>
+            </div>
+          </div>
+        </section>
+
+        {/* BLOCCO 3 — Fattori molto rilevanti */}
+        {highReqs.length>0&&<section className="dfcSection">
+          <p className="dfcSectionLabel" style={{color:"#39efb4"}}>{isIt?"FATTORI MOLTO RILEVANTI PER ENVIZI":"HIGHLY RELEVANT FACTORS FOR ENVIZI"}</p>
+          <ul className="dfcFactorList dfcFactorListHigh">
+            {highReqs.map(r=><li key={r.id}><span className="dfcFactorDot" style={{background:"#39efb4"}}/>{isIt?r.it:r.en}</li>)}
+          </ul>
+        </section>}
+
+        {/* BLOCCO 4 — Fattori mediamente rilevanti */}
+        {medReqs.length>0&&<section className="dfcSection">
+          <p className="dfcSectionLabel" style={{color:"#ffc07c"}}>{isIt?"FATTORI MEDIAMENTE RILEVANTI":"MODERATELY RELEVANT FACTORS"}</p>
+          <ul className="dfcFactorList dfcFactorListMed">
+            {medReqs.map(r=><li key={r.id}><span className="dfcFactorDot" style={{background:"#ffc07c"}}/>{isIt?r.it:r.en}</li>)}
+          </ul>
+        </section>}
+
+        {/* BLOCCO 5 — Fattori non rilevanti */}
+        {lowReqs.length>0&&<section className="dfcSection">
+          <p className="dfcSectionLabel" style={{color:"#57606a"}}>{isIt?"FATTORI NON RILEVANTI":"NON-RELEVANT FACTORS"}</p>
+          <ul className="dfcFactorList dfcFactorListLow">
+            {lowReqs.map(r=><li key={r.id}><span className="dfcFactorDot" style={{background:"#57606a"}}/>{isIt?r.it:r.en}</li>)}
+          </ul>
+        </section>}
+
+        {/* CTA */}
+        <div className="dfcActions">
           <button className="actionButton" onClick={()=>goBack()}>{isIt?"← Indietro":"← Back"}</button>
           <button className="actionButton" onClick={()=>setScreen("missions")}>{isIt?"Entra nella roadmap →":"Enter the roadmap →"}</button>
         </div>
-      </footer>
+
+      </div>
     </main>;
   }
 
