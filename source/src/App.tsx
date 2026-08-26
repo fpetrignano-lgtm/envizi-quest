@@ -87,42 +87,42 @@ const copy = {
         {id:"credit-1",label:"Emissioni Scope 1, 2 e 3 verificabili e auditabili"},
         {id:"credit-2",label:"Indici ESG strutturati per il dialogo con banche e investitori"},
         {id:"credit-3",label:"Tracciabilità completa dalla fonte al report finale"},
-        {id:"credit-4",label:"Rating ESG comparabili con i peer di settore"},
+        {id:"credit-4",label:"Dati e piano ESG utilizzabili nei processi di rating e confronto con i peer"},
         {id:"credit-5",label:"Disclosure allineata agli standard di rendicontazione finanziaria sostenibile (ESRS, ISSB)"}
       ],
       compliance:[
         {id:"compliance-1",label:"Calcoli GHG Scope 1–2 e Scope 3 tracciabili e riconciliabili"},
-        {id:"compliance-2",label:"Workflow con assignee, approvazioni ed evidenze per l'assurance"},
+        {id:"compliance-2",label:"Workflow con assignee, scadenze, risposte ed evidenze per l'assurance"},
         {id:"compliance-3",label:"Framework CSRD / ESRS e GRI aggiornati e gestiti nel sistema"},
         {id:"compliance-4",label:"Registro delle modifiche e audit trail per ogni dato ESG"},
-        {id:"compliance-5",label:"Mappatura automatica delle informazioni materiali richieste dagli standard"}
+        {id:"compliance-5",label:"Identificazione e gestione delle informazioni materiali e dei gap rispetto agli standard"}
       ],
       customers:[
         {id:"customers-1",label:"Dati Scope 3 per categoria GHG Protocol (acquisti, trasporti, prodotti)"},
         {id:"customers-2",label:"Risposte dei fornitori strutturate e integrabili nella contabilità GHG"},
-        {id:"customers-3",label:"Product Carbon Footprint per le linee di prodotto rilevanti"},
-        {id:"customers-4",label:"Documentazione ESG pronta per capitolati e qualifiche di gara"},
+        {id:"customers-3",label:"Product Carbon Footprint forniti dai supplier per prodotti e acquisti rilevanti"},
+        {id:"customers-4",label:"Informazioni ESG riutilizzabili per capitolati e qualifiche di gara"},
         {id:"customers-5",label:"Comparabilità delle prestazioni ambientali rispetto ai concorrenti"}
       ],
       efficiency:[
-        {id:"efficiency-1",label:"Dati intervallari dei contatori digitali quasi in tempo reale"},
+        {id:"efficiency-1",label:"Dati intervallari ad alta frequenza da contatori e sistemi di sub-metering"},
         {id:"efficiency-2",label:"Analisi delle bollette per sito, tariffa e voci di anomalia"},
         {id:"efficiency-3",label:"KPI energetici normalizzati per meteo e output produttivo"},
-        {id:"efficiency-4",label:"Alert automatici su picchi, sprechi e consumi fuori orario"},
-        {id:"efficiency-5",label:"Benchmarking dei consumi tra stabilimenti e verso target SBTi"}
+        {id:"efficiency-4",label:"Alert automatici su picchi, sprechi e consumi fuori andamento atteso"},
+        {id:"efficiency-5",label:"Benchmarking dei consumi tra stabilimenti e monitoraggio rispetto ai target climatici"}
       ],
       supply:[
         {id:"supply-1",label:"Dati Scope 3 cat. 1 (acquisti) e cat. 4 (trasporti upstream)"},
-        {id:"supply-2",label:"Risposte fornitori su emissioni, conformità e continuità operativa"},
+        {id:"supply-2",label:"Risposte fornitori su emissioni, conformità e continuità"},
         {id:"supply-3",label:"Integrazione con i flussi ERP per coprire gli ordini di acquisto"},
         {id:"supply-4",label:"Valutazione del rischio ESG per fornitore e paese di origine"},
-        {id:"supply-5",label:"Tracciabilità delle azioni correttive e dei piani di miglioramento dei fornitori"}
+        {id:"supply-5",label:"Tracciabilità delle azioni correttive e dei piani di miglioramento"}
       ],
       reputation:[
-        {id:"reputation-1",label:"Report ESG pronti per gli stakeholder, allineati ai framework pubblici"},
+        {id:"reputation-1",label:"Report ESG per gli stakeholder, coerenti con i framework pubblici"},
         {id:"reputation-2",label:"Dati verificabili su diversity, sicurezza e impatto sociale"},
         {id:"reputation-3",label:"Indicatori di performance comparabili nel tempo e tra sedi"},
-        {id:"reputation-4",label:"Contenuti ESG strutturati per comunicazione esterna e sito istituzionale"},
+        {id:"reputation-4",label:"Contenuti ESG strutturati e riutilizzabili nella comunicazione esterna"},
         {id:"reputation-5",label:"Evidenze di avanzamento verso obiettivi Net Zero comunicabili agli stakeholder"}
       ]
     },
@@ -204,42 +204,42 @@ const copy = {
         {id:"credit-1",label:"Verifiable and auditable Scope 1, 2 and 3 emissions"},
         {id:"credit-2",label:"Structured ESG indices for dialogue with banks and investors"},
         {id:"credit-3",label:"Full traceability from source to final report"},
-        {id:"credit-4",label:"ESG ratings comparable with sector peers"},
+        {id:"credit-4",label:"ESG data and plan usable in rating processes and peer benchmarking"},
         {id:"credit-5",label:"Disclosure aligned with sustainable finance reporting standards (ESRS, ISSB)"}
       ],
       compliance:[
         {id:"compliance-1",label:"Traceable and reconcilable Scope 1–2 and Scope 3 GHG calculations"},
-        {id:"compliance-2",label:"Workflows with assignees, approvals and evidence for assurance"},
+        {id:"compliance-2",label:"Workflows with assignees, deadlines, responses and evidence for assurance"},
         {id:"compliance-3",label:"CSRD / ESRS and GRI frameworks kept current in the system"},
         {id:"compliance-4",label:"Change log and audit trail for every ESG data point"},
-        {id:"compliance-5",label:"Automatic mapping of material information required by standards"}
+        {id:"compliance-5",label:"Identification and management of material information and gaps against standards"}
       ],
       customers:[
         {id:"customers-1",label:"Scope 3 data by GHG Protocol category (procurement, transport, products)"},
         {id:"customers-2",label:"Structured supplier responses integrable into GHG accounting"},
-        {id:"customers-3",label:"Product Carbon Footprints for relevant product lines"},
-        {id:"customers-4",label:"ESG documentation ready for tender qualification requirements"},
+        {id:"customers-3",label:"Product Carbon Footprints provided by suppliers for relevant products and purchases"},
+        {id:"customers-4",label:"Reusable ESG information for tender and procurement qualification requirements"},
         {id:"customers-5",label:"Environmental performance comparability against competitors"}
       ],
       efficiency:[
-        {id:"efficiency-1",label:"Near-real-time interval data from digital meters"},
+        {id:"efficiency-1",label:"High-frequency interval data from meters and sub-metering systems"},
         {id:"efficiency-2",label:"Bill analytics by site, tariff and anomaly line item"},
         {id:"efficiency-3",label:"Energy KPIs normalised for weather and production output"},
-        {id:"efficiency-4",label:"Automatic alerts on peaks, waste and out-of-hours consumption"},
-        {id:"efficiency-5",label:"Consumption benchmarking across plants and against SBTi targets"}
+        {id:"efficiency-4",label:"Automatic alerts on peaks, waste and consumption outside expected trends"},
+        {id:"efficiency-5",label:"Consumption benchmarking across plants and monitoring against climate targets"}
       ],
       supply:[
         {id:"supply-1",label:"Scope 3 cat. 1 (purchased goods) and cat. 4 (upstream transport) data"},
-        {id:"supply-2",label:"Supplier responses on emissions, compliance and operational continuity"},
+        {id:"supply-2",label:"Supplier responses on emissions, compliance and continuity"},
         {id:"supply-3",label:"Integration with ERP purchase-order flows"},
         {id:"supply-4",label:"ESG risk assessment by supplier and country of origin"},
-        {id:"supply-5",label:"Traceability of corrective actions and supplier improvement plans"}
+        {id:"supply-5",label:"Traceability of corrective actions and improvement plans"}
       ],
       reputation:[
-        {id:"reputation-1",label:"Stakeholder-ready ESG reports aligned with public frameworks"},
+        {id:"reputation-1",label:"Stakeholder ESG reports consistent with public frameworks"},
         {id:"reputation-2",label:"Verifiable data on diversity, safety and social impact"},
         {id:"reputation-3",label:"Performance indicators comparable over time and across sites"},
-        {id:"reputation-4",label:"Structured ESG content for external communication and corporate website"},
+        {id:"reputation-4",label:"Structured and reusable ESG content for external communication"},
         {id:"reputation-5",label:"Evidence of Net Zero progress communicable to stakeholders"}
       ]
     },
@@ -348,42 +348,42 @@ export default function Home(){
   const rankNeed=(fromIdx:number,toRank:number)=>{const clamped=Math.max(1,Math.min(dataNeeds.length,toRank));const toIdx=clamped-1;if(toIdx===fromIdx)return;const next=[...dataNeeds];const [item]=next.splice(fromIdx,1);next.splice(toIdx,0,item);setDataNeeds(next);};
   const rankPriority=(fromIdx:number,toRank:number)=>{const clamped=Math.max(1,Math.min(priorities.length,toRank));const toIdx=clamped-1;if(toIdx===fromIdx)return;const next=[...priorities];const [item]=next.splice(fromIdx,1);next.splice(toIdx,0,item);setPriorities(next);};
   const needIdToMission:Record<string,number>={
-    // M0 — Data Foundation (raccolta, audit trail, calcoli GHG, tracciabilità)
-    "credit-1":0,    // Emissioni Scope 1-2-3 verificabili → core Envizi
+    // M0 — Data Foundation (audit trail, change log, social metrics)
     "credit-3":0,    // Tracciabilità dalla fonte al report → audit trail Envizi
-    "compliance-1":0, // Calcoli GHG tracciabili → motore GHG Envizi
     "compliance-4":0, // Registro modifiche e audit trail → Envizi native
-    "reputation-2":0, // Dati diversity/sicurezza verificabili → social data Envizi
-    "reputation-3":0, // Indicatori comparabili nel tempo → time-series Envizi
+    "reputation-2":0, // Dati diversity/sicurezza verificabili → Social Metrics + Surveys
     // M1 — Energia (Utility Bill Analytics + Interval Meter Analytics)
-    "efficiency-1":1, // Dati intervallari contatori → Interval Meter Analytics
+    "efficiency-1":1, // Dati intervallari alta frequenza → Interval Meter Analytics
     "efficiency-2":1, // Analisi bollette per sito → Utility Bill Analytics
     "efficiency-3":1, // KPI energetici normalizzati → normalizzazione Envizi
-    "efficiency-4":1, // Alert automatici su picchi → alert engine Envizi
+    "efficiency-4":1, // Alert su picchi e anomalie → meter-based alerts
     // M2 — Supply Chain (Surveys + Supply Chain Intelligence)
     "supply-1":2,    // Scope 3 cat.1 e cat.4 → Supply Chain Intelligence
     "supply-2":2,    // Risposte fornitori → Envizi Surveys
     "supply-3":2,    // Integrazione ERP ordini → Supply Chain Intelligence
-    "supply-4":2,    // Rischio ESG fornitore → visibilità dati Supply Chain
-    "supply-5":2,    // Tracciabilità azioni correttive → Surveys follow-up
+    "supply-4":2,    // Rischio ESG fornitore → Surveys + Assessments
+    "supply-5":2,    // Tracciabilità azioni correttive → Issues Management Surveys
     "customers-1":2, // Scope 3 per categoria GHG Protocol → Supply Chain
-    "customers-2":2, // Risposte fornitori in contabilità GHG → Surveys
-    "customers-3":2, // Product Carbon Footprint → Supply Chain Intelligence
+    "customers-2":2, // Risposte fornitori integrabili GHG → Surveys + Supply Chain
+    "customers-3":2, // Product Carbon Footprint supplier → Supply Chain Intelligence
     // M3 — Reporting e performance (GHG Reporting + PowerReports)
+    "credit-1":3,    // Emissioni Scope 1-2-3 verificabili → GHG Accounting + Reporting
     "credit-2":3,    // Indici ESG per banche → dashboard PowerReports
-    "customers-5":3, // Comparabilità prestazioni ambientali → dashboard KPI
+    "compliance-1":3, // Calcoli GHG tracciabili → motore GHG Scope 1&2 + Scope 3
+    "reputation-3":3, // Indicatori comparabili → PowerReports multi-periodo
+    "customers-5":3, // Comparabilità prestazioni ambientali → PowerReports
     // M4 — Net Zero (Planning Analytics + Scenario Modeler)
-    "credit-4":4,    // Rating ESG → le agenzie e le banche valutano il piano Net Zero
-    "efficiency-5":4, // Benchmarking vs target SBTi → Target Setting Envizi
+    "credit-4":4,    // Piano ESG per rating e peer → dati Envizi a supporto
+    "efficiency-5":4, // Benchmarking vs target climatici → Target Setting + Tracking
     "reputation-5":4, // Evidenze avanzamento Net Zero → Program Tracking
-    // M5 — Framework ESG e disclosure (ESG Reporting Frameworks)
-    "compliance-2":5, // Workflow approvazioni per assurance → framework workflow
-    "compliance-3":5, // Framework CSRD/ESRS/GRI gestiti → framework SaaS
-    "compliance-5":5, // Mappatura requisiti materiali → framework mapping
-    "credit-5":5,    // Disclosure ESRS/ISSB → framework output (credito → CSRD)
-    "customers-4":5, // Documentazione ESG per gare → disclosure output
-    "reputation-1":5, // Report ESG per stakeholder → framework + PowerReports
-    "reputation-4":5, // Contenuti ESG strutturati → disclosure output framework
+    // M5 — Framework ESG e disclosure (Sustainability Reporting Manager)
+    "compliance-2":5, // Workflow approvazioni assurance → Sustainability Reporting Manager
+    "compliance-3":5, // Framework CSRD/ESRS/GRI → Framework Library SRM
+    "compliance-5":5, // Informazioni materiali e gap → Materiality + gap tags SRM
+    "credit-5":5,    // Disclosure ESRS/ISSB → Framework Library + workflow SRM
+    "customers-4":5, // Info ESG riutilizzabili per gare → export e risposte SRM
+    "reputation-1":5, // Report ESG per stakeholder → SRM + PowerReports
+    "reputation-4":5, // Contenuti ESG per comunicazione esterna → export SRM
   };
   const topNeeds=dataNeeds.slice(0,topNNeeds).map((n,i)=>({...n,rank:i+1}));
   const needsByMissionHub:[number,typeof topNeeds][]=[0,1,2,3,4,5].map(mi=>[mi,topNeeds.filter(n=>(needIdToMission[n.id]??0)===mi)]);
