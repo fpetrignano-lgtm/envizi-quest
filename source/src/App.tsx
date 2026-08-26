@@ -467,7 +467,7 @@ export default function Home(){
     const allRated=DF_REQUIREMENTS.every(r=>dfRatings[r.id]);
     const dfScore=Object.values(dfRatings).reduce((s,v)=>s+(v==="medium"?7.5:v==="high"?10:0),0);
     const dfPct=Math.min(100,Math.round(dfScore));
-    const dfHighlight=dfScore>=40;
+    const dfHighlight=dfScore>=35;
     return <main className="dfScreen">
       <header className="missionNav missionNavTrust">
         <button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button>
@@ -546,7 +546,7 @@ export default function Home(){
     const isIt=language==="it";
     const dfScore=Object.values(dfRatings).reduce((s,v)=>s+(v==="medium"?7.5:v==="high"?10:0),0);
     const dfPct=Math.min(100,Math.round(dfScore));
-    const dfHighlight=dfScore>=40;
+    const dfHighlight=dfScore>=35;
     // decisione M0 presa
     const m0outcome=missionOutcomes[0];
     const decisionTaken=m0outcome?t.decisionLabels[m0outcome]:null;
