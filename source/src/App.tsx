@@ -603,7 +603,7 @@ export default function Home(){
 
         {/* COLONNA DX — fattori divisi per livello */}
         <div className="dfcRight">
-          <p className="dfcIntroTitle">{isIt?"Abbiamo recepito che per te la scelta Envizi può essere giustificata per:":"We've noted that for you the Envizi choice can be justified by:"}</p>
+MI X          {dfHighlight&&<p className="dfcIntroTitle">{isIt?"Abbiamo recepito che per te la scelta Envizi può essere giustificata per:":"We've noted that for you the Envizi choice can be justified by:"}</p>}
           {highReqs.length>0&&<section className="dfcSection">
             <p className="dfcSectionLabel" style={{color:"#39efb4"}}>{isIt?"FATTORI MOLTO RILEVANTI":"HIGHLY RELEVANT FACTORS"}</p>
             <ul className="dfcFactorList">
