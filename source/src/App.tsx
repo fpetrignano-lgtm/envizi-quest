@@ -348,15 +348,22 @@ export default function Home(){
   const rankNeed=(fromIdx:number,toRank:number)=>{const clamped=Math.max(1,Math.min(dataNeeds.length,toRank));const toIdx=clamped-1;if(toIdx===fromIdx)return;const next=[...dataNeeds];const [item]=next.splice(fromIdx,1);next.splice(toIdx,0,item);setDataNeeds(next);};
   const rankPriority=(fromIdx:number,toRank:number)=>{const clamped=Math.max(1,Math.min(priorities.length,toRank));const toIdx=clamped-1;if(toIdx===fromIdx)return;const next=[...priorities];const [item]=next.splice(fromIdx,1);next.splice(toIdx,0,item);setPriorities(next);};
   const needIdToMission:Record<string,number>={
+    // M0 — Data Foundation
     "credit-1":0,"credit-3":0,"compliance-1":0,"compliance-4":0,"reputation-2":0,"reputation-3":0,
-    "efficiency-1":1,"efficiency-2":1,"efficiency-3":1,"efficiency-4":1,"efficiency-5":4,
+    // M1 — Energia
+    "efficiency-1":1,"efficiency-2":1,"efficiency-3":1,"efficiency-4":1,
+    // M2 — Supply Chain
     "supply-1":2,"supply-2":2,"supply-3":2,"supply-4":2,"supply-5":2,
     "customers-1":2,"customers-2":2,"customers-3":2,
-    "compliance-2":3,"compliance-3":3,"compliance-5":3,
-    "credit-2":3,"credit-4":3,"credit-5":3,
-    "customers-4":3,"customers-5":3,
-    "reputation-1":3,"reputation-4":3,
-    "reputation-5":4,
+    // M3 — Reporting e performance
+    "credit-2":3,"credit-4":3,
+    // M4 — Net Zero
+    "efficiency-5":4,"reputation-5":4,
+    // M5 — Framework ESG e disclosure
+    "compliance-2":5,"compliance-3":5,"compliance-5":5,
+    "credit-5":5,
+    "customers-4":5,"customers-5":5,
+    "reputation-1":5,"reputation-4":5,
   };
   const topNeeds=dataNeeds.slice(0,topNNeeds).map((n,i)=>({...n,rank:i+1}));
   const needsByMissionHub:[number,typeof topNeeds][]=[0,1,2,3,4,5].map(mi=>[mi,topNeeds.filter(n=>(needIdToMission[n.id]??0)===mi)]);
