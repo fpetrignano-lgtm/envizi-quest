@@ -371,10 +371,9 @@ export default function Home(){
     "customers-3":2, // Product Carbon Footprint → Supply Chain Intelligence
     // M3 — Reporting e performance (GHG Reporting + PowerReports)
     "credit-2":3,    // Indici ESG per banche → dashboard PowerReports
-    "credit-4":3,    // Rating ESG comparabili → benchmark dashboard
     "customers-5":3, // Comparabilità prestazioni ambientali → dashboard KPI
     // M4 — Net Zero (Planning Analytics + Scenario Modeler)
-    "credit-2_plan":4, // placeholder — credit coperto da credit-2 in M3
+    "credit-4":4,    // Rating ESG → le agenzie e le banche valutano il piano Net Zero
     "efficiency-5":4, // Benchmarking vs target SBTi → Target Setting Envizi
     "reputation-5":4, // Evidenze avanzamento Net Zero → Program Tracking
     // M5 — Framework ESG e disclosure (ESG Reporting Frameworks)
