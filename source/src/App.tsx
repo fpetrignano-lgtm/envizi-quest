@@ -339,7 +339,7 @@ export default function Home(){
     return prioOrder.flatMap(p=>(needs[p]||[]).map(n=>({id:n.id,priority:p,label:n.label})));
   };
   const [dataNeeds,setDataNeeds]=useState<DataNeedItem[]>(()=>buildDefaultDataNeeds("it",defaultPriorities));
-  const [topNNeeds,setTopNNeeds]=useState(5);
+  const [topNNeeds,setTopNNeeds]=useState(15);
   const [dfRatings,setDfRatings]=useState<Record<string,DFRating>>(()=>Object.fromEntries(DF_REQUIREMENTS.map(r=>[r.id,"medium" as DFRating])));
   const setDfRating=(id:string,val:DFRating)=>setDfRatings(prev=>({...prev,[id]:val}));
   const [dfFocusId,setDfFocusId]=useState<string|null>(null);
