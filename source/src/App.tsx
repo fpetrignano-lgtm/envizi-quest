@@ -465,7 +465,7 @@ export default function Home(){
   if(screen==="dataFoundation"&&profile){
     const isIt=language==="it";
     const allRated=DF_REQUIREMENTS.every(r=>dfRatings[r.id]);
-    const dfScore=Object.values(dfRatings).reduce((s,v)=>s+(v==="medium"?5:v==="high"?10:0),0);
+    const dfScore=Object.values(dfRatings).reduce((s,v)=>s+(v==="medium"?7:v==="high"?10:0),0);
     const dfPct=Math.min(100,Math.round(dfScore));
     const dfHighlight=dfScore>=40;
     return <main className="dfScreen">
@@ -510,7 +510,7 @@ export default function Home(){
         {DF_REQUIREMENTS.map((req,i)=>{
           const rating=dfRatings[req.id];
           const isActive=rating==="medium"||rating==="high";
-          const pts=rating==="high"?10:rating==="medium"?5:0;
+          const pts=rating==="high"?10:rating==="medium"?7:0;
           return <div key={req.id} className={`dfRow${isActive?" dfRowActive":""}${rating==="low"?" dfRowLow":""}`}>
             <div className="dfRowReq">
               <div className="dfRowReqTop">
@@ -518,7 +518,7 @@ export default function Home(){
                 <p className="dfItemQ">{isIt?req.it:req.en}</p>
               </div>
               <div className="dfRatingGroup">
-                {(["low","medium","high"] as DFRating[]).map(v=><button key={v} className={`dfRatingBtn dfRatingBtn--${v}${rating===v?" dfRatingBtnActive":""}`} onClick={()=>setDfRating(req.id,v)}>{isIt?(v==="low"?"Basso":v==="medium"?"Medio +5":"Alto +10"):(v==="low"?"Low":v==="medium"?"Medium +5":"High +10")}</button>)}
+                {(["low","medium","high"] as DFRating[]).map(v=><button key={v} className={`dfRatingBtn dfRatingBtn--${v}${rating===v?" dfRatingBtnActive":""}`} onClick={()=>setDfRating(req.id,v)}>{isIt?(v==="low"?"Basso":v==="medium"?"Medio +7":"Alto +10"):(v==="low"?"Low":v==="medium"?"Medium +7":"High +10")}</button>)}
               </div>
               {isActive&&<span className={`dfRowPts dfRowPts--${rating}`}>+{pts} pt</span>}
             </div>
@@ -544,7 +544,7 @@ export default function Home(){
 
   if(screen==="dfConclusion"&&profile){
     const isIt=language==="it";
-    const dfScore=Object.values(dfRatings).reduce((s,v)=>s+(v==="medium"?5:v==="high"?10:0),0);
+    const dfScore=Object.values(dfRatings).reduce((s,v)=>s+(v==="medium"?7:v==="high"?10:0),0);
     const dfPct=Math.min(100,Math.round(dfScore));
     const dfHighlight=dfScore>=40;
     // decisione M0 presa
