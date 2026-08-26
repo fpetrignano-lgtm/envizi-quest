@@ -348,22 +348,43 @@ export default function Home(){
   const rankNeed=(fromIdx:number,toRank:number)=>{const clamped=Math.max(1,Math.min(dataNeeds.length,toRank));const toIdx=clamped-1;if(toIdx===fromIdx)return;const next=[...dataNeeds];const [item]=next.splice(fromIdx,1);next.splice(toIdx,0,item);setDataNeeds(next);};
   const rankPriority=(fromIdx:number,toRank:number)=>{const clamped=Math.max(1,Math.min(priorities.length,toRank));const toIdx=clamped-1;if(toIdx===fromIdx)return;const next=[...priorities];const [item]=next.splice(fromIdx,1);next.splice(toIdx,0,item);setPriorities(next);};
   const needIdToMission:Record<string,number>={
-    // M0 — Data Foundation
-    "credit-1":0,"credit-3":0,"compliance-1":0,"compliance-4":0,"reputation-2":0,"reputation-3":0,
-    // M1 — Energia
-    "efficiency-1":1,"efficiency-2":1,"efficiency-3":1,"efficiency-4":1,
-    // M2 — Supply Chain
-    "supply-1":2,"supply-2":2,"supply-3":2,"supply-4":2,"supply-5":2,
-    "customers-1":2,"customers-2":2,"customers-3":2,
-    // M3 — Reporting e performance
-    "credit-2":3,"credit-4":3,
-    // M4 — Net Zero
-    "efficiency-5":4,"reputation-5":4,
-    // M5 — Framework ESG e disclosure
-    "compliance-2":5,"compliance-3":5,"compliance-5":5,
-    "credit-5":5,
-    "customers-4":5,"customers-5":5,
-    "reputation-1":5,"reputation-4":5,
+    // M0 — Data Foundation (raccolta, audit trail, calcoli GHG, tracciabilità)
+    "credit-1":0,   // Emissioni Scope 1-2-3 verificabili → core Envizi
+    "credit-3":0,   // Tracciabilità dalla fonte al report → audit trail Envizi
+    "compliance-1":0, // Calcoli GHG tracciabili → motore GHG Envizi
+    "compliance-4":0, // Registro modifiche e audit trail → Envizi native
+    "reputation-2":0, // Dati diversity/sicurezza verificabili → social data Envizi
+    "reputation-3":0, // Indicatori comparabili nel tempo → time-series Envizi
+    // M1 — Energia (Utility Bill Analytics + Interval Meter Analytics)
+    "efficiency-1":1, // Dati intervallari contatori → Interval Meter Analytics
+    "efficiency-2":1, // Analisi bollette per sito → Utility Bill Analytics
+    "efficiency-3":1, // KPI energetici normalizzati → normalizzazione Envizi
+    "efficiency-4":1, // Alert automatici su picchi → alert engine Envizi
+    // M2 — Supply Chain (Surveys + Supply Chain Intelligence)
+    "supply-1":2,   // Scope 3 cat.1 e cat.4 → Supply Chain Intelligence
+    "supply-2":2,   // Risposte fornitori → Envizi Surveys
+    "supply-3":2,   // Integrazione ERP ordini → Supply Chain Intelligence
+    "customers-1":2, // Scope 3 per categoria GHG Protocol → Supply Chain
+    "customers-2":2, // Risposte fornitori in contabilità GHG → Surveys
+    "customers-3":2, // Product Carbon Footprint → Supply Chain Intelligence
+    // M3 — Reporting e performance (GHG Reporting + PowerReports)
+    "credit-2":3,   // Indici ESG per banche → dashboard PowerReports
+    "credit-4":3,   // Rating ESG comparabili → benchmark dashboard
+    "customers-5":3, // Comparabilità prestazioni ambientali → dashboard KPI
+    // M4 — Net Zero (Planning Analytics + Scenario Modeler)
+    "efficiency-5":4, // Benchmarking vs target SBTi → Target Setting Envizi
+    "reputation-5":4, // Evidenze avanzamento Net Zero → Program Tracking
+    // M5 — Framework ESG e disclosure (ESG Reporting Frameworks)
+    "compliance-2":5, // Workflow approvazioni per assurance → framework workflow
+    "compliance-3":5, // Framework CSRD/ESRS/GRI gestiti → framework SaaS
+    "compliance-5":5, // Mappatura requisiti materiali → framework mapping
+    "credit-5":5,   // Disclosure ESRS/ISSB → framework output
+    "customers-4":5, // Documentazione ESG per gare → disclosure output
+    "reputation-1":5, // Report ESG per stakeholder → framework + PowerReports
+    // NON mappati (fuori scope Envizi core):
+    // supply-4: risk scoring fornitori → tool dedicati (es. EcoVadis)
+    // supply-5: azioni correttive fornitori → tool dedicati
+    // reputation-4: contenuti per sito istituzionale → CMS/comunicazione
   };
   const topNeeds=dataNeeds.slice(0,topNNeeds).map((n,i)=>({...n,rank:i+1}));
   const needsByMissionHub:[number,typeof topNeeds][]=[0,1,2,3,4,5].map(mi=>[mi,topNeeds.filter(n=>(needIdToMission[n.id]??0)===mi)]);
