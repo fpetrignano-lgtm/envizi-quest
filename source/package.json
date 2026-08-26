@@ -10,11 +10,11 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
-    "@vitejs/plugin-react": "latest",
+    "@vitejs/plugin-react": "^4.7.0",
     "react": "latest",
     "react-dom": "latest",
     "tailwindcss": "^4.3.3",
     "typescript": "latest",
-    "vite": "latest"
+    "vite": "^5.4.21"
   }
 }
