@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 type Language = "it" | "en";
 type Profile = "marco" | "luisa";
-type Screen = "cover" | "onboarding" | "intro" | "approach" | "companySetup" | "missions" | "roadmapPreview" | "company" | "priorities" | "priorityData" | "bridge" | "briefing" | "missionIntro" | "asis" | "dataFoundation" | "decision" | "compare" | "tobe" | "trust" | "negative" | "success" | "milestone" | "summary" | "nextStep" | "thankYou";
+type Screen = "cover" | "onboarding" | "intro" | "approach" | "companySetup" | "missions" | "roadmapPreview" | "company" | "priorities" | "priorityData" | "bridge" | "briefing" | "missionIntro" | "asis" | "dataFoundation" | "dfConclusion" | "decision" | "compare" | "tobe" | "trust" | "negative" | "success" | "milestone" | "summary" | "nextStep" | "thankYou";
 type Market = "italia" | "europa" | "mondo";
 type EsgReadiness = "primi" | "consolidamento" | "decisioni";
 type SectorKey = "manifatturiero"|"bancario"|"assicurativo"|"utilities"|"distribuzione"|"farmaceutico"|"sanitario"|"logistico"|"alberghiero"|"telecomunicazioni"|"trasporti"|"costruzioni"|"immobiliare"|"media"|"tecnologico"|"pa"|"universitario"|"nonprofit";
@@ -355,7 +355,7 @@ export default function Home(){
   useEffect(()=>()=>{document.getElementById("envizi-global-back")?.remove()},[]);
   useEffect(()=>{let badge=document.getElementById("envizi-bob-badge");if(!badge){badge=document.createElement("div");badge.id="envizi-bob-badge";badge.className="bobBadge";badge.innerHTML=`<img src="./ibm-bob-logo.svg" alt="IBM Bob"/><span>Sviluppato con IBM Bob</span>`;document.body.appendChild(badge)}return()=>{};},[]);
   useEffect(()=>()=>{document.getElementById("envizi-bob-badge")?.remove()},[]);
-  const PAGE_NUMS:Partial<Record<Screen,number>>={cover:1,onboarding:2,intro:3,approach:4,companySetup:5,priorities:6,priorityData:7,bridge:8,roadmapPreview:9,missions:10,briefing:10,missionIntro:11,asis:12,decision:13,compare:14,trust:15,dataFoundation:16,success:17,negative:17,milestone:18,tobe:19,summary:20,nextStep:21,thankYou:22};
+  const PAGE_NUMS:Partial<Record<Screen,number>>={cover:1,onboarding:2,intro:3,approach:4,companySetup:5,priorities:6,priorityData:7,bridge:8,roadmapPreview:9,missions:10,briefing:10,missionIntro:11,asis:12,decision:13,compare:14,trust:15,dataFoundation:16,dfConclusion:17,success:18,negative:18,milestone:19,tobe:20,summary:21,nextStep:22,thankYou:23};
   useEffect(()=>{let el=document.getElementById("envizi-page-num");if(!el){el=document.createElement("div");el.id="envizi-page-num";el.className="pageNum";document.body.appendChild(el)}const n=PAGE_NUMS[screen];el.textContent=n!=null?String(n).padStart(2,"0"):"";el.style.display=n!=null?"flex":"none";},[screen]);
   useEffect(()=>()=>{document.getElementById("envizi-page-num")?.remove()},[]);
 
@@ -493,7 +493,7 @@ export default function Home(){
             <strong className={dfHighlight?"dfScoreHigh":""}>{dfScore}<em>/100</em></strong>
             <div className="dfScoreTrack"><span className="dfScoreFill" style={{width:`${dfPct}%`,background:dfHighlight?"#39efb4":"#ffc07c"}}/></div>
           </div>
-          <button className="actionButton dfContinueBtn" disabled={!allRated} onClick={()=>setScreen("missions")}>{isIt?"Continua →":"Continue →"}</button>
+          <button className="actionButton dfContinueBtn" disabled={!allRated} onClick={()=>setScreen("dfConclusion")}>{isIt?"Continua →":"Continue →"}</button>
           {!allRated&&<p className="dfHint">{isIt?"Valuta tutti i requisiti per continuare.":"Rate all requirements to continue."}</p>}
         </div>
       </div>
@@ -541,6 +541,72 @@ export default function Home(){
       </footer>
     </main>;
   }
+
+  if(screen==="dfConclusion"&&profile){
+    const isIt=language==="it";
+    const dfScore=Object.values(dfRatings).reduce((s,v)=>s+(v==="medium"?5:v==="high"?10:0),0);
+    const dfPct=Math.min(100,Math.round(dfScore));
+    const dfHighlight=dfScore>=40;
+    const ratingColor=(v:DFRating)=>v==="high"?"#39efb4":v==="medium"?"#ffc07c":"#57606a";
+    const ratingLabel=(v:DFRating)=>isIt?(v==="high"?"Alto":v==="medium"?"Medio":"Basso"):(v==="high"?"High":v==="medium"?"Medium":"Low");
+    return <main className="dfScreen">
+      <header className="missionNav missionNavTrust">
+        <button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button>
+        <div className="missionProgress"><span className="activeDot"/> DATA FOUNDATION</div>
+        {renderTrustBar()}
+        <button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button>
+      </header>
+
+      <div className="dfStickyBar">
+        <div className="dfStickyLeft">
+          <p className="eyebrow">{isIt?"CONCLUSIONI · DATA FOUNDATION":"CONCLUSIONS · DATA FOUNDATION"}</p>
+          <h1>{isIt?"La tua valutazione dei requisiti IBM Envizi":"Your IBM Envizi requirements assessment"}</h1>
+          <p className="dfSubtitle">{isIt?"Riepilogo dei requisiti valutati e del punteggio di rilevanza complessivo.":"Summary of the requirements you rated and your overall relevance score."}</p>
+          {dfHighlight&&<div className="dfScoreMsg"><span className="dfScoreMsgIcon">⬡</span><p>{isIt?"Molto probabilmente IBM Envizi è la soluzione per la tua azienda.":"IBM Envizi is very likely the right solution for your organisation."}</p></div>}
+          {!dfHighlight&&<div className="dfScoreMsg" style={{borderColor:"#ffc07c"}}><span className="dfScoreMsgIcon" style={{color:"#ffc07c"}}>⬡</span><p style={{color:"#ffc07c"}}>{isIt?"Alcuni requisiti sono prioritari: approfondisci con il tuo team IBM.":"Some requirements are a priority — explore further with your IBM team."}</p></div>}
+        </div>
+        <div className="dfStickyRight">
+          <div className="dfScoreBox">
+            <span className="dfScoreBoxLabel">{isIt?"Punteggio rilevanza":"Relevance score"}</span>
+            <strong className={dfHighlight?"dfScoreHigh":""}>{dfScore}<em>/100</em></strong>
+            <div className="dfScoreTrack"><span className="dfScoreFill" style={{width:`${dfPct}%`,background:dfHighlight?"#39efb4":"#ffc07c"}}/></div>
+          </div>
+          <div style={{display:"flex",gap:"10px",flexWrap:"wrap"}}>
+            <button className="actionButton" style={{flex:"0 0 auto"}} onClick={()=>goBack()}>{isIt?"← Indietro":"← Back"}</button>
+            <button className="actionButton" style={{flex:"1 1 auto"}} onClick={()=>setScreen("missions")}>{isIt?"Entra nella roadmap →":"Enter the roadmap →"}</button>
+          </div>
+        </div>
+      </div>
+
+      <div className="dfGrid" style={{paddingTop:"16px"}}>
+        {DF_REQUIREMENTS.map((req,i)=>{
+          const rating=dfRatings[req.id];
+          const pts=rating==="high"?10:rating==="medium"?5:0;
+          const col=ratingColor(rating);
+          return <div key={req.id} className={`dfRow${rating!=="low"?" dfRowActive":""}${rating==="low"?" dfRowLow":""}`} style={{gridTemplateColumns:"1fr auto"}}>
+            <div className="dfRowReq">
+              <div className="dfRowReqTop">
+                <span className="dfItemNum">{String(i+1).padStart(2,"0")}</span>
+                <p className="dfItemQ">{isIt?req.it:req.en}</p>
+              </div>
+            </div>
+            <div style={{display:"flex",alignItems:"center",gap:"10px",padding:"0 20px 0 0"}}>
+              <span style={{fontSize:"13px",fontWeight:700,color:col,border:`1px solid ${col}`,borderRadius:"6px",padding:"4px 12px",whiteSpace:"nowrap"}}>{ratingLabel(rating)}{pts>0?` +${pts}`:" +0"}</span>
+            </div>
+          </div>;
+        })}
+      </div>
+
+      <footer className="dfFooter" style={{paddingBottom:"32px"}}>
+        <div style={{display:"flex",gap:"12px",justifyContent:"flex-end",marginTop:"24px",flexWrap:"wrap"}}>
+          <button className="actionButton" onClick={()=>goBack()}>{isIt?"← Indietro":"← Back"}</button>
+          <button className="actionButton" onClick={()=>setScreen("missions")}>{isIt?"Entra nella roadmap →":"Enter the roadmap →"}</button>
+        </div>
+      </footer>
+    </main>;
+  }
+
+
 
   if(screen==="companySetup"&&profile){
     const isIt=language==="it";
