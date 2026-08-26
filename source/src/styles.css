@@ -666,6 +666,7 @@ body{font-size:18px}.eyebrow{font-size:22px}.brand{font-size:14px}.step,.mission
 .dfcDecisionLabel strong{font-size:clamp(14px,1.4vw,18px);line-height:1.3;font-weight:700}
 .dfcScorePanelLeft{display:flex;flex-direction:column;gap:12px;margin-top:4px}
 .dfcSection{display:flex;flex-direction:column;gap:12px}
+.dfcIntroTitle{font-size:clamp(18px,1.6vw,24px);color:#c8ddd6;line-height:1.4;margin:0 0 4px;font-weight:400}
 .dfcSectionLabel{font-size:11px;font-weight:700;letter-spacing:.14em;color:#7a9a90;text-transform:uppercase;margin:0}
 .dfcFactorList{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
 .dfcFactorList li{display:flex;align-items:flex-start;gap:12px;font-size:clamp(26px,2.4vw,32px);color:#c8ddd6;line-height:1.5}
