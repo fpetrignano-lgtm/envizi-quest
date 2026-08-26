@@ -668,7 +668,7 @@ body{font-size:18px}.eyebrow{font-size:22px}.brand{font-size:14px}.step,.mission
 .dfcSection{display:flex;flex-direction:column;gap:12px}
 .dfcSectionLabel{font-size:11px;font-weight:700;letter-spacing:.14em;color:#7a9a90;text-transform:uppercase;margin:0}
 .dfcFactorList{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
-.dfcFactorList li{display:flex;align-items:flex-start;gap:12px;font-size:clamp(13px,1.2vw,16px);color:#c8ddd6;line-height:1.5}
+.dfcFactorList li{display:flex;align-items:flex-start;gap:12px;font-size:clamp(26px,2.4vw,32px);color:#c8ddd6;line-height:1.5}
 .dfcFactorDot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:6px}
 .dfcActions{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:16px}
 @media(max-width:860px){
