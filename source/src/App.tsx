@@ -644,6 +644,9 @@ export default function Home(){
   // 0 = mostra Sì/No iniziale  1 = mostra Sicuro?  2 = confermato definitivamente
   const [csrdConfirmStep,setCsrdConfirmStep]=useState<0|1|2>(0);
   const [csrdPendingChoice,setCsrdPendingChoice]=useState<boolean>(false); // true=soggetta, false=non soggetta
+  const [csrdNote,setCsrdNote]=useState("");
+  const [csrdNoteOpen,setCsrdNoteOpen]=useState(false);
+  const [csrdNoteDraft,setCsrdNoteDraft]=useState("");
   const [saveBtnName,setSaveBtnName]=useState(questName);
   const renderSaveBtn=(isIt:boolean)=>{
     if(!saveBtnOpen)return <button className="saveBtnTrigger" onClick={()=>setSaveBtnOpen(true)}>{isIt?"💾 Salva progressi":"💾 Save progress"}</button>;
@@ -1745,6 +1748,30 @@ export default function Home(){
             </div>
           );
         })()}
+        {/* Note / osservazioni CSRD */}
+        <div className="csrdNoteWrap">
+          <button className="csrdNoteToggle" onClick={()=>{if(!csrdNoteOpen){setCsrdNoteDraft(csrdNote);} setCsrdNoteOpen(o=>!o);}}>
+            {csrdNote&&!csrdNoteOpen&&<span className="csrdNoteDot"/>}
+            {isIt?"✏ Note / osservazioni":"✏ Notes / observations"}
+          </button>
+          {csrdNoteOpen&&(
+            <div className="csrdNoteBox">
+              <textarea
+                className="csrdNoteArea"
+                rows={4}
+                placeholder={isIt?"Aggiungi note sul contesto CSRD di questa azienda...":"Add notes on this company's CSRD context..."}
+                value={csrdNoteDraft}
+                onChange={e=>setCsrdNoteDraft(e.target.value)}
+              />
+              <div className="csrdNoteActions">
+                <button className="csrdNoteSave" onClick={()=>{setCsrdNote(csrdNoteDraft);setCsrdNoteOpen(false);}}>{isIt?"Salva":"Save"}</button>
+                <button className="csrdNoteCancel" onClick={()=>setCsrdNoteOpen(false)}>{isIt?"Annulla":"Cancel"}</button>
+              </div>
+              {csrdNote&&<p className="csrdNoteSaved"><span>✓</span>{csrdNote}</p>}
+            </div>
+          )}
+          {csrdNote&&!csrdNoteOpen&&<p className="csrdNoteSavedInline"><span>✓</span>{csrdNote}</p>}
+        </div>
         <blockquote>{evolvingGen}</blockquote>
         <button className="actionButton" onClick={()=>setScreen("priorities")}>{t.explore}<b>→</b></button>
       </section>
