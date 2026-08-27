@@ -2470,9 +2470,11 @@ export default function Home(){
               <label className="welcomeLabel">{isIt?"Nome della Quest (per il salvataggio)":"Quest name (for saving)"}</label>
               <input className="welcomeInput" type="text" placeholder={isIt?"Es. NovaForge — sessione 1":"E.g. NovaForge — session 1"} value={questName} onChange={e=>setQuestName(e.target.value)}/>
             </div>
-            <button className="actionButton welcomeStartBtn" onClick={()=>{if(questName.trim())saveQuest(questName.trim());setScreenState("onboarding");}}>
-              {isIt?"Inizia la Quest →":"Start the Quest →"}
-            </button>
+            {userName.trim()&&questName.trim()&&(
+              <button className="actionButton welcomeStartBtn" onClick={()=>{if(questName.trim())saveQuest(questName.trim());setScreenState("onboarding");}}>
+                {isIt?"Inizia la Quest →":"Start the Quest →"}
+              </button>
+            )}
           </div>
         </div>
         {/* RIGHT: quest dell'utente corrente */}
