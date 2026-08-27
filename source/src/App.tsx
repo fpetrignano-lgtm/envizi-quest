@@ -2387,6 +2387,10 @@ export default function Home(){
         </div>
       </header>
       <div className="welcomeBody">
+        <div className="welcomeHero">
+          <img src="./welcome.png" alt="Envizi Impact Quest" className="welcomeHeroImg"/>
+          <div className="welcomeHeroOverlay"/>
+        </div>
         <div className="welcomeLeft">
           <p className="eyebrow">IBM ENVIZI · IMPACT QUEST</p>
           <h1 className="welcomeTitle">{isIt?"Benvenuto alla Envizi Quest":"Welcome to Envizi Quest"}</h1>
