@@ -641,6 +641,9 @@ export default function Home(){
   useEffect(()=>()=>{document.getElementById("envizi-page-num")?.remove()},[]);
 
   const [saveBtnOpen,setSaveBtnOpen]=useState(false);
+  // 0 = mostra Sì/No iniziale  1 = mostra Sicuro?  2 = confermato definitivamente
+  const [csrdConfirmStep,setCsrdConfirmStep]=useState<0|1|2>(0);
+  const [csrdPendingChoice,setCsrdPendingChoice]=useState<boolean>(false); // true=soggetta, false=non soggetta
   const [saveBtnName,setSaveBtnName]=useState(questName);
   const renderSaveBtn=(isIt:boolean)=>{
     if(!saveBtnOpen)return <button className="saveBtnTrigger" onClick={()=>setSaveBtnOpen(true)}>{isIt?"💾 Salva progressi":"💾 Save progress"}</button>;
@@ -1675,30 +1678,72 @@ export default function Home(){
           <div><strong>{officesVal}</strong><span>{offUnit}</span></div>
           <div><strong>{peopleVal.toLocaleString()}</strong><span>{pepUnit}</span></div>
         </div>
-        {csrdAlert?(
-          <div className="csrdAlert">
-            <span className="csrdAlertIcon">⚠</span>
-            <div className="csrdAlertBody">
-              <strong>{isIt?"Azienda soggetta a CSRD":"Company subject to CSRD"}</strong>
-              <span>{isIt?"Oltre 1.000 dipendenti e €450M di fatturato. Confermi?":"Over 1,000 employees and €450M revenue. Confirm?"}</span>
+        {(()=>{
+          if(csrdConfirmStep===2){
+            // stato finale: solo la frase, nessun bottone
+            return csrdPendingChoice?(
+              <div className="csrdAlert csrdAlertDone">
+                <span className="csrdAlertIcon">⚠</span>
+                <div className="csrdAlertBody">
+                  <strong>{isIt?"Azienda soggetta a CSRD":"Company subject to CSRD"}</strong>
+                  <span>{isIt?"Oltre 1.000 dipendenti e €450M di fatturato.":"Over 1,000 employees and €450M revenue."}</span>
+                </div>
+              </div>
+            ):(
+              <div className="csrdAlert csrdAlertOk csrdAlertDone">
+                <span className="csrdAlertIcon">ℹ</span>
+                <div className="csrdAlertBody">
+                  <strong>{isIt?"Azienda non soggetta a CSRD":"Company not subject to CSRD"}</strong>
+                  <span>{isIt?"Meno di 1.000 dipendenti o fatturato sotto €450M.":"Under 1,000 employees or revenue below €450M."}</span>
+                </div>
+              </div>
+            );
+          }
+          if(csrdConfirmStep===1){
+            // stato "Sicuro?"
+            return (
+              <div className={`csrdAlert${csrdPendingChoice?"":" csrdAlertOk"}`}>
+                <span className="csrdAlertIcon">{csrdPendingChoice?"⚠":"ℹ"}</span>
+                <div className="csrdAlertBody">
+                  <strong>{csrdPendingChoice
+                    ?(isIt?"Azienda soggetta a CSRD":"Company subject to CSRD")
+                    :(isIt?"Azienda non soggetta a CSRD":"Company not subject to CSRD")}
+                  </strong>
+                  <span>{isIt?"Sicuro?":"Are you sure?"}</span>
+                </div>
+                <div className="csrdAlertBtns">
+                  <button className="csrdBtnYes" onClick={()=>setCsrdConfirmStep(2)}>{isIt?"Sì":"Yes"}</button>
+                  <button className="csrdBtnNo" onClick={()=>setCsrdConfirmStep(0)}>{isIt?"No":"No"}</button>
+                </div>
+              </div>
+            );
+          }
+          // stato 0: mostra Sì confermo / No correggi
+          return csrdAlert?(
+            <div className="csrdAlert">
+              <span className="csrdAlertIcon">⚠</span>
+              <div className="csrdAlertBody">
+                <strong>{isIt?"Azienda soggetta a CSRD":"Company subject to CSRD"}</strong>
+                <span>{isIt?"Oltre 1.000 dipendenti e €450M di fatturato.":"Over 1,000 employees and €450M revenue."}</span>
+              </div>
+              <div className="csrdAlertBtns">
+                <button className="csrdBtnYes" onClick={()=>{setCsrdPendingChoice(true);setCsrdConfirmStep(1);}}>{isIt?"Sì, confermo":"Yes, confirm"}</button>
+                <button className="csrdBtnNo" onClick={()=>{updateCompanyDim(4,999);setCsrdPendingChoice(false);setCsrdConfirmStep(1);}}>{isIt?"No, correggi":"No, correct"}</button>
+              </div>
             </div>
-            <div className="csrdAlertBtns">
-              <button className="csrdBtnYes" onClick={()=>{}}>{isIt?"Sì, confermo":"Yes, confirm"}</button>
-              <button className="csrdBtnNo" onClick={()=>updateCompanyDim(4,999)}>{isIt?"No, correggi":"No, correct"}</button>
+          ):(
+            <div className="csrdAlert csrdAlertOk">
+              <span className="csrdAlertIcon">ℹ</span>
+              <div className="csrdAlertBody">
+                <strong>{isIt?"Azienda non soggetta a CSRD":"Company not subject to CSRD"}</strong>
+                <span>{isIt?"Meno di 1.000 dipendenti o fatturato sotto €450M.":"Under 1,000 employees or revenue below €450M."}</span>
+              </div>
+              <div className="csrdAlertBtns">
+                <button className="csrdBtnYes" onClick={()=>{setCsrdPendingChoice(false);setCsrdConfirmStep(1);}}>{isIt?"Sì, confermo":"Yes, confirm"}</button>
+              </div>
             </div>
-          </div>
-        ):(
-          <div className="csrdAlert csrdAlertOk">
-            <span className="csrdAlertIcon">ℹ</span>
-            <div className="csrdAlertBody">
-              <strong>{isIt?"Azienda non soggetta a CSRD":"Company not subject to CSRD"}</strong>
-              <span>{isIt?"Meno di 1.000 dipendenti o fatturato sotto €450M. Confermi?":"Under 1,000 employees or revenue below €450M. Confirm?"}</span>
-            </div>
-            <div className="csrdAlertBtns">
-              <button className="csrdBtnYes" onClick={()=>{}}>{isIt?"Sì, confermo":"Yes, confirm"}</button>
-            </div>
-          </div>
-        )}
+          );
+        })()}
         <blockquote>{evolvingGen}</blockquote>
         <button className="actionButton" onClick={()=>setScreen("priorities")}>{t.explore}<b>→</b></button>
       </section>
