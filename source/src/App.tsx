@@ -1774,7 +1774,7 @@ export default function Home(){
           {csrdNote&&!csrdNoteOpen&&<p className="csrdNoteSavedInline"><span>✓</span>{csrdNote}</p>}
         </div>
         <blockquote>{evolvingGen}</blockquote>
-        <button className="actionButton" onClick={()=>setScreen("priorities")}>{t.explore}<b>→</b></button>
+        {csrdConfirmStep===2&&<button className="actionButton" onClick={()=>setScreen("priorities")}>{t.explore}<b>→</b></button>}
       </section>
       <section className="worldMap" aria-label={`${displayCompanyName} footprint`}>
         <div className="mapGrid"/>
