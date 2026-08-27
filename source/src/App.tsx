@@ -2457,6 +2457,7 @@ export default function Home(){
               <p className="welcomeSavedTitle">
                 {isIt?"Quest di":"Quests for"} <strong style={{color:"#39efb4"}}>{userName.trim()}</strong>
               </p>
+              <button className="welcomeUserBackBtn" onClick={()=>setUserName("")}>← {isIt?"Cambia utente":"Change user"}</button>
               {userQuests.length===0?(
                 <p className="welcomeEmpty">{isIt?"Nessuna Quest salvata per questo utente.":"No saved quests for this user."}</p>
               ):(

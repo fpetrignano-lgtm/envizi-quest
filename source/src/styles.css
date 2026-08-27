@@ -45,6 +45,8 @@
 .welcomeKnownUsers{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
 .welcomeUserPill{padding:6px 14px;border:1px solid rgba(57,239,180,.35);border-radius:999px;background:rgba(57,239,180,.07);color:#72f7ca;font:600 13px inherit;cursor:pointer;transition:.12s;white-space:nowrap}
 .welcomeUserPill:hover{background:rgba(57,239,180,.18);border-color:#39efb4;color:#fff}
+.welcomeUserBackBtn{margin:2px 0 10px;padding:0;border:none;background:none;color:#4a7a68;font:600 13px inherit;cursor:pointer;transition:.12s;display:inline-flex;align-items:center;gap:5px}
+.welcomeUserBackBtn:hover{color:#39efb4}
 @media(max-width:900px){.welcomePanel{grid-template-columns:1fr;margin:auto 5vw}.welcomeRight{max-height:200px}}
 @media(max-width:600px){.welcomePanel{margin:auto 4vw;border-radius:14px}.welcomeLeft{padding:24px 20px 28px}.welcomeRight{padding:0 20px 28px;border-right:none;border-top:1px solid rgba(57,239,180,.1)}}
 
