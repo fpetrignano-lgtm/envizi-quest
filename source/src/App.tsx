@@ -2028,10 +2028,10 @@ export default function Home(){
                 const crit=needCriticality[item.id]??5;
                 const included=isNeedIncluded(item.id);
                 const relNorm=rel;
-                const tier=included?(relNorm>7&&crit>7?"high":relNorm>4||crit>4?"mid":"low"):"low";
-                const tierColor=included?(tier==="high"?"#ff4d4d":tier==="mid"?"#7dd3fc":"#9ca3af"):"#2a3f35";
+                const tier=relNorm>7&&crit>7?"high":relNorm>4||crit>4?"mid":"low";
+                const tierColor=tier==="high"?"#ff4d4d":tier==="mid"?"#7dd3fc":"#9ca3af";
                 return <div key={item.id} className={`pdRow${included?"":" pdRowDimmed"}`}>
-                  <div className="pdRowLeft" style={{color:included?tierColor:"#2a3f35"}}>
+                  <div className="pdRowLeft" style={{color:included?tierColor:"#ffffff"}}>
                     <span className="pdRowCode">{rankLabel}</span>
                     <span className="pdRowLabel">{item.label}</span>
                   </div>
