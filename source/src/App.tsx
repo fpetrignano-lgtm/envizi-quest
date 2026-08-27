@@ -2408,10 +2408,10 @@ export default function Home(){
       try{d=JSON.parse(localStorage.getItem(`envizi-quest-save-${k}`)||"{}");}catch(e){}
       return {key:k,userName:(d.userName||"") as string,missionOutcomes:d.missionOutcomes||{}};
     });
-    // Utenti unici (non vuoti)
-    const knownUsers=Array.from(new Set(allSaved.map(s=>s.userName).filter(u=>u.trim()!==""))).sort();
-    // Suggerimenti utente: match parziale sul campo
-    const userSuggestions=knownUsers.filter(u=>userName.trim()&&u.toLowerCase().includes(userName.trim().toLowerCase())&&u!==userName.trim());
+    // Utenti unici case-insensitive (mantiene prima occorrenza, ordina)
+    const knownUsers=(()=>{const seen=new Set<string>();const out:string[]=[];for(const s of allSaved){const u=s.userName.trim();if(u&&!seen.has(u.toLowerCase())){seen.add(u.toLowerCase());out.push(u);}}return out.sort((a,b)=>a.toLowerCase().localeCompare(b.toLowerCase()));})();
+    // Suggerimenti utente: match parziale sul campo (esclude match esatto case-insensitive)
+    const userSuggestions=knownUsers.filter(u=>userName.trim()&&u.toLowerCase().includes(userName.trim().toLowerCase())&&u.toLowerCase()!==userName.trim().toLowerCase());
     // Quest filtrate per utente corrente (match esatto, case-insensitive)
     const userQuests=userName.trim()
       ? allSaved.filter(s=>s.userName.toLowerCase()===userName.trim().toLowerCase())
