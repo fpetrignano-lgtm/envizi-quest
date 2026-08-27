@@ -26,11 +26,11 @@
 .welcomeSavedTitle{font:700 11px var(--font-geist-mono,monospace);letter-spacing:.16em;text-transform:uppercase;color:#5a7a70;margin:0 0 14px}
 .welcomeEmpty{color:#3d6052;font-size:13px;font-style:italic}
 .welcomeSavedList{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
-.welcomeSavedItem{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;border:1px solid #1e3a30;border-radius:10px;background:rgba(8,20,15,.6)}
+.welcomeSavedItem{display:flex;flex-direction:column;gap:8px;padding:12px 14px;border:1px solid #1e3a30;border-radius:10px;background:rgba(8,20,15,.6)}
 .welcomeSavedInfo{display:flex;flex-direction:column;gap:3px;min-width:0}
 .welcomeSavedInfo strong{font-size:14px;color:#effbf6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .welcomeSavedInfo small{font:11px var(--font-geist-mono,monospace);color:#5a7a70;letter-spacing:.1em}
-.welcomeSavedActions{display:flex;gap:6px;flex-shrink:0}
+.welcomeSavedActions{display:flex;gap:6px;flex-shrink:0;align-self:flex-start}
 .welcomeLoadBtn{padding:6px 12px;border-radius:7px;border:1px solid #39efb4;background:transparent;color:#39efb4;font:600 12px inherit;cursor:pointer;transition:.15s;white-space:nowrap}
 .welcomeLoadBtn:hover{background:rgba(57,239,180,.1)}
 .welcomeDeleteBtn{padding:6px 9px;border-radius:7px;border:1px solid #2a4a3c;background:transparent;color:#5a7a70;font:600 12px inherit;cursor:pointer;transition:.15s}
