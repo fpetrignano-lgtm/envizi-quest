@@ -647,6 +647,7 @@ export default function Home(){
   const [csrdNote,setCsrdNote]=useState("");
   const [csrdNoteOpen,setCsrdNoteOpen]=useState(false);
   const [csrdNoteDraft,setCsrdNoteDraft]=useState("");
+  const [prioExpMode,setPrioExpMode]=useState<"scratch"|"scenario">("scratch");
   const [saveBtnName,setSaveBtnName]=useState(questName);
   const renderSaveBtn=(isIt:boolean)=>{
     if(!saveBtnOpen)return <button className="saveBtnTrigger" onClick={()=>setSaveBtnOpen(true)}>{isIt?"💾 Salva progressi":"💾 Save progress"}</button>;
@@ -1834,12 +1835,20 @@ export default function Home(){
         const p=prioExpModal;
         const phrases=prioDefaultExp[p][language as "it"|"en"];
         const selIdx=prioExpSelected[p];
-        const hasSelection=selIdx>=0;
+        // modalMode: "scratch" = testo libero, "scenario" = scegli scenario
+        // determiniamo la modalità corrente: se non c'è selezione attiva e il testo salvato
+        // non corrisponde a nessuna frase, siamo in scratch; altrimenti in scenario
+        const modalMode=prioExpMode;
         const edited=prioExperience[p];
-        // textarea value: edited text if present, else selected phrase, else ""
-        const val=hasSelection?(edited!==""?edited:phrases[selIdx]):"";
+
+        const scenarioValue=modalMode==="scenario"
+          ?(selIdx>=0?(edited!==""?edited:phrases[selIdx]):"")
+          :"";
+        const currentVal=modalMode==="scratch"?edited:scenarioValue;
+        const canSave=currentVal.trim()!==""||
+          (modalMode==="scenario"&&selIdx>=0);
+
         const selectPhrase=(idx:number)=>{
-          // clicking active card deselects
           if(selIdx===idx){
             setPrioExpSelected(prev=>({...prev,[p]:-1}));
             setPrioExperience(prev=>({...prev,[p]:""}));
@@ -1848,41 +1857,82 @@ export default function Home(){
             setPrioExperience(prev=>({...prev,[p]:""}));
           }
         };
-        // snapshot on open to support "exit without saving"
-        const exitWithout=()=>{setPrioExpModal(null);};
-        const saveAndExit=()=>{
-          // if textarea has content use it; if nothing typed but phrase selected, store phrase
-          if(edited===""&&hasSelection) setPrioExperience(prev=>({...prev,[p]:phrases[selIdx]}));
-          setPrioExpModal(null);
+        const switchMode=(mode:"scratch"|"scenario")=>{
+          setPrioExpMode(mode);
+          setPrioExpSelected(prev=>({...prev,[p]:-1}));
+          setPrioExperience(prev=>({...prev,[p]:""}));
         };
+        const exitWithout=()=>{setPrioExpModal(null);setPrioExpMode("scratch");};
+        const saveAndExit=()=>{
+          if(modalMode==="scenario"&&edited===""&&selIdx>=0)
+            setPrioExperience(prev=>({...prev,[p]:phrases[selIdx]}));
+          setPrioExpModal(null);
+          setPrioExpMode("scratch");
+        };
+
         return <div className="prioExpOverlay" onClick={exitWithout}>
           <div className="prioExpDialog" onClick={e=>e.stopPropagation()}>
             <div className="prioExpDialogHeader">
               <strong>{t.priorityNames[p]}</strong>
             </div>
-            <p className="prioExpHint">{isIt?"Seleziona il caso in cui ti riconosci di più, rivedi la frase e personalizzala. Il testo sarà incluso nel report finale.":"Select the case you identify with most, review the phrase and personalise it. The text will be included in the final report."}</p>
-            <div className="prioExpPhrases">
-              {phrases.map((phrase,idx)=>(
-                <button key={idx} className={`prioExpPhrase${selIdx===idx?" prioExpPhraseActive":""}`} onClick={()=>selectPhrase(idx)}>
-                  <span className="prioExpPhraseNum">{String(idx+1).padStart(2,"0")}</span>
-                  <span className="prioExpPhraseText">{phrase}</span>
-                  {selIdx===idx&&<span className="prioExpPhraseCheck">✓</span>}
-                </button>
-              ))}
+            {/* ── Tab switcher ── */}
+            <div className="prioExpTabs">
+              <button
+                className={`prioExpTab${modalMode==="scratch"?" prioExpTabActive":""}`}
+                onClick={()=>switchMode("scratch")}
+              >
+                {isIt?"✍ Scrivi da zero":"✍ Write from scratch"}
+              </button>
+              <button
+                className={`prioExpTab${modalMode==="scenario"?" prioExpTabActive":""}`}
+                onClick={()=>switchMode("scenario")}
+              >
+                {isIt?"📋 Scegli uno scenario":"📋 Choose a scenario"}
+              </button>
             </div>
-            <textarea
-              className={`prioExpTextarea${!hasSelection?" prioExpTextareaEmpty":""}`}
-              value={val}
-              placeholder={isIt?"Seleziona uno dei casi qui sopra per iniziare…":"Select one of the cases above to get started…"}
-              onChange={e=>setPrioExperience(prev=>({...prev,[p]:e.target.value}))}
-              disabled={!hasSelection}
-              rows={5}
-            />
+
+            {modalMode==="scratch"&&(
+              <>
+                <p className="prioExpHint">{isIt?"Descrivi liberamente il contesto o la sfida specifica di questa priorità per la tua azienda.":"Freely describe the context or specific challenge of this priority for your organisation."}</p>
+                <textarea
+                  className="prioExpTextarea"
+                  value={edited}
+                  placeholder={isIt?"Scrivi qui il tuo testo…":"Write your text here…"}
+                  onChange={e=>setPrioExperience(prev=>({...prev,[p]:e.target.value}))}
+                  rows={6}
+                  autoFocus
+                />
+              </>
+            )}
+
+            {modalMode==="scenario"&&(
+              <>
+                <p className="prioExpHint">{isIt?"Seleziona il caso in cui ti riconosci di più, poi rivedi e personalizza la frase.":"Select the case you identify with most, then review and personalise the phrase."}</p>
+                <div className="prioExpPhrases">
+                  {phrases.map((phrase,idx)=>(
+                    <button key={idx} className={`prioExpPhrase${selIdx===idx?" prioExpPhraseActive":""}`} onClick={()=>selectPhrase(idx)}>
+                      <span className="prioExpPhraseNum">{String(idx+1).padStart(2,"0")}</span>
+                      <span className="prioExpPhraseText">{phrase}</span>
+                      {selIdx===idx&&<span className="prioExpPhraseCheck">✓</span>}
+                    </button>
+                  ))}
+                </div>
+                <textarea
+                  className={`prioExpTextarea${selIdx<0?" prioExpTextareaEmpty":""}`}
+                  value={scenarioValue}
+                  placeholder={isIt?"Seleziona uno scenario qui sopra per iniziare…":"Select a scenario above to get started…"}
+                  onChange={e=>setPrioExperience(prev=>({...prev,[p]:e.target.value}))}
+                  disabled={selIdx<0}
+                  rows={5}
+                />
+              </>
+            )}
+
             <div className="prioExpActions">
               <button className="prioExpClear" onClick={exitWithout}>
                 {isIt?"Esci senza modifiche":"Exit without saving"}
               </button>
-              <button className="actionButton prioExpSave" onClick={saveAndExit} disabled={!hasSelection&&edited===""}>
+              <button className="actionButton prioExpSave" onClick={saveAndExit} disabled={!canSave}>
                 {isIt?"Salva e esci":"Save and exit"}<b>→</b>
               </button>
             </div>

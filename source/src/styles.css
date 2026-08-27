@@ -95,6 +95,10 @@
 .prioExpDialogHeader{display:flex;align-items:center;gap:36px}
 .prioExpDialogHeader strong{font-size:66px;color:#e8f5ef;line-height:1.2}
 .prioExpHint{font-size:39px;color:#6a8e82;margin:0;line-height:1.5}
+.prioExpTabs{display:flex;gap:12px;flex-shrink:0}
+.prioExpTab{padding:18px 36px;border-radius:12px;border:2px solid #2a4a3a;background:transparent;color:#5a9e88;font:600 clamp(18px,1.8vw,26px) inherit;cursor:pointer;transition:.15s;white-space:nowrap}
+.prioExpTab:hover{border-color:#39efb4;color:#39efb4}
+.prioExpTabActive{border-color:#39efb4!important;background:rgba(57,239,180,.1)!important;color:#39efb4!important}
 .prioExpTextarea{width:100%;box-sizing:border-box;background:#071510;border:1px solid #2a4038;border-radius:16px;color:#c8e6d8;font-size:45px;line-height:1.65;padding:42px 48px;resize:vertical;outline:none;min-height:300px;font-family:inherit;transition:.15s}
 .prioExpTextarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(57,239,180,.1)}
 .prioExpTextareaEmpty{background:#050e0b;border-color:#1a2e26;color:#4a6a5a}
