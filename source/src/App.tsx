@@ -2379,23 +2379,23 @@ export default function Home(){
     const [newQName,setNewQName]=[questName,setQuestName];
     const isIt=language==="it";
     return <main className="welcomeScreen">
-      <header className="missionNav">
+      {/* Fullscreen background image */}
+      <img src="./welcome-gen.png" alt="" className="welcomeBg" aria-hidden="true"/>
+      <div className="welcomeBgOverlay"/>
+      {/* Navbar */}
+      <header className="missionNav" style={{position:"relative",zIndex:3}}>
         <div className="brand"><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></div>
         <div style={{display:"flex",gap:"10px",alignItems:"center"}}>
           <button className="secondaryAction" style={{fontSize:"clamp(11px,1vw,14px)",padding:"8px 16px"}} onClick={()=>setScreenState("cover")}>← {isIt?"Indietro":"Back"}</button>
           <button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button>
         </div>
       </header>
-      <div className="welcomeBody">
-        <div className="welcomeHero">
-          <img src="./welcome.png" alt="Envizi Impact Quest" className="welcomeHeroImg"/>
-          <div className="welcomeHeroOverlay"/>
-        </div>
+      {/* Dark panel with form + saved quests */}
+      <div className="welcomePanel">
         <div className="welcomeLeft">
           <p className="eyebrow">IBM ENVIZI · IMPACT QUEST</p>
           <h1 className="welcomeTitle">{isIt?"Benvenuto alla Envizi Quest":"Welcome to Envizi Quest"}</h1>
           <p className="welcomeSubtitle">{isIt?"Inserisci il tuo nome e dai un titolo alla sessione per salvare i progressi e riprendere in un secondo momento.":"Enter your name and give your session a title to save progress and resume later."}</p>
-
           <div className="welcomeForm">
             <div className="welcomeField">
               <label className="welcomeLabel">{isIt?"Il tuo nome":"Your name"}</label>
@@ -2410,7 +2410,6 @@ export default function Home(){
             </button>
           </div>
         </div>
-
         <div className="welcomeRight">
           <p className="welcomeSavedTitle">{isIt?"Quest salvate":"Saved quests"}</p>
           {saved.length===0
