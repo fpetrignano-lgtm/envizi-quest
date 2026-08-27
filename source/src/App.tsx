@@ -1999,9 +1999,9 @@ export default function Home(){
         <div className="pdLeft">
           {/* color tier legend */}
           <div className="pdTierLegend">
-            <span style={{color:"#ff4d4d"}}>⬡ {isIt?"Alta priorità (R>7 e C>7)":"High priority (R>7 and C>7)"}</span>
-            <span style={{color:"#7dd3fc"}}>⬡ {isIt?"Media priorità (R>4 o C>4)":"Medium priority (R>4 or C>4)"}</span>
-            <span style={{color:"#9ca3af"}}>⬡ {isIt?"Bassa priorità":"Low priority"}</span>
+            <span><span style={{color:"#ff4d4d"}}>⬡</span> <span style={{color:"#c9e8dc"}}>{isIt?"Alta priorità (R>7 e C>7)":"High priority (R>7 and C>7)"}</span></span>
+            <span><span style={{color:"#7dd3fc"}}>⬡</span> <span style={{color:"#c9e8dc"}}>{isIt?"Media priorità (R>4 o C>4)":"Medium priority (R>4 or C>4)"}</span></span>
+            <span><span style={{color:"#9ca3af"}}>⬡</span> <span style={{color:"#c9e8dc"}}>{isIt?"Bassa priorità":"Low priority"}</span></span>
           </div>
           {/* sticky column headers */}
           <div className="pdColHeaders">
@@ -2126,9 +2126,9 @@ export default function Home(){
           <p className="pmIntro">{isIt?"Ogni punto rappresenta un'esigenza di dati. L'asse orizzontale misura la rilevanza per il business, quello verticale la criticità del gap attuale.":"Each dot represents a data need. The horizontal axis measures business relevance, the vertical axis the criticality of the current gap."}</p>
           {/* tier color legend */}
           <div className="pmTierLegend">
-            <div className="pmTierLegendItem"><span className="pmTierDot" style={{background:"#ff4d4d"}}/><span style={{color:"#ff4d4d"}}>{isIt?"Alta priorità":"High priority"}</span><small>{isIt?"R>7 e C>7":"R>7 and C>7"}</small></div>
-            <div className="pmTierLegendItem"><span className="pmTierDot" style={{background:"#7dd3fc"}}/><span style={{color:"#7dd3fc"}}>{isIt?"Media priorità":"Medium priority"}</span><small>{isIt?"R>4 o C>4":"R>4 or C>4"}</small></div>
-            <div className="pmTierLegendItem"><span className="pmTierDot" style={{background:"#9ca3af"}}/><span style={{color:"#9ca3af"}}>{isIt?"Bassa priorità":"Low priority"}</span></div>
+            <div className="pmTierLegendItem"><span className="pmTierDot" style={{background:"#ff4d4d"}}/><span style={{color:"#c9e8dc"}}>{isIt?"Alta priorità":"High priority"}</span><small>{isIt?"R>7 e C>7":"R>7 and C>7"}</small></div>
+            <div className="pmTierLegendItem"><span className="pmTierDot" style={{background:"#7dd3fc"}}/><span style={{color:"#c9e8dc"}}>{isIt?"Media priorità":"Medium priority"}</span><small>{isIt?"R>4 o C>4":"R>4 or C>4"}</small></div>
+            <div className="pmTierLegendItem"><span className="pmTierDot" style={{background:"#9ca3af"}}/><span style={{color:"#c9e8dc"}}>{isIt?"Bassa priorità":"Low priority"}</span></div>
           </div>
           {/* objectives filter list */}
           <div className="pmObjList">
