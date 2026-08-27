@@ -172,7 +172,7 @@
 .pdRow:last-child{border-bottom:none}
 .pdRow:hover{background:rgba(57,239,180,.03)}
 .pdRowDimmed .pdRowBand{opacity:.22;pointer-events:none}
-.pdRowDimmed .pdRowLeft{opacity:.6;pointer-events:none}
+.pdRowDimmed .pdRowLeft{opacity:1;pointer-events:none}
 .pdColIncl{display:flex;align-items:center;justify-content:center;height:100%;border-left:1px solid #0f2a1f}
 .pdInclBtn{width:18px;height:18px;border-radius:50%;border:2px solid var(--incl-color,#4a7060);background:transparent;cursor:pointer;padding:0;flex-shrink:0;transition:.15s;outline:none}
 .pdInclBtn:hover{border-color:var(--incl-color,#39efb4);transform:scale(1.15)}
