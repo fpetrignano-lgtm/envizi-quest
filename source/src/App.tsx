@@ -1740,6 +1740,7 @@ export default function Home(){
               </div>
               <div className="csrdAlertBtns">
                 <button className="csrdBtnYes" onClick={()=>{setCsrdPendingChoice(false);setCsrdConfirmStep(1);}}>{isIt?"Sì, confermo":"Yes, confirm"}</button>
+                <button className="csrdBtnNo" onClick={()=>{updateCompanyDim(4,10000);setCsrdPendingChoice(true);setCsrdConfirmStep(1);}}>{isIt?"No, correggi":"No, correct"}</button>
               </div>
             </div>
           );
