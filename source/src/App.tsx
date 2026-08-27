@@ -530,13 +530,28 @@ export default function Home(){
   const saveQuest=(name:string)=>{if(!name.trim())return;const data={userName,language,profile,priorities,missionOrder,missionOutcomes,missionParameters,trustScore,companyName,companySector,companyDims,companyMarket,geoDistrib,esgReadiness,asIsRatings,dfRatings,rfRatings,dataNeeds,screen};localStorage.setItem(`envizi-quest-save-${name.trim()}`,JSON.stringify(data));};
   const loadQuest=(name:string)=>{const raw=localStorage.getItem(`envizi-quest-save-${name}`);if(!raw)return;try{const d=JSON.parse(raw);if(d.userName)setUserName(d.userName);if(d.language)setLanguage(d.language);if(d.profile)setProfile(d.profile);if(d.priorities)setPriorities(d.priorities);if(d.missionOrder)setMissionOrder(d.missionOrder);if(d.missionOutcomes)setMissionOutcomes(d.missionOutcomes);if(d.missionParameters)setMissionParameters(d.missionParameters);if(d.trustScore!=null)setTrustScore(d.trustScore);if(d.companyName!=null)setCompanyName(d.companyName);if(d.companySector)setCompanySector(d.companySector);if(d.companyDims)setCompanyDims(d.companyDims);if(d.companyMarket)setCompanyMarket(d.companyMarket);if(d.geoDistrib)setGeoDistrib(d.geoDistrib);if(d.esgReadiness)setEsgReadiness(d.esgReadiness);if(d.asIsRatings)setAsIsRatings(d.asIsRatings);if(d.dfRatings)setDfRatings(d.dfRatings);if(d.rfRatings)setRfRatings(d.rfRatings);if(d.dataNeeds)setDataNeeds(d.dataNeeds);setQuestName(name);if(d.screen)setScreenState(d.screen);}catch(e){}};
   const deleteQuest=(name:string)=>{localStorage.removeItem(`envizi-quest-save-${name}`);};
-  const downloadQuest=(name:string)=>{
+  const downloadQuest=async(name:string)=>{
     const raw=localStorage.getItem(`envizi-quest-save-${name}`);
     if(!raw)return;
     const blob=new Blob([raw],{type:"application/json"});
+    const filename=`${name}.envizi-quest`;
+    // File System Access API — apre dialogo "Salva come" con scelta cartella
+    if(typeof (window as any).showSaveFilePicker==="function"){
+      try{
+        const handle=await (window as any).showSaveFilePicker({
+          suggestedName:filename,
+          types:[{description:"Envizi Quest",accept:{"application/json":[".envizi-quest",".json"]}}]
+        });
+        const writable=await handle.createWritable();
+        await writable.write(blob);
+        await writable.close();
+        return;
+      }catch(e){/* utente ha annullato o API non supportata */}
+    }
+    // Fallback classico
     const url=URL.createObjectURL(blob);
     const a=document.createElement("a");
-    a.href=url;a.download=`${name}.envizi-quest`;a.click();
+    a.href=url;a.download=filename;a.click();
     URL.revokeObjectURL(url);
   };
   const uploadQuestFile=(file:File,overrideName?:string)=>{
@@ -546,14 +561,28 @@ export default function Home(){
         const d=JSON.parse(e.target?.result as string);
         const key=overrideName||(d.questName||file.name.replace(/\.envizi-quest$/,"").replace(/\.json$/,""));
         if(!key.trim())return;
-        // Forza userName corrente se fornito
         if(overrideName===undefined&&userName.trim())d.userName=userName.trim();
         localStorage.setItem(`envizi-quest-save-${key.trim()}`,JSON.stringify(d));
-        // Forza re-render tornando alla welcome
         setScreenState("cover");setTimeout(()=>setScreenState("welcome"),10);
       }catch(err){}
     };
     reader.readAsText(file);
+  };
+  const openUploadPicker=async()=>{
+    // File System Access API — apre dialogo con scelta cartella
+    if(typeof (window as any).showOpenFilePicker==="function"){
+      try{
+        const [handle]=await (window as any).showOpenFilePicker({
+          types:[{description:"Envizi Quest",accept:{"application/json":[".envizi-quest",".json"]}}],
+          multiple:false
+        });
+        const file=await handle.getFile();
+        uploadQuestFile(file);
+        return;
+      }catch(e){/* annullato o non supportato */}
+    }
+    // Fallback: click sull'input nascosto
+    document.getElementById("welcomeUploadInput")?.click();
   };
   useEffect(()=>{setDataNeeds(buildDefaultDataNeeds(language,priorities));},[language,priorities]);
   const moveNeed=(index:number,direction:-1|1)=>{const next=[...dataNeeds];const target=index+direction;if(target<0||target>=next.length)return;[next[index],next[target]]=[next[target],next[index]];setDataNeeds(next);};
@@ -2506,12 +2535,14 @@ export default function Home(){
                 </ul>
               )}
               {/* Upload zone */}
-              <label className="welcomeUploadZone" onDragOver={e=>e.preventDefault()} onDrop={e=>{e.preventDefault();const f=e.dataTransfer.files[0];if(f)uploadQuestFile(f);}}>
-                <input type="file" accept=".envizi-quest,.json" style={{display:"none"}} onChange={e=>{const f=e.target.files?.[0];if(f)uploadQuestFile(f);e.target.value="";}}/>
-                <span className="welcomeUploadIcon">⬆</span>
-                <span className="welcomeUploadText">{isIt?"Importa una Quest (.envizi-quest)":"Import a Quest (.envizi-quest)"}</span>
-                <span className="welcomeUploadHint">{isIt?"Clicca o trascina il file qui":"Click or drag file here"}</span>
-              </label>
+              <div className="welcomeUploadZone" onDragOver={e=>e.preventDefault()} onDrop={e=>{e.preventDefault();const f=e.dataTransfer.files[0];if(f)uploadQuestFile(f);}}>
+                <input id="welcomeUploadInput" type="file" accept=".envizi-quest,.json" style={{display:"none"}} onChange={e=>{const f=e.target.files?.[0];if(f)uploadQuestFile(f);e.target.value="";}}/>
+                <button className="welcomeUploadBtn" onClick={openUploadPicker}>
+                  <span className="welcomeUploadIcon">⬆</span>
+                  <span className="welcomeUploadText">{isIt?"Importa una Quest (.envizi-quest)":"Import a Quest (.envizi-quest)"}</span>
+                </button>
+                <span className="welcomeUploadHint">{isIt?"Scegli cartella o trascina il file qui":"Choose folder or drag file here"}</span>
+              </div>
             </>
           ):(
             <>
