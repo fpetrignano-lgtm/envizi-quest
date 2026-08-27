@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 type Language = "it" | "en";
 type Profile = "marco" | "luisa";
-type Screen = "cover" | "welcome" | "onboarding" | "intro" | "approach" | "companySetup" | "missions" | "roadmapPreview" | "esgStrategist" | "company" | "priorities" | "priorityData" | "priorityMatrix" | "bridge" | "briefing" | "missionIntro" | "asis" | "dataFoundation" | "dfConclusion" | "decision" | "compare" | "tobe" | "trust" | "negative" | "success" | "milestone" | "reportingFoundation" | "reportingConclusion" | "summary" | "nextStep" | "thankYou";
+type Screen = "cover" | "welcome" | "onboarding" | "intro" | "approach" | "companySetup" | "missions" | "roadmapPreview" | "esgStrategist" | "company" | "priorities" | "priorityData" | "priorityMatrix" | "bridge" | "briefing" | "missionIntro" | "asis" | "dataFoundation" | "dfConclusion" | "decision" | "compare" | "tobe" | "trust" | "negative" | "success" | "milestone" | "reportingFoundation" | "reportingConclusion" | "energyFoundation" | "energyConclusion" | "supplyFoundation" | "supplyConclusion" | "planningFoundation" | "planningConclusion" | "frameworkFoundation" | "frameworkConclusion" | "summary" | "nextStep" | "thankYou";
 type Market = "italia" | "europa" | "mondo";
 type EsgReadiness = "primi" | "consolidamento" | "decisioni";
 type SectorKey = "manifatturiero"|"bancario"|"assicurativo"|"utilities"|"distribuzione"|"farmaceutico"|"sanitario"|"logistico"|"alberghiero"|"telecomunicazioni"|"trasporti"|"costruzioni"|"immobiliare"|"media"|"tecnologico"|"pa"|"universitario"|"nonprofit";
@@ -78,7 +78,7 @@ const copy = {
       {eyebrow:"REPORTING · MISSIONE 05 · ROTTA VERSO NET ZERO",title:"Dagli scenari al piano verificabile",kicker:"SFIDA · MISSIONE 05",question:"Quale scelta per il piano di decarbonizzazione?",body:"Di fronte a proposte di iniziative eterogenee, budget limitato e necessità di dimostrare al CdA la fattibilità del target Net Zero, quale approccio permette a COMPANY_NAME di confrontare scenari, selezionare le azioni prioritarie e monitorarne l'esecuzione?",cta:"Entra nella sfida →"},
       {eyebrow:"REPORTING · MISSIONE 06 · FRAMEWORK ESG E DISCLOSURE",title:"Dai requisiti alla disclosure governata",kicker:"SFIDA · MISSIONE 06",question:"Quale scelta per la gestione dei framework ESG?",body:"Di fronte a framework CSRD, ESRS, GRI, SASB e CDP in continua evoluzione, quale approccio consente a COMPANY_NAME di mantenere aggiornati i requisiti, mappare le informazioni materiali e produrre disclosure pronte all'uso senza ricostruire tutto ogni anno?",cta:"Entra nella sfida →"}
     ], missionMenuKicker:"Scegli la tua sfida", missionMenuTitle:"Da dove vuoi iniziare?", missionMenuIntro:"Cinque missioni, un’unica trasformazione. Scegli lo scenario più vicino alle priorità del tuo cliente.", missionSelect:"Avvia missione", missionDuration:"8–12 MIN", missionStartHere:"PARTI DA QUI", missionLocked:"Disponibile dopo la Data Foundation", companyIntro:"La tua azienda", companyTitle:"COMPANY_NAME", companyStory:"Un gruppo manifatturiero internazionale da 400 milioni di euro, nato in Italia e cresciuto attraverso otto stabilimenti e cinque sedi operative.", evolving:"COMPANY_NAME sta evolvendo verso un modello ESG per rispondere alle nuove esigenze di banche, regolatori, clienti e mercati, trasformando dati frammentati in decisioni affidabili.", revenue:"Fatturato annuo", plants:"Stabilimenti", offices:"Sedi uffici", people:"Dipendenti", explore:"Definisci le priorità ESG", europe:"EUROPA · 6 STABILIMENTI", usa:"USA · 1 STABILIMENTO", asia:"ASIA · 1 STABILIMENTO", hq:"HEADQUARTERS · MILANO", officeLabel:"5 SEDI UFFICI",
-    priorityKicker:"Prima di iniziare", priorityTitle:"Quali sono gli obiettivi prioritari di business per l'ESG?", priorityIntro:"Metti in ordine le priorità che stanno spingendo COMPANY_NAME verso l'ESG. Non esiste una risposta universale: la tua classifica orienterà la lettura degli impatti.", moveUp:"Sposta su", moveDown:"Sposta giù", confirm:"Conferma le priorità", priorityNames:{credit:"Accesso al credito",compliance:"Compliance e reporting",customers:"Clienti e gare",efficiency:"Efficienza, energia e costi",supply:"Resilienza della supply chain",reputation:"Reputazione e attrazione talenti"}, priorityDetails:{credit:"Condizioni di finanziamento e dialogo con le banche",compliance:"Dati verificabili per CSRD, ESRS e richieste di audit",customers:"Trasparenza richiesta nelle qualifiche e nei capitolati",efficiency:"Riduzione di consumi, sprechi e volatilità energetica",supply:"Rischi, Scope 3 e continuità dei fornitori",reputation:"Fiducia degli stakeholder e capacità di attrarre competenze"},
+    priorityKicker:"Prima di iniziare", priorityTitle:"Priorità di business collegate all'ESG", priorityIntro:"Metti in ordine le priorità che stanno spingendo COMPANY_NAME verso l'ESG. Non esiste una risposta universale: la tua classifica orienterà la lettura degli impatti.", moveUp:"Sposta su", moveDown:"Sposta giù", confirm:"Conferma le priorità", priorityNames:{credit:"Accesso al credito",compliance:"Compliance e reporting",customers:"Clienti e gare",efficiency:"Efficienza, energia e costi",supply:"Resilienza della supply chain",reputation:"Reputazione e attrazione dei talenti"}, priorityDetails:{credit:"Migliorare il dialogo con banche e investitori e le condizioni di finanziamento.",compliance:"Disporre di dati verificabili per CSRD, ESRS, disclosure e audit.",customers:"Soddisfare i requisiti ESG nelle qualifiche fornitori e nei capitolati.",efficiency:"Ridurre consumi, sprechi, emissioni e volatilità dei costi energetici.",supply:"Gestire rischi di filiera, Scope 3 e continuità dei fornitori.",reputation:"Rafforzare la fiducia degli stakeholder e attrarre e trattenere competenze."},
     bridgeKicker:"Da qui in avanti", bridgeTitle:"Cinque decisioni. Una trasformazione.", bridgeIntro:"Hai definito le priorità e le esigenze di dati. Ora affronterai cinque scenari reali: per ognuno dovrai scegliere come rispondere alla sfida. Ogni decisione accumula fiducia e costruisce la tua roadmap ESG.", bridgeCta:"Entra nella quest", bridgePrereqLabel:"PREREQUISITO · BLOCCO FONDANTE", bridgeCapLabel:"CAPACITÀ ULTERIORI",
     bridgeMissions:[
       {num:"01",label:"Fabbrica dei dati ESG",need:"Una fonte unica verificabile per emissioni, energia e reporting."},
@@ -215,7 +215,7 @@ const copy = {
       {eyebrow:"REPORTING · MISSION 05 · NET ZERO PATHWAY",title:"From scenarios to a verifiable plan",kicker:"CHALLENGE · MISSION 05",question:"How should the decarbonisation plan be built?",body:"Faced with heterogeneous initiative proposals, a constrained budget and the need to demonstrate Net Zero feasibility to the Board, which approach allows COMPANY_NAME to compare scenarios, select priority actions and track their execution?",cta:"Enter the challenge →"},
       {eyebrow:"REPORTING · MISSION 06 · ESG FRAMEWORKS AND DISCLOSURE",title:"From requirements to governed disclosure",kicker:"CHALLENGE · MISSION 06",question:"How should ESG frameworks be managed?",body:"Faced with continuously evolving CSRD, ESRS, GRI, SASB and CDP requirements, which approach allows COMPANY_NAME to keep frameworks current, map material information and produce disclosure-ready outputs without rebuilding everything each year?",cta:"Enter the challenge →"}
     ], missionMenuKicker:"Choose your challenge", missionMenuTitle:"Where do you want to begin?", missionMenuIntro:"Five missions, one transformation. Choose the scenario closest to your client's priorities.", missionSelect:"Start mission", missionDuration:"8–12 MIN", missionStartHere:"START HERE", missionLocked:"Available after the Data Foundation", companyIntro:"Your company", companyTitle:"COMPANY_NAME", companyStory:"A €400 million international manufacturing group, founded in Italy and grown across eight plants and five operating offices.", evolving:"COMPANY_NAME is evolving towards an ESG model to meet the changing needs of banks, regulators, customers and markets—turning fragmented data into trusted decisions.", revenue:"Annual revenue", plants:"Plants", offices:"Office locations", people:"Employees", explore:"Set ESG priorities", europe:"EUROPE · 6 PLANTS", usa:"USA · 1 PLANT", asia:"ASIA · 1 PLANT", hq:"HEADQUARTERS · MILAN", officeLabel:"5 OFFICE LOCATIONS",
-    priorityKicker:"Before you begin", priorityTitle:"What matters most to the business?", priorityIntro:"Rank the priorities driving COMPANY_NAME towards ESG. There is no universal answer: your order will shape how the impacts are interpreted.", moveUp:"Move up", moveDown:"Move down", confirm:"Confirm priorities", priorityNames:{credit:"Access to finance",compliance:"Compliance and reporting",customers:"Customers and tenders",efficiency:"Efficiency, energy and cost",supply:"Supply-chain resilience",reputation:"Reputation and talent attraction"}, priorityDetails:{credit:"Financing conditions and dialogue with banks",compliance:"Verifiable data for CSRD, ESRS and audit requests",customers:"Transparency required in qualification and procurement",efficiency:"Reducing consumption, waste and energy volatility",supply:"Risk, Scope 3 and supplier continuity",reputation:"Stakeholder trust and the ability to attract skills"},
+    priorityKicker:"Before you begin", priorityTitle:"Business priorities linked to ESG", priorityIntro:"Rank the priorities driving COMPANY_NAME towards ESG. There is no universal answer: your order will shape how the impacts are interpreted.", moveUp:"Move up", moveDown:"Move down", confirm:"Confirm priorities", priorityNames:{credit:"Access to finance",compliance:"Compliance and reporting",customers:"Customers and tenders",efficiency:"Efficiency, energy and cost",supply:"Supply-chain resilience",reputation:"Reputation and talent attraction"}, priorityDetails:{credit:"Improving dialogue with banks and investors and financing conditions.",compliance:"Having verifiable data for CSRD, ESRS, disclosure and audit.",customers:"Meeting ESG requirements in supplier qualification and procurement.",efficiency:"Reducing consumption, waste, emissions and energy cost volatility.",supply:"Managing supply-chain risk, Scope 3 and supplier continuity.",reputation:"Strengthening stakeholder trust and attracting and retaining talent."},
     bridgeKicker:"From here on", bridgeTitle:"Five decisions. One transformation.", bridgeIntro:"You have set your priorities and identified your data needs. Now you will face five real-world scenarios: for each one you will choose how to respond to the challenge. Every decision builds trust and shapes your ESG roadmap.", bridgeCta:"Enter the quest", bridgePrereqLabel:"PREREQUISITE · FOUNDATIONAL BLOCK", bridgeCapLabel:"ADDITIONAL CAPABILITIES",
     bridgeMissions:[
       {num:"01",label:"The ESG data factory",need:"One verifiable source for emissions, energy and reporting."},
@@ -283,7 +283,7 @@ const copy = {
         {id:"reputation-7",label:"Summary dashboards to communicate culture, people and ESG results to management"}
       ]
     },
-    mission:"Mission", missionTitle:"The factory of invisible data", companyFacts:"Manufacturing · €400M · 8 plants", briefing:"The Board wants a reliable ESG baseline within 90 days. Energy and environmental data is scattered across plants, suppliers and spreadsheets.", objective:"Your objective", objectiveText:"Create one verifiable source for emissions, energy and reporting without slowing production.", analyse:"Examine the AS-IS", asIsKicker:"Current-state snapshot", asIsTitle:"Four critical issues.\nOne underlying problem.", asIsIntro:"Before choosing a solution, examine how COMPANY_NAME manages ESG data today.", asIsItems:[{title:"Fragmented sources",detail:"Energy, environmental and production data is spread across 8 plants, ERP systems, invoices and email.",metric:"12 SOURCES"},{title:"Manual collection",detail:"Every month users copy values into different sheets, with reminders and checks managed by email.",metric:"180 HRS/MONTH"},{title:"Inconsistent rules",detail:"Units, emission factors and boundaries vary by site, forcing teams to rework comparisons.",metric:"17% ERRORS"},{title:"Slow audit",detail:"Reconstructing the origin, change and approval of a value requires separate files and manual checks.",metric:"6 WEEKS"}], proceedDecision:"Decisions →", decisionTitle:"Which path do you choose?", decisionIntro:"The choice must solve today’s problem without creating a larger one twelve months from now.", optionA:"Adopt the IBM Envizi Data Foundation", optionADetail:"Integrates data sources, automates collection and controls, reduces time and errors, and preserves a verifiable trail.", optionB:"A “simple” solution", optionBDetail:"Based on user forms that visually replace spreadsheets, but preserve manual work, reminders and errors; within a year, volume becomes unmanageable.", optionC:"Postpone until next year", optionCDetail:"Avoid immediate cost, but leave the Board without a reliable baseline.", impact:"Decision impact · 12 months later", negativeTitle:"The new form has become the new spreadsheet.", negativeText:"The interface changed, but the process remains manual. More users and data increase errors, delays and control costs, while sources remain disconnected.", postponeTitle:"A year lost, the same problem—only larger.", postponeText:"Sources and volumes have grown while the baseline remains incomplete. The Board must decide without reliable data as reporting pressure rises.", successTitle:"A Data Foundation ready to scale.", successText:"Envizi progressively integrates sources across eight plants, automates controls and normalization, and creates a verifiable trail—reducing time and errors.", dataQuality:"Data quality", reportingTime:"Reporting time", confidence:"Board confidence", retry:"Review the decision", restart:"Change profile", continue:"Continue the quest", backScenarios:"Back to scenario menu", enviziValue:"ENVIZI VALUE UNLOCKED · DATA FOUNDATION"
+    mission:"Mission", missionTitle:"The factory of invisible data", companyFacts:"Manufacturing · €400M · 8 plants", briefing:"The Board wants a reliable ESG baseline within 90 days. Energy and environmental data is scattered across plants, suppliers and spreadsheets.", objective:"Your objective", objectiveText:"Create one verifiable source for emissions, energy and reporting without slowing production.", analyse:"Examine the AS-IS", asIsKicker:"Current-state snapshot", asIsTitle:"Four critical issues.\nOne underlying problem.", asIsIntro:"Before choosing a solution, examine how COMPANY_NAME manages ESG data today.", asIsItems:[{title:"Fragmented sources",detail:"Energy, environmental and production data is spread across 8 plants, ERP systems, invoices and email.",metric:"12 SOURCES"},{title:"Manual collection",detail:"Every month users copy values into different sheets, with reminders and checks managed by email.",metric:"180 HRS/MONTH"},{title:"Inconsistent rules",detail:"Units, emission factors and boundaries vary by site, forcing teams to rework comparisons.",metric:"17% ERRORS"},{title:"Slow audit",detail:"Reconstructing the origin, change and approval of a value requires separate files and manual checks.",metric:"6 WEEKS"}], proceedDecision:"Decisions →", decisionTitle:"Which path do you choose?", decisionIntro:"The choice must solve today’s problem without creating a larger one twelve months from now.", optionA:"Adopt the IBM Envizi Data Foundation", optionADetail:"Integrates data sources, automates collection and controls, reduces time and errors, and preserves a verifiable trail.", optionB:"A “simple” solution", optionBDetail:"Based on user forms that visually replace spreadsheets, but preserve manual work, reminders and errors; within a year, volume becomes unmanageable.", optionC:"Postpone until next year", optionCDetail:"Avoid immediate cost, but leave the Board without a reliable baseline.", impact:"Decision impact · 12 months later", negativeTitle:"The new form has become the new spreadsheet.", negativeText:"The interface changed, but the process remains manual. More users and data increase errors, delays and control costs, while sources remain disconnected.", postponeTitle:"A year lost, the same problem—only larger.", postponeText:"Sources and volumes have grown while the baseline remains incomplete. The Board must decide without reliable data as reporting pressure rises.", successTitle:"A Data Foundation ready to scale.", successText:"Envizi progressively integrates sources across eight plants, automates controls and normalization, and creates a verifiable trail—reducing time and errors.", retry:"Review the decision", restart:"Change profile", continue:"Continue the quest", enviziValue:"ENVIZI VALUE UNLOCKED · DATA FOUNDATION"
   }
 };
 
@@ -364,6 +364,38 @@ const RF_REQUIREMENTS:{id:string,it:string,en:string,capIt:string,capEn:string,b
   {id:"rf7",it:"Risalire dai report ai dati e alle metodologie sottostanti",en:"Trace back from reports to the underlying data and methodologies",capIt:"IBM Envizi mantiene la tracciabilità completa dal valore presentato in dashboard o report al dato originale, al fattore applicato e al metodo utilizzato.",capEn:"IBM Envizi maintains full traceability from the value shown in a dashboard or report back to the original data, the factor applied and the method used.",benIt:"Facilita l'assurance esterna e risponde alle richieste di auditor e regolatori con evidenze dirette.",benEn:"Facilitates external assurance and responds to auditor and regulator requests with direct evidence."},
   {id:"rf8",it:"Monitorare i KPI GHG nel tempo e rispetto ai target",en:"Monitor GHG KPIs over time and against targets",capIt:"IBM Envizi permette di confrontare i valori effettivi con i target, visualizzare l'andamento nel tempo e ricevere alert su scostamenti significativi.",capEn:"IBM Envizi lets you compare actual values against targets, visualise trends over time and receive alerts on significant deviations.",benIt:"Rende il monitoraggio della decarbonizzazione continuo e visibile a tutta l'organizzazione.",benEn:"Makes decarbonisation monitoring continuous and visible across the organisation."},
 ];
+const EF_REQUIREMENTS:{id:string,it:string,en:string,capIt:string,capEn:string,benIt:string,benEn:string}[]=[
+  {id:"ef1",it:"Acquisire automaticamente i dati intervallari dai contatori digitali",en:"Automatically capture interval data from digital meters",capIt:"Envizi Interval Meter Analytics acquisisce letture quasi in tempo reale dai contatori, le normalizza e le rende disponibili per l'analisi senza interventi manuali.",capEn:"Envizi Interval Meter Analytics captures near-real-time readings from meters, normalises them and makes them available for analysis without manual intervention.",benIt:"Elimina il caricamento manuale delle letture e rende visibili anomalie e picchi non appena si verificano.",benEn:"Eliminates manual reading uploads and makes anomalies and peaks visible as soon as they occur."},
+  {id:"ef2",it:"Analizzare le bollette per sito, utility, costo e variazione anomala",en:"Analyse utility bills by site, utility type, cost and anomalous variance",capIt:"Envizi Utility Bill Analytics consolida le fatture, identifica voci anomale e confronta i costi tra periodi e sedi.",capEn:"Envizi Utility Bill Analytics consolidates bills, identifies anomalous items and compares costs across periods and sites.",benIt:"Riduce il tempo di revisione delle fatture e anticipa variazioni di costo prima del consuntivo.",benEn:"Reduces bill review time and anticipates cost variances before month-end."},
+  {id:"ef3",it:"Normalizzare i KPI energetici per meteo e variabili operative",en:"Normalise energy KPIs for weather and operational variables",capIt:"Envizi supporta la regressione e la normalizzazione dei consumi in base a variabili come gradi-giorno e unità produttive.",capEn:"Envizi supports regression and normalisation of consumption against variables such as degree-days and production units.",benIt:"Rende confrontabili i consumi tra stabilimenti con condizioni climatiche e produttive diverse.",benEn:"Makes consumption comparable across sites with different climatic and production conditions."},
+  {id:"ef4",it:"Generare alert automatici su picchi, sprechi e consumi fuori andamento",en:"Generate automatic alerts on peaks, waste and out-of-pattern consumption",capIt:"Envizi Interval Meter Analytics genera alert configurabili su soglie, picchi di domanda e consumi anomali, assegnabili all'Energy Manager.",capEn:"Envizi Interval Meter Analytics generates configurable alerts on thresholds, demand peaks and anomalous consumption, assignable to the Energy Manager.",benIt:"Riduce il tempo di reazione agli sprechi e documenta ogni segnalazione per il follow-up.",benEn:"Reduces response time to waste events and documents each alert for follow-up."},
+  {id:"ef5",it:"Confrontare le performance energetiche tra stabilimenti e rispetto ai target",en:"Benchmark energy performance across sites and against targets",capIt:"Envizi permette di confrontare intensità energetiche tra sedi, visualizzare l'andamento rispetto ai target e individuare gli impianti con le maggiori opportunità di miglioramento.",capEn:"Envizi lets you compare energy intensity across sites, track progress against targets and identify the plants with the greatest improvement potential.",benIt:"Orienta le priorità di efficienza verso i siti con il maggiore impatto su costi ed emissioni.",benEn:"Directs efficiency priorities towards the sites with the greatest impact on cost and emissions."},
+  {id:"ef6",it:"Valutare economicamente e ambientalmente gli interventi di efficienza",en:"Assess energy efficiency measures economically and environmentally",capIt:"Envizi Sustainability Program Tracking e Scenario Modeler permettono di stimare costi, risparmi e CO₂e evitata per ciascun intervento.",capEn:"Envizi Sustainability Program Tracking and Scenario Modeler let you estimate costs, savings and avoided CO₂e for each measure.",benIt:"Supporta la selezione degli investimenti con dati verificabili e collegati alla baseline ESG.",benEn:"Supports investment selection with verifiable data linked to the ESG baseline."},
+];
+const SC_REQUIREMENTS:{id:string,it:string,en:string,capIt:string,capEn:string,benIt:string,benEn:string}[]=[
+  {id:"sc1",it:"Coprire le principali categorie Scope 3 del GHG Protocol",en:"Cover the main GHG Protocol Scope 3 categories",capIt:"Envizi Scope 3 GHG Accounting supporta il calcolo delle categorie GHG Protocol più rilevanti, con fattori di emissione gestiti centralmente e metodi coerenti.",capEn:"Envizi Scope 3 GHG Accounting supports the calculation of the most material GHG Protocol categories using centrally managed emission factors and consistent methods.",benIt:"Estende la copertura dell'inventario oltre gli acquisti e riduce le elaborazioni manuali per ciascuna categoria.",benEn:"Extends inventory coverage beyond procurement and reduces manual processing per category."},
+  {id:"sc2",it:"Coinvolgere i fornitori con questionari strutturati e workflow di raccolta",en:"Engage suppliers with structured questionnaires and collection workflows",capIt:"Envizi Surveys + Assessments gestisce domande multiple, allegati, commenti, scadenze, stato delle risposte e workflow di approvazione.",capEn:"Envizi Surveys + Assessments manages multiple question types, attachments, comments, due dates, response status and approval workflows.",benIt:"Riduce i solleciti manuali e rende le risposte comparabili tra fornitori e periodi.",benEn:"Reduces manual follow-up and makes responses comparable across suppliers and periods."},
+  {id:"sc3",it:"Integrare i dati ERP per il calcolo delle emissioni da acquisti",en:"Integrate ERP data for purchase-based emission calculations",capIt:"Envizi Supply Chain Intelligence acquisisce automaticamente righe d'ordine e transazioni da sistemi ERP e finanziari per le categorie 1 e 2.",capEn:"Envizi Supply Chain Intelligence automatically ingests order lines and transactions from ERP and financial systems for categories 1 and 2.",benIt:"Elimina la raccolta manuale degli acquisti e aumenta la copertura e l'accuratezza delle emissioni cat. 1 e 2.",benEn:"Eliminates manual procurement data collection and improves coverage and accuracy for categories 1 and 2."},
+  {id:"sc4",it:"Passare progressivamente dalle stime spend-based ai dati supplier-specific e PCF",en:"Progressively move from spend-based estimates to supplier-specific data and PCFs",capIt:"Envizi Supply Chain Intelligence supporta una gerarchia di metodi: da fattori medi a dati corporate, supplier-specific e Product Carbon Footprint.",capEn:"Envizi Supply Chain Intelligence supports a method hierarchy: from average factors to corporate, supplier-specific and Product Carbon Footprint data.",benIt:"Migliora la qualità e la granularità dell'inventario Scope 3 progressivamente, senza riconfigurare il sistema.",benEn:"Improves Scope 3 inventory quality and granularity progressively without reconfiguring the system."},
+  {id:"sc5",it:"Monitorare i tassi di risposta e la qualità dei dati ricevuti dai fornitori",en:"Monitor supplier response rates and the quality of data received",capIt:"Envizi Supply Chain Intelligence e Surveys offrono dashboard di engagement con tassi di completamento, qualità delle risposte e stato dei workflow.",capEn:"Envizi Supply Chain Intelligence and Surveys provide engagement dashboards with completion rates, response quality and workflow status.",benIt:"Rende visibile la copertura della supply chain e orienta le azioni di miglioramento verso i fornitori più critici.",benEn:"Makes supply chain coverage visible and directs improvement actions towards the most material suppliers."},
+  {id:"sc6",it:"Integrare le risposte dei fornitori nella contabilità GHG senza riconciliazioni manuali",en:"Integrate supplier responses into GHG accounting without manual reconciliation",capIt:"I dati raccolti tramite Surveys e Supply Chain Intelligence confluiscono direttamente nei calcoli Scope 3, senza esportazioni o passaggi intermedi.",capEn:"Data collected via Surveys and Supply Chain Intelligence flows directly into Scope 3 calculations, without exports or intermediate steps.",benIt:"Riduce il rischio di errori nella riconciliazione e accelera il ciclo di chiusura dell'inventario Scope 3.",benEn:"Reduces reconciliation error risk and accelerates the Scope 3 inventory close cycle."},
+];
+const PL_REQUIREMENTS:{id:string,it:string,en:string,capIt:string,capEn:string,benIt:string,benEn:string}[]=[
+  {id:"pl1",it:"Costruire previsioni di emissione a partire dalla baseline ESG verificata",en:"Build emission forecasts from the verified ESG baseline",capIt:"Envizi Scenario Modeler parte dalla baseline certificata del sistema per costruire traiettorie di emissione future e scenari what-if.",capEn:"Envizi Scenario Modeler starts from the system-certified baseline to build future emission trajectories and what-if scenarios.",benIt:"Garantisce che i forecast siano collegati a dati verificati, non a stime manuali, aumentando la credibilità del piano.",benEn:"Ensures forecasts are linked to verified data, not manual estimates, increasing plan credibility."},
+  {id:"pl2",it:"Confrontare scenari e combinazioni di iniziative rispetto al target Net Zero",en:"Compare scenarios and initiative combinations against the Net Zero target",capIt:"Envizi Scenario Modeler permette di creare e confrontare più scenari what-if, valutando combinazioni di iniziative per CapEx, OpEx e CO₂e evitata.",capEn:"Envizi Scenario Modeler lets you create and compare multiple what-if scenarios, evaluating initiative combinations for CapEx, OpEx and avoided CO₂e.",benIt:"Consente di identificare il mix ottimale di iniziative che chiude il gap verso il target con il budget disponibile.",benEn:"Enables identification of the optimal initiative mix that closes the target gap within the available budget."},
+  {id:"pl3",it:"Ottimizzare il portafoglio di decarbonizzazione rispetto al budget disponibile",en:"Optimise the decarbonisation portfolio against the available budget",capIt:"Envizi Planning Analytics AddOn e Scenario Modeler supportano l'ottimizzazione del portafoglio per massimizzare le riduzioni di CO₂e nel rispetto dei vincoli di budget.",capEn:"Envizi Planning Analytics AddOn and Scenario Modeler support portfolio optimisation to maximise CO₂e reductions within budget constraints.",benIt:"Riduce la dipendenza da fogli di calcolo e semplifica le decisioni di allocazione del capitale con dati ESG integrati.",benEn:"Reduces spreadsheet dependency and simplifies capital allocation decisions with integrated ESG data."},
+  {id:"pl4",it:"Monitorare l'esecuzione dei programmi e la spesa rispetto al piano",en:"Monitor programme execution and spend against the plan",capIt:"Envizi Sustainability Program Tracking registra milestone, avanzamento, spesa effettiva, risparmi realizzati e emissioni evitate per ciascun programma.",capEn:"Envizi Sustainability Program Tracking records milestones, progress, actual spend, realised savings and avoided emissions per programme.",benIt:"Rende l'esecuzione trasparente e verificabile, consentendo di aggiornare il piano se le condizioni cambiano.",benEn:"Makes execution transparent and verifiable, enabling plan updates if conditions change."},
+  {id:"pl5",it:"Quantificare l'impatto finanziario degli investimenti in decarbonizzazione (IRR, NPV)",en:"Quantify the financial impact of decarbonisation investments (IRR, NPV)",capIt:"Envizi Sustainability Program Tracking include la valorizzazione economica delle iniziative con costi, risparmi attesi, IRR e NPV configurabili.",capEn:"Envizi Sustainability Program Tracking includes economic valuation of initiatives with configurable costs, expected savings, IRR and NPV.",benIt:"Rende il business case ESG difendibile davanti al CFO e ai finanziatori con dati verificabili e confrontabili.",benEn:"Makes the ESG business case defensible before the CFO and financiers with verifiable, comparable data."},
+  {id:"pl6",it:"Aggiornare i target e le traiettorie al variare delle condizioni operative",en:"Update targets and trajectories as operational conditions change",capIt:"Envizi Target Setting + Tracking e Scenario Modeler permettono di aggiornare target e traiettorie quando cambiano dati, budget o priorità.",capEn:"Envizi Target Setting + Tracking and Scenario Modeler allow targets and trajectories to be updated when data, budgets or priorities change.",benIt:"Mantiene il piano Net Zero attuale e adattabile senza ricostruire l'analisi da zero a ogni revisione.",benEn:"Keeps the Net Zero plan current and adaptable without rebuilding the analysis from scratch at each review."},
+];
+const FR_REQUIREMENTS:{id:string,it:string,en:string,capIt:string,capEn:string,benIt:string,benEn:string}[]=[
+  {id:"fr1",it:"Gestire framework ESG (CSRD, ESRS, GRI, SASB, CDP) sempre aggiornati nel sistema",en:"Manage ESG frameworks (CSRD, ESRS, GRI, SASB, CDP) kept current in the system",capIt:"Envizi Sustainability Reporting Manager include una Framework Library gestita e aggiornata nel servizio SaaS, senza interventi manuali del team.",capEn:"Envizi Sustainability Reporting Manager includes a managed Framework Library kept current in the SaaS service, without manual team intervention.",benIt:"Elimina il confronto manuale tra versioni dei framework e riduce il rischio di perdere aggiornamenti normativi.",benEn:"Eliminates manual comparison between framework versions and reduces the risk of missing regulatory updates."},
+  {id:"fr2",it:"Mappare i requisiti materiali e identificare i gap rispetto ai dati disponibili",en:"Map material requirements and identify gaps against available data",capIt:"Envizi Sustainability Reporting Manager supporta la mappatura dei requisiti, il tagging di materialità e l'identificazione dei gap rispetto ai dati già presenti nel sistema.",capEn:"Envizi Sustainability Reporting Manager supports requirements mapping, materiality tagging and gap identification against data already in the system.",benIt:"Rende visibile la copertura informativa per ciascun framework e orienta le azioni di raccolta verso i requisiti non ancora soddisfatti.",benEn:"Makes information coverage visible per framework and directs data collection towards requirements not yet met."},
+  {id:"fr3",it:"Gestire il processo di raccolta con workflow, owner, reviewer e approvazioni",en:"Manage the collection process with workflows, owners, reviewers and approvals",capIt:"Envizi Sustainability Reporting Manager gestisce il workflow di raccolta con assignee, scadenze, evidenze, commenti e approvazioni tracciate.",capEn:"Envizi Sustainability Reporting Manager manages the collection workflow with assignees, due dates, evidence, comments and tracked approvals.",benIt:"Sostituisce la gestione via e-mail con un processo governato, tracciabile e auditabile da inizio a fine ciclo.",benEn:"Replaces email-based management with a governed, traceable and auditable process from start to end of cycle."},
+  {id:"fr4",it:"Produrre output di disclosure riutilizzabili e pronti per l'assurance",en:"Produce reusable disclosure outputs ready for assurance",capIt:"Envizi Sustainability Reporting Manager genera risposte strutturate, allegati e export per i framework selezionati, tracciabili fino alla fonte del dato.",capEn:"Envizi Sustainability Reporting Manager generates structured responses, attachments and exports for selected frameworks, traceable to the data source.",benIt:"Riduce il tempo di preparazione della disclosure e rende le evidenze immediatamente disponibili per auditor e revisori.",benEn:"Reduces disclosure preparation time and makes evidence immediately available for auditors and reviewers."},
+  {id:"fr5",it:"Integrare i calcoli GHG nei requisiti di disclosure senza doppia elaborazione",en:"Integrate GHG calculations into disclosure requirements without double processing",capIt:"I dati GHG già presenti in Envizi (Scope 1, 2 e 3) vengono richiamati direttamente dai framework attivi nel Sustainability Reporting Manager.",capEn:"GHG data already in Envizi (Scope 1, 2 and 3) is referenced directly by the active frameworks in the Sustainability Reporting Manager.",benIt:"Elimina la riconciliazione tra il modello GHG e i template di disclosure, riducendo errori e tempi di chiusura.",benEn:"Eliminates reconciliation between the GHG model and disclosure templates, reducing errors and close time."},
+  {id:"fr6",it:"Mantenere un audit trail completo per ciascun requisito e dato comunicato",en:"Maintain a full audit trail for each requirement and disclosed data point",capIt:"Envizi conserva la tracciabilità di ogni dato comunicato: fonte, fattore applicato, workflow di approvazione e versione del framework.",capEn:"Envizi retains full traceability for every disclosed data point: source, applied factor, approval workflow and framework version.",benIt:"Risponde alle richieste di assurance esterna con evidenze dirette, riducendo il carico operativo del team ESG.",benEn:"Responds to external assurance requests with direct evidence, reducing the operational load on the ESG team."},
+];
 const ESG_READINESS_IT=[
   {key:"primi" as EsgReadiness,label:"Primi passi — Readiness dati: bassa",desc:"L'organizzazione sta iniziando il percorso ESG. I dati sono pochi e frammentati. Cerca una soluzione per raccogliere i dati, capire cosa manca e organizzare le informazioni."},
   {key:"consolidamento" as EsgReadiness,label:"Consolidamento — Readiness dati: media",desc:"L'organizzazione dispone dei principali dati ESG, ma deve renderli completi, affidabili e confrontabili. Cerca una piattaforma per unificare e controllare i dati, calcolare le emissioni e preparare la rendicontazione."},
@@ -399,7 +431,99 @@ export default function Home(){
   const setDfRating=(id:string,val:DFRating)=>setDfRatings(prev=>({...prev,[id]:val}));
   const [rfRatings,setRfRatings]=useState<Record<string,DFRating>>(()=>Object.fromEntries(RF_REQUIREMENTS.map(r=>[r.id,"medium" as DFRating])));
   const setRfRating=(id:string,val:DFRating)=>setRfRatings(prev=>({...prev,[id]:val}));
+  const [efRatings,setEfRatings]=useState<Record<string,DFRating>>(()=>Object.fromEntries(EF_REQUIREMENTS.map(r=>[r.id,"medium" as DFRating])));
+  const setEfRating=(id:string,val:DFRating)=>setEfRatings(prev=>({...prev,[id]:val}));
+  const [scRatings,setScRatings]=useState<Record<string,DFRating>>(()=>Object.fromEntries(SC_REQUIREMENTS.map(r=>[r.id,"medium" as DFRating])));
+  const setScRating=(id:string,val:DFRating)=>setScRatings(prev=>({...prev,[id]:val}));
+  const [plRatings,setPlRatings]=useState<Record<string,DFRating>>(()=>Object.fromEntries(PL_REQUIREMENTS.map(r=>[r.id,"medium" as DFRating])));
+  const setPlRating=(id:string,val:DFRating)=>setPlRatings(prev=>({...prev,[id]:val}));
+  const [frRatings,setFrRatings]=useState<Record<string,DFRating>>(()=>Object.fromEntries(FR_REQUIREMENTS.map(r=>[r.id,"medium" as DFRating])));
+  const setFrRating=(id:string,val:DFRating)=>setFrRatings(prev=>({...prev,[id]:val}));
+  const [needIncluded,setNeedIncluded]=useState<Record<string,boolean>>(()=>{
+    const init:Record<string,boolean>={};
+    buildDefaultDataNeeds("it",defaultPriorities).forEach((n,i)=>{init[n.id]=i<10;});
+    return init;
+  });
+  const toggleNeedIncluded=(id:string)=>setNeedIncluded(prev=>({...prev,[id]:!prev[id]}));
+  const isNeedIncluded=(id:string)=>needIncluded[id]??false;
   const [dfFocusId,setDfFocusId]=useState<string|null>(null);
+  const [prioExperience,setPrioExperience]=useState<Record<Priority,string>>({credit:"",compliance:"",customers:"",efficiency:"",supply:"",reputation:""});
+  const [prioExpModal,setPrioExpModal]=useState<Priority|null>(null);
+  const [prioExpSelected,setPrioExpSelected]=useState<Record<Priority,number>>({credit:-1,compliance:-1,customers:-1,efficiency:-1,supply:-1,reputation:-1});
+  const prioDefaultExp:Record<Priority,Record<"it"|"en",[string,string,string]>>={
+    credit:{
+      it:[
+        "Le banche ci chiedono sempre più spesso dati ESG strutturati per rinnovare le linee di credito. Negli ultimi 18 mesi abbiamo ricevuto richieste di rating ESG da 3 istituti diversi. Senza dati verificabili rischiamo condizioni peggiorative sui finanziamenti.",
+        "Stiamo lavorando a un'emissione di green bond. Il lead arranger ci ha già richiesto un framework ESG verificabile con dati storici su emissioni ed energia. Non abbiamo ancora un sistema capace di produrre questo livello di evidenza.",
+        "Il nostro rating ESG esterno è peggiorato nell'ultimo ciclo di valutazione. Gli analisti ci hanno segnalato la mancanza di dati Scope 2 disaggregati per sede e l'assenza di un processo di assurance. Questo impatta il costo del debito."
+      ],
+      en:[
+        "Banks increasingly ask for structured ESG data to renew credit lines. In the last 18 months we received ESG rating requests from 3 different institutions. Without verifiable data we risk worse financing conditions.",
+        "We are working on a green bond issuance. The lead arranger has already asked for a verifiable ESG framework with historical data on emissions and energy. We do not yet have a system capable of producing this level of evidence.",
+        "Our external ESG rating worsened in the last assessment cycle. Analysts flagged the lack of disaggregated Scope 2 data by site and the absence of an assurance process. This is affecting our cost of debt."
+      ]
+    },
+    compliance:{
+      it:[
+        "La CSRD ci tocca direttamente: siamo in scope dal 2026. Il team ESG oggi raccoglie dati manualmente da 8 sistemi diversi e impiega 14 settimane per chiudere il report annuale. Abbiamo bisogno di un sistema unico e auditabile.",
+        "Abbiamo ricevuto i primi rilievi dall'auditor ESG: le catene di evidenza per i dati di Scope 1 e 2 non sono ricostruibili in modo indipendente. Se non risolviamo prima del prossimo ciclo rischiamo un'opinione con riserva.",
+        "Il nostro settore è sotto osservazione da parte di ESMA per il rischio di greenwashing. Il Compliance Officer ha chiesto al team ESG di dimostrare che ogni dato pubblicato è tracciabile fino alla fonte primaria. Oggi non siamo in grado di farlo."
+      ],
+      en:[
+        "CSRD applies to us directly: we're in scope from 2026. The ESG team today collects data manually from 8 different systems and takes 14 weeks to close the annual report. We need a single, auditable system.",
+        "We received the first findings from the ESG auditor: the evidence chains for Scope 1 and 2 data cannot be independently reconstructed. If we don't resolve this before the next cycle we risk a qualified opinion.",
+        "Our sector is under scrutiny from ESMA for greenwashing risk. The Compliance Officer has asked the ESG team to demonstrate that every published data point is traceable to its primary source. Today we cannot do that."
+      ]
+    },
+    customers:{
+      it:[
+        "Tre dei nostri top-10 clienti ci hanno già inviato questionari ESG per la qualifica fornitori. Uno di essi ha inserito soglie minime di performance ambientale nei contratti 2024. Rischiamo di perdere gare se non dimostriamo dati credibili.",
+        "Un grande retailer europeo ci ha notificato che dal 2025 tutti i fornitori dovranno dichiarare le emissioni Scope 3 cat. 1 con dati specifici per prodotto. Oggi lavoriamo con stime spend-based che non soddisfano questo requisito.",
+        "Siamo entrati nella shortlist per una gara pubblica da €15M. Il capitolato prevede un punteggio tecnico ESG con peso del 20%. Non abbiamo documentazione strutturata per rispondere ai criteri ambientali richiesti."
+      ],
+      en:[
+        "Three of our top-10 customers have already sent us ESG questionnaires for supplier qualification. One of them introduced minimum environmental performance thresholds in 2024 contracts. We risk losing tenders without credible data.",
+        "A large European retailer has notified us that from 2025 all suppliers must declare Scope 3 cat. 1 emissions with product-specific data. Today we work with spend-based estimates that do not meet this requirement.",
+        "We have been shortlisted for a €15M public tender. The specification includes a technical ESG score with a 20% weighting. We have no structured documentation to respond to the required environmental criteria."
+      ]
+    },
+    efficiency:{
+      it:[
+        "I costi energetici rappresentano il 18% del costo di produzione. Nel 2023 abbiamo perso €2,1M per la volatilità dei prezzi dell'energia. Abbiamo avviato alcuni progetti di efficienza ma non riusciamo a misurarne il ritorno in modo sistematico.",
+        "Abbiamo installato pannelli fotovoltaici e sostituito i compressori negli ultimi due anni. Non siamo però in grado di quantificare i risparmi reali stabilimento per stabilimento: i dati dei contatori non sono integrati in nessun sistema centrale.",
+        "Il CFO ha chiesto un piano di decarbonizzazione con NPV e payback per ogni iniziativa. Non disponiamo di una baseline energetica affidabile per sito, né di un sistema che aggreghi consumi, costi e produzioni per calcolare l'intensità emissiva."
+      ],
+      en:[
+        "Energy costs represent 18% of production cost. In 2023 we lost €2.1M due to energy price volatility. We have started some efficiency projects but cannot measure their return systematically.",
+        "We have installed photovoltaic panels and replaced compressors over the last two years. However we cannot quantify the actual savings plant by plant: meter data is not integrated into any central system.",
+        "The CFO has asked for a decarbonisation plan with NPV and payback for each initiative. We do not have a reliable energy baseline by site, nor a system that aggregates consumption, costs and production to calculate emission intensity."
+      ]
+    },
+    supply:{
+      it:[
+        "Scope 3 cat. 1 e 2 valgono il 65% della nostra impronta totale. I principali fornitori non inviano dati strutturati: riceviamo PDF e allegati e-mail che non riusciamo a riconciliare. Un cliente chiave ci ha già chiesto un piano di riduzione Scope 3.",
+        "Abbiamo 340 fornitori attivi. Per i 50 più rilevanti vorremmo raccogliere dati primari sulle emissioni, ma oggi mandiamo questionari in PDF via e-mail con un tasso di risposta inferiore al 40% e dati non confrontabili tra loro.",
+        "Stiamo preparando il bilancio di sostenibilità per la prima volta. La sezione Scope 3 è la più critica: le categorie acquisti, trasporti e uso dei prodotti rappresentano oltre il 70% delle emissioni ma non abbiamo un processo strutturato per raccogliere questi dati."
+      ],
+      en:[
+        "Scope 3 cat. 1 and 2 account for 65% of our total footprint. Key suppliers don't send structured data: we receive PDFs and email attachments we can't reconcile. A key customer has already asked us for a Scope 3 reduction plan.",
+        "We have 340 active suppliers. For the 50 most relevant ones we want to collect primary emissions data, but today we send PDF questionnaires by email with a response rate below 40% and data that is not comparable across suppliers.",
+        "We are preparing our first sustainability report. The Scope 3 section is the most critical: purchased goods, transport and product use categories account for over 70% of emissions but we have no structured process to collect this data."
+      ]
+    },
+    reputation:{
+      it:[
+        "Il turnover dei profili ESG, sustainability e HSE è raddoppiato negli ultimi 2 anni. I candidati chiedono sistematicamente se disponiamo di strumenti professionali per la gestione della sostenibilità. La reputazione ESG è diventata un fattore di retention.",
+        "Abbiamo perso tre candidati senior in favore di competitor che comunicano obiettivi di Net Zero con dati verificabili. Il nostro employer branding ESG è percepito come generico. I neolaureati STEM chiedono di vedere metriche reali prima di accettare un'offerta.",
+        "Il CdA ha approvato un obiettivo pubblico di Net Zero al 2040. Non disponiamo però di un sistema che monitori l'avanzamento delle iniziative di decarbonizzazione e dimostri ai nostri stakeholder che stiamo rispettando il piano."
+      ],
+      en:[
+        "Turnover of ESG, sustainability and HSE profiles has doubled in the last 2 years. Candidates systematically ask whether we have professional sustainability management tools. ESG reputation has become a retention factor.",
+        "We have lost three senior candidates to competitors who communicate Net Zero targets with verifiable data. Our ESG employer branding is perceived as generic. STEM graduates ask to see real metrics before accepting an offer.",
+        "The Board has approved a public Net Zero target for 2040. However we do not have a system that monitors progress on decarbonisation initiatives and demonstrates to our stakeholders that we are on track."
+      ]
+    }
+  };
   const [userName,setUserName]=useState("");
   const [questName,setQuestName]=useState("");
   const getSavedQuestKeys=():string[]=>{const keys:string[]=[];for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k?.startsWith("envizi-quest-save-"))keys.push(k.replace("envizi-quest-save-",""));}return keys.sort();};
@@ -496,9 +620,9 @@ export default function Home(){
     "reputation-4":{it:"Export di risposte e report; pubblicazione tramite strumenti esterni",                                             en:"Export of responses and reports; publication via external tools"},
   };
   const missionBadgeLabel=["M0","M1","M2","M3","M4","M5"];
-  const topNeeds=dataNeeds.slice(0,topNNeeds).map((n,i)=>({...n,rank:i+1}));
+  const topNeeds=dataNeeds.filter(n=>isNeedIncluded(n.id)).map((n,i)=>({...n,rank:i+1}));
   const needsByMissionHub:[number,typeof topNeeds][]=[0,1,2,3,4,5].map(mi=>[mi,topNeeds.filter(n=>(needIdToMission[n.id]??0)===mi)]);
-  const focusedNeeds=topNeeds.filter(n=>{const prioIdx=priorities.indexOf(n.priority);const relMax=prioIdx===0?10:prioIdx===1?8:prioIdx===2?6:4;const rel=Math.min(needRelevance[n.id]??Math.round(relMax/2),relMax);const relNorm=Math.round((rel/relMax)*10);const crit=needCriticality[n.id]??5;return relNorm>=focusMinR&&crit>=focusMinC;});
+  const focusedNeeds=topNeeds.filter(n=>{const rel=Math.min(needRelevance[n.id]??5,10);const relNorm=rel;const crit=needCriticality[n.id]??5;return relNorm>=focusMinR&&crit>=focusMinC;});
   const needsByMissionHubFocused:[number,typeof topNeeds][]=[0,1,2,3,4,5].map(mi=>[mi,focusedNeeds.filter(n=>(needIdToMission[n.id]??0)===mi)]);
   const t={...copy[language],successText:copy[language].successTextUpdated,negativeTitle:copy[language].formTitleUpdated,negativeText:copy[language].formTextUpdated,postponeTitle:copy[language].asIsTitleUpdated,postponeText:copy[language].asIsTextUpdated,impact:copy[language].impactUpdated}; const name=profile==="marco"?"Marco Rossi":"Luisa Bianchi";
   const displayCompanyName=companyName.trim()||( language==="it"?"La tua azienda":"Your company");
@@ -586,9 +710,9 @@ export default function Home(){
   ]);
   const trustTotalW=trustSteps.length*(TRUST_BAR_W+TRUST_BAR_GAP)-TRUST_BAR_GAP+TRUST_SVG_PAD_X*2;
 
-  if(screen==="intro"&&profile)return <main className="introScreen"><header className="missionNav"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> YOUR CHALLENGE</div><button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><section className="characterStage"><img src={`./characters/${profile}-neutral.png`} alt={name}/><div className="characterTag characterTagRaised"><span className="statusDot"/><div><small>ESG MANAGER</small><strong>{name}</strong></div></div></section><section className="introBody"><p className="eyebrow">{t.introKicker}</p><h1>{t.introTitle}</h1><p className="storyText">{t.introBody}</p><div className="introTrustBox"><p className="introScoreLabel">{t.introScoreLabel}</p>{renderTrustBar()}</div><button className="actionButton questLaunchBtn" onClick={()=>setScreen("approach")}>{t.introStart}<b>→</b><span className="mouseDemo questMouse" aria-hidden="true"><img src="./hand-pointer.svg" alt=""/></span></button></section></main>;
+  if(screen==="intro"&&profile)return <main className="introScreen"><header className="missionNav"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> YOUR CHALLENGE</div><button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><section className="characterStage"><img src={`./characters/${profile}-neutral.png`} alt={name}/><div className="characterTag characterTagRaised"><span className="statusDot"/><div><small>ESG MANAGER</small><strong>{name}</strong></div></div></section><section className="introBody"><p className="eyebrow">{t.introKicker}</p><h1>{t.introTitle}</h1><p className="storyText">{t.introBody}</p><div className="introTrustBox"><p className="introScoreLabel">{t.introScoreLabel}</p>{renderTrustBar()}</div><div className="introCtaRow"><button className="actionButton questLaunchBtn" onClick={()=>setScreen("approach")}>{t.introStart}<b>→</b><span className="mouseDemo questMouse" aria-hidden="true"><img src="./hand-pointer.svg" alt=""/></span></button></div></section></main>;
 
-  if(screen==="approach"&&profile)return <main className="approachScreen"><header className="missionNav"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> PEOPLE & DATA</div><button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><section className="approachBody"><div className="approachTopTitle"><h1>{t.approachTitle}</h1><button className="actionButton approachTopCta" onClick={()=>setScreen("companySetup")}>{t.approachQuestCta}<b>→</b></button></div><div className="approachLeft approachVisual"><div className="approachPeopleIntro"><small className="approachSectionLabel">{language==="it"?"FILONE 01 · PERSONE":"TRACK 01 · PEOPLE"}</small><h2>{language==="it"?"La sfida è agire sul cambiamento con le persone: coinvolgimento, formazione, responsabilizzazione.":"The challenge is acting on change with people: engagement, training, accountability."}</h2></div><img className="approachTeamImage" src="./approach-team-scene.png" alt={language==="it"?"Team ESG che discute una dashboard di sostenibilità":"ESG team discussing a sustainability dashboard"}/></div><div className="approachRight"><div className="approachDataIntro"><small className="approachSectionLabel">{language==="it"?"FILONE 02 · DATI":"TRACK 02 · DATA"}</small><h2>{language==="it"?<><span>Il secondo filone è agire</span><br/><span>sulla complessità di oltre 500 tipi di dati ESG.</span></>:<><span>The second track is acting</span><br/><span>on the complexity of 500+ ESG data types.</span></>}</h2></div><img className="approachDataImage" src="./approach-data-scene.png" alt={language==="it"?"Dashboard e dati ESG":"ESG data dashboard"}/></div><div className="approachBottomAction"><div className="approachQuestBox"><span className="approachQuestIcon">🚀</span><p>{t.approachQuestCallout}</p></div><button className="actionButton" onClick={()=>setScreen("company")}>{t.approachQuestCta}<b>→</b></button></div></section></main>;
+  if(screen==="approach"&&profile)return <main className="approachScreen"><header className="missionNav"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> PEOPLE & DATA</div><button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><section className="approachBody"><div className="approachTopTitle"><h1>{t.approachTitle}</h1></div><div className="approachLeft approachVisual"><div className="approachPeopleIntro"><small className="approachSectionLabel">{language==="it"?"FILONE 01 · PERSONE":"TRACK 01 · PEOPLE"}</small><h2>{language==="it"?"La sfida è agire sul cambiamento con le persone: coinvolgimento, formazione, responsabilizzazione.":"The challenge is acting on change with people: engagement, training, accountability."}</h2></div><img className="approachTeamImage" src="./approach-team-scene.png" alt={language==="it"?"Team ESG che discute una dashboard di sostenibilità":"ESG team discussing a sustainability dashboard"}/></div><div className="approachRight"><div className="approachDataIntro"><small className="approachSectionLabel">{language==="it"?"FILONE 02 · DATI":"TRACK 02 · DATA"}</small><h2>{language==="it"?<><span>Il secondo filone è agire</span><br/><span>sulla complessità di oltre 500 tipi di dati ESG.</span></>:<><span>The second track is acting</span><br/><span>on the complexity of 500+ ESG data types.</span></>}</h2></div><img className="approachDataImage" src="./approach-data-scene.png" alt={language==="it"?"Dashboard e dati ESG":"ESG data dashboard"}/></div><div className="approachBottomAction"><div className="approachQuestBox"><span className="approachQuestIcon">🚀</span><p>{t.approachQuestCallout}</p></div><button className="actionButton" onClick={()=>setScreen("companySetup")}>{t.approachQuestCta}<b>→</b></button></div></section></main>;
 
   const renderMissionHub=(isPreview=false)=>{const completed=Object.keys(missionOutcomes).length;const foundationDone=!!missionOutcomes[0];const hubNeeds=isPreview?needsByMissionHubFocused:needsByMissionHub;return <main className="missionMenuScreen"><header className="missionNav missionNavTrust"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> MISSION HUB</div>{renderTrustBar()}<button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><section className="missionMenuIntro"><div><p className="eyebrow">{t.roadmapKicker}</p><h1>{t.roadmapTitle}</h1><p>{t.roadmapIntro}</p><div className="roadmapProgress"><span style={{width:`${completed*(100/6)}%`}}/><b>{t.roadmapProgress}: {completed}/6</b></div>{isPreview&&<button className="actionButton rpPreviewCta" onClick={()=>setScreen("esgStrategist")}>{language==="it"?"Avanti →":"Next →"}</button>}{isPreview&&<div className="needsTierLegend"><span style={{color:"#ff4d4d"}}>⬡ {language==="it"?"Alta":"High"}</span><span style={{color:"#7dd3fc"}}>⬡ {language==="it"?"Media":"Medium"}</span><span style={{color:"#9ca3af"}}>⬡ {language==="it"?"Bassa":"Low"}</span></div>}{!isPreview&&completed===6&&<button className="summaryCta" onClick={()=>setScreen("summary")}>{t.summaryCta}<b>→</b></button>}</div><div className="priorityPersona"><img src={`./characters/${profile}-neutral.png`} alt={name}/><span>{name}<small>ESG MANAGER</small></span></div></section><section className="missionCards roadmapCards">{missionOrder.map((missionIndex,position)=>{const m=missionCatalog[missionIndex];const outcome=missionOutcomes[missionIndex];const isLocked=!isPreview&&(!foundationDone&&missionIndex!==0);const isStartHere=!isPreview&&!foundationDone&&missionIndex===0;return <article key={m.value} className={`missionCard ${missionIndex===0?"missionCardFoundation":""} ${outcome?`completed ${outcome}`:""}${isLocked?" missionCardLocked":""}`}><button className="missionCardOpen" disabled={isLocked||isPreview} onClick={()=>{if(isLocked||isPreview)return;setSelectedMission(missionIndex);localStorage.setItem("envizi-quest-mission",String(missionIndex+1));setScreen("briefing")}}>{(()=>{const raw=hubNeeds.find(([mi])=>mi===missionIndex)?.[1]||[];const needs=missionIndex===0?[{id:"__foundation__",label:language==="it"?"Una data foundation solida e tracciabile":"A solid and traceable data foundation"},...raw]:raw;const needsLabel=language==="it"?"Esigenze specifiche":"Specific needs";const legendHigh=language==="it"?"Alta":"High";const legendMid=language==="it"?"Media":"Medium";const legendLow=language==="it"?"Bassa":"Low";return <><div className="missionCardChallengeBox"><div className="missionCardTop"><span>{String(position+1).padStart(2,"0")}</span><i>{outcome?"✓":m.icon}</i></div><h2>{language==="it"?m.it:m.en}</h2></div><div className="missionCardNeedsBox"><small className="missionCardNeedsLabel">{needsLabel}</small>{needs.length>0?needs.map(n=>{const prioIdx=priorities.indexOf((n as any).priority);const relMax=prioIdx===0?10:prioIdx===1?8:prioIdx===2?6:4;const rel=Math.min(needRelevance[n.id]??Math.round(relMax/2),relMax);const relNorm=Math.round((rel/relMax)*10);const crit=needCriticality[n.id]??5;const cap=needIdToCapability[n.id];const capLabel=cap?(language==="it"?cap.it:cap.en):null;const tier=relNorm>7&&crit>7?"red":relNorm>4&&relNorm<=7&&crit>4&&crit<=7?"yellow":relNorm>4||crit>4?"yellow":"green";const tierColor=tier==="red"?"#ff4d4d":tier==="yellow"?"#7dd3fc":"#9ca3af";return <span key={n.id} className="missionCardNeed"><span className="missionCardNeedHeader"><b className="missionCardNeedRank" style={{color:tierColor}}>{("rank" in n)?String((n as any).rank).padStart(2,"0"):""}</b><b className="missionCardNeedName" style={{color:tierColor}}>⬡ {n.label}</b><span className="missionCardNeedRC" style={{color:tierColor}}>R:{relNorm} C:{crit}</span></span>{capLabel&&<span className="missionCardNeedCap" style={{color:tierColor,opacity:.8}}>{capLabel}</span>}</span>}):<span className="missionCardNeed">—</span>}</div></>;})()}{isLocked&&<div className="missionCardLockedOverlay"><span>⊘</span><small>{t.missionLocked}</small></div>}{isStartHere&&<div className="missionCardStartHere"><span>{t.missionStartHere}</span><b>→</b></div>}{outcome&&<div className="missionImpact"><div><small>{t.adoptedDecision}</small><strong>{decisionLabel(missionIndex,outcome)}</strong></div><div><small>{t.expectedImpact}</small><p>{outcomeLabel(missionIndex,outcome)}</p></div></div>}<div className="missionCardBottom"><small>{outcome?`${position+1}/5 · ROADMAP`:isLocked?"🔒":""}</small><b>{outcome?t.missionReview:""}</b></div></button></article>})}</section></main>};
 
@@ -612,7 +736,7 @@ export default function Home(){
           <h1 className="esgStrategistTitle">{isIt?"Complimenti, hai sbloccato il livello ESG Strategist!":"Congratulations, you have unlocked the ESG Strategist level!"}</h1>
           <p className="esgStrategistSub">{isIt?"Hai identificato le esigenze di dati chiave e costruito la tua matrice di priorità. Ora è il momento di trasformare l'analisi in sfide decisionali concrete.":"You have identified key data needs and built your priority matrix. Now it's time to turn the analysis into concrete decision challenges."}</p>
           <div className="esgStrategistActions">
-            <button className="secondaryAction" onClick={()=>setScreen("roadmapPreview")}>← {isIt?"Indietro":"Back"}</button>
+            <button className="secondaryAction" onClick={()=>goBack()}>← {isIt?"Indietro":"Back"}</button>
             <button className="actionButton" onClick={()=>{setSelectedMission(0);localStorage.setItem("envizi-quest-mission","1");setScreen("briefing");}}>{isIt?"Inizia le sfide →":"Start challenges →"}</button>
           </div>
           {renderSaveBtn(isIt)}
@@ -692,6 +816,444 @@ export default function Home(){
 
 
   if(screen==="thankYou"&&profile)return <main className="thankYouScreen"><header className="missionNav"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> FINAL</div><button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><section className="thankYouBody"><h1>{t.thankYouTitle}</h1></section></main>;
+
+
+
+  // ── ENERGIA E DECARBONIZZAZIONE — Foundation + Conclusion ──────────────────
+  if(screen==="energyFoundation"&&profile){
+    const isIt=language==="it";
+    const allRated=EF_REQUIREMENTS.every(r=>efRatings[r.id]);
+    const efScore=Object.values(efRatings).reduce((s,v)=>s+(v==="medium"?7.5:v==="high"?10:0),0);
+    const efPct=Math.min(100,Math.round(efScore));
+    const efHighlight=efScore>=35;
+    return <main className="dfScreen">
+      <header className="missionNav missionNavTrust">
+        <button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button>
+        <div className="missionProgress"><span className="activeDot"/> {isIt?"ENERGIA E DECARBONIZZAZIONE":"ENERGY AND DECARBONISATION"}</div>
+        {renderTrustBar()}
+        <button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button>
+      </header>
+      <div className="dfStickyBar">
+        <div className="dfStickyLeft">
+          <p className="eyebrow">{isIt?"PERCHÉ SELEZIONARE IBM ENVIZI · ENERGY ANALYTICS":"WHY SELECT IBM ENVIZI · ENERGY ANALYTICS"}</p>
+          <h1>{isIt?"Quanto contano per te questi requisiti di energy management?":"How important are these energy management requirements for you?"}</h1>
+          <p className="dfSubtitle">{isIt?"Valuta ogni requisito: Basso (+0), Medio (+7,5 pt), Alto (+10 pt).":"Rate each requirement: Low (+0), Medium (+7.5 pts), High (+10 pts)."}</p>
+          {efHighlight&&<div className="dfScoreMsg"><span className="dfScoreMsgIcon">⬡</span><p>{isIt?"Molto probabilmente IBM Envizi è la soluzione per le tue esigenze energetiche.":"IBM Envizi is very likely the right solution for your energy management needs."}</p></div>}
+        </div>
+        <div className="dfStickyRight">
+          <div className="dfScoreBox">
+            <span className="dfScoreBoxLabel">{isIt?"Punteggio rilevanza":"Relevance score"}</span>
+            <strong className={efHighlight?"dfScoreHigh":""}>{efScore}<em>/60</em></strong>
+            <div className="dfScoreTrack"><span className="dfScoreFill" style={{width:`${efPct}%`,background:efHighlight?"#39efb4":"#ffc07c"}}/></div>
+          </div>
+          <button className="actionButton dfContinueBtn" disabled={!allRated} onClick={()=>setScreen("energyConclusion")}>{isIt?"Continua →":"Continue →"}</button>
+          {!allRated&&<p className="dfHint">{isIt?"Valuta tutti i requisiti per continuare.":"Rate all requirements to continue."}</p>}
+        </div>
+      </div>
+      <div className="dfColHeaders">
+        <div className="dfColH dfColHReq">{isIt?"Requisito · Valutazione":"Requirement · Rating"}</div>
+        <div className="dfColH dfColHCap">⬡ {isIt?"Capacità IBM Envizi":"IBM Envizi capability"}</div>
+        <div className="dfColH dfColHBen">{isIt?"Beneficio ESG Manager":"ESG Manager benefit"}</div>
+      </div>
+      <div className="dfGrid">
+        {EF_REQUIREMENTS.map((req,i)=>{
+          const rating=efRatings[req.id];
+          const isActive=rating==="medium"||rating==="high";
+          const pts=rating==="high"?10:rating==="medium"?7.5:0;
+          return <div key={req.id} className={`dfRow${isActive?" dfRowActive":""}${rating==="low"?" dfRowLow":""}`}>
+            <div className="dfRowReq">
+              <div className="dfRowReqTop"><span className="dfItemNum">{String(i+1).padStart(2,"0")}</span><p className="dfItemQ">{isIt?req.it:req.en}</p></div>
+              <div className="dfRatingGroup">{(["low","medium","high"] as DFRating[]).map(v=><button key={v} className={`dfRatingBtn dfRatingBtn--${v}${rating===v?" dfRatingBtnActive":""}`} onClick={()=>setEfRating(req.id,v)}>{isIt?(v==="low"?"Basso":v==="medium"?"Medio +7,5":"Alto +10"):(v==="low"?"Low":v==="medium"?"Medium +7.5":"High +10")}</button>)}</div>
+              {isActive&&<span className={`dfRowPts dfRowPts--${rating}`}>+{pts} pt</span>}
+            </div>
+            <div className={`dfRowCap${isActive?"":" dfRowColDim"}`}>{isActive?<><span className="dfRowColLabel">⬡ IBM Envizi</span><p>{isIt?req.capIt:req.capEn}</p></>:<span className="dfRowColEmpty">—</span>}</div>
+            <div className={`dfRowBen${isActive?"":" dfRowColDim"}`}>{isActive?<><span className="dfRowColLabel">{isIt?"Beneficio":"Benefit"}</span><p>{isIt?req.benIt:req.benEn}</p></>:<span className="dfRowColEmpty">—</span>}</div>
+          </div>;
+        })}
+      </div>
+      <footer className="dfFooter">
+        <p className="dfSources">{isIt?"Capacità basate su: ":"Capabilities based on: "}<a href="https://www.ibm.com/products/envizi/interval-meter-analytics" target="_blank" rel="noreferrer">Interval Meter Analytics ↗</a>{" · "}<a href="https://www.ibm.com/products/envizi/utility-bill-analytics" target="_blank" rel="noreferrer">Utility Bill Analytics ↗</a></p>
+      </footer>
+    </main>;
+  }
+
+  if(screen==="energyConclusion"&&profile){
+    const isIt=language==="it";
+    const efScore=Object.values(efRatings).reduce((s,v)=>s+(v==="medium"?7.5:v==="high"?10:0),0);
+    const efPct=Math.min(100,Math.round(efScore));
+    const efHighlight=efScore>=35;
+    const m1outcome=missionOutcomes[1];
+    const decisionTaken=m1outcome?(isIt?{positive:"Envizi Utility Bill Analytics + Interval Meter Analytics",warning:"Cruscotto energetico manuale",critical:"Bollette e contatori separati"}[m1outcome]:{positive:"Envizi Utility Bill Analytics + Interval Meter Analytics",warning:"Manual energy dashboard",critical:"Bills and meters kept separate"}[m1outcome]):null;
+    const decisionImg=m1outcome==="positive"?"./energy-envizi-analytics.png":m1outcome==="warning"?"./energy-manual-dashboard.png":"./energy-asis-fragmented.png";
+    const decisionColor=m1outcome==="positive"?"#39efb4":m1outcome==="warning"?"#ffc07c":"#ff7777";
+    const highReqs=EF_REQUIREMENTS.filter(r=>efRatings[r.id]==="high");
+    const medReqs=EF_REQUIREMENTS.filter(r=>efRatings[r.id]==="medium");
+    const lowReqs=EF_REQUIREMENTS.filter(r=>efRatings[r.id]==="low");
+    return <main className="dfScreen">
+      <header className="missionNav missionNavTrust">
+        <button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button>
+        <div className="missionProgress"><span className="activeDot"/> {isIt?"ENERGIA E DECARBONIZZAZIONE":"ENERGY AND DECARBONISATION"}</div>
+        {renderTrustBar()}
+        <button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button>
+      </header>
+      <div className="dfConclusionBody">
+        <div className="dfcLeft">
+          <p className="eyebrow">{isIt?"CONCLUSIONI · ENERGIA E DECARBONIZZAZIONE":"CONCLUSIONS · ENERGY AND DECARBONISATION"}</p>
+          <h1 className="dfcTitle">{isIt?"La tua scelta per il controllo dell'energia":"Your energy management choice"}</h1>
+          {decisionTaken&&<><img src={decisionImg} alt={decisionTaken} className="dfcDecisionImg"/><div className="dfcDecisionLabel"><small>{isIt?"DECISIONE ADOTTATA · MISSIONE 02":"DECISION ADOPTED · MISSION 02"}</small><strong style={{color:decisionColor}}>{decisionTaken}</strong></div></>}
+          <div className="dfcScorePanelLeft">
+            <p className="dfcSectionLabel">{isIt?"RILEVANZA IBM ENVIZI · ENERGY ANALYTICS":"IBM ENVIZI RELEVANCE · ENERGY ANALYTICS"}</p>
+            <div className="dfScoreBox">
+              <span className="dfScoreBoxLabel">{isIt?"Punteggio rilevanza":"Relevance score"}</span>
+              <strong className={efHighlight?"dfScoreHigh":""}>{efScore}<em>/60</em></strong>
+              <div className="dfScoreTrack"><span className="dfScoreFill" style={{width:`${efPct}%`,background:efHighlight?"#39efb4":"#ffc07c"}}/></div>
+            </div>
+            <div className="dfScoreMsg" style={{margin:0,borderColor:efHighlight?"#39efb4":"#ffc07c"}}>
+              <span className="dfScoreMsgIcon" style={{color:efHighlight?"#39efb4":"#ffc07c"}}>⬡</span>
+              <p style={{color:efHighlight?"#39efb4":"#ffc07c"}}>{efHighlight?(isIt?"Molto probabilmente IBM Envizi è la soluzione per le tue esigenze energetiche.":"IBM Envizi is very likely the right solution for your energy management needs."):(isIt?"Alcuni requisiti sono prioritari: approfondisci con il tuo team IBM.":"Some requirements are a priority — explore further with your IBM team.")}</p>
+            </div>
+          </div>
+          <div className="dfcActions">
+            <button className="actionButton" onClick={()=>goBack()}>{isIt?"← Indietro":"← Back"}</button>
+            <button className="actionButton" style={{whiteSpace:"nowrap"}} onClick={()=>{setSelectedMission(4);localStorage.setItem("envizi-quest-mission","5");setScreen("briefing");}}>{isIt?"Prossima sfida: Net Zero →":"Next challenge: Net Zero →"}</button>
+          </div>
+        </div>
+        <div className="dfcRight">
+          {efHighlight&&<p className="dfcIntroTitle">{isIt?"Abbiamo recepito che per te la scelta Envizi può essere giustificata per:":"We've noted that for you the Envizi choice can be justified by:"}</p>}
+          {highReqs.length>0&&<section className="dfcSection"><p className="dfcSectionLabel" style={{color:"#39efb4"}}>{isIt?"MOLTO RILEVANTI":"HIGHLY RELEVANT"}</p><ul className="dfcFactorList">{highReqs.map(r=><li key={r.id} style={{fontSize:"clamp(24px,2.2vw,32px)",fontWeight:600,color:"#effbf6"}}><span className="dfcFactorDot" style={{background:"#39efb4",width:"10px",height:"10px"}}/>{isIt?r.it:r.en}</li>)}</ul></section>}
+          {medReqs.length>0&&<section className="dfcSection"><p className="dfcSectionLabel" style={{color:"#ffc07c"}}>{isIt?"MEDIAMENTE RILEVANTI":"MODERATELY RELEVANT"}</p><ul className="dfcFactorList">{medReqs.map(r=><li key={r.id} style={{fontSize:"clamp(20px,1.8vw,26px)",color:"#c8ddd6"}}><span className="dfcFactorDot" style={{background:"#ffc07c",width:"8px",height:"8px"}}/>{isIt?r.it:r.en}</li>)}</ul></section>}
+          {lowReqs.length>0&&<section className="dfcSection"><p className="dfcSectionLabel" style={{color:"#5a7a70"}}>{isIt?"POCO RILEVANTI":"LOW RELEVANCE"}</p><ul className="dfcFactorList">{lowReqs.map(r=><li key={r.id} style={{fontSize:"clamp(16px,1.4vw,20px)",color:"#5a7a70"}}><span className="dfcFactorDot" style={{background:"#3d6052",width:"6px",height:"6px"}}/>{isIt?r.it:r.en}</li>)}</ul></section>}
+        </div>
+      </div>
+    </main>;
+  }
+
+  // ── COINVOLGIMENTO SUPPLY CHAIN — Foundation + Conclusion ───────────────────
+  if(screen==="supplyFoundation"&&profile){
+    const isIt=language==="it";
+    const allRated=SC_REQUIREMENTS.every(r=>scRatings[r.id]);
+    const scScore=Object.values(scRatings).reduce((s,v)=>s+(v==="medium"?7.5:v==="high"?10:0),0);
+    const scPct=Math.min(100,Math.round(scScore));
+    const scHighlight=scScore>=35;
+    return <main className="dfScreen">
+      <header className="missionNav missionNavTrust">
+        <button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button>
+        <div className="missionProgress"><span className="activeDot"/> {isIt?"COINVOLGIMENTO SUPPLY CHAIN":"SUPPLY CHAIN ENGAGEMENT"}</div>
+        {renderTrustBar()}
+        <button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button>
+      </header>
+      <div className="dfStickyBar">
+        <div className="dfStickyLeft">
+          <p className="eyebrow">{isIt?"PERCHÉ SELEZIONARE IBM ENVIZI · SUPPLY CHAIN INTELLIGENCE":"WHY SELECT IBM ENVIZI · SUPPLY CHAIN INTELLIGENCE"}</p>
+          <h1>{isIt?"Quanto contano per te questi requisiti di supply chain?":"How important are these supply chain requirements for you?"}</h1>
+          <p className="dfSubtitle">{isIt?"Valuta ogni requisito: Basso (+0), Medio (+7,5 pt), Alto (+10 pt).":"Rate each requirement: Low (+0), Medium (+7.5 pts), High (+10 pts)."}</p>
+          {scHighlight&&<div className="dfScoreMsg"><span className="dfScoreMsgIcon">⬡</span><p>{isIt?"Molto probabilmente IBM Envizi è la soluzione per le tue esigenze Scope 3 e supply chain.":"IBM Envizi is very likely the right solution for your Scope 3 and supply chain needs."}</p></div>}
+        </div>
+        <div className="dfStickyRight">
+          <div className="dfScoreBox">
+            <span className="dfScoreBoxLabel">{isIt?"Punteggio rilevanza":"Relevance score"}</span>
+            <strong className={scHighlight?"dfScoreHigh":""}>{scScore}<em>/60</em></strong>
+            <div className="dfScoreTrack"><span className="dfScoreFill" style={{width:`${scPct}%`,background:scHighlight?"#39efb4":"#ffc07c"}}/></div>
+          </div>
+          <button className="actionButton dfContinueBtn" disabled={!allRated} onClick={()=>setScreen("supplyConclusion")}>{isIt?"Continua →":"Continue →"}</button>
+          {!allRated&&<p className="dfHint">{isIt?"Valuta tutti i requisiti per continuare.":"Rate all requirements to continue."}</p>}
+        </div>
+      </div>
+      <div className="dfColHeaders">
+        <div className="dfColH dfColHReq">{isIt?"Requisito · Valutazione":"Requirement · Rating"}</div>
+        <div className="dfColH dfColHCap">⬡ {isIt?"Capacità IBM Envizi":"IBM Envizi capability"}</div>
+        <div className="dfColH dfColHBen">{isIt?"Beneficio ESG Manager":"ESG Manager benefit"}</div>
+      </div>
+      <div className="dfGrid">
+        {SC_REQUIREMENTS.map((req,i)=>{
+          const rating=scRatings[req.id];
+          const isActive=rating==="medium"||rating==="high";
+          const pts=rating==="high"?10:rating==="medium"?7.5:0;
+          return <div key={req.id} className={`dfRow${isActive?" dfRowActive":""}${rating==="low"?" dfRowLow":""}`}>
+            <div className="dfRowReq">
+              <div className="dfRowReqTop"><span className="dfItemNum">{String(i+1).padStart(2,"0")}</span><p className="dfItemQ">{isIt?req.it:req.en}</p></div>
+              <div className="dfRatingGroup">{(["low","medium","high"] as DFRating[]).map(v=><button key={v} className={`dfRatingBtn dfRatingBtn--${v}${rating===v?" dfRatingBtnActive":""}`} onClick={()=>setScRating(req.id,v)}>{isIt?(v==="low"?"Basso":v==="medium"?"Medio +7,5":"Alto +10"):(v==="low"?"Low":v==="medium"?"Medium +7.5":"High +10")}</button>)}</div>
+              {isActive&&<span className={`dfRowPts dfRowPts--${rating}`}>+{pts} pt</span>}
+            </div>
+            <div className={`dfRowCap${isActive?"":" dfRowColDim"}`}>{isActive?<><span className="dfRowColLabel">⬡ IBM Envizi</span><p>{isIt?req.capIt:req.capEn}</p></>:<span className="dfRowColEmpty">—</span>}</div>
+            <div className={`dfRowBen${isActive?"":" dfRowColDim"}`}>{isActive?<><span className="dfRowColLabel">{isIt?"Beneficio":"Benefit"}</span><p>{isIt?req.benIt:req.benEn}</p></>:<span className="dfRowColEmpty">—</span>}</div>
+          </div>;
+        })}
+      </div>
+      <footer className="dfFooter">
+        <p className="dfSources">{isIt?"Capacità basate su: ":"Capabilities based on: "}<a href="https://www.ibm.com/products/envizi/supply-chain-intelligence" target="_blank" rel="noreferrer">Supply Chain Intelligence ↗</a>{" · "}<a href="https://www.ibm.com/products/envizi/scope-3-ghg-accounting-reporting" target="_blank" rel="noreferrer">Scope 3 GHG Accounting ↗</a></p>
+      </footer>
+    </main>;
+  }
+
+  if(screen==="supplyConclusion"&&profile){
+    const isIt=language==="it";
+    const scScore=Object.values(scRatings).reduce((s,v)=>s+(v==="medium"?7.5:v==="high"?10:0),0);
+    const scPct=Math.min(100,Math.round(scScore));
+    const scHighlight=scScore>=35;
+    const m2outcome=missionOutcomes[2];
+    const decisionTaken=m2outcome?(isIt?{positive:"Envizi Surveys + Assessments e Supply Chain Intelligence",warning:"Portale questionari separato",critical:"E-mail e fogli separati"}[m2outcome]:{positive:"Envizi Surveys + Assessments and Supply Chain Intelligence",warning:"Separate questionnaire portal",critical:"Email and separate spreadsheets"}[m2outcome]):null;
+    const decisionImg=m2outcome==="positive"?"./supply-chain-envizi.png":m2outcome==="warning"?"./supply-chain-portal.png":"./supply-chain-asis.png";
+    const decisionColor=m2outcome==="positive"?"#39efb4":m2outcome==="warning"?"#ffc07c":"#ff7777";
+    const highReqs=SC_REQUIREMENTS.filter(r=>scRatings[r.id]==="high");
+    const medReqs=SC_REQUIREMENTS.filter(r=>scRatings[r.id]==="medium");
+    const lowReqs=SC_REQUIREMENTS.filter(r=>scRatings[r.id]==="low");
+    return <main className="dfScreen">
+      <header className="missionNav missionNavTrust">
+        <button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button>
+        <div className="missionProgress"><span className="activeDot"/> {isIt?"COINVOLGIMENTO SUPPLY CHAIN":"SUPPLY CHAIN ENGAGEMENT"}</div>
+        {renderTrustBar()}
+        <button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button>
+      </header>
+      <div className="dfConclusionBody">
+        <div className="dfcLeft">
+          <p className="eyebrow">{isIt?"CONCLUSIONI · SUPPLY CHAIN ENGAGEMENT":"CONCLUSIONS · SUPPLY CHAIN ENGAGEMENT"}</p>
+          <h1 className="dfcTitle">{isIt?"La tua scelta per il coinvolgimento della supply chain":"Your supply chain engagement choice"}</h1>
+          {decisionTaken&&<><img src={decisionImg} alt={decisionTaken} className="dfcDecisionImg"/><div className="dfcDecisionLabel"><small>{isIt?"DECISIONE ADOTTATA · MISSIONE 03":"DECISION ADOPTED · MISSION 03"}</small><strong style={{color:decisionColor}}>{decisionTaken}</strong></div></>}
+          <div className="dfcScorePanelLeft">
+            <p className="dfcSectionLabel">{isIt?"RILEVANZA IBM ENVIZI · SUPPLY CHAIN INTELLIGENCE":"IBM ENVIZI RELEVANCE · SUPPLY CHAIN INTELLIGENCE"}</p>
+            <div className="dfScoreBox">
+              <span className="dfScoreBoxLabel">{isIt?"Punteggio rilevanza":"Relevance score"}</span>
+              <strong className={scHighlight?"dfScoreHigh":""}>{scScore}<em>/60</em></strong>
+              <div className="dfScoreTrack"><span className="dfScoreFill" style={{width:`${scPct}%`,background:scHighlight?"#39efb4":"#ffc07c"}}/></div>
+            </div>
+            <div className="dfScoreMsg" style={{margin:0,borderColor:scHighlight?"#39efb4":"#ffc07c"}}>
+              <span className="dfScoreMsgIcon" style={{color:scHighlight?"#39efb4":"#ffc07c"}}>⬡</span>
+              <p style={{color:scHighlight?"#39efb4":"#ffc07c"}}>{scHighlight?(isIt?"Molto probabilmente IBM Envizi è la soluzione per le tue esigenze Scope 3 e supply chain.":"IBM Envizi is very likely the right solution for your Scope 3 and supply chain needs."):(isIt?"Alcuni requisiti sono prioritari: approfondisci con il tuo team IBM.":"Some requirements are a priority — explore further with your IBM team.")}</p>
+            </div>
+          </div>
+          <div className="dfcActions">
+            <button className="actionButton" onClick={()=>goBack()}>{isIt?"← Indietro":"← Back"}</button>
+            <button className="actionButton" style={{whiteSpace:"nowrap"}} onClick={()=>{setSelectedMission(1);localStorage.setItem("envizi-quest-mission","2");setScreen("briefing");}}>{isIt?"Prossima sfida: Energia →":"Next challenge: Energy →"}</button>
+          </div>
+        </div>
+        <div className="dfcRight">
+          {scHighlight&&<p className="dfcIntroTitle">{isIt?"Abbiamo recepito che per te la scelta Envizi può essere giustificata per:":"We've noted that for you the Envizi choice can be justified by:"}</p>}
+          {highReqs.length>0&&<section className="dfcSection"><p className="dfcSectionLabel" style={{color:"#39efb4"}}>{isIt?"MOLTO RILEVANTI":"HIGHLY RELEVANT"}</p><ul className="dfcFactorList">{highReqs.map(r=><li key={r.id} style={{fontSize:"clamp(24px,2.2vw,32px)",fontWeight:600,color:"#effbf6"}}><span className="dfcFactorDot" style={{background:"#39efb4",width:"10px",height:"10px"}}/>{isIt?r.it:r.en}</li>)}</ul></section>}
+          {medReqs.length>0&&<section className="dfcSection"><p className="dfcSectionLabel" style={{color:"#ffc07c"}}>{isIt?"MEDIAMENTE RILEVANTI":"MODERATELY RELEVANT"}</p><ul className="dfcFactorList">{medReqs.map(r=><li key={r.id} style={{fontSize:"clamp(20px,1.8vw,26px)",color:"#c8ddd6"}}><span className="dfcFactorDot" style={{background:"#ffc07c",width:"8px",height:"8px"}}/>{isIt?r.it:r.en}</li>)}</ul></section>}
+          {lowReqs.length>0&&<section className="dfcSection"><p className="dfcSectionLabel" style={{color:"#5a7a70"}}>{isIt?"POCO RILEVANTI":"LOW RELEVANCE"}</p><ul className="dfcFactorList">{lowReqs.map(r=><li key={r.id} style={{fontSize:"clamp(16px,1.4vw,20px)",color:"#5a7a70"}}><span className="dfcFactorDot" style={{background:"#3d6052",width:"6px",height:"6px"}}/>{isIt?r.it:r.en}</li>)}</ul></section>}
+        </div>
+      </div>
+    </main>;
+  }
+
+  // ── ROTTA VERSO NET ZERO — Foundation + Conclusion ──────────────────────────
+  if(screen==="planningFoundation"&&profile){
+    const isIt=language==="it";
+    const allRated=PL_REQUIREMENTS.every(r=>plRatings[r.id]);
+    const plScore=Object.values(plRatings).reduce((s,v)=>s+(v==="medium"?7.5:v==="high"?10:0),0);
+    const plPct=Math.min(100,Math.round(plScore));
+    const plHighlight=plScore>=35;
+    return <main className="dfScreen">
+      <header className="missionNav missionNavTrust">
+        <button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button>
+        <div className="missionProgress"><span className="activeDot"/> {isIt?"ROTTA VERSO NET ZERO":"NET ZERO PATHWAY"}</div>
+        {renderTrustBar()}
+        <button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button>
+      </header>
+      <div className="dfStickyBar">
+        <div className="dfStickyLeft">
+          <p className="eyebrow">{isIt?"PERCHÉ SELEZIONARE IBM ENVIZI · PLANNING E SCENARIO MODELER":"WHY SELECT IBM ENVIZI · PLANNING & SCENARIO MODELER"}</p>
+          <h1>{isIt?"Quanto contano per te questi requisiti di pianificazione Net Zero?":"How important are these Net Zero planning requirements for you?"}</h1>
+          <p className="dfSubtitle">{isIt?"Valuta ogni requisito: Basso (+0), Medio (+7,5 pt), Alto (+10 pt).":"Rate each requirement: Low (+0), Medium (+7.5 pts), High (+10 pts)."}</p>
+          {plHighlight&&<div className="dfScoreMsg"><span className="dfScoreMsgIcon">⬡</span><p>{isIt?"Molto probabilmente IBM Envizi è la soluzione per la tua pianificazione della decarbonizzazione.":"IBM Envizi is very likely the right solution for your decarbonisation planning needs."}</p></div>}
+        </div>
+        <div className="dfStickyRight">
+          <div className="dfScoreBox">
+            <span className="dfScoreBoxLabel">{isIt?"Punteggio rilevanza":"Relevance score"}</span>
+            <strong className={plHighlight?"dfScoreHigh":""}>{plScore}<em>/60</em></strong>
+            <div className="dfScoreTrack"><span className="dfScoreFill" style={{width:`${plPct}%`,background:plHighlight?"#39efb4":"#ffc07c"}}/></div>
+          </div>
+          <button className="actionButton dfContinueBtn" disabled={!allRated} onClick={()=>setScreen("planningConclusion")}>{isIt?"Continua →":"Continue →"}</button>
+          {!allRated&&<p className="dfHint">{isIt?"Valuta tutti i requisiti per continuare.":"Rate all requirements to continue."}</p>}
+        </div>
+      </div>
+      <div className="dfColHeaders">
+        <div className="dfColH dfColHReq">{isIt?"Requisito · Valutazione":"Requirement · Rating"}</div>
+        <div className="dfColH dfColHCap">⬡ {isIt?"Capacità IBM Envizi":"IBM Envizi capability"}</div>
+        <div className="dfColH dfColHBen">{isIt?"Beneficio ESG Manager":"ESG Manager benefit"}</div>
+      </div>
+      <div className="dfGrid">
+        {PL_REQUIREMENTS.map((req,i)=>{
+          const rating=plRatings[req.id];
+          const isActive=rating==="medium"||rating==="high";
+          const pts=rating==="high"?10:rating==="medium"?7.5:0;
+          return <div key={req.id} className={`dfRow${isActive?" dfRowActive":""}${rating==="low"?" dfRowLow":""}`}>
+            <div className="dfRowReq">
+              <div className="dfRowReqTop"><span className="dfItemNum">{String(i+1).padStart(2,"0")}</span><p className="dfItemQ">{isIt?req.it:req.en}</p></div>
+              <div className="dfRatingGroup">{(["low","medium","high"] as DFRating[]).map(v=><button key={v} className={`dfRatingBtn dfRatingBtn--${v}${rating===v?" dfRatingBtnActive":""}`} onClick={()=>setPlRating(req.id,v)}>{isIt?(v==="low"?"Basso":v==="medium"?"Medio +7,5":"Alto +10"):(v==="low"?"Low":v==="medium"?"Medium +7.5":"High +10")}</button>)}</div>
+              {isActive&&<span className={`dfRowPts dfRowPts--${rating}`}>+{pts} pt</span>}
+            </div>
+            <div className={`dfRowCap${isActive?"":" dfRowColDim"}`}>{isActive?<><span className="dfRowColLabel">⬡ IBM Envizi</span><p>{isIt?req.capIt:req.capEn}</p></>:<span className="dfRowColEmpty">—</span>}</div>
+            <div className={`dfRowBen${isActive?"":" dfRowColDim"}`}>{isActive?<><span className="dfRowColLabel">{isIt?"Beneficio":"Benefit"}</span><p>{isIt?req.benIt:req.benEn}</p></>:<span className="dfRowColEmpty">—</span>}</div>
+          </div>;
+        })}
+      </div>
+      <footer className="dfFooter">
+        <p className="dfSources">{isIt?"Capacità basate su: ":"Capabilities based on: "}<a href="https://www.ibm.com/products/envizi/scenario-modeler" target="_blank" rel="noreferrer">Scenario Modeler ↗</a>{" · "}<a href="https://www.ibm.com/products/envizi/sustainability-program-tracking" target="_blank" rel="noreferrer">Sustainability Program Tracking ↗</a></p>
+      </footer>
+    </main>;
+  }
+
+  if(screen==="planningConclusion"&&profile){
+    const isIt=language==="it";
+    const plScore=Object.values(plRatings).reduce((s,v)=>s+(v==="medium"?7.5:v==="high"?10:0),0);
+    const plPct=Math.min(100,Math.round(plScore));
+    const plHighlight=plScore>=35;
+    const m4outcome=missionOutcomes[4];
+    const decisionTaken=m4outcome?(isIt?{positive:"Envizi Scenario Modeler + Program Tracking + Planning Analytics",warning:"Portafoglio progetti in foglio e project tool",critical:"Nessun modello di pianificazione"}[m4outcome]:{positive:"Envizi Scenario Modeler + Program Tracking + Planning Analytics",warning:"Project portfolio in spreadsheets and project tool",critical:"No planning model"}[m4outcome]):null;
+    const decisionImg=m4outcome==="positive"?"./planning-envizi.png":m4outcome==="warning"?"./planning-intermediate.png":"./planning-asis.png";
+    const decisionColor=m4outcome==="positive"?"#39efb4":m4outcome==="warning"?"#ffc07c":"#ff7777";
+    const highReqs=PL_REQUIREMENTS.filter(r=>plRatings[r.id]==="high");
+    const medReqs=PL_REQUIREMENTS.filter(r=>plRatings[r.id]==="medium");
+    const lowReqs=PL_REQUIREMENTS.filter(r=>plRatings[r.id]==="low");
+    return <main className="dfScreen">
+      <header className="missionNav missionNavTrust">
+        <button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button>
+        <div className="missionProgress"><span className="activeDot"/> {isIt?"ROTTA VERSO NET ZERO":"NET ZERO PATHWAY"}</div>
+        {renderTrustBar()}
+        <button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button>
+      </header>
+      <div className="dfConclusionBody">
+        <div className="dfcLeft">
+          <p className="eyebrow">{isIt?"CONCLUSIONI · ROTTA VERSO NET ZERO":"CONCLUSIONS · NET ZERO PATHWAY"}</p>
+          <h1 className="dfcTitle">{isIt?"La tua scelta per il piano di decarbonizzazione":"Your decarbonisation planning choice"}</h1>
+          {decisionTaken&&<><img src={decisionImg} alt={decisionTaken} className="dfcDecisionImg"/><div className="dfcDecisionLabel"><small>{isIt?"DECISIONE ADOTTATA · MISSIONE 05":"DECISION ADOPTED · MISSION 05"}</small><strong style={{color:decisionColor}}>{decisionTaken}</strong></div></>}
+          <div className="dfcScorePanelLeft">
+            <p className="dfcSectionLabel">{isIt?"RILEVANZA IBM ENVIZI · PLANNING & SCENARIO MODELER":"IBM ENVIZI RELEVANCE · PLANNING & SCENARIO MODELER"}</p>
+            <div className="dfScoreBox">
+              <span className="dfScoreBoxLabel">{isIt?"Punteggio rilevanza":"Relevance score"}</span>
+              <strong className={plHighlight?"dfScoreHigh":""}>{plScore}<em>/60</em></strong>
+              <div className="dfScoreTrack"><span className="dfScoreFill" style={{width:`${plPct}%`,background:plHighlight?"#39efb4":"#ffc07c"}}/></div>
+            </div>
+            <div className="dfScoreMsg" style={{margin:0,borderColor:plHighlight?"#39efb4":"#ffc07c"}}>
+              <span className="dfScoreMsgIcon" style={{color:plHighlight?"#39efb4":"#ffc07c"}}>⬡</span>
+              <p style={{color:plHighlight?"#39efb4":"#ffc07c"}}>{plHighlight?(isIt?"Molto probabilmente IBM Envizi è la soluzione per la tua pianificazione della decarbonizzazione.":"IBM Envizi is very likely the right solution for your decarbonisation planning needs."):(isIt?"Alcuni requisiti sono prioritari: approfondisci con il tuo team IBM.":"Some requirements are a priority — explore further with your IBM team.")}</p>
+            </div>
+          </div>
+          <div className="dfcActions">
+            <button className="actionButton" onClick={()=>goBack()}>{isIt?"← Indietro":"← Back"}</button>
+            <button className="actionButton" style={{whiteSpace:"nowrap"}} onClick={()=>setScreen("summary")}>{isIt?"Vai al riepilogo finale →":"Go to final summary →"}</button>
+          </div>
+        </div>
+        <div className="dfcRight">
+          {plHighlight&&<p className="dfcIntroTitle">{isIt?"Abbiamo recepito che per te la scelta Envizi può essere giustificata per:":"We've noted that for you the Envizi choice can be justified by:"}</p>}
+          {highReqs.length>0&&<section className="dfcSection"><p className="dfcSectionLabel" style={{color:"#39efb4"}}>{isIt?"MOLTO RILEVANTI":"HIGHLY RELEVANT"}</p><ul className="dfcFactorList">{highReqs.map(r=><li key={r.id} style={{fontSize:"clamp(24px,2.2vw,32px)",fontWeight:600,color:"#effbf6"}}><span className="dfcFactorDot" style={{background:"#39efb4",width:"10px",height:"10px"}}/>{isIt?r.it:r.en}</li>)}</ul></section>}
+          {medReqs.length>0&&<section className="dfcSection"><p className="dfcSectionLabel" style={{color:"#ffc07c"}}>{isIt?"MEDIAMENTE RILEVANTI":"MODERATELY RELEVANT"}</p><ul className="dfcFactorList">{medReqs.map(r=><li key={r.id} style={{fontSize:"clamp(20px,1.8vw,26px)",color:"#c8ddd6"}}><span className="dfcFactorDot" style={{background:"#ffc07c",width:"8px",height:"8px"}}/>{isIt?r.it:r.en}</li>)}</ul></section>}
+          {lowReqs.length>0&&<section className="dfcSection"><p className="dfcSectionLabel" style={{color:"#5a7a70"}}>{isIt?"POCO RILEVANTI":"LOW RELEVANCE"}</p><ul className="dfcFactorList">{lowReqs.map(r=><li key={r.id} style={{fontSize:"clamp(16px,1.4vw,20px)",color:"#5a7a70"}}><span className="dfcFactorDot" style={{background:"#3d6052",width:"6px",height:"6px"}}/>{isIt?r.it:r.en}</li>)}</ul></section>}
+        </div>
+      </div>
+    </main>;
+  }
+
+  // ── FRAMEWORK ESG E DISCLOSURE — Foundation + Conclusion ───────────────────
+  if(screen==="frameworkFoundation"&&profile){
+    const isIt=language==="it";
+    const allRated=FR_REQUIREMENTS.every(r=>frRatings[r.id]);
+    const frScore=Object.values(frRatings).reduce((s,v)=>s+(v==="medium"?7.5:v==="high"?10:0),0);
+    const frPct=Math.min(100,Math.round(frScore));
+    const frHighlight=frScore>=35;
+    return <main className="dfScreen">
+      <header className="missionNav missionNavTrust">
+        <button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button>
+        <div className="missionProgress"><span className="activeDot"/> {isIt?"FRAMEWORK ESG E DISCLOSURE":"ESG FRAMEWORKS AND DISCLOSURE"}</div>
+        {renderTrustBar()}
+        <button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button>
+      </header>
+      <div className="dfStickyBar">
+        <div className="dfStickyLeft">
+          <p className="eyebrow">{isIt?"PERCHÉ SELEZIONARE IBM ENVIZI · SUSTAINABILITY REPORTING MANAGER":"WHY SELECT IBM ENVIZI · SUSTAINABILITY REPORTING MANAGER"}</p>
+          <h1>{isIt?"Quanto contano per te questi requisiti di gestione framework e disclosure?":"How important are these framework management and disclosure requirements for you?"}</h1>
+          <p className="dfSubtitle">{isIt?"Valuta ogni requisito: Basso (+0), Medio (+7,5 pt), Alto (+10 pt).":"Rate each requirement: Low (+0), Medium (+7.5 pts), High (+10 pts)."}</p>
+          {frHighlight&&<div className="dfScoreMsg"><span className="dfScoreMsgIcon">⬡</span><p>{isIt?"Molto probabilmente IBM Envizi è la soluzione per la tua gestione dei framework ESG.":"IBM Envizi is very likely the right solution for your ESG framework management needs."}</p></div>}
+        </div>
+        <div className="dfStickyRight">
+          <div className="dfScoreBox">
+            <span className="dfScoreBoxLabel">{isIt?"Punteggio rilevanza":"Relevance score"}</span>
+            <strong className={frHighlight?"dfScoreHigh":""}>{frScore}<em>/60</em></strong>
+            <div className="dfScoreTrack"><span className="dfScoreFill" style={{width:`${frPct}%`,background:frHighlight?"#39efb4":"#ffc07c"}}/></div>
+          </div>
+          <button className="actionButton dfContinueBtn" disabled={!allRated} onClick={()=>setScreen("frameworkConclusion")}>{isIt?"Continua →":"Continue →"}</button>
+          {!allRated&&<p className="dfHint">{isIt?"Valuta tutti i requisiti per continuare.":"Rate all requirements to continue."}</p>}
+        </div>
+      </div>
+      <div className="dfColHeaders">
+        <div className="dfColH dfColHReq">{isIt?"Requisito · Valutazione":"Requirement · Rating"}</div>
+        <div className="dfColH dfColHCap">⬡ {isIt?"Capacità IBM Envizi":"IBM Envizi capability"}</div>
+        <div className="dfColH dfColHBen">{isIt?"Beneficio ESG Manager":"ESG Manager benefit"}</div>
+      </div>
+      <div className="dfGrid">
+        {FR_REQUIREMENTS.map((req,i)=>{
+          const rating=frRatings[req.id];
+          const isActive=rating==="medium"||rating==="high";
+          const pts=rating==="high"?10:rating==="medium"?7.5:0;
+          return <div key={req.id} className={`dfRow${isActive?" dfRowActive":""}${rating==="low"?" dfRowLow":""}`}>
+            <div className="dfRowReq">
+              <div className="dfRowReqTop"><span className="dfItemNum">{String(i+1).padStart(2,"0")}</span><p className="dfItemQ">{isIt?req.it:req.en}</p></div>
+              <div className="dfRatingGroup">{(["low","medium","high"] as DFRating[]).map(v=><button key={v} className={`dfRatingBtn dfRatingBtn--${v}${rating===v?" dfRatingBtnActive":""}`} onClick={()=>setFrRating(req.id,v)}>{isIt?(v==="low"?"Basso":v==="medium"?"Medio +7,5":"Alto +10"):(v==="low"?"Low":v==="medium"?"Medium +7.5":"High +10")}</button>)}</div>
+              {isActive&&<span className={`dfRowPts dfRowPts--${rating}`}>+{pts} pt</span>}
+            </div>
+            <div className={`dfRowCap${isActive?"":" dfRowColDim"}`}>{isActive?<><span className="dfRowColLabel">⬡ IBM Envizi</span><p>{isIt?req.capIt:req.capEn}</p></>:<span className="dfRowColEmpty">—</span>}</div>
+            <div className={`dfRowBen${isActive?"":" dfRowColDim"}`}>{isActive?<><span className="dfRowColLabel">{isIt?"Beneficio":"Benefit"}</span><p>{isIt?req.benIt:req.benEn}</p></>:<span className="dfRowColEmpty">—</span>}</div>
+          </div>;
+        })}
+      </div>
+      <footer className="dfFooter">
+        <p className="dfSources">{isIt?"Capacità basate su: ":"Capabilities based on: "}<a href="https://www.ibm.com/products/envizi/esg-reporting-frameworks" target="_blank" rel="noreferrer">ESG Reporting Frameworks ↗</a>{" · "}<a href="https://www.ibm.com/products/envizi/sustainability-reporting-manager" target="_blank" rel="noreferrer">Sustainability Reporting Manager ↗</a></p>
+      </footer>
+    </main>;
+  }
+
+  if(screen==="frameworkConclusion"&&profile){
+    const isIt=language==="it";
+    const frScore=Object.values(frRatings).reduce((s,v)=>s+(v==="medium"?7.5:v==="high"?10:0),0);
+    const frPct=Math.min(100,Math.round(frScore));
+    const frHighlight=frScore>=35;
+    const m5outcome=missionOutcomes[5];
+    const decisionTaken=m5outcome?(isIt?{positive:"Envizi ESG Reporting Frameworks con gestione integrata dei requisiti",warning:"Tool documentale con template framework",critical:"File locali aggiornati manualmente"}[m5outcome]:{positive:"Envizi ESG Reporting Frameworks with integrated requirements management",warning:"Document management tool with framework templates",critical:"Manually updated local files"}[m5outcome]):null;
+    const decisionImg=m5outcome==="positive"?"./framework-envizi.png":m5outcome==="warning"?"./framework-intermediate.png":"./framework-asis.png";
+    const decisionColor=m5outcome==="positive"?"#39efb4":m5outcome==="warning"?"#ffc07c":"#ff7777";
+    const highReqs=FR_REQUIREMENTS.filter(r=>frRatings[r.id]==="high");
+    const medReqs=FR_REQUIREMENTS.filter(r=>frRatings[r.id]==="medium");
+    const lowReqs=FR_REQUIREMENTS.filter(r=>frRatings[r.id]==="low");
+    return <main className="dfScreen">
+      <header className="missionNav missionNavTrust">
+        <button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button>
+        <div className="missionProgress"><span className="activeDot"/> {isIt?"FRAMEWORK ESG E DISCLOSURE":"ESG FRAMEWORKS AND DISCLOSURE"}</div>
+        {renderTrustBar()}
+        <button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button>
+      </header>
+      <div className="dfConclusionBody">
+        <div className="dfcLeft">
+          <p className="eyebrow">{isIt?"CONCLUSIONI · FRAMEWORK ESG E DISCLOSURE":"CONCLUSIONS · ESG FRAMEWORKS AND DISCLOSURE"}</p>
+          <h1 className="dfcTitle">{isIt?"La tua scelta per la gestione dei framework ESG":"Your ESG framework management choice"}</h1>
+          {decisionTaken&&<><img src={decisionImg} alt={decisionTaken} className="dfcDecisionImg"/><div className="dfcDecisionLabel"><small>{isIt?"DECISIONE ADOTTATA · MISSIONE 06":"DECISION ADOPTED · MISSION 06"}</small><strong style={{color:decisionColor}}>{decisionTaken}</strong></div></>}
+          <div className="dfcScorePanelLeft">
+            <p className="dfcSectionLabel">{isIt?"RILEVANZA IBM ENVIZI · SUSTAINABILITY REPORTING MANAGER":"IBM ENVIZI RELEVANCE · SUSTAINABILITY REPORTING MANAGER"}</p>
+            <div className="dfScoreBox">
+              <span className="dfScoreBoxLabel">{isIt?"Punteggio rilevanza":"Relevance score"}</span>
+              <strong className={frHighlight?"dfScoreHigh":""}>{frScore}<em>/60</em></strong>
+              <div className="dfScoreTrack"><span className="dfScoreFill" style={{width:`${frPct}%`,background:frHighlight?"#39efb4":"#ffc07c"}}/></div>
+            </div>
+            <div className="dfScoreMsg" style={{margin:0,borderColor:frHighlight?"#39efb4":"#ffc07c"}}>
+              <span className="dfScoreMsgIcon" style={{color:frHighlight?"#39efb4":"#ffc07c"}}>⬡</span>
+              <p style={{color:frHighlight?"#39efb4":"#ffc07c"}}>{frHighlight?(isIt?"Molto probabilmente IBM Envizi è la soluzione per la tua gestione dei framework ESG.":"IBM Envizi is very likely the right solution for your ESG framework management needs."):(isIt?"Alcuni requisiti sono prioritari: approfondisci con il tuo team IBM.":"Some requirements are a priority — explore further with your IBM team.")}</p>
+            </div>
+          </div>
+          <div className="dfcActions">
+            <button className="actionButton" onClick={()=>goBack()}>{isIt?"← Indietro":"← Back"}</button>
+            <button className="actionButton" style={{whiteSpace:"nowrap"}} onClick={()=>{setSelectedMission(2);localStorage.setItem("envizi-quest-mission","3");setScreen("briefing");}}>{isIt?"Prossima sfida: Supply Chain →":"Next challenge: Supply Chain →"}</button>
+          </div>
+        </div>
+        <div className="dfcRight">
+          {frHighlight&&<p className="dfcIntroTitle">{isIt?"Abbiamo recepito che per te la scelta Envizi può essere giustificata per:":"We've noted that for you the Envizi choice can be justified by:"}</p>}
+          {highReqs.length>0&&<section className="dfcSection"><p className="dfcSectionLabel" style={{color:"#39efb4"}}>{isIt?"MOLTO RILEVANTI":"HIGHLY RELEVANT"}</p><ul className="dfcFactorList">{highReqs.map(r=><li key={r.id} style={{fontSize:"clamp(24px,2.2vw,32px)",fontWeight:600,color:"#effbf6"}}><span className="dfcFactorDot" style={{background:"#39efb4",width:"10px",height:"10px"}}/>{isIt?r.it:r.en}</li>)}</ul></section>}
+          {medReqs.length>0&&<section className="dfcSection"><p className="dfcSectionLabel" style={{color:"#ffc07c"}}>{isIt?"MEDIAMENTE RILEVANTI":"MODERATELY RELEVANT"}</p><ul className="dfcFactorList">{medReqs.map(r=><li key={r.id} style={{fontSize:"clamp(20px,1.8vw,26px)",color:"#c8ddd6"}}><span className="dfcFactorDot" style={{background:"#ffc07c",width:"8px",height:"8px"}}/>{isIt?r.it:r.en}</li>)}</ul></section>}
+          {lowReqs.length>0&&<section className="dfcSection"><p className="dfcSectionLabel" style={{color:"#5a7a70"}}>{isIt?"POCO RILEVANTI":"LOW RELEVANCE"}</p><ul className="dfcFactorList">{lowReqs.map(r=><li key={r.id} style={{fontSize:"clamp(16px,1.4vw,20px)",color:"#5a7a70"}}><span className="dfcFactorDot" style={{background:"#3d6052",width:"6px",height:"6px"}}/>{isIt?r.it:r.en}</li>)}</ul></section>}
+        </div>
+      </div>
+    </main>;
+  }
 
 
   if(screen==="reportingFoundation"&&profile){
@@ -810,7 +1372,7 @@ export default function Home(){
           </div>
           <div className="dfcActions">
             <button className="actionButton" onClick={()=>goBack()}>{isIt?"← Indietro":"← Back"}</button>
-            <button className="actionButton" style={{whiteSpace:"nowrap"}} onClick={()=>setScreen("missions")}>{isIt?"Torna alle missioni →":"Back to missions →"}</button>
+            <button className="actionButton" style={{whiteSpace:"nowrap"}} onClick={()=>{setSelectedMission(5);localStorage.setItem("envizi-quest-mission","6");setScreen("briefing");}}>{isIt?"Prossima sfida: Framework ESG →":"Next challenge: ESG Frameworks →"}</button>
           </div>
         </div>
         <div className="dfcRight">
@@ -1087,6 +1649,10 @@ export default function Home(){
     const sectorLabel=isIt?sec.label.it:sec.label.en;
     const dimVal=companyDims[0]; const opsVal=companyDims[1]; const officesVal=companyDims[2]; const peopleVal=companyDims[4];
     const dimUnit=isIt?sec.dimUnit.it:sec.dimUnit.en;
+    // CSRD check: fatturato in €M
+    const isMld=sec.dimUnit.it.includes("mld");
+    const revenueM=isMld?dimVal*1000:dimVal;
+    const csrdAlert=revenueM>=450&&peopleVal>=1000;
     const opsUnit=isIt?sec.opsUnit.it:sec.opsUnit.en;
     const offUnit=isIt?"sedi uffici":"office locations";
     const pepUnit=isIt?"dipendenti":"employees";
@@ -1098,7 +1664,44 @@ export default function Home(){
     const posMap:Record<string,{left:string,top:string}[]>={europa:[{left:"48%",top:"38%"},{left:"51%",top:"42%"},{left:"44%",top:"40%"},{left:"53%",top:"36%"}],asia:[{left:"72%",top:"42%"},{left:"75%",top:"46%"},{left:"68%",top:"44%"}],nordamerica:[{left:"18%",top:"40%"},{left:"22%",top:"36%"},{left:"15%",top:"44%"}],sudamerica:[{left:"28%",top:"64%"},{left:"24%",top:"68%"}],africa:[{left:"50%",top:"58%"},{left:"46%",top:"62%"}],australia:[{left:"78%",top:"66%"},{left:"82%",top:"62%"}]};
     return <main className="companyScreen">
       <header className="missionNav missionNavTrust"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> COMPANY PROFILE</div>{renderTrustBar()}<button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header>
-      <section className="companyCopy"><p className="eyebrow">{t.companyIntro}</p><h1>{displayCompanyName}</h1><p className="companySubtitle">{isIt?"Edita con i tuoi valori o prosegui con i default mostrati":"Edit with your values or continue with the defaults shown"}</p><p className="companyLead">{companyStoryGen}</p><div className="companyStats"><div><strong>{dimVal}</strong><span>{dimUnit}</span></div><div><strong>{opsVal}</strong><span>{opsUnit}</span></div><div><strong>{officesVal}</strong><span>{offUnit}</span></div><div><strong>{peopleVal.toLocaleString()}</strong><span>{pepUnit}</span></div></div><blockquote>{evolvingGen}</blockquote><button className="actionButton" onClick={()=>setScreen("priorities")}>{t.explore}<b>→</b></button></section>
+      <section className="companyCopy">
+        <p className="eyebrow">{t.companyIntro}</p>
+        <h1>{displayCompanyName}</h1>
+        <p className="companySubtitle">{isIt?"Edita con i tuoi valori o prosegui con i default mostrati":"Edit with your values or continue with the defaults shown"}</p>
+        <p className="companyLead">{companyStoryGen}</p>
+        <div className="companyStats">
+          <div><strong>{dimVal}</strong><span>{dimUnit}</span></div>
+          <div><strong>{opsVal}</strong><span>{opsUnit}</span></div>
+          <div><strong>{officesVal}</strong><span>{offUnit}</span></div>
+          <div><strong>{peopleVal.toLocaleString()}</strong><span>{pepUnit}</span></div>
+        </div>
+        {csrdAlert?(
+          <div className="csrdAlert">
+            <span className="csrdAlertIcon">⚠</span>
+            <div className="csrdAlertBody">
+              <strong>{isIt?"Azienda soggetta a CSRD":"Company subject to CSRD"}</strong>
+              <span>{isIt?"Oltre 1.000 dipendenti e €450M di fatturato. Confermi?":"Over 1,000 employees and €450M revenue. Confirm?"}</span>
+            </div>
+            <div className="csrdAlertBtns">
+              <button className="csrdBtnYes" onClick={()=>{}}>{isIt?"Sì, confermo":"Yes, confirm"}</button>
+              <button className="csrdBtnNo" onClick={()=>updateCompanyDim(4,999)}>{isIt?"No, correggi":"No, correct"}</button>
+            </div>
+          </div>
+        ):(
+          <div className="csrdAlert csrdAlertOk">
+            <span className="csrdAlertIcon">ℹ</span>
+            <div className="csrdAlertBody">
+              <strong>{isIt?"Azienda non soggetta a CSRD":"Company not subject to CSRD"}</strong>
+              <span>{isIt?"Meno di 1.000 dipendenti o fatturato sotto €450M. Confermi?":"Under 1,000 employees or revenue below €450M. Confirm?"}</span>
+            </div>
+            <div className="csrdAlertBtns">
+              <button className="csrdBtnYes" onClick={()=>{}}>{isIt?"Sì, confermo":"Yes, confirm"}</button>
+            </div>
+          </div>
+        )}
+        <blockquote>{evolvingGen}</blockquote>
+        <button className="actionButton" onClick={()=>setScreen("priorities")}>{t.explore}<b>→</b></button>
+      </section>
       <section className="worldMap" aria-label={`${displayCompanyName} footprint`}>
         <div className="mapGrid"/>
         <div className="region americas">AMERICAS</div><div className="region emea">EMEA</div><div className="region apac">APAC</div>
@@ -1109,7 +1712,112 @@ export default function Home(){
     </main>;
   }
 
-  if(screen==="priorities"&&profile)return <main className="priorityScreen"><header className="missionNav missionNavTrust"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> BUSINESS PRIORITIES</div>{renderTrustBar()}<button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><section className="priorityIntro"><p className="eyebrow">{t.priorityKicker}</p><h1>{t.priorityTitle}</h1><p>{(t.priorityIntro as string).replace("COMPANY_NAME",displayCompanyName)}</p><div className="priorityPersona"><img src={`./characters/${profile}-neutral.png`} alt={name}/><span>{name}<small>ESG MANAGER</small></span></div></section><section className="priorityBoard"><div className="priorityList">{priorities.map((p,i)=><div className="priorityItem" key={p}><input className={`priorityRankInput${i<3?" priorityRankInputTop":""}`} type="number" min="1" max="6" value={i+1} onChange={e=>{const v=parseInt(e.target.value,10);if(!isNaN(v))rankPriority(i,v);}} onFocus={e=>e.target.select()} aria-label={`Posizione di ${t.priorityNames[p]}`}/><div><b>{t.priorityNames[p]}</b><small>{t.priorityDetails[p]}</small></div></div>)}</div><button className="actionButton" onClick={()=>{localStorage.setItem("envizi-quest-priorities",JSON.stringify(priorities));setScreen("priorityData")}}>{t.confirm}<b>→</b></button></section></main>;
+  if(screen==="priorities"&&profile){
+    const isIt=language==="it";
+    const prioImg:Record<Priority,string>={credit:"./obj-credit.png",compliance:"./obj-compliance.png",customers:"./obj-customers.png",efficiency:"./obj-efficiency.png",supply:"./obj-supply.png",reputation:"./obj-reputation.png"};
+    return <main className="priorityScreen priorityScreenCards">
+      <header className="missionNav missionNavTrust">
+        <button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button>
+        <div className="missionProgress"><span className="activeDot"/> BUSINESS PRIORITIES</div>
+        {renderTrustBar()}
+        <button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button>
+      </header>
+      <div className="prioCardsLayout">
+        <div className="prioCardsIntro">
+          <p className="eyebrow">{t.priorityKicker}</p>
+          <h1>{t.priorityTitle}</h1>
+          <p>{(t.priorityIntro as string).replace("COMPANY_NAME",displayCompanyName)}</p>
+          <div className="priorityPersona">
+            <img src={`./characters/${profile}-neutral.png`} alt={name}/>
+            <div><strong>{name}</strong><small>ESG MANAGER</small></div>
+          </div>
+        </div>
+        <div className="prioCardsArea">
+          <div className="prioCardGrid">
+            {priorities.map((p,i)=>(
+              <div key={p} className={`prioCard${i<3?" prioCardTop":""}`}>
+                <div className="prioCardRank">{String(i+1).padStart(2,"0")}</div>
+                <img className="prioCardImg" src={prioImg[p]} alt={t.priorityNames[p]}/>
+                <div className="prioCardBody">
+                  <strong className="prioCardName">{t.priorityNames[p]}</strong>
+                  <span className="prioCardDetail">{t.priorityDetails[p]}</span>
+                  <button className="prioExpLink" onClick={()=>setPrioExpModal(p)}>
+                    {prioExperience[p]?<span className="prioExpDot"/>:null}
+                    {isIt?"✏ Racconta la tua esperienza":"✏ Share your experience"}
+                  </button>
+                </div>
+                <div className="prioCardMove">
+                  <button className="prioMoveBtn" onClick={()=>rankPriority(i,i)} disabled={i===0} aria-label={t.moveUp}>▲</button>
+                  <button className="prioMoveBtn" onClick={()=>rankPriority(i,i+2)} disabled={i===priorities.length-1} aria-label={t.moveDown}>▼</button>
+                </div>
+              </div>
+            ))}
+          </div>
+          <button className="actionButton prioCardsConfirmBtn" onClick={()=>{localStorage.setItem("envizi-quest-priorities",JSON.stringify(priorities));setScreen("priorityData")}}>{t.confirm}<b>→</b></button>
+        </div>
+      </div>
+      {/* ── Experience modal ── */}
+      {prioExpModal&&(()=>{
+        const p=prioExpModal;
+        const phrases=prioDefaultExp[p][language as "it"|"en"];
+        const selIdx=prioExpSelected[p];
+        const hasSelection=selIdx>=0;
+        const edited=prioExperience[p];
+        // textarea value: edited text if present, else selected phrase, else ""
+        const val=hasSelection?(edited!==""?edited:phrases[selIdx]):"";
+        const selectPhrase=(idx:number)=>{
+          // clicking active card deselects
+          if(selIdx===idx){
+            setPrioExpSelected(prev=>({...prev,[p]:-1}));
+            setPrioExperience(prev=>({...prev,[p]:""}));
+          } else {
+            setPrioExpSelected(prev=>({...prev,[p]:idx}));
+            setPrioExperience(prev=>({...prev,[p]:""}));
+          }
+        };
+        // snapshot on open to support "exit without saving"
+        const exitWithout=()=>{setPrioExpModal(null);};
+        const saveAndExit=()=>{
+          // if textarea has content use it; if nothing typed but phrase selected, store phrase
+          if(edited===""&&hasSelection) setPrioExperience(prev=>({...prev,[p]:phrases[selIdx]}));
+          setPrioExpModal(null);
+        };
+        return <div className="prioExpOverlay" onClick={exitWithout}>
+          <div className="prioExpDialog" onClick={e=>e.stopPropagation()}>
+            <div className="prioExpDialogHeader">
+              <strong>{t.priorityNames[p]}</strong>
+            </div>
+            <p className="prioExpHint">{isIt?"Seleziona il caso in cui ti riconosci di più, rivedi la frase e personalizzala. Il testo sarà incluso nel report finale.":"Select the case you identify with most, review the phrase and personalise it. The text will be included in the final report."}</p>
+            <div className="prioExpPhrases">
+              {phrases.map((phrase,idx)=>(
+                <button key={idx} className={`prioExpPhrase${selIdx===idx?" prioExpPhraseActive":""}`} onClick={()=>selectPhrase(idx)}>
+                  <span className="prioExpPhraseNum">{String(idx+1).padStart(2,"0")}</span>
+                  <span className="prioExpPhraseText">{phrase}</span>
+                  {selIdx===idx&&<span className="prioExpPhraseCheck">✓</span>}
+                </button>
+              ))}
+            </div>
+            <textarea
+              className={`prioExpTextarea${!hasSelection?" prioExpTextareaEmpty":""}`}
+              value={val}
+              placeholder={isIt?"Seleziona uno dei casi qui sopra per iniziare…":"Select one of the cases above to get started…"}
+              onChange={e=>setPrioExperience(prev=>({...prev,[p]:e.target.value}))}
+              disabled={!hasSelection}
+              rows={5}
+            />
+            <div className="prioExpActions">
+              <button className="prioExpClear" onClick={exitWithout}>
+                {isIt?"Esci senza modifiche":"Exit without saving"}
+              </button>
+              <button className="actionButton prioExpSave" onClick={saveAndExit} disabled={!hasSelection&&edited===""}>
+                {isIt?"Salva e esci":"Save and exit"}<b>→</b>
+              </button>
+            </div>
+          </div>
+        </div>;
+      })()}
+    </main>;
+  }
 
   if(screen==="priorityData"&&profile){
     const isIt=language==="it";
@@ -1135,6 +1843,7 @@ export default function Home(){
           {/* sticky column headers */}
           <div className="pdColHeaders">
             <div className="pdColHeaderSpacer"/>
+            <div className="pdColHeaderBand pdColHeaderIncl">{isIt?"Includi":"Include"}</div>
             <div className="pdColHeaderBand pdColHeaderRel">{isIt?"Rilevanza":"Relevance"}</div>
             <div className="pdColHeaderBand pdColHeaderCrit">{isIt?"Criticità":"Criticality"}</div>
           </div>
@@ -1151,35 +1860,41 @@ export default function Home(){
               </div>
               {colItems.map((item,posInGroup)=>{
                 const rankLabel=`${prioIdx+1}.${posInGroup+1}`;
-                const relMax=prioIdx===0?10:prioIdx===1?8:prioIdx===2?6:4;
-                const rel=Math.min(needRelevance[item.id]??Math.round(relMax/2),relMax);
+                const relMax=10;
+                const rel=Math.min(needRelevance[item.id]??5,10);
                 const crit=needCriticality[item.id]??5;
-                const relBandPx=Math.round(relMax/10*360);
-                const globalRank=dataNeeds.findIndex(n=>n.id===item.id)+1;
-                const active=globalRank<=topNNeeds;
-                const relNorm=Math.round((rel/relMax)*10);
-                const tier=relNorm>7&&crit>7?"high":relNorm>4||crit>4?"mid":"low";
-                const tierColor=tier==="high"?"#ff4d4d":tier==="mid"?"#7dd3fc":"#9ca3af";
-                return <div key={item.id} className={`pdRow${active?"":" pdRowDimmed"}`}>
-                  <div className="pdRowLeft" style={{color:tierColor}}>
+                const included=isNeedIncluded(item.id);
+                const relNorm=rel;
+                const tier=included?(relNorm>7&&crit>7?"high":relNorm>4||crit>4?"mid":"low"):"low";
+                const tierColor=included?(tier==="high"?"#ff4d4d":tier==="mid"?"#7dd3fc":"#9ca3af"):"#2a3f35";
+                return <div key={item.id} className={`pdRow${included?"":" pdRowDimmed"}`}>
+                  <div className="pdRowLeft" style={{color:included?tierColor:"#2a3f35"}}>
                     <span className="pdRowCode">{rankLabel}</span>
                     <span className="pdRowLabel">{item.label}</span>
                   </div>
-                  <div className="pdRowBand" style={{"--rel-band":relBandPx+"px"} as React.CSSProperties}>
+                  <div className="pdColIncl">
+                    <button
+                      className={`pdInclBtn${included?" pdInclBtnOn":""}`}
+                      style={{"--incl-color":included?tierColor:"#4a7060"} as React.CSSProperties}
+                      onClick={()=>toggleNeedIncluded(item.id)}
+                      aria-label={included?(isIt?"Escludi dalla valutazione":"Exclude from assessment"):(isIt?"Includi nella valutazione":"Include in assessment")}
+                    />
+                  </div>
+                  <div className="pdRowBand" style={{"--rel-max":relMax} as React.CSSProperties}>
                     <input type="range" min={1} max={relMax} value={rel}
                       style={{"--v":rel,"--vmax":relMax-1} as React.CSSProperties}
                       onChange={e=>setNeedRelevance(v=>({...v,[item.id]:Number(e.target.value)}))}
                       className="pdScoreSlider pdSliderRel"
-                      disabled={!active}/>
-                    <span className="pdBandVal pdBandValRel">{rel}<span className="pdBandMax">/{relMax}</span></span>
+                      disabled={!included}/>
+                    <span className="pdBandVal pdBandValRel" style={{opacity:included?1:0.3}}>{rel}<span className="pdBandMax">/{relMax}</span></span>
                   </div>
                   <div className="pdRowBand">
                     <input type="range" min={1} max={10} value={crit}
                       style={{"--v":crit} as React.CSSProperties}
                       onChange={e=>setNeedCriticality(v=>({...v,[item.id]:Number(e.target.value)}))}
                       className="pdScoreSlider pdSliderCrit"
-                      disabled={!active}/>
-                    <span className="pdBandVal pdBandValCrit">{crit}</span>
+                      disabled={!included}/>
+                    <span className="pdBandVal pdBandValCrit" style={{opacity:included?1:0.3}}>{crit}</span>
                   </div>
                 </div>;
               })}
@@ -1202,19 +1917,6 @@ export default function Home(){
               <div><strong>{isIt?"Criticità":"Criticality"}</strong><small>{isIt?"1 = poco problematico · 10 = molto problematico":"1 = low severity · 10 = very critical"}</small></div>
             </div>
           </div>
-          <div className="pdTopNBox">
-            <div className="pdTopNStepper">
-              <div className="pdTopNStepperControls">
-                <button className="pdTopNBtn" onClick={()=>setTopNNeeds(v=>Math.min(42,v+1))} disabled={topNNeeds>=42} aria-label="Aumenta">▲</button>
-                <span className="pdTopNValue">{topNNeeds}</span>
-                <button className="pdTopNBtn" onClick={()=>setTopNNeeds(v=>Math.max(10,v-1))} disabled={topNNeeds<=10} aria-label="Diminuisci">▼</button>
-              </div>
-              <div className="pdTopNStepperText">
-                <span className="pdTopNStepperDesc">{isIt?"Numero esigenze\nda valutare":"Number of needs\nto assess"}</span>
-                <span className="pdTopNHint">min 10 · max 42</span>
-              </div>
-            </div>
-          </div>
           <button className="actionButton pdConfirmBtn" onClick={()=>setScreen("priorityMatrix")}>{t.priorityDataCta}<b>→</b></button>
         </div>
       </div>
@@ -1234,13 +1936,12 @@ export default function Home(){
       credit:"#39efb4",compliance:"#7c86ff",customers:"#f5c542",
       efficiency:"#ff8c5a",supply:"#a78bfa",reputation:"#f472b6"
     };
-    // collect only the active (non-dimmed) needs
-    const allNeeds=dataNeeds.slice(0,topNNeeds).map((n)=>{
+    // collect only the included needs
+    const allNeeds=dataNeeds.filter(n=>isNeedIncluded(n.id)).map((n)=>{
       const prioIdx=priorities.indexOf(n.priority);
-      const relMax=prioIdx===0?10:prioIdx===1?8:prioIdx===2?6:4;
-      const rel=Math.min(needRelevance[n.id]??Math.round(relMax/2),relMax);
+      const rel=Math.min(needRelevance[n.id]??5,10);
       const crit=needCriticality[n.id]??5;
-      const relNorm=Math.round((rel/relMax)*10);
+      const relNorm=rel;
       const tierColor=relNorm>7&&crit>7?"#ff4d4d":relNorm>4||crit>4?"#7dd3fc":"#9ca3af";
       return {...n,rel,relNorm,crit,prioIdx,color:tierColor};
     });
@@ -1273,7 +1974,7 @@ export default function Home(){
           </div>
         </div>
         <div className="pmPlotWrap">
-          <button className="actionButton pmCta" onClick={()=>setScreen("roadmapPreview")}>{isIt?"Vai alla roadmap":"Go to roadmap"}<b>→</b></button>
+          <button className="actionButton pmCta" onClick={()=>{setSelectedMission(0);localStorage.setItem("envizi-quest-mission","1");setScreen("briefing");}}>{isIt?"Inizia le sfide →":"Start challenges →"}<b>→</b></button>
           <svg className="pmSvg" viewBox={`0 0 ${VW} ${VH}`} preserveAspectRatio="xMidYMid meet">
             {/* dashed grid */}
             {gridVals.map(v=><g key={v}>
@@ -1495,9 +2196,9 @@ export default function Home(){
 
   if(screen==="compare"&&profile){
     const missionImgs={
-      positive:["./envizi-data-automation.png","./energy-envizi-analytics.png","./supply-chain-envizi.png","./reporting-envizi.png","./planning-envizi.png"],
-      warning:["./envizi-manual-forms.png","./energy-manual-dashboard.png","./supply-chain-portal.png","./reporting-intermediate.png","./planning-intermediate.png"],
-      critical:["./envizi-spreadsheets-email.png","./energy-asis-fragmented.png","./supply-chain-asis.png","./reporting-asis.png","./planning-asis.png"]
+      positive:["./envizi-data-automation.png","./energy-envizi-analytics.png","./supply-chain-envizi.png","./reporting-envizi.png","./planning-envizi.png","./framework-envizi.png"],
+      warning:["./envizi-manual-forms.png","./energy-manual-dashboard.png","./supply-chain-portal.png","./reporting-intermediate.png","./planning-intermediate.png","./framework-intermediate.png"],
+      critical:["./envizi-spreadsheets-email.png","./energy-asis-fragmented.png","./supply-chain-asis.png","./reporting-asis.png","./planning-asis.png","./framework-asis.png"]
     };
     const options=[
       {key:"critical" as Outcome,label:"C",title:active.optionC,detail:active.optionCDetail,img:missionImgs.critical[selectedMission]},
@@ -1538,9 +2239,9 @@ export default function Home(){
 
 
 
-  if(screen!=="onboarding"&&profile){const result=screen==="negative"||screen==="success";return <main className={`missionScreen mission-${selectedMission} ${screen} ${screen==="negative"?(negativeChoice==="form"?"formOutcome":"asIsOutcome"):""}`}><header className="missionNav"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> {t.mission} <b>{String(selectedMission+1).padStart(2,"0")}</b><i>/</i>06</div><button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><section className="characterStage"><img src={imageFor(profile,screen)} alt={`${name} · ${screen}`}/><div className="characterTag"><span className="statusDot"/><div><small>ESG MANAGER</small><strong>{name}</strong></div></div>{screen==="trust"&&<button className="actionButton trustStageCta" onClick={()=>setScreen(selectedMission===0?"milestone":selectedMission===3?"reportingFoundation":"missions")}>{t.trustContinue}<b>→</b></button>}</section><section className="missionContent"><div className="missionLabel"><span>{t.mission} {String(selectedMission+1).padStart(2,"0")}</span><i>90 DAYS</i></div>
+  if(screen!=="onboarding"&&profile){const result=screen==="negative"||screen==="success";return <main className={`missionScreen mission-${selectedMission} ${screen} ${screen==="negative"?(negativeChoice==="form"?"formOutcome":"asIsOutcome"):""}`}><header className="missionNav"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> {t.mission} <b>{String(selectedMission+1).padStart(2,"0")}</b><i>/</i>06</div><button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><section className="characterStage"><img src={imageFor(profile,screen)} alt={`${name} · ${screen}`}/><div className="characterTag"><span className="statusDot"/><div><small>ESG MANAGER</small><strong>{name}</strong></div></div>{screen==="trust"&&<button className="actionButton trustStageCta" onClick={()=>setScreen(selectedMission===0?"milestone":selectedMission===1?"energyFoundation":selectedMission===2?"supplyFoundation":selectedMission===3?"reportingFoundation":selectedMission===4?"planningFoundation":selectedMission===5?"frameworkFoundation":"missions")}>{t.trustContinue}<b>→</b></button>}</section><section className="missionContent"><div className="missionLabel"><span>{t.mission} {String(selectedMission+1).padStart(2,"0")}</span><i>90 DAYS</i></div>
     {screen==="briefing"&&(()=>{const effects=(t.crossEffects[selectedMission]||[]).filter(e=>{const o=missionOutcomes[e.from];return o&&(e[o as keyof typeof e] as string|null)!==null});return<><h1>{language==="it"?missionCatalog[selectedMission].it:missionCatalog[selectedMission].en}</h1><div className="companyChip"><strong>{displayCompanyName}</strong><span>{t.companyFacts}</span></div>{effects.length>0&&<div className="crossEffectBanners">{effects.map(e=>{const o=missionOutcomes[e.from] as Outcome;const msg=e[o as keyof typeof e] as string;return<div key={e.from} className={`crossEffectBanner ${o}`}><span className="crossEffectIcon">{o==="positive"?"✓":"!"}</span><p><strong>{t.crossEffectLabel} · {language==="it"?missionCatalog[e.from].it:missionCatalog[e.from].en}:</strong> {msg}</p></div>})}</div>}<p className="storyText">{(active.briefing as string).replace("COMPANY_NAME",displayCompanyName).replace("PLANTS_COUNT",String(companyDims[1]))}</p><div className="objectiveBox"><small>{t.objective}</small><p>{active.objectiveText}</p></div><button className="actionButton" onClick={()=>setScreen("asis")}>{t.analyse}<b>→</b></button></>;})()}
-    {screen==="asis"&&(()=>{const ratingVal={"alto":25,"medio":12,"basso":0};const currentRatings=asIsRatings[selectedMission]||(active.asIsItems.map(()=>"alto" as "alto"|"medio"|"basso"));const total=currentRatings.reduce((s,r)=>s+ratingVal[r],0);const totalColor=total<=25?"#39efb4":total<=50?"#f5c542":"#ff6b6b";const totalLabel=language==="it"?(total<=25?"BASSA":total<=50?"MEDIA":"ALTA"):(total<=25?"LOW":total<=50?"MEDIUM":"HIGH");const setRating=(i:number,v:"alto"|"medio"|"basso")=>{const next=[...currentRatings];next[i]=v;setAsIsRatings({...asIsRatings,[selectedMission]:next});};return<><div className="asisHeader"><div><p className="resultEyebrow">{t.asIsKicker}</p><h1>{active.asIsTitle}</h1></div></div><p className="storyText asisIntroText">{(active.asIsIntro as string).replace("COMPANY_NAME",displayCompanyName)}</p><div className="asIsRatingGrid">{active.asIsItems.map((item,i)=>{const r=currentRatings[i];return<article key={item.title} className={`asIsRatingCard asIsRating-${r}`}><div className="asIsRatingCardTop"><h2>{item.title}</h2><p>{item.detail}</p></div><div className="asIsRatingButtons"><button className={`asIsRatingBtn${r==="alto"?" asIsRatingBtnActive asIsRatingBtnAlto":""}`} onClick={()=>setRating(i,"alto")}>{language==="it"?"Alto":"High"}</button><button className={`asIsRatingBtn${r==="medio"?" asIsRatingBtnActive asIsRatingBtnMedio":""}`} onClick={()=>setRating(i,"medio")}>{language==="it"?"Medio":"Medium"}</button><button className={`asIsRatingBtn${r==="basso"?" asIsRatingBtnActive asIsRatingBtnBasso":""}`} onClick={()=>setRating(i,"basso")}>{language==="it"?"Basso":"Low"}</button></div></article>})}</div><div className="asisTotal"><span className="asisTotalLabel">{language==="it"?"Criticità totale":"Total criticality"}</span><span className="asisTotalScore" style={{color:totalColor}}>{total}<span className="asisTotalMax">/100</span></span><span className="asisTotalBadge" style={{color:totalColor,borderColor:totalColor}}>{totalLabel}</span></div><button className="actionButton asisBottomBtn" onClick={()=>setScreen("missionIntro")}>{t.proceedDecision}<b>→</b></button></>;})()}
+    {screen==="asis"&&(()=>{const ratingVal={"alto":25,"medio":12,"basso":0};const currentRatings=asIsRatings[selectedMission]||(active.asIsItems.map(()=>"alto" as "alto"|"medio"|"basso"));const total=currentRatings.reduce((s,r)=>s+ratingVal[r],0);const totalColor=total<=25?"#39efb4":total<=50?"#f5c542":"#ff6b6b";const totalLabel=language==="it"?(total<=25?"BASSA":total<=50?"MEDIA":"ALTA"):(total<=25?"LOW":total<=50?"MEDIUM":"HIGH");const setRating=(i:number,v:"alto"|"medio"|"basso")=>{const next=[...currentRatings];next[i]=v;setAsIsRatings({...asIsRatings,[selectedMission]:next});};return<><div className="asisHeader"><div><p className="resultEyebrow">{t.asIsKicker}</p><h1>{active.asIsTitle}</h1></div></div><p className="storyText asisIntroText">{(active.asIsIntro as string).replace("COMPANY_NAME",displayCompanyName)}</p><div className="asIsRatingGrid">{active.asIsItems.map((item,i)=>{const r=currentRatings[i];return<article key={item.title} className={`asIsRatingCard asIsRating-${r}`}><div className="asIsRatingCardTop"><h2>{item.title}</h2><p>{item.detail}</p></div><div className="asIsRatingButtons"><button className={`asIsRatingBtn${r==="alto"?" asIsRatingBtnActive asIsRatingBtnAlto":""}`} onClick={()=>setRating(i,"alto")}>{language==="it"?"Alto":"High"}</button><button className={`asIsRatingBtn${r==="medio"?" asIsRatingBtnActive asIsRatingBtnMedio":""}`} onClick={()=>setRating(i,"medio")}>{language==="it"?"Medio":"Medium"}</button><button className={`asIsRatingBtn${r==="basso"?" asIsRatingBtnActive asIsRatingBtnBasso":""}`} onClick={()=>setRating(i,"basso")}>{language==="it"?"Basso":"Low"}</button></div></article>})}</div><div className="asisTotal"><span className="asisTotalLabel">{language==="it"?"Criticità totale":"Total criticality"}</span><span className="asisTotalScore" style={{color:totalColor}}>{total}<span className="asisTotalMax">/100</span></span><span className="asisTotalBadge" style={{color:totalColor,borderColor:totalColor}}>{totalLabel}</span></div><button className="actionButton asisBottomBtn" onClick={()=>setScreen("compare")}>{t.proceedDecision}<b>→</b></button></>;})()}
     {screen==="decision"&&<><h1>{t.decisionTitle}</h1><p className="storyText">{active.decisionIntro}</p><div className="decisionList"><button onClick={()=>handleDecision("positive")}><span>A</span><div><strong>{active.optionA}</strong><small>{active.optionADetail}</small>{selectedMission!==0&&<span className="decisionPrereqNote"><b>⬡</b>{t.prereqNoteLabel}: {t.prereqNoteText}</span>}</div><b>↗</b></button><button onClick={()=>handleDecision("warning")}><span>B</span><div><strong>{active.optionB}</strong><small>{active.optionBDetail}</small></div><b>↗</b></button><button onClick={()=>handleDecision("critical")}><span>C</span><div><strong>{active.optionC}</strong><small>{active.optionCDetail}</small></div><b>↗</b></button></div></>}
     {screen==="trust"&&<><p className="resultEyebrow">{t.trustKicker}</p><h1>{t.trustTitle}</h1><p className="storyText">{activeTrustIntro}</p>{activeTrustSources&&activeTrustSources.length>0&&<p className="trustSourceList">{language==="it"?"Fonti: ":"Sources: "}{activeTrustSources.map((s,i)=><><a key={s.url} href={s.url} target="_blank" rel="noreferrer">{s.label} ↗</a>{i<activeTrustSources.length-1&&" · "}</>)}</p>}<div className="trustEvolutionChart"><small className="trustChartLabel">{language==="it"?"Evoluzione missione per missione":"Mission-by-mission evolution"}</small><svg width="100%" viewBox={"0 0 "+trustTotalW+" "+(TRUST_CHART_H+40)} preserveAspectRatio="xMidYMid meet">{[30,50,70,100].map(v=>{const y=4+TRUST_CHART_H-(v/100)*TRUST_CHART_H;return<g key={v}><line x1={TRUST_SVG_PAD_X} x2={trustTotalW-TRUST_SVG_PAD_X} y1={y} y2={y} stroke="#1e3a30" strokeWidth="1" strokeDasharray="3 4"/><text x={TRUST_SVG_PAD_X-2} y={y+4} fontSize="8" fill="#4a6d60" textAnchor="end">{v}</text></g>;})} {trustSteps.map((s,i)=>{const x=TRUST_SVG_PAD_X+i*(TRUST_BAR_W+TRUST_BAR_GAP);const isEmpty=s.val===null;const barH=isEmpty?12:(s.val!/100)*TRUST_CHART_H;const barY=4+TRUST_CHART_H-barH;return<g key={i}>{s.isCurrent&&<rect x={x-5} y={4} width={TRUST_BAR_W+10} height={TRUST_CHART_H+8} rx="8" fill="rgba(57,239,180,0.07)" stroke={s.fill==="none"?"#39efb4":s.fill} strokeWidth="1.5" strokeDasharray={s.fill==="none"?"4 3":"0"}/>}<rect x={x} y={isEmpty?barY+barH-12:barY} width={TRUST_BAR_W} height={isEmpty?12:barH} rx="5" fill={isEmpty?"none":s.fill} stroke={s.stroke} strokeWidth={s.strokeW} opacity={isEmpty?1:0.92}/>{!isEmpty&&<text x={x+TRUST_BAR_W/2} y={barY-5} fontSize="11" fill={i===0?"#7fa898":s.isCurrent?"#f2fff9":"#c9e8dc"} textAnchor="middle" fontWeight={s.isCurrent?"700":"400"}>{s.val}</text>}{isEmpty&&<text x={x+TRUST_BAR_W/2} y={barY+barH/2+5} fontSize="9" fill="#3d6052" textAnchor="middle">—</text>}<text x={x+TRUST_BAR_W/2} y={4+TRUST_CHART_H+18} fontSize="8" fill={s.isCurrent?"#8affda":isEmpty?"#3d6052":"#7da89a"} textAnchor="middle">{s.label.split("\n")[0]}</text>{s.label.split("\n")[1]&&<text x={x+TRUST_BAR_W/2} y={4+TRUST_CHART_H+28} fontSize="8" fill={s.isCurrent?"#8affda":isEmpty?"#3d6052":"#7da89a"} textAnchor="middle">{s.label.split("\n")[1]}</text>}</g>;})} </svg></div><div className="trustPanel"><div className="trustScoreCard"><small>{t.trustScore}</small><strong>{trustScore}</strong><span>{t.trustBase}: 30 · {t.trustMax}</span><div className="trustBar"><span style={{width:trustScore+"%"}}/></div><p>{t.trustProgressLabel}</p></div><div className="trustStakeholders"><small>{t.trustStakeholders}</small><div><span>{t.trustBoard}</span><span>{t.trustBanks}</span><span>{t.trustClients}</span><span>{t.trustAuditors}</span></div></div><div className="trustGainCard"><small>{t.trustCurrentDecision}</small><strong>{missionOutcomes[selectedMission]==="positive"?(selectedMission===0?(language==="it"?"Scelta fondante · +25":"Foundational choice · +25"):t.trustGainPositive):missionOutcomes[selectedMission]==="warning"?t.trustGainWarning:t.trustGainCritical}</strong><p>{t.trustPersonaLabel}</p><b>{name}</b><span>{profile==="marco"?t.maleRole:t.femaleRole}</span></div></div></>}
 
