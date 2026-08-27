@@ -2381,7 +2381,10 @@ export default function Home(){
     return <main className="welcomeScreen">
       <header className="missionNav">
         <div className="brand"><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></div>
-        <button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button>
+        <div style={{display:"flex",gap:"10px",alignItems:"center"}}>
+          <button className="secondaryAction" style={{fontSize:"clamp(11px,1vw,14px)",padding:"8px 16px"}} onClick={()=>setScreenState("cover")}>← {isIt?"Indietro":"Back"}</button>
+          <button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button>
+        </div>
       </header>
       <div className="welcomeBody">
         <div className="welcomeLeft">
