@@ -35,6 +35,16 @@
 .welcomeLoadBtn:hover{background:rgba(57,239,180,.1)}
 .welcomeDeleteBtn{padding:6px 9px;border-radius:7px;border:1px solid #2a4a3c;background:transparent;color:#5a7a70;font:600 12px inherit;cursor:pointer;transition:.15s}
 .welcomeDeleteBtn:hover{border-color:#ff6b6b;color:#ff6b6b}
+/* Dropdown suggerimenti utenti */
+.welcomeUserSuggestions{position:absolute;top:100%;left:0;right:0;z-index:20;list-style:none;margin:4px 0 0;padding:4px;background:rgba(5,18,13,.97);border:1px solid rgba(57,239,180,.3);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.welcomeUserSuggestions li{margin:0;padding:0}
+.welcomeUserSuggBtn{width:100%;display:flex;align-items:center;gap:10px;padding:10px 12px;border:none;border-radius:7px;background:transparent;color:#c9e8dc;font:inherit;font-size:15px;cursor:pointer;text-align:left;transition:.12s}
+.welcomeUserSuggBtn:hover{background:rgba(57,239,180,.12);color:#39efb4}
+.welcomeUserSuggIcon{font-size:14px;flex-shrink:0}
+/* Pill utenti noti sotto il campo vuoto */
+.welcomeKnownUsers{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.welcomeUserPill{padding:6px 14px;border:1px solid rgba(57,239,180,.35);border-radius:999px;background:rgba(57,239,180,.07);color:#72f7ca;font:600 13px inherit;cursor:pointer;transition:.12s;white-space:nowrap}
+.welcomeUserPill:hover{background:rgba(57,239,180,.18);border-color:#39efb4;color:#fff}
 @media(max-width:900px){.welcomePanel{grid-template-columns:1fr;margin:auto 5vw}.welcomeRight{max-height:200px}}
 @media(max-width:600px){.welcomePanel{margin:auto 4vw;border-radius:14px}.welcomeLeft{padding:24px 20px 28px}.welcomeRight{padding:0 20px 28px;border-right:none;border-top:1px solid rgba(57,239,180,.1)}}
 

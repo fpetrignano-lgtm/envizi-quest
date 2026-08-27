@@ -2375,14 +2375,25 @@ export default function Home(){
   if(screen==="cover")return <main className="coverScreen"><img className="coverImage" src="./cover-marco.png" alt="Envizi Impact Quest"/><div className="coverCta"><button className="coverStartBtn" onClick={()=>setScreenState("welcome")}>START</button></div></main>;
 
   if(screen==="welcome"){
-    const saved=getSavedQuestKeys();
-    const [newQName,setNewQName]=[questName,setQuestName];
     const isIt=language==="it";
+    // Leggi tutte le quest salvate con i dati
+    const allSavedKeys=getSavedQuestKeys();
+    const allSaved=allSavedKeys.map(k=>{
+      let d:any={};
+      try{d=JSON.parse(localStorage.getItem(`envizi-quest-save-${k}`)||"{}");}catch(e){}
+      return {key:k,userName:(d.userName||"") as string,missionOutcomes:d.missionOutcomes||{}};
+    });
+    // Utenti unici (non vuoti)
+    const knownUsers=Array.from(new Set(allSaved.map(s=>s.userName).filter(u=>u.trim()!==""))).sort();
+    // Suggerimenti utente: match parziale sul campo
+    const userSuggestions=knownUsers.filter(u=>userName.trim()&&u.toLowerCase().includes(userName.trim().toLowerCase())&&u!==userName.trim());
+    // Quest filtrate per utente corrente (match esatto, case-insensitive)
+    const userQuests=userName.trim()
+      ? allSaved.filter(s=>s.userName.toLowerCase()===userName.trim().toLowerCase())
+      : [];
     return <main className="welcomeScreen">
-      {/* Fullscreen background image */}
       <img src="./welcome-gen.png" alt="" className="welcomeBg" aria-hidden="true"/>
       <div className="welcomeBgOverlay"/>
-      {/* Navbar */}
       <header className="missionNav" style={{position:"relative",zIndex:3}}>
         <div className="brand"><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></div>
         <div style={{display:"flex",gap:"10px",alignItems:"center"}}>
@@ -2390,47 +2401,105 @@ export default function Home(){
           <button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button>
         </div>
       </header>
-      {/* Dark panel with form + saved quests */}
       <div className="welcomePanel">
+        {/* LEFT: form */}
         <div className="welcomeLeft">
           <p className="eyebrow">IBM ENVIZI · IMPACT QUEST</p>
           <h1 className="welcomeTitle">{isIt?"Benvenuto alla Envizi Quest":"Welcome to Envizi Quest"}</h1>
-          <p className="welcomeSubtitle">{isIt?"Inserisci il tuo nome e dai un titolo alla sessione per salvare i progressi e riprendere in un secondo momento.":"Enter your name and give your session a title to save progress and resume later."}</p>
+          <p className="welcomeSubtitle">{isIt?"Inserisci il tuo nome o selezionane uno esistente per vedere le tue quest salvate.":"Enter your name or pick an existing one to see your saved quests."}</p>
           <div className="welcomeForm">
-            <div className="welcomeField">
+            {/* Campo nome con suggerimenti utenti */}
+            <div className="welcomeField" style={{position:"relative"}}>
               <label className="welcomeLabel">{isIt?"Il tuo nome":"Your name"}</label>
-              <input className="welcomeInput" type="text" placeholder={isIt?"Es. Felice Petrignano":"E.g. Felice Petrignano"} value={userName} onChange={e=>setUserName(e.target.value)}/>
+              <input
+                className="welcomeInput"
+                type="text"
+                placeholder={isIt?"Es. Felice Petrignano":"E.g. Felice Petrignano"}
+                value={userName}
+                onChange={e=>setUserName(e.target.value)}
+                autoComplete="off"
+              />
+              {/* Dropdown suggerimenti utenti esistenti */}
+              {userSuggestions.length>0&&(
+                <ul className="welcomeUserSuggestions">
+                  {userSuggestions.map(u=>(
+                    <li key={u}>
+                      <button className="welcomeUserSuggBtn" onClick={()=>setUserName(u)}>
+                        <span className="welcomeUserSuggIcon">👤</span>{u}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {/* Pill con tutti gli utenti noti (se il campo è vuoto) */}
+              {!userName.trim()&&knownUsers.length>0&&(
+                <div className="welcomeKnownUsers">
+                  {knownUsers.map(u=>(
+                    <button key={u} className="welcomeUserPill" onClick={()=>setUserName(u)}>{u}</button>
+                  ))}
+                </div>
+              )}
             </div>
+            {/* Campo nome quest */}
             <div className="welcomeField">
               <label className="welcomeLabel">{isIt?"Nome della Quest (per il salvataggio)":"Quest name (for saving)"}</label>
-              <input className="welcomeInput" type="text" placeholder={isIt?"Es. NovaForge — sessione 1":"E.g. NovaForge — session 1"} value={newQName} onChange={e=>setNewQName(e.target.value)}/>
+              <input className="welcomeInput" type="text" placeholder={isIt?"Es. NovaForge — sessione 1":"E.g. NovaForge — session 1"} value={questName} onChange={e=>setQuestName(e.target.value)}/>
             </div>
             <button className="actionButton welcomeStartBtn" onClick={()=>{if(questName.trim())saveQuest(questName.trim());setScreenState("onboarding");}}>
               {isIt?"Inizia la Quest →":"Start the Quest →"}
             </button>
           </div>
         </div>
+        {/* RIGHT: quest dell'utente corrente */}
         <div className="welcomeRight">
-          <p className="welcomeSavedTitle">{isIt?"Quest salvate":"Saved quests"}</p>
-          {saved.length===0
-            ?<p className="welcomeEmpty">{isIt?"Nessuna Quest salvata ancora.":"No saved quests yet."}</p>
-            :<ul className="welcomeSavedList">
-              {saved.map(k=>{
-                let preview="";
-                try{const d=JSON.parse(localStorage.getItem(`envizi-quest-save-${k}`)||"{}");preview=d.userName?`${d.userName} · `:"";const completed=Object.keys(d.missionOutcomes||{}).length;preview+=isIt?`${completed}/6 missioni`:`${completed}/6 missions`;}catch(e){}
-                return <li key={k} className="welcomeSavedItem">
-                  <div className="welcomeSavedInfo">
-                    <strong>{k}</strong>
-                    {preview&&<small>{preview}</small>}
-                  </div>
-                  <div className="welcomeSavedActions">
-                    <button className="welcomeLoadBtn" onClick={()=>loadQuest(k)}>{isIt?"Riprendi →":"Resume →"}</button>
-                    <button className="welcomeDeleteBtn" onClick={()=>{deleteQuest(k);setScreenState("cover");setTimeout(()=>setScreenState("welcome"),10);}}>{isIt?"✕":"✕"}</button>
-                  </div>
-                </li>;
-              })}
-            </ul>
-          }
+          {userName.trim()?(
+            <>
+              <p className="welcomeSavedTitle">
+                {isIt?"Quest di":"Quests for"} <strong style={{color:"#39efb4"}}>{userName.trim()}</strong>
+              </p>
+              {userQuests.length===0?(
+                <p className="welcomeEmpty">{isIt?"Nessuna Quest salvata per questo utente.":"No saved quests for this user."}</p>
+              ):(
+                <ul className="welcomeSavedList">
+                  {userQuests.map(({key,missionOutcomes:mo})=>{
+                    const completed=Object.keys(mo).length;
+                    return <li key={key} className="welcomeSavedItem">
+                      <div className="welcomeSavedInfo">
+                        <strong>{key}</strong>
+                        <small>{isIt?`${completed}/6 missioni`:`${completed}/6 missions`}</small>
+                      </div>
+                      <div className="welcomeSavedActions">
+                        <button className="welcomeLoadBtn" onClick={()=>{loadQuest(key);setScreenState("onboarding");}}>{isIt?"Riprendi →":"Resume →"}</button>
+                        <button className="welcomeDeleteBtn" onClick={()=>{deleteQuest(key);setScreenState("cover");setTimeout(()=>setScreenState("welcome"),10);}}>✕</button>
+                      </div>
+                    </li>;
+                  })}
+                </ul>
+              )}
+            </>
+          ):(
+            <>
+              <p className="welcomeSavedTitle">{isIt?"Quest salvate":"Saved quests"}</p>
+              {allSaved.length===0
+                ?<p className="welcomeEmpty">{isIt?"Nessuna Quest salvata ancora.":"No saved quests yet."}</p>
+                :<ul className="welcomeSavedList">
+                  {allSaved.map(({key,userName:u,missionOutcomes:mo})=>{
+                    const completed=Object.keys(mo).length;
+                    return <li key={key} className="welcomeSavedItem">
+                      <div className="welcomeSavedInfo">
+                        <strong>{key}</strong>
+                        <small>{u?`${u} · `:""}{isIt?`${completed}/6 missioni`:`${completed}/6 missions`}</small>
+                      </div>
+                      <div className="welcomeSavedActions">
+                        <button className="welcomeLoadBtn" onClick={()=>{loadQuest(key);setScreenState("onboarding");}}>{isIt?"Riprendi →":"Resume →"}</button>
+                        <button className="welcomeDeleteBtn" onClick={()=>{deleteQuest(key);setScreenState("cover");setTimeout(()=>setScreenState("welcome"),10);}}>✕</button>
+                      </div>
+                    </li>;
+                  })}
+                </ul>
+              }
+            </>
+          )}
         </div>
       </div>
     </main>;
