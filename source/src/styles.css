@@ -47,6 +47,13 @@
 .welcomeUserPill:hover{background:rgba(57,239,180,.18);border-color:#39efb4;color:#fff}
 .welcomeUserBackBtn{margin:2px 0 10px;padding:0;border:none;background:none;color:#4a7a68;font:600 13px inherit;cursor:pointer;transition:.12s;display:inline-flex;align-items:center;gap:5px}
 .welcomeUserBackBtn:hover{color:#39efb4}
+.welcomeDownloadBtn{padding:6px 9px;border-radius:7px;border:1px solid #2a4a3c;background:transparent;color:#39efb4;font:600 13px inherit;cursor:pointer;transition:.15s}
+.welcomeDownloadBtn:hover{background:rgba(57,239,180,.1);border-color:#39efb4}
+.welcomeUploadZone{display:flex;flex-direction:column;align-items:center;gap:5px;margin-top:14px;padding:16px 12px;border:1.5px dashed rgba(57,239,180,.3);border-radius:12px;background:rgba(57,239,180,.04);cursor:pointer;transition:.15s;text-align:center}
+.welcomeUploadZone:hover{border-color:#39efb4;background:rgba(57,239,180,.09)}
+.welcomeUploadIcon{font-size:20px;color:#39efb4;line-height:1}
+.welcomeUploadText{font:600 13px inherit;color:#c9e8dc}
+.welcomeUploadHint{font:11px var(--font-geist-mono,monospace);color:#4a7a68;letter-spacing:.06em}
 @media(max-width:900px){.welcomePanel{grid-template-columns:1fr;margin:auto 5vw}.welcomeRight{max-height:200px}}
 @media(max-width:600px){.welcomePanel{margin:auto 4vw;border-radius:14px}.welcomeLeft{padding:24px 20px 28px}.welcomeRight{padding:0 20px 28px;border-right:none;border-top:1px solid rgba(57,239,180,.1)}}
 

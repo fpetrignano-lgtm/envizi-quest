@@ -530,6 +530,31 @@ export default function Home(){
   const saveQuest=(name:string)=>{if(!name.trim())return;const data={userName,language,profile,priorities,missionOrder,missionOutcomes,missionParameters,trustScore,companyName,companySector,companyDims,companyMarket,geoDistrib,esgReadiness,asIsRatings,dfRatings,rfRatings,dataNeeds,screen};localStorage.setItem(`envizi-quest-save-${name.trim()}`,JSON.stringify(data));};
   const loadQuest=(name:string)=>{const raw=localStorage.getItem(`envizi-quest-save-${name}`);if(!raw)return;try{const d=JSON.parse(raw);if(d.userName)setUserName(d.userName);if(d.language)setLanguage(d.language);if(d.profile)setProfile(d.profile);if(d.priorities)setPriorities(d.priorities);if(d.missionOrder)setMissionOrder(d.missionOrder);if(d.missionOutcomes)setMissionOutcomes(d.missionOutcomes);if(d.missionParameters)setMissionParameters(d.missionParameters);if(d.trustScore!=null)setTrustScore(d.trustScore);if(d.companyName!=null)setCompanyName(d.companyName);if(d.companySector)setCompanySector(d.companySector);if(d.companyDims)setCompanyDims(d.companyDims);if(d.companyMarket)setCompanyMarket(d.companyMarket);if(d.geoDistrib)setGeoDistrib(d.geoDistrib);if(d.esgReadiness)setEsgReadiness(d.esgReadiness);if(d.asIsRatings)setAsIsRatings(d.asIsRatings);if(d.dfRatings)setDfRatings(d.dfRatings);if(d.rfRatings)setRfRatings(d.rfRatings);if(d.dataNeeds)setDataNeeds(d.dataNeeds);setQuestName(name);if(d.screen)setScreenState(d.screen);}catch(e){}};
   const deleteQuest=(name:string)=>{localStorage.removeItem(`envizi-quest-save-${name}`);};
+  const downloadQuest=(name:string)=>{
+    const raw=localStorage.getItem(`envizi-quest-save-${name}`);
+    if(!raw)return;
+    const blob=new Blob([raw],{type:"application/json"});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement("a");
+    a.href=url;a.download=`${name}.envizi-quest`;a.click();
+    URL.revokeObjectURL(url);
+  };
+  const uploadQuestFile=(file:File,overrideName?:string)=>{
+    const reader=new FileReader();
+    reader.onload=e=>{
+      try{
+        const d=JSON.parse(e.target?.result as string);
+        const key=overrideName||(d.questName||file.name.replace(/\.envizi-quest$/,"").replace(/\.json$/,""));
+        if(!key.trim())return;
+        // Forza userName corrente se fornito
+        if(overrideName===undefined&&userName.trim())d.userName=userName.trim();
+        localStorage.setItem(`envizi-quest-save-${key.trim()}`,JSON.stringify(d));
+        // Forza re-render tornando alla welcome
+        setScreenState("cover");setTimeout(()=>setScreenState("welcome"),10);
+      }catch(err){}
+    };
+    reader.readAsText(file);
+  };
   useEffect(()=>{setDataNeeds(buildDefaultDataNeeds(language,priorities));},[language,priorities]);
   const moveNeed=(index:number,direction:-1|1)=>{const next=[...dataNeeds];const target=index+direction;if(target<0||target>=next.length)return;[next[index],next[target]]=[next[target],next[index]];setDataNeeds(next);};
   const rankNeed=(fromIdx:number,toRank:number)=>{const clamped=Math.max(1,Math.min(dataNeeds.length,toRank));const toIdx=clamped-1;if(toIdx===fromIdx)return;const next=[...dataNeeds];const [item]=next.splice(fromIdx,1);next.splice(toIdx,0,item);setDataNeeds(next);};
@@ -2471,12 +2496,20 @@ export default function Home(){
                       </div>
                       <div className="welcomeSavedActions">
                         <button className="welcomeLoadBtn" onClick={()=>{loadQuest(key);setScreenState("onboarding");}}>{isIt?"Riprendi →":"Resume →"}</button>
+                        <button className="welcomeDownloadBtn" title={isIt?"Scarica quest":"Download quest"} onClick={()=>downloadQuest(key)}>⬇</button>
                         <button className="welcomeDeleteBtn" onClick={()=>{deleteQuest(key);setScreenState("cover");setTimeout(()=>setScreenState("welcome"),10);}}>✕</button>
                       </div>
                     </li>;
                   })}
                 </ul>
               )}
+              {/* Upload zone */}
+              <label className="welcomeUploadZone" onDragOver={e=>e.preventDefault()} onDrop={e=>{e.preventDefault();const f=e.dataTransfer.files[0];if(f)uploadQuestFile(f);}}>
+                <input type="file" accept=".envizi-quest,.json" style={{display:"none"}} onChange={e=>{const f=e.target.files?.[0];if(f)uploadQuestFile(f);e.target.value="";}}/>
+                <span className="welcomeUploadIcon">⬆</span>
+                <span className="welcomeUploadText">{isIt?"Importa una Quest (.envizi-quest)":"Import a Quest (.envizi-quest)"}</span>
+                <span className="welcomeUploadHint">{isIt?"Clicca o trascina il file qui":"Click or drag file here"}</span>
+              </label>
             </>
           ):(
             <>
