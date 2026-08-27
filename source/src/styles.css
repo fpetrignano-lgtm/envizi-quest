@@ -484,6 +484,9 @@ body{font-size:18px}.eyebrow{font-size:22px}.brand{font-size:14px}.step,.mission
 
 /* Intro challenge screen */
 .introScreen{min-height:100vh;display:grid;grid-template-columns:minmax(380px,46vw) 1fr;grid-template-rows:76px 1fr;background:#07110e;overflow:hidden;position:relative}.introScreen>.missionNav{grid-column:1/-1}
+.introNavRight{display:flex;gap:10px;align-items:center;justify-self:end}
+.introBackBtn{padding:9px 18px;border-radius:999px;border:1px solid #385149;background:#0c1a16;color:#39efb4;font:600 12px var(--font-geist-mono);letter-spacing:.08em;cursor:pointer;white-space:nowrap;transition:.15s}
+.introBackBtn:hover{background:#0f2520;border-color:#39efb4}
 .introBody{align-self:stretch;padding:4vw 5.5vw;max-width:1100px;display:flex;flex-direction:column}.introBody h1{font-size:clamp(48px,5.4vw,82px);line-height:.92;letter-spacing:-.065em;margin:0 0 24px}
 .introCtaRow{flex:1;display:flex;align-items:flex-end;justify-content:flex-end;padding-bottom:5vh}
 .introTrustBox{margin:32px 0 28px;padding:22px 24px;border:1px solid #1e3f33;border-radius:16px;background:rgba(7,20,15,.72);max-width:640px}.introScoreLabel{font:11px var(--font-geist-mono);letter-spacing:.16em;text-transform:uppercase;color:#8ab3a5;margin:0 0 14px}.introLegend{margin:14px 0 0;font:11px var(--font-geist-mono);letter-spacing:.10em;color:#7a9b91;line-height:1.7}
