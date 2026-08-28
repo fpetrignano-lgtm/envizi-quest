@@ -169,7 +169,7 @@
 .pdColHeaderBand{display:flex;align-items:center;justify-content:center;padding:8px 16px;border-left:1px solid #0f2a1f;font:700 12px var(--font-geist-mono);letter-spacing:.18em}
 .pdColHeaderRel{color:var(--teal)}
 .pdColHeaderCrit{color:#f5c542}
-.pdColHeaderIncl{color:#4a7060}
+.pdColHeaderIncl{color:#39efb4}
 .pdGroupHeader{display:grid;grid-template-columns:64px 1fr;align-items:center;gap:10px;padding:12px 20px;background:rgba(8,20,15,.97);position:sticky;top:38px;z-index:2;border-bottom:1px solid #152920}
 .pdGroupNum{font:700 clamp(28px,2.8vw,42px) var(--font-geist-mono);color:var(--teal);line-height:1}
 .pdGroupSecondary .pdGroupNum{color:#3a6055}
