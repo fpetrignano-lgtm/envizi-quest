@@ -138,31 +138,33 @@ function addSlide2(
     fontSize: 11, color: WHITE, fontFace: "Arial", lineSpacingMultiple: 1.3,
   });
 
-  // items
+  // items — altezza fissa per card con nota, più compatta senza
   const startY = 1.44;
-  const rowH = items.length <= 4 ? 0.74 : 0.62;
   items.forEach((item, i) => {
-    const ry = startY + i * (rowH + 0.1);
+    const hasNote = !!item.note;
+    const rowH = hasNote ? 0.82 : 0.62;
+    const ry = startY + i * (rowH + 0.08);
     slide.addShape("roundRect", { x: 0.35, y: ry, w: 9.3, h: rowH, fill: { color: CARD_BG }, line: { color: BORDER, width: 0.5 }, rectRadius: 0.1 });
-    // rank
+    // rank — cella larga abbastanza, font ridotto, no wrap
     slide.addText(String(item.rank).padStart(2, "0"), {
-      x: 0.44, y: ry + 0.06, w: 0.55, h: rowH - 0.1,
-      fontSize: 22, bold: true, color: WHITE, fontFace: "Courier New", valign: "top",
+      x: 0.42, y: ry + 0.08, w: 0.72, h: 0.28,
+      fontSize: 16, bold: true, color: WHITE, fontFace: "Courier New",
+      valign: "middle", align: "left", wrap: false,
     });
     // name
     slide.addText(item.name, {
-      x: 1.05, y: ry + 0.06, w: 8.4, h: 0.3,
+      x: 1.18, y: ry + 0.07, w: 8.22, h: 0.28,
       fontSize: 14, bold: true, color: WHITE, fontFace: "Arial",
     });
-    // detail
+    // detail — subito sotto il nome
     slide.addText(item.detail, {
-      x: 1.05, y: ry + 0.33, w: 8.4, h: 0.3,
+      x: 1.18, y: ry + 0.34, w: 8.22, h: 0.22,
       fontSize: 10.5, color: WHITE, fontFace: "Arial",
     });
-    // note
-    if (item.note) {
+    // note — solo se presente, agganciata sotto il detail
+    if (hasNote) {
       slide.addText(`✎  ${item.note}`, {
-        x: 1.05, y: ry + rowH - 0.22, w: 8.2, h: 0.2,
+        x: 1.18, y: ry + 0.57, w: 8.1, h: 0.2,
         fontSize: 9.5, color: WHITE, fontFace: "Arial", italic: true,
       });
     }
