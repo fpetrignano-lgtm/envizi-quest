@@ -258,7 +258,9 @@
 .pmActions{margin-top:auto}
 .pmActions .actionButton{width:100%}
 .pmPlotWrap{position:relative;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;overflow:hidden;padding:16px}
-.pmMatrixTitle{font-size:clamp(32px,2.8vw,44px);font-weight:700;color:#39efb4;letter-spacing:.01em;margin:-2.4em 0 10px;line-height:1.2;width:100%;text-align:center}
+.pmMatrixTitle{font-size:clamp(32px,2.8vw,44px);font-weight:700;color:#39efb4;letter-spacing:.01em;margin:-2.4em 0 0;line-height:1.2;width:100%;text-align:center}
+.pmMatrixTitle+.pmMatrixSpacer{display:flex;flex-direction:column;gap:0;width:100%;margin:10px 0 10px}
+.pmMatrixSpacerLine{height:clamp(18px,1.8vh,28px)}
 .pmSvg{width:82%;height:auto;overflow:visible;display:block}
 .pmCta{position:absolute;bottom:20px;right:24px;white-space:nowrap}
 .pmFocusBar{display:flex;align-items:center;gap:12px;padding:10px 4px 0;flex-wrap:wrap}

@@ -2504,6 +2504,7 @@ export default function Home(){
         </div>
         <div className="pmPlotWrap">
           <h2 className="pmMatrixTitle">{isIt?"Esigenze di gestione dei dati ESG: Priorità di intervento":"ESG data management needs: Intervention priorities"}</h2>
+          <div className="pmMatrixSpacer"><div className="pmMatrixSpacerLine"/><div className="pmMatrixSpacerLine"/><div className="pmMatrixSpacerLine"/></div>
           {pmFromBriefing
             ? <button className="actionButton pmCta" onClick={()=>{setPmFromBriefing(false);setScreen("asis");}}>{isIt?"Continua verso l'AS-IS →":"Continue to AS-IS →"}</button>
             : <button className="actionButton pmCta" onClick={()=>{setSelectedMission(0);localStorage.setItem("envizi-quest-mission","1");setScreen("briefing");}}>{isIt?"Inizia le sfide →":"Start challenges →"}<b>→</b></button>
