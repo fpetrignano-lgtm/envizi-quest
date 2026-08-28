@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 type Language = "it" | "en";
 type Profile = "marco" | "luisa";
-type Screen = "cover" | "welcome" | "onboarding" | "intro" | "approach" | "questIntro" | "approachIntro" | "approachSteps" | "approachData" | "approachDecisions" | "approachRoadmap" | "approachTrust" | "approachReport" | "companySetup" | "missions" | "roadmapPreview" | "esgStrategist" | "company" | "priorities" | "priorityData" | "priorityMatrix" | "bridge" | "briefing" | "missionIntro" | "asis" | "dataFoundation" | "dfConclusion" | "dfSummary" | "decision" | "compare" | "tobe" | "trust" | "negative" | "success" | "milestone" | "reportingFoundation" | "reportingConclusion" | "energyFoundation" | "energyConclusion" | "supplyFoundation" | "supplyConclusion" | "planningFoundation" | "planningConclusion" | "frameworkFoundation" | "frameworkConclusion" | "summary" | "nextStep" | "thankYou";
+type Screen = "cover" | "welcome" | "onboarding" | "intro" | "approach" | "questIntro" | "approachIntro" | "approachSteps" | "approachData" | "approachDecisions" | "approachRoadmap" | "approachTrust" | "approachReport" | "separatorNext" | "companySetup" | "missions" | "roadmapPreview" | "chapterOneSummary" | "esgStrategist" | "introCopy" | "introCopy2" | "company" | "priorities" | "approachDataCopy" | "priorityData" | "priorityMatrix" | "bridge" | "briefing" | "missionIntro" | "asis" | "dataFoundation" | "dfConclusion" | "dfSummary" | "decision" | "compare" | "tobe" | "trust" | "negative" | "success" | "milestone" | "reportingFoundation" | "reportingConclusion" | "energyFoundation" | "energyConclusion" | "supplyFoundation" | "supplyConclusion" | "planningFoundation" | "planningConclusion" | "frameworkFoundation" | "frameworkConclusion" | "summary" | "nextStep" | "thankYou";
 type Market = "italia" | "europa" | "mondo";
 type EsgReadiness = "primi" | "consolidamento" | "decisioni";
 type SectorKey = "manifatturiero"|"bancario"|"assicurativo"|"utilities"|"distribuzione"|"farmaceutico"|"sanitario"|"logistico"|"alberghiero"|"telecomunicazioni"|"trasporti"|"costruzioni"|"immobiliare"|"media"|"tecnologico"|"pa"|"universitario"|"nonprofit";
@@ -68,7 +68,6 @@ const copy = {
       "La Quest parte dalle priorità di business legate all'ESG e le collega alle esigenze delle persone che raccolgono, controllano e utilizzano i dati.",
       "Attraverso scenari e scelte alternative, individuerai le capacità necessarie per gestire dati ESG complessi, accompagnare il cambiamento e offrire agli utenti strumenti intuitivi, anche con il supporto dell'AI.",
       "L'obiettivo è aiutarti a mettere a fuoco bisogni, priorità e criteri di scelta prima di valutare dove e perché IBM Envizi possa rispondere alle necessità emerse.",
-      "Attraverso una dinamica di gamification, le tue decisioni costruiranno un percorso a punti verso la fiducia di banche, clienti, CdA e auditor. Il punteggio ha un valore narrativo e, pur non rappresentando una valutazione scientifica, intende aiutare a confrontare le conseguenze delle diverse scelte proposte.",
     ],
     approachQuestCta:"Avanti →",
     approachIntroTitle:"Dalle priorità alle decisioni: costruisci la tua roadmap ESG",
@@ -110,13 +109,17 @@ const copy = {
     approachRoadmapExample:"Esempio · Abbiamo scelto un approccio alla soluzione. Ora individuiamo le capacità necessarie per rispondere alle esigenze emerse. Questa è la fase più analitica del percorso: confronteremo requisiti, priorità e stato attuale per identificare la soluzione più adeguata al contesto. IBM Envizi sarà utilizzato come soluzione di riferimento per valutare in che modo le sue capacità possano contribuire a rispondere alle esigenze individuate.",
     approachRoadmapCta:"Avanti →",
     approachTrustTitle:"5. Costruisci la fiducia degli stakeholder",
-    approachTrustBody:[],
+    approachTrustBody:[
+      "Attraverso una dinamica di gamification, le tue decisioni costruiranno un percorso a punti verso la fiducia di banche, clienti, CdA e auditor. Il punteggio ha un valore narrativo e, pur non rappresentando una valutazione scientifica, intende aiutare a confrontare le conseguenze delle diverse scelte proposte.",
+    ],
+    approachTrustExample:"Esempio · Al termine della valutazione Obiettivi, Rilevanza e Valore gestione dati riceverai il badge ESG Strategist, e potrai progredire verso altri punti fiducia e badge al completamento degli scenari successivi.",
     approachTrustCta:"Avanti →",
     approachReportTitle:"6. Porta con te il risultato",
     approachReportBody:[
       "Al termine della Quest riceverai un report complessivo con la sintesi delle priorità, delle criticità selezionate, delle decisioni assunte e dei requisiti individuati.",
       "Il tempo dedicato al percorso serve a trasformare percezioni spesso frammentate in una prima base di analisi condivisibile: non una roadmap definitiva, ma un punto di partenza più consapevole per decidere dove intervenire, con quale priorità e attraverso quali capacità.",
     ],
+    approachReportExample:"Esempio · Potrai scaricare un documento con i risultati dell'analisi fatta.",
     approachReportCta:"Iniziamo la quest",
     asIsEditHint:"I valori sono pre-compilati con i parametri dello scenario. Puoi modificarli con i dati reali della tua organizzazione.",
 
@@ -257,7 +260,6 @@ const copy = {
       "The Quest starts from ESG-related business priorities and connects them to the needs of the people who collect, control and use data.",
       "Through scenarios and alternative choices, you will identify the capabilities needed to manage complex ESG data, support change and offer users intuitive tools, including with AI support.",
       "The goal is to help you clarify needs, priorities and selection criteria before evaluating where and why IBM Envizi can address the needs that emerge.",
-      "Through a gamification dynamic, your decisions will build a point-based journey towards the trust of banks, clients, boards and auditors. The score has a narrative value and, while not representing a scientific assessment, is intended to help compare the consequences of the different choices proposed.",
     ],
     approachQuestCta:"Next →",
     approachIntroTitle:"From priorities to decisions: build your ESG roadmap",
@@ -300,15 +302,16 @@ const copy = {
     approachRoadmapCta:"Next →",
     approachTrustTitle:"5. Build stakeholder trust",
     approachTrustBody:[
-      "Through a gamification dynamic, your decisions will build a point-based journey towards the trust of banks, clients, boards and auditors.",
-      "The score has a narrative and indicative value: while not representing a scientific assessment, it offers a tool for comparing the possible consequences of different choices.",
+      "Through a gamification dynamic, your decisions will build a point-based journey towards the trust of banks, clients, boards and auditors. The score has a narrative value and, while not representing a scientific assessment, is intended to help compare the consequences of the different choices proposed.",
     ],
+    approachTrustExample:"Example · Upon completing the Objectives, Relevance and Data Management Value assessment you will receive the ESG Strategist badge, and you can progress towards further trust points and badges upon completing subsequent scenarios.",
     approachTrustCta:"Next →",
     approachReportTitle:"6. Take the result with you",
     approachReportBody:[
       "At the end of the Quest you will receive a comprehensive report summarising your priorities, the criticalities selected, the decisions taken and the requirements identified.",
       "The time invested in this journey serves to turn often fragmented perceptions into a first shareable basis for analysis: not a definitive roadmap, but a more informed starting point for deciding where to act, with what priority and through which capabilities.",
     ],
+    approachReportExample:"Example · You will be able to download a document with the results of the analysis carried out.",
     approachReportCta:"Let's start the quest",
     asIsEditHint:"Values are pre-filled with the scenario parameters. You can replace them with your organisation's actual data.",
 
@@ -601,6 +604,8 @@ export default function Home(){
   const toggleNeedIncluded=(id:string)=>setNeedIncluded(prev=>({...prev,[id]:!prev[id]}));
   const isNeedIncluded=(id:string)=>needIncluded[id]??false;
   const [dfFocusId,setDfFocusId]=useState<string|null>(null);
+  const [priorityIncluded,setPriorityIncluded]=useState<Record<Priority,boolean>>({credit:true,compliance:true,customers:true,efficiency:true,supply:true,reputation:true});
+  const togglePriorityIncluded=(p:Priority)=>setPriorityIncluded(prev=>({...prev,[p]:!prev[p]}));
   const [prioExperience,setPrioExperience]=useState<Record<Priority,string>>({credit:"",compliance:"",customers:"",efficiency:"",supply:"",reputation:""});
   const [prioExpModal,setPrioExpModal]=useState<Priority|null>(null);
   const [prioExpSelected,setPrioExpSelected]=useState<Record<Priority,number>>({credit:-1,compliance:-1,customers:-1,efficiency:-1,supply:-1,reputation:-1});
@@ -829,7 +834,7 @@ export default function Home(){
   useEffect(()=>()=>{document.getElementById("envizi-global-back")?.remove()},[]);
   useEffect(()=>{let badge=document.getElementById("envizi-bob-badge");if(!badge){badge=document.createElement("div");badge.id="envizi-bob-badge";badge.className="bobBadge";badge.innerHTML=`<img src="./ibm-bob-logo.svg" alt="IBM Bob"/><span>Sviluppato con IBM Bob</span>`;document.body.appendChild(badge)}return()=>{};},[]);
   useEffect(()=>()=>{document.getElementById("envizi-bob-badge")?.remove()},[]);
-  const NUMBERED_SCREENS:Screen[]=["cover","welcome","onboarding","intro","approach","questIntro","approachIntro","approachSteps","approachData","approachDecisions","approachRoadmap","approachTrust","approachReport","companySetup","company","priorities","priorityData","priorityMatrix","bridge","roadmapPreview","esgStrategist","missions","briefing","asis","missionIntro","compare","decision","tobe","trust","milestone","dataFoundation","dfConclusion","dfSummary","reportingFoundation","reportingConclusion","success","negative","summary","nextStep","thankYou"];
+  const NUMBERED_SCREENS:Screen[]=["cover","welcome","onboarding","intro","approach","questIntro","approachIntro","approachSteps","approachData","approachDecisions","approachRoadmap","approachTrust","approachReport","separatorNext","companySetup","company","priorities","approachDataCopy","priorityData","priorityMatrix","chapterOneSummary","esgStrategist","introCopy","missions","briefing","introCopy2","asis","missionIntro","compare","decision","tobe","trust","milestone","dataFoundation","dfConclusion","dfSummary","reportingFoundation","reportingConclusion","success","negative","summary","nextStep","thankYou"];
   const currentPageNum=NUMBERED_SCREENS.indexOf(screen)+1;
   useEffect(()=>{let el=document.getElementById("envizi-page-num");if(!el){el=document.createElement("div");el.id="envizi-page-num";el.className="pageNum";document.body.appendChild(el)}const show=currentPageNum>0;el.textContent=show?String(currentPageNum).padStart(2,"0"):"";el.style.display=show?"flex":"none";},[screen,currentPageNum]);
   useEffect(()=>()=>{document.getElementById("envizi-page-num")?.remove()},[]);
@@ -928,13 +933,137 @@ export default function Home(){
 
   if(screen==="approachRoadmap"&&profile)return <main className="approachIntroScreen"><header className="missionNav"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> IL PERCORSO</div><button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><section className="approachIntroBody approachIntroBodyWithImg"><div className="approachIntroLeft"><h1 className="approachIntroTitle">{t.approachRoadmapTitle}</h1><div className="approachIntroText">{(t.approachRoadmapBody as string[]).map((para,i)=><p key={i}>{para}</p>)}</div><button className="actionButton approachIntroCta" onClick={()=>setScreen("approachTrust")}>{t.approachRoadmapCta}<b>→</b></button></div><div className="approachIntroRight"><img src="./step-4.svg" className="approachIntroStepBadge" alt="Step 4"/><img src="./logica-road-elementi.png" className="approachIntroImg" alt="Roadmap ESG"/><p className="approachIntroImgCaption approachIntroImgCaptionSm">{t.approachRoadmapExample as string}</p></div></section></main>;
 
-  if(screen==="approachTrust"&&profile)return <main className="approachIntroScreen"><header className="missionNav"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> IL PERCORSO</div><button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><section className="approachIntroBody approachIntroBodyWithImg"><div className="approachIntroLeft"><h1 className="approachIntroTitle">{t.approachTrustTitle}</h1><div className="approachIntroText">{(t.approachTrustBody as string[]).map((para,i)=><p key={i}>{para}</p>)}</div><button className="actionButton approachIntroCta" onClick={()=>setScreen("approachReport")}>{t.approachTrustCta}<b>→</b></button></div><div className="approachIntroRight"><img src="./step-5.svg" className="approachIntroStepBadge" alt="Step 5"/><img src="./logica-game-fiducia.png" className="approachIntroImg" alt="Game fiducia stakeholder"/></div></section></main>;
+  if(screen==="approachTrust"&&profile)return <main className="approachIntroScreen"><header className="missionNav"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> IL PERCORSO</div><button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><section className="approachIntroBody approachIntroBodyWithImg"><div className="approachIntroLeft"><h1 className="approachIntroTitle">{t.approachTrustTitle}</h1><div className="approachIntroText">{(t.approachTrustBody as string[]).map((para,i)=><p key={i}>{para}</p>)}</div><button className="actionButton approachIntroCta" onClick={()=>setScreen("approachReport")}>{t.approachTrustCta}<b>→</b></button></div><div className="approachIntroRight"><img src="./step-5.svg" className="approachIntroStepBadge" alt="Step 5"/><img src="./logica-game-fiducia.png" className="approachIntroImg" alt="Game fiducia stakeholder"/><p className="approachIntroImgCaption approachIntroImgCaptionSm">{t.approachTrustExample as string}</p></div></section></main>;
 
-  if(screen==="approachReport"&&profile)return <main className="approachIntroScreen"><header className="missionNav"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> IL PERCORSO</div><button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><section className="approachIntroBody approachIntroBodyWithImg"><div className="approachIntroLeft"><h1 className="approachIntroTitle">{t.approachReportTitle}</h1><div className="approachIntroText">{(t.approachReportBody as string[]).map((para,i)=><p key={i}>{para}</p>)}</div><button className="actionButton approachIntroCta" onClick={()=>setScreen("companySetup")}>{t.approachReportCta}<b>→</b></button></div><div className="approachIntroRight"><img src="./step-6.svg" className="approachIntroStepBadge" alt="Step 6"/><img src="./logica-report-finale.png" className="approachIntroImg" alt="Report finale ESG"/></div></section></main>;
+  if(screen==="approachReport"&&profile)return <main className="approachIntroScreen"><header className="missionNav"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> IL PERCORSO</div><button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><section className="approachIntroBody approachIntroBodyWithImg"><div className="approachIntroLeft"><h1 className="approachIntroTitle">{t.approachReportTitle}</h1><div className="approachIntroText">{(t.approachReportBody as string[]).map((para,i)=><p key={i}>{para}</p>)}</div><button className="actionButton approachIntroCta" onClick={()=>setScreen("separatorNext")}>{t.approachReportCta}<b>→</b></button></div><div className="approachIntroRight"><img src="./step-6.svg" className="approachIntroStepBadge" alt="Step 6"/><img src="./logica-report-finale.png" className="approachIntroImg" alt="Report finale ESG"/><p className="approachIntroImgCaption approachIntroImgCaptionSm">{t.approachReportExample as string}</p></div></section></main>;
+  if(screen==="separatorNext"&&profile)return <main className="questIntroScreen"><header className="missionNav missionNavTrust"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> IL QUEST</div>{renderTrustBar()}<button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><section className="questIntroBody"><img src={`./characters/${profile}-neutral.png`} className="questIntroProfileImg" alt={name}/><h1 className="questIntroTitle">{language==="it"?"Partiamo dagli obiettivi della tua azienda":"Let's start from your company's objectives"}</h1><button className="actionButton questIntroCta" onClick={()=>setScreen("companySetup")}>{t.questIntroCta}<b>→</b></button></section></main>;
 
-  const renderMissionHub=(isPreview=false)=>{const completed=Object.keys(missionOutcomes).length;const foundationDone=!!missionOutcomes[0];const hubNeeds=isPreview?needsByMissionHubFocused:needsByMissionHub;return <main className="missionMenuScreen"><header className="missionNav missionNavTrust"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> MISSION HUB</div>{renderTrustBar()}<button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><section className="missionMenuIntro"><div><p className="eyebrow">{t.roadmapKicker}</p><h1>{t.roadmapTitle}</h1><p>{t.roadmapIntro}</p><div className="roadmapProgress"><span style={{width:`${completed*(100/6)}%`}}/><b>{t.roadmapProgress}: {completed}/6</b></div>{isPreview&&<button className="actionButton rpPreviewCta" onClick={()=>setScreen("esgStrategist")}>{language==="it"?"Avanti →":"Next →"}</button>}{isPreview&&<div className="needsTierLegend"><span style={{color:"#ff4d4d"}}>⬡ {language==="it"?"Alta":"High"}</span><span style={{color:"#7dd3fc"}}>⬡ {language==="it"?"Media":"Medium"}</span><span style={{color:"#9ca3af"}}>⬡ {language==="it"?"Bassa":"Low"}</span></div>}{!isPreview&&completed===6&&<button className="summaryCta" onClick={()=>setScreen("summary")}>{t.summaryCta}<b>→</b></button>}</div><div className="priorityPersona"><img src={`./characters/${profile}-neutral.png`} alt={name}/><span>{name}<small>ESG MANAGER</small></span></div></section><section className="missionCards roadmapCards">{missionOrder.map((missionIndex,position)=>{const m=missionCatalog[missionIndex];const outcome=missionOutcomes[missionIndex];const isLocked=!isPreview&&(!foundationDone&&missionIndex!==0);const isStartHere=!isPreview&&!foundationDone&&missionIndex===0;return <article key={m.value} className={`missionCard ${missionIndex===0?"missionCardFoundation":""} ${outcome?`completed ${outcome}`:""}${isLocked?" missionCardLocked":""}`}><button className="missionCardOpen" disabled={isLocked||isPreview} onClick={()=>{if(isLocked||isPreview)return;setSelectedMission(missionIndex);localStorage.setItem("envizi-quest-mission",String(missionIndex+1));setScreen("briefing")}}>{(()=>{const raw=hubNeeds.find(([mi])=>mi===missionIndex)?.[1]||[];const needs=missionIndex===0?[{id:"__foundation__",label:language==="it"?"Una data foundation solida e tracciabile":"A solid and traceable data foundation"},...raw]:raw;const needsLabel=language==="it"?"Esigenze specifiche":"Specific needs";const legendHigh=language==="it"?"Alta":"High";const legendMid=language==="it"?"Media":"Medium";const legendLow=language==="it"?"Bassa":"Low";return <><div className="missionCardChallengeBox"><div className="missionCardTop"><span>{String(position+1).padStart(2,"0")}</span><i>{outcome?"✓":m.icon}</i></div><h2>{language==="it"?m.it:m.en}</h2></div><div className="missionCardNeedsBox"><small className="missionCardNeedsLabel">{needsLabel}</small>{needs.length>0?needs.map(n=>{const prioIdx=priorities.indexOf((n as any).priority);const relMax=prioIdx===0?10:prioIdx===1?8:prioIdx===2?6:4;const rel=Math.min(needRelevance[n.id]??Math.round(relMax/2),relMax);const relNorm=Math.round((rel/relMax)*10);const crit=needCriticality[n.id]??5;const cap=needIdToCapability[n.id];const capLabel=cap?(language==="it"?cap.it:cap.en):null;const tier=relNorm>7&&crit>7?"red":relNorm>4&&relNorm<=7&&crit>4&&crit<=7?"yellow":relNorm>4||crit>4?"yellow":"green";const tierColor=tier==="red"?"#ff4d4d":tier==="yellow"?"#7dd3fc":"#9ca3af";return <span key={n.id} className="missionCardNeed"><span className="missionCardNeedHeader"><b className="missionCardNeedRank" style={{color:tierColor}}>{("rank" in n)?String((n as any).rank).padStart(2,"0"):""}</b><b className="missionCardNeedName" style={{color:tierColor}}>⬡ {n.label}</b><span className="missionCardNeedRC" style={{color:tierColor}}>R:{relNorm} C:{crit}</span></span>{capLabel&&<span className="missionCardNeedCap" style={{color:tierColor,opacity:.8}}>{capLabel}</span>}</span>}):<span className="missionCardNeed">—</span>}</div></>;})()}{isLocked&&<div className="missionCardLockedOverlay"><span>⊘</span><small>{t.missionLocked}</small></div>}{isStartHere&&<div className="missionCardStartHere"><span>{t.missionStartHere}</span><b>→</b></div>}{outcome&&<div className="missionImpact"><div><small>{t.adoptedDecision}</small><strong>{decisionLabel(missionIndex,outcome)}</strong></div><div><small>{t.expectedImpact}</small><p>{outcomeLabel(missionIndex,outcome)}</p></div></div>}<div className="missionCardBottom"><small>{outcome?`${position+1}/5 · ROADMAP`:isLocked?"🔒":""}</small><b>{outcome?t.missionReview:""}</b></div></button></article>})}</section></main>};
+  const renderMissionHub=(isPreview=false)=>{const completed=Object.keys(missionOutcomes).length;const foundationDone=!!missionOutcomes[0];const hubNeeds=isPreview?needsByMissionHubFocused:needsByMissionHub;return <main className="missionMenuScreen"><header className="missionNav missionNavTrust"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> MISSION HUB</div>{renderTrustBar()}<button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><section className="missionMenuIntro"><div><p className="eyebrow">{t.roadmapKicker}</p><h1>{t.roadmapTitle}</h1><p>{t.roadmapIntro}</p><div className="roadmapProgress"><span style={{width:`${completed*(100/6)}%`}}/><b>{t.roadmapProgress}: {completed}/6</b></div>{isPreview&&<button className="actionButton rpPreviewCta" onClick={()=>setScreen("chapterOneSummary")}>{language==="it"?"Avanti →":"Next →"}</button>}{isPreview&&<div className="needsTierLegend"><span style={{color:"#ff4d4d"}}>⬡ {language==="it"?"Alta":"High"}</span><span style={{color:"#7dd3fc"}}>⬡ {language==="it"?"Media":"Medium"}</span><span style={{color:"#9ca3af"}}>⬡ {language==="it"?"Bassa":"Low"}</span></div>}{!isPreview&&completed===6&&<button className="summaryCta" onClick={()=>setScreen("summary")}>{t.summaryCta}<b>→</b></button>}</div><div className="priorityPersona"><img src={`./characters/${profile}-neutral.png`} alt={name}/><span>{name}<small>ESG MANAGER</small></span></div></section><section className="missionCards roadmapCards">{missionOrder.map((missionIndex,position)=>{const m=missionCatalog[missionIndex];const outcome=missionOutcomes[missionIndex];const isLocked=!isPreview&&(!foundationDone&&missionIndex!==0);const isStartHere=!isPreview&&!foundationDone&&missionIndex===0;return <article key={m.value} className={`missionCard ${missionIndex===0?"missionCardFoundation":""} ${outcome?`completed ${outcome}`:""}${isLocked?" missionCardLocked":""}`}><button className="missionCardOpen" disabled={isLocked||isPreview} onClick={()=>{if(isLocked||isPreview)return;setSelectedMission(missionIndex);localStorage.setItem("envizi-quest-mission",String(missionIndex+1));setScreen("briefing")}}>{(()=>{const raw=hubNeeds.find(([mi])=>mi===missionIndex)?.[1]||[];const needs=missionIndex===0?[{id:"__foundation__",label:language==="it"?"Una data foundation solida e tracciabile":"A solid and traceable data foundation"},...raw]:raw;const needsLabel=language==="it"?"Esigenze specifiche":"Specific needs";const legendHigh=language==="it"?"Alta":"High";const legendMid=language==="it"?"Media":"Medium";const legendLow=language==="it"?"Bassa":"Low";return <><div className="missionCardChallengeBox"><div className="missionCardTop"><span>{String(position+1).padStart(2,"0")}</span><i>{outcome?"✓":m.icon}</i></div><h2>{language==="it"?m.it:m.en}</h2></div><div className="missionCardNeedsBox"><small className="missionCardNeedsLabel">{needsLabel}</small>{needs.length>0?needs.map(n=>{const prioIdx=priorities.indexOf((n as any).priority);const relMax=prioIdx===0?10:prioIdx===1?8:prioIdx===2?6:4;const rel=Math.min(needRelevance[n.id]??Math.round(relMax/2),relMax);const relNorm=Math.round((rel/relMax)*10);const crit=needCriticality[n.id]??5;const cap=needIdToCapability[n.id];const capLabel=cap?(language==="it"?cap.it:cap.en):null;const tier=relNorm>7&&crit>7?"red":relNorm>4&&relNorm<=7&&crit>4&&crit<=7?"yellow":relNorm>4||crit>4?"yellow":"green";const tierColor=tier==="red"?"#ff4d4d":tier==="yellow"?"#7dd3fc":"#9ca3af";return <span key={n.id} className="missionCardNeed"><span className="missionCardNeedHeader"><b className="missionCardNeedRank" style={{color:tierColor}}>{("rank" in n)?String((n as any).rank).padStart(2,"0"):""}</b><b className="missionCardNeedName" style={{color:tierColor}}>⬡ {n.label}</b><span className="missionCardNeedRC" style={{color:tierColor}}>R:{relNorm} C:{crit}</span></span>{capLabel&&<span className="missionCardNeedCap" style={{color:tierColor,opacity:.8}}>{capLabel}</span>}</span>}):<span className="missionCardNeed">—</span>}</div></>;})()}{isLocked&&<div className="missionCardLockedOverlay"><span>⊘</span><small>{t.missionLocked}</small></div>}{isStartHere&&<div className="missionCardStartHere"><span>{t.missionStartHere}</span><b>→</b></div>}{outcome&&<div className="missionImpact"><div><small>{t.adoptedDecision}</small><strong>{decisionLabel(missionIndex,outcome)}</strong></div><div><small>{t.expectedImpact}</small><p>{outcomeLabel(missionIndex,outcome)}</p></div></div>}<div className="missionCardBottom"><small>{outcome?`${position+1}/5 · ROADMAP`:isLocked?"🔒":""}</small><b>{outcome?t.missionReview:""}</b></div></button></article>})}</section></main>};
 
   if(screen==="roadmapPreview"&&profile)return renderMissionHub(true);
+
+  if(screen==="chapterOneSummary"&&profile){
+    const isIt=language==="it";
+    const sec=SECTORS[companySector];
+    const sectorLabel=isIt?sec.label.it:sec.label.en;
+    const readinessList=isIt?ESG_READINESS_IT:ESG_READINESS_EN;
+    const activeReadiness=readinessList.find(r=>r.key===esgReadiness)!;
+    const isCsrd=companyDims[4]>=1000&&companyDims[0]>=450;
+    const marketLabels:Record<string,{it:string,en:string}>={italia:{it:"Solo Italia",en:"Italy only"},europa:{it:"Europa",en:"Europe"},mondo:{it:"Globale",en:"Global"}};
+    const includedPrios=priorities.filter(p=>priorityIncluded[p]);
+    const excludedPrios=priorities.filter(p=>!priorityIncluded[p]);
+    // top 7 critical needs sorted by R+C desc
+    const priorityColors:Record<Priority,string>={credit:"#39efb4",compliance:"#7c86ff",customers:"#f5c542",efficiency:"#ff8c5a",supply:"#a78bfa",reputation:"#f472b6"};
+    const top7=dataNeeds.filter(n=>isNeedIncluded(n.id)).map(n=>{
+      const rel=needRelevance[n.id]??5;
+      const crit=needCriticality[n.id]??5;
+      const tier=rel>7&&crit>7?"high":rel>4||crit>4?"medium":"low";
+      return{...n,rel,crit,score:rel+crit,tier};
+    }).sort((a,b)=>b.score-a.score).slice(0,7);
+    // ── testo descrittivo slide 2 ──
+    const prioDescIt=(()=>{
+      const names=includedPrios.map(p=>(t.priorityNames as Record<Priority,string>)[p]);
+      if(names.length===0)return"Non sono stati selezionati obiettivi per l'analisi.";
+      const topName=names[0];
+      const restNames=names.slice(1);
+      const company=displayCompanyName;
+      const matLabel=activeReadiness.label.split("—")[0].trim();
+      let txt=`${company} ha definito ${names.length} obiettivo${names.length>1?"":"i"} prioritario${names.length>1?"":"i"} per la propria strategia ESG. `;
+      txt+=`In particolare, la priorità principale è <strong>${topName}</strong>`;
+      if(restNames.length>0)txt+=`, seguita da ${restNames.slice(0,-1).join(", ")}${restNames.length>1?" e ":""}<strong>${restNames[restNames.length-1]}</strong>`;
+      txt+=`. Il livello di maturità attuale — <em>${matLabel}</em> — indica che ${activeReadiness.desc.charAt(0).toLowerCase()+activeReadiness.desc.slice(1)}`;
+      return txt;
+    })();
+    const prioDescEn=(()=>{
+      const names=includedPrios.map(p=>(t.priorityNames as Record<Priority,string>)[p]);
+      if(names.length===0)return"No objectives were selected for the analysis.";
+      const topName=names[0];
+      const restNames=names.slice(1);
+      const company=displayCompanyName;
+      const matLabel=activeReadiness.label.split("—")[0].trim().replace("–","—").split("—")[0].trim();
+      let txt=`${company} has defined ${names.length} priority objective${names.length>1?"s":""} for its ESG strategy. `;
+      txt+=`The main priority is <strong>${topName}</strong>`;
+      if(restNames.length>0)txt+=`, followed by ${restNames.slice(0,-1).join(", ")}${restNames.length>1?" and ":""}<strong>${restNames[restNames.length-1]}</strong>`;
+      txt+=`. The current maturity level — <em>${matLabel}</em> — means that ${activeReadiness.desc.charAt(0).toLowerCase()+activeReadiness.desc.slice(1)}`;
+      return txt;
+    })();
+    return <main className="c1sScreen">
+      <header className="missionNav">
+        <button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button>
+        <div className="missionProgress"><span className="activeDot"/> {isIt?"RIEPILOGO CAPITOLO 1":"CHAPTER 1 SUMMARY"}</div>
+        <button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button>
+      </header>
+      <div className="c1sBody">
+        {/* ── SLIDE 1: Azienda ── */}
+        <section className="c1sSlide c1sSlideHero">
+          <div className="c1sSlideLabel">{isIt?"01 · Profilo azienda":"01 · Company profile"}</div>
+          <div className="c1sHeroTop">
+            <div className="c1sHeroName">{displayCompanyName}</div>
+            <div className="c1sHeroTags">
+              <span className="c1sHeroTag">{sectorLabel}</span>
+              <span className="c1sHeroTag">{isIt?marketLabels[companyMarket].it:marketLabels[companyMarket].en}</span>
+              <span className="c1sHeroTag">€{companyDims[0]}M</span>
+              <span className="c1sHeroTag">{companyDims[4].toLocaleString()} {isIt?"dipendenti":"employees"}</span>
+              {companyDims[1]>0&&<span className="c1sHeroTag">{companyDims[1]} {isIt?`stabiliment${companyDims[1]===1?"o":"i"}`:`plant${companyDims[1]===1?"":"s"}`}</span>}
+              {companyDims[2]>0&&<span className="c1sHeroTag">{companyDims[2]} {isIt?`uffic${companyDims[2]===1?"io":"i"}`:`office${companyDims[2]===1?"":"s"}`}</span>}
+            </div>
+          </div>
+          <div className="c1sMaturityBlock">
+            <div className="c1sMaturityLabel">{isIt?"Maturità ESG":"ESG Maturity"}</div>
+            <div className="c1sMaturityTitle">{activeReadiness.label}</div>
+            <p className="c1sMaturityDesc">{activeReadiness.desc}</p>
+          </div>
+          <div className={`c1sCsrdBadge${isCsrd?"":" c1sCsrdBadgeOut"}`}>
+            <span className="c1sCsrdIcon">{isCsrd?"⚑":"○"}</span>
+            <div>
+              <strong>{isCsrd?(isIt?"Soggetta a CSRD":"Subject to CSRD"):(isIt?"Non soggetta a CSRD":"Not subject to CSRD")}</strong>
+              <span>{isCsrd?(isIt?"Oltre 1.000 dipendenti e €450M di fatturato":"Over 1,000 employees and €450M revenue"):(isIt?"Sotto le soglie CSRD":"Below CSRD thresholds")}</span>
+            </div>
+          </div>
+          {csrdNote&&<div className="c1sCsrdNote"><span>✎</span><p>{csrdNote}</p></div>}
+        </section>
+        {/* ── SLIDE 2: Obiettivi inclusi ── */}
+        <section className="c1sSlide">
+          <div className="c1sSlideLabel">{isIt?"02 · Obiettivi prioritari":"02 · Priority objectives"}</div>
+          <p className="c1sPrioIntro" dangerouslySetInnerHTML={{__html:isIt?prioDescIt:prioDescEn}}/>
+          <div className="c1sPrioList">
+            {includedPrios.map((p,i)=><div key={p} className="c1sPrioItem">
+              <div className="c1sPrioRank" style={{color:priorityColors[p]}}>{String(i+1).padStart(2,"0")}</div>
+              <div className="c1sPrioContent">
+                <strong style={{color:priorityColors[p]}}>{(t.priorityNames as Record<Priority,string>)[p]}</strong>
+                <span className="c1sPrioDetail">{(t.priorityDetails as Record<Priority,string>)[p]}</span>
+                {prioExperience[p]&&<p className="c1sPrioNote">✎ {prioExperience[p]}</p>}
+              </div>
+            </div>)}
+          </div>
+        </section>
+        {/* ── SLIDE 3: Top 7 aree critiche ── */}
+        <section className="c1sSlide">
+          <div className="c1sSlideLabel">{isIt?"03 · Le 7 aree critiche principali":"03 · Top 7 critical areas"}</div>
+          <h2 className="c1sSlideSub">{isIt?"Ordinate per Rilevanza + Criticità":"Sorted by Relevance + Criticality"}</h2>
+          <div className="c1sCritList">
+            {top7.map((n,i)=>{
+              const tierColor=n.tier==="high"?"#ff4d4d":n.tier==="medium"?"#7dd3fc":"#9ca3af";
+              return <div key={n.id} className="c1sCritItem">
+                <div className="c1sCritRank" style={{color:tierColor}}>{String(i+1).padStart(2,"0")}</div>
+                <div className="c1sCritBody">
+                  <strong style={{color:tierColor}}>{n.label}</strong>
+                  <div className="c1sCritMeta">
+                    <span className="c1sCritPrio" style={{color:priorityColors[n.priority]}}>⬡ {(t.priorityNames as Record<Priority,string>)[n.priority]}</span>
+                    <span className="c1sCritScore">R{n.rel} · C{n.crit}</span>
+                    <span className="c1sCritTier" style={{color:tierColor}}>{n.tier==="high"?(isIt?"Alta":"High"):n.tier==="medium"?(isIt?"Media":"Medium"):(isIt?"Bassa":"Low")}</span>
+                  </div>
+                </div>
+              </div>;
+            })}
+          </div>
+        </section>
+        <div className="c1sNavRow">
+          <button className="actionButton" onClick={()=>setScreen("esgStrategist")}>{isIt?"Avanti →":"Next →"}</button>
+        </div>
+      </div>
+    </main>;
+  }
 
   if(screen==="esgStrategist"&&profile){
     const isIt=language==="it";
@@ -955,13 +1084,15 @@ export default function Home(){
           <p className="esgStrategistSub">{isIt?"Hai identificato le esigenze di dati chiave e costruito la tua matrice di priorità. Ora è il momento di trasformare l'analisi in sfide decisionali concrete.":"You have identified key data needs and built your priority matrix. Now it's time to turn the analysis into concrete decision challenges."}</p>
           <div className="esgStrategistActions">
             <button className="secondaryAction" onClick={()=>goBack()}>← {isIt?"Indietro":"Back"}</button>
-            <button className="actionButton" onClick={()=>{setSelectedMission(0);localStorage.setItem("envizi-quest-mission","1");setScreen("briefing");}}>{isIt?"Inizia le sfide →":"Start challenges →"}</button>
+            <button className="actionButton" onClick={()=>setScreen("introCopy")}>{isIt?"Inizia le sfide →":"Start challenges →"}</button>
           </div>
           {renderSaveBtn(isIt)}
         </div>
       </section>
     </main>;
   }
+
+  if(screen==="introCopy"&&profile)return <main className="introScreen"><header className="missionNav"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> YOUR CHALLENGE</div><div className="introNavRight"><button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></div></header><section className="characterStage"><img src={`./characters/${profile}-neutral.png`} alt={name}/><div className="characterTag characterTagRaised"><span className="statusDot"/><div><small>ESG MANAGER</small><strong>{name}</strong></div></div></section><section className="introBody"><p className="eyebrow">{t.introKicker}</p><h1>{t.introTitle}</h1><p className="storyText">{t.introBody}</p><div className="introTrustBox"><p className="introScoreLabel">{t.introScoreLabel}</p>{renderTrustBar()}</div><div className="introCtaRow"><button className="actionButton questLaunchBtn" onClick={()=>{setSelectedMission(0);localStorage.setItem("envizi-quest-mission","1");setScreen("briefing");}}>{t.introStart}<b>→</b></button></div></section></main>;
 
   if(screen==="missions"&&profile){
     if(!!missionOutcomes[0])return renderMissionHub(false);
@@ -988,7 +1119,7 @@ export default function Home(){
 
 
 
-  if(screen==="summary"&&profile)return <main className="summaryScreen"><header className="missionNav missionNavTrust"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> ESG ROADMAP</div>{renderTrustBar()}<button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><section className="summaryIntro"><p className="eyebrow">{t.summaryKicker}</p><h1>{t.summaryTitle}</h1><p>{t.summaryIntro}</p><div className="summaryPriorities"><small>{t.topPriorities}</small><div>{priorities.slice(0,3).map((p,i)=><span key={p}><b>{String(i+1).padStart(2,"0")}</b>{t.priorityNames[p]}</span>)}</div></div>{calculatedTrustScore>=80&&<div className="trustedBadgeSummary">★ {t.trustedLabel}</div>}</section><section className="summaryGrid">{missionOrder.map((missionIndex,position)=>{const m=missionCatalog[missionIndex];const outcome=missionOutcomes[missionIndex];const assignedNeeds=needsByMissionHub.find(([mi])=>mi===missionIndex)?.[1]||[];const displayNeeds=missionIndex===0?[{id:"__foundation__",label:language==="it"?"Una data foundation solida e tracciabile":"A solid and traceable data foundation"},...assignedNeeds]:assignedNeeds;return <article className={`summaryCard ${outcome}`} key={m.value}><div className="summaryCardTitle"><span>{String(position+1).padStart(2,"0")}</span><h2>{language==="it"?m.it:m.en}</h2></div><div><small>{t.adoptedDecision}</small><strong>{outcome?decisionLabel(missionIndex,outcome):"—"}</strong></div><div><small>{t.expectedImpact}</small><p>{outcome?outcomeLabel(missionIndex,outcome):"—"}</p></div><div className="summaryParams"><small>{t.parameters}</small>{displayNeeds.length>0?displayNeeds.map(n=><span key={n.id}>⬡ {n.label}</span>):<span>—</span>}</div></article>})}</section><footer className="summaryActions"><button className="secondaryAction" onClick={reset}>← {t.backStart}</button><button className="actionButton" onClick={()=>setScreen("nextStep")}>{t.nextStep}<b>→</b></button></footer></main>;
+  if(screen==="summary"&&profile)return <main className="summaryScreen"><header className="missionNav missionNavTrust"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> ESG ROADMAP</div>{renderTrustBar()}<button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><section className="summaryIntro"><p className="eyebrow">{t.summaryKicker}</p><h1>{t.summaryTitle}</h1><p>{t.summaryIntro}</p><div className="summaryPriorities"><small>{t.topPriorities}</small><div>{priorities.slice(0,3).map((p,i)=><span key={p} className={priorityIncluded[p]?"":"summaryPriorityExcluded"}><b>{String(i+1).padStart(2,"0")}</b>{t.priorityNames[p]}{!priorityIncluded[p]&&<small className="summaryPriorityExcludedNote">{language==="it"?" (escluso dall'analisi)":" (excluded from analysis)"}</small>}</span>)}</div></div>{calculatedTrustScore>=80&&<div className="trustedBadgeSummary">★ {t.trustedLabel}</div>}</section><section className="summaryGrid">{missionOrder.map((missionIndex,position)=>{const m=missionCatalog[missionIndex];const outcome=missionOutcomes[missionIndex];const assignedNeeds=needsByMissionHub.find(([mi])=>mi===missionIndex)?.[1]||[];const displayNeeds=missionIndex===0?[{id:"__foundation__",label:language==="it"?"Una data foundation solida e tracciabile":"A solid and traceable data foundation"},...assignedNeeds]:assignedNeeds;return <article className={`summaryCard ${outcome}`} key={m.value}><div className="summaryCardTitle"><span>{String(position+1).padStart(2,"0")}</span><h2>{language==="it"?m.it:m.en}</h2></div><div><small>{t.adoptedDecision}</small><strong>{outcome?decisionLabel(missionIndex,outcome):"—"}</strong></div><div><small>{t.expectedImpact}</small><p>{outcome?outcomeLabel(missionIndex,outcome):"—"}</p></div><div className="summaryParams"><small>{t.parameters}</small>{displayNeeds.length>0?displayNeeds.map(n=><span key={n.id}>⬡ {n.label}</span>):<span>—</span>}</div></article>})}</section><footer className="summaryActions"><button className="secondaryAction" onClick={reset}>← {t.backStart}</button><button className="actionButton" onClick={()=>setScreen("nextStep")}>{t.nextStep}<b>→</b></button></footer></main>;
 
   if(screen==="nextStep"&&profile){const top3=priorities.slice(0,3).map((p,i)=>`${i+1}. ${t.priorityNames[p]}`).join(", ");const decisionsLine=missionOrder.map(mi=>{const o=missionOutcomes[mi];return o?`M${mi+1}: ${decisionLabel(mi,o)}`:`M${mi+1}: —`}).join(" | ");const paramsLine=missionOrder.map(mi=>{const vals=missionParameters[mi]||[];const items=missionItems(mi);const units=missionUnits(mi);const filled=items.map((item,i)=>vals[i]?`${item.title}: ${vals[i]} ${units[i]}`:"").filter(Boolean);return filled.length?`[M${mi+1}: ${filled.join(", ")}]`:""}).filter(Boolean).join(" ");const isIt=language==="it";const toEmail=contactEmail.trim()||t.nextContactEmail;const subj=isIt?"Demo IBM Envizi — Envizi Impact Quest":"IBM Envizi Demo — Envizi Impact Quest";const pocSubj=isIt?"Proof of Concept IBM Envizi — Envizi Impact Quest":"IBM Envizi PoC — Envizi Impact Quest";const bvaSubj=isIt?"Business Value Assessment IBM Envizi — Envizi Impact Quest":"IBM Envizi BVA — Envizi Impact Quest";const commonBody=isIt?`%0A%0A— Profilo: ${name} (${profile==="marco"?t.maleRole:t.femaleRole})%0A— Punteggio fiducia finale: ${trustScore}/100%0A— Top 3 priorità: ${top3}%0A— Decisioni: ${decisionsLine}${paramsLine?`%0A— Parametri AS-IS: ${paramsLine}`:""}${approachBiz?`%0A— Esigenze di business: ${approachBiz}`:""}${approachData?`%0A— Sfide sui dati: ${approachData}`:""}%0A%0AIn attesa di un riscontro.`:`%0A%0A— Profile: ${name} (${profile==="marco"?t.maleRole:t.femaleRole})%0A— Final trust score: ${trustScore}/100%0A— Top 3 priorities: ${top3}%0A— Decisions: ${decisionsLine}${paramsLine?`%0A— AS-IS parameters: ${paramsLine}`:""}${approachBiz?`%0A— Business needs: ${approachBiz}`:""}${approachData?`%0A— Data challenges: ${approachData}`:""}%0A%0ALooking forward to your reply.`;const demoBody=isIt?`Ciao,%0A%0AHo completato l'Envizi Impact Quest e vorrei approfondire come IBM Envizi si integra nel nostro contesto con una demo.${commonBody}`:`Hi,%0A%0AI have completed the Envizi Impact Quest and would like to explore how IBM Envizi fits our context with a demo.${commonBody}`;const pocBody=isIt?`Ciao,%0A%0AHo completato l'Envizi Impact Quest e sono interessato a un Proof of Concept con i dati reali della mia organizzazione.${commonBody}`:`Hi,%0A%0AI have completed the Envizi Impact Quest and I am interested in a Proof of Concept with my organisation's real data.${commonBody}`;const bvaBody=isIt?`Ciao,%0A%0AHo completato l'Envizi Impact Quest e vorrei richiedere un Business Value Assessment per quantificare il valore di IBM Envizi per la mia organizzazione.${commonBody}`:`Hi,%0A%0AI have completed the Envizi Impact Quest and would like to request a Business Value Assessment to quantify the value of IBM Envizi for my organisation.${commonBody}`;return <main className="nextStepScreen"><header className="missionNav missionNavTrust"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> NEXT STEP</div>{renderTrustBar()}<button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><section className="nextStepBody"><p className="eyebrow">{t.nextKicker}</p><h1>{t.nextTitle}</h1><div className="nextStepCards"><div className="nextStepCard nextStepCardDemo"><small>{t.nextDemoLabel}</small><p>{t.nextDemoIntro}</p><div className="nextDemoEmailRow"><input className="nextDemoEmailInput" type="email" placeholder={t.nextDemoEmailPlaceholder} value={contactEmail} onChange={e=>setContactEmail(e.target.value)}/></div><a className="nextStepBtn primary" href={`mailto:${toEmail}?subject=${subj}&body=${demoBody}`}>{t.nextDemoButton}</a>{!contactEmail.trim()&&<a className="nextDemoFallbackLink" href={`mailto:${t.nextContactEmail}?subject=${subj}&body=${demoBody}`}>{t.nextDemoFallback}</a>}</div><div className="nextStepCard"><small>{t.nextPocLabel}</small><p>{t.nextPocIntro}</p><a className="nextStepBtn primary" href={`mailto:${toEmail||t.nextContactEmail}?subject=${pocSubj}&body=${pocBody}`}>{t.nextPocButton}</a></div><div className="nextStepCard"><small>{t.nextBvaLabel}</small><p>{t.nextBvaIntro}</p><a className="nextStepBtn primary" href={`mailto:${toEmail||t.nextContactEmail}?subject=${bvaSubj}&body=${bvaBody}`}>{t.nextBvaButton}</a></div><div className="nextStepCard"><small>{t.nextSiteLabel}</small><p>{t.nextSiteIntro}</p><a className="nextStepBtn primary" href="https://www.ibm.com/it-it/products/envizi" target="_blank" rel="noreferrer">{t.nextSiteButton}</a></div></div><div className="nextStepContact"><small>{t.nextContactLabel}</small><strong>{t.nextContactName}</strong><span>{t.nextContactRole}</span><a href={`mailto:${t.nextContactEmail}`}>{t.nextContactEmail}</a></div><div className="nextStepActions"><button className="secondaryAction" onClick={reset}>← {t.backStart}</button><button className="actionButton" onClick={()=>setScreen("thankYou")}>{t.nextStep}<b>→</b></button></div></section></main>;}
 
@@ -2009,7 +2140,7 @@ export default function Home(){
               </div>
               {(companyMarket==="europa"||companyMarket==="mondo")&&<div className="csField"><label>{isIt?"Distribuzione sedi (%, totale 100)":"Location distribution (%, total 100)"}</label>
                 <div className="csGeoGrid">
-                  <div className={`csGeoRow${geoError?" csGeoRowError":" csGeoRowItalia"}`}><span>{isIt?"Italia":"Italy"}</span><input className="csDimInput" type="number" readOnly value={italyVal}/><span>%</span></div>
+                  <div className={`csGeoRow${geoError?" csGeoRowError":" csGeoRowItalia"}`}><span>{isIt?"Italia":"Italy"}</span><input className="csDimInput csGeoItalyInput" type="number" readOnly value={italyVal} title={isIt?"Calcolato automaticamente: 100% meno la somma delle altre regioni":"Calculated automatically: 100% minus the sum of other regions"}/><span>%</span><span className="csGeoItalyHint">{isIt?"← calcolato":"← auto"}</span></div>
                   {nonItalyKeys.map(k=><div key={k} className="csGeoRow"><span>{isIt?geoLabels[k].it:geoLabels[k].en}</span><input className="csDimInput" type="number" min={0} value={geoDistrib[k]??0} onChange={e=>handleGeoChange(k,parseInt(e.target.value))}/><span>%</span></div>)}
                 </div>
                 {geoError&&<p className="csGeoErrorMsg">{isIt?"⚠ La somma delle altre regioni supera 100%. Riduci i valori.":"⚠ The sum of other regions exceeds 100%. Please reduce the values."}</p>}
@@ -2197,6 +2328,10 @@ export default function Home(){
                 <div className="prioCardBody">
                   <strong className="prioCardName">{t.priorityNames[p]}</strong>
                   <span className="prioCardDetail">{t.priorityDetails[p]}</span>
+                  <button className="prioIncludeToggle" onClick={()=>togglePriorityIncluded(p)} aria-pressed={priorityIncluded[p]} title={isIt?"Includi in analisi":"Include in analysis"}>
+                    <span className={`prioIncludeDot${priorityIncluded[p]?" prioIncludeDotOn":""}`}/>
+                    {isIt?"Includi in analisi":"Include in analysis"}
+                  </button>
                   <button className="prioExpLink" onClick={()=>setPrioExpModal(p)}>
                     {prioExperience[p]?<span className="prioExpDot"/>:null}
                     {isIt?"✏ Racconta la tua esperienza":"✏ Share your experience"}
@@ -2209,7 +2344,7 @@ export default function Home(){
               </div>
             ))}
           </div>
-          <button className="actionButton prioCardsConfirmBtn" onClick={()=>{localStorage.setItem("envizi-quest-priorities",JSON.stringify(priorities));setScreen("priorityData")}}>{t.confirm}<b>→</b></button>
+          <button className="actionButton prioCardsConfirmBtn" onClick={()=>{localStorage.setItem("envizi-quest-priorities",JSON.stringify(priorities));setScreen("approachDataCopy")}}>{t.confirm}<b>→</b></button>
         </div>
       </div>
       {/* ── Experience modal ── */}
@@ -2323,6 +2458,8 @@ export default function Home(){
       })()}
     </main>;
   }
+
+  if(screen==="approachDataCopy"&&profile)return <main className="approachIntroScreen"><header className="missionNav"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> IL PERCORSO</div><button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><section className="approachIntroBody approachIntroBodyWithImg"><div className="approachIntroLeft"><h1 className="approachIntroTitle">{t.approachDataTitle}</h1><div className="approachIntroText">{(t.approachDataBody as string[]).map((para,i)=><p key={i}>{para}</p>)}</div><button className="actionButton approachIntroCta" onClick={()=>setScreen("priorityData")}>{t.approachDataCta}<b>→</b></button></div><div className="approachIntroRight"><img src="./step-2.svg" className="approachIntroStepBadge" alt="Step 2"/><img src="./logica-issue.png" className="approachIntroImg" alt="Criticità dati ESG"/><p className="approachIntroImgCaption approachIntroImgCaptionSm">{t.approachDataExample as string}</p></div></section></main>;
 
   if(screen==="priorityData"&&profile){
     const isIt=language==="it";
@@ -2511,7 +2648,7 @@ export default function Home(){
           <div className="pmMatrixSpacer"><div className="pmMatrixSpacerLine"/><div className="pmMatrixSpacerLine"/><div className="pmMatrixSpacerLine"/></div>
           {pmFromBriefing
             ? <button className="actionButton pmCta" onClick={()=>{setPmFromBriefing(false);setScreen("asis");}}>{isIt?"Continua verso l'AS-IS →":"Continue to AS-IS →"}</button>
-            : <button className="actionButton pmCta" onClick={()=>{setSelectedMission(0);localStorage.setItem("envizi-quest-mission","1");setScreen("briefing");}}>{isIt?"Inizia le sfide →":"Start challenges →"}<b>→</b></button>
+            : <button className="actionButton pmCta" onClick={()=>setScreen("chapterOneSummary")}>{isIt?"Inizia le sfide →":"Start challenges →"}<b>→</b></button>
           }
           <svg className="pmSvg" viewBox={`${vbX} ${vbY} ${vbW} ${vbH}`} preserveAspectRatio="xMidYMid meet" style={{transition:"viewBox .35s"}}>
             {/* dashed grid */}
@@ -2851,8 +2988,11 @@ export default function Home(){
 
 
 
+  if(screen==="introCopy2"&&profile)return <main className="introScreen"><header className="missionNav"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> YOUR CHALLENGE</div><div className="introNavRight"><button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></div></header><section className="characterStage"><img src={`./characters/${profile}-neutral.png`} alt={name}/><div className="characterTag characterTagRaised"><span className="statusDot"/><div><small>ESG MANAGER</small><strong>{name}</strong></div></div></section><section className="introBody"><p className="eyebrow">{t.introKicker}</p><h1>{t.introTitle}</h1><p className="storyText">{t.introBody}</p><div className="introTrustBox"><p className="introScoreLabel">{t.introScoreLabel}</p>{renderTrustBar()}</div><div className="introCtaRow"><button className="actionButton questLaunchBtn" onClick={()=>setScreen("asis")}>{t.introStart}<b>→</b></button></div></section></main>;
+
+
   if(screen!=="onboarding"&&profile){const result=screen==="negative"||screen==="success";return <main className={`missionScreen mission-${selectedMission} ${screen} ${screen==="negative"?(negativeChoice==="form"?"formOutcome":"asIsOutcome"):""}`}><header className="missionNav"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> {t.mission} <b>{String(selectedMission+1).padStart(2,"0")}</b><i>/</i>06</div><button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><section className="characterStage"><img src={imageFor(profile,screen)} alt={`${name} · ${screen}`}/><div className="characterTag"><span className="statusDot"/><div><small>ESG MANAGER</small><strong>{name}</strong></div></div>{screen==="trust"&&<button className="actionButton trustStageCta" onClick={()=>setScreen(selectedMission===0?"milestone":selectedMission===1?"energyFoundation":selectedMission===2?"supplyFoundation":selectedMission===3?"reportingFoundation":selectedMission===4?"planningFoundation":selectedMission===5?"frameworkFoundation":"missions")}>{t.trustContinue}<b>→</b></button>}</section><section className="missionContent"><div className="missionLabel"><span>{t.mission} {String(selectedMission+1).padStart(2,"0")}</span><i>90 DAYS</i></div>
-    {screen==="briefing"&&(()=>{const effects=(t.crossEffects[selectedMission]||[]).filter(e=>{const o=missionOutcomes[e.from];return o&&(e[o as keyof typeof e] as string|null)!==null});return<><h1>{language==="it"?missionCatalog[selectedMission].it:missionCatalog[selectedMission].en}</h1><div className="companyChip"><strong>{displayCompanyName}</strong><span>{t.companyFacts}</span></div>{effects.length>0&&<div className="crossEffectBanners">{effects.map(e=>{const o=missionOutcomes[e.from] as Outcome;const msg=e[o as keyof typeof e] as string;return<div key={e.from} className={`crossEffectBanner ${o}`}><span className="crossEffectIcon">{o==="positive"?"✓":"!"}</span><p><strong>{t.crossEffectLabel} · {language==="it"?missionCatalog[e.from].it:missionCatalog[e.from].en}:</strong> {msg}</p></div>})}</div>}<p className="storyText">{(active.briefing as string).replace("COMPANY_NAME",displayCompanyName).replace("PLANTS_COUNT",String(companyDims[1]))}</p><div className="objectiveBox"><small>{t.objective}</small><p>{active.objectiveText}</p></div><button className="actionButton" onClick={()=>{if(selectedMission===0){setPmMissionFilter(0);setPmFromBriefing(true);setScreen("priorityMatrix");}else{setScreen("asis");}}}>{t.analyse}<b>→</b></button></>;})()}
+    {screen==="briefing"&&(()=>{const effects=(t.crossEffects[selectedMission]||[]).filter(e=>{const o=missionOutcomes[e.from];return o&&(e[o as keyof typeof e] as string|null)!==null});return<><h1>{language==="it"?missionCatalog[selectedMission].it:missionCatalog[selectedMission].en}</h1><div className="companyChip"><strong>{displayCompanyName}</strong><span>{t.companyFacts}</span></div>{effects.length>0&&<div className="crossEffectBanners">{effects.map(e=>{const o=missionOutcomes[e.from] as Outcome;const msg=e[o as keyof typeof e] as string;return<div key={e.from} className={`crossEffectBanner ${o}`}><span className="crossEffectIcon">{o==="positive"?"✓":"!"}</span><p><strong>{t.crossEffectLabel} · {language==="it"?missionCatalog[e.from].it:missionCatalog[e.from].en}:</strong> {msg}</p></div>})}</div>}<p className="storyText">{(active.briefing as string).replace("COMPANY_NAME",displayCompanyName).replace("PLANTS_COUNT",String(companyDims[1]))}</p><div className="objectiveBox"><small>{t.objective}</small><p>{active.objectiveText}</p></div><button className="actionButton" onClick={()=>{if(selectedMission===0){setPmMissionFilter(0);setPmFromBriefing(true);setScreen("priorityMatrix");}else{setScreen("introCopy2");}}}>{t.analyse}<b>→</b></button></>;})()}
     {screen==="asis"&&(()=>{const ratingVal={"alto":25,"medio":12,"basso":0};const currentRatings=asIsRatings[selectedMission]||(active.asIsItems.map(()=>"alto" as "alto"|"medio"|"basso"));const total=currentRatings.reduce((s,r)=>s+ratingVal[r],0);const totalColor=total<=25?"#39efb4":total<=50?"#f5c542":"#ff6b6b";const totalLabel=language==="it"?(total<=25?"BASSA":total<=50?"MEDIA":"ALTA"):(total<=25?"LOW":total<=50?"MEDIUM":"HIGH");const setRating=(i:number,v:"alto"|"medio"|"basso")=>{const next=[...currentRatings];next[i]=v;setAsIsRatings({...asIsRatings,[selectedMission]:next});};return<><div className="asisHeader"><div><p className="resultEyebrow">{t.asIsKicker}</p><h1>{active.asIsTitle}</h1></div></div><p className="storyText asisIntroText">{(active.asIsIntro as string).replace("COMPANY_NAME",displayCompanyName)}</p><div className="asIsRatingGrid">{active.asIsItems.map((item,i)=>{const r=currentRatings[i];return<article key={item.title} className={`asIsRatingCard asIsRating-${r}`}><div className="asIsRatingCardTop"><h2>{item.title}</h2><p>{item.detail}</p></div><div className="asIsRatingButtons"><button className={`asIsRatingBtn${r==="alto"?" asIsRatingBtnActive asIsRatingBtnAlto":""}`} onClick={()=>setRating(i,"alto")}>{language==="it"?"Alto":"High"}</button><button className={`asIsRatingBtn${r==="medio"?" asIsRatingBtnActive asIsRatingBtnMedio":""}`} onClick={()=>setRating(i,"medio")}>{language==="it"?"Medio":"Medium"}</button><button className={`asIsRatingBtn${r==="basso"?" asIsRatingBtnActive asIsRatingBtnBasso":""}`} onClick={()=>setRating(i,"basso")}>{language==="it"?"Basso":"Low"}</button></div></article>})}</div><div className="asisTotal"><span className="asisTotalLabel">{language==="it"?"Criticità totale":"Total criticality"}</span><span className="asisTotalScore" style={{color:totalColor}}>{total}<span className="asisTotalMax">/100</span></span><span className="asisTotalBadge" style={{color:totalColor,borderColor:totalColor}}>{totalLabel}</span></div><button className="actionButton asisBottomBtn" onClick={()=>setScreen("compare")}>{t.proceedDecision}<b>→</b></button></>;})()}
     {screen==="decision"&&(()=>{
       const ratingVal={"alto":25,"medio":12,"basso":0};

@@ -119,34 +119,40 @@
 .prioMoveBtn:hover:not(:disabled){border-color:var(--teal);color:var(--teal);background:#0e2a20}
 .prioMoveBtn:disabled{opacity:.25;cursor:default}
 .prioCardsConfirmBtn{align-self:flex-end;min-width:220px;flex-shrink:0}
+.prioIncludeToggle{display:inline-flex;align-items:center;gap:8px;margin-top:6px;background:none;border:none;padding:0;font-size:18px;color:#7ab8ff;cursor:pointer;text-align:left;transition:.15s}
+.prioIncludeToggle:hover{color:#a8d4ff}
+.prioIncludeDot{width:14px;height:14px;border-radius:50%;border:2px solid #5592e6;background:transparent;flex-shrink:0;transition:.2s}
+.prioIncludeDotOn{background:#3b82f6;border-color:#3b82f6;box-shadow:0 0 6px rgba(59,130,246,.5)}
+.summaryPriorityExcluded{opacity:.45;text-decoration:line-through}
+.summaryPriorityExcludedNote{font-style:italic;font-size:0.82em;text-decoration:none;display:inline;margin-left:4px;color:#9ca3af}
 .prioExpLink{display:inline-flex;align-items:center;gap:6px;margin-top:8px;background:none;border:none;padding:0;font-size:20px;color:#3a9e7a;cursor:pointer;text-decoration:underline;text-underline-offset:3px;transition:.15s;text-align:left}
 .prioExpLink:hover{color:var(--teal)}
 .prioExpDot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0}
 .prioExpOverlay{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:900;display:flex;align-items:center;justify-content:center;padding:20px}
-.prioExpDialog{background:#0c1e18;border:1px solid #2a4a3a;border-radius:24px;width:100%;max-width:1920px;padding:84px 90px 72px;display:flex;flex-direction:column;gap:42px;box-shadow:0 24px 60px rgba(0,0,0,.5)}
-.prioExpDialogHeader{display:flex;align-items:center;gap:36px}
-.prioExpDialogHeader strong{font-size:66px;color:#e8f5ef;line-height:1.2}
-.prioExpHint{font-size:39px;color:#6a8e82;margin:0;line-height:1.5}
-.prioExpTabs{display:flex;gap:12px;flex-shrink:0}
-.prioExpTab{padding:18px 36px;border-radius:12px;border:2px solid #2a4a3a;background:transparent;color:#5a9e88;font:600 clamp(18px,1.8vw,26px) inherit;cursor:pointer;transition:.15s;white-space:nowrap}
+.prioExpDialog{background:#0c1e18;border:1px solid #2a4a3a;border-radius:16px;width:100%;max-width:960px;max-height:90vh;overflow-y:auto;padding:44px 52px 40px;display:flex;flex-direction:column;gap:28px;box-shadow:0 16px 40px rgba(0,0,0,.5)}
+.prioExpDialogHeader{display:flex;align-items:center;gap:20px}
+.prioExpDialogHeader strong{font-size:36px;color:#e8f5ef;line-height:1.2}
+.prioExpHint{font-size:22px;color:#6a8e82;margin:0;line-height:1.5}
+.prioExpTabs{display:flex;gap:10px;flex-shrink:0}
+.prioExpTab{padding:12px 24px;border-radius:10px;border:1.5px solid #2a4a3a;background:transparent;color:#5a9e88;font:600 20px inherit;cursor:pointer;transition:.15s;white-space:nowrap}
 .prioExpTab:hover{border-color:#39efb4;color:#39efb4}
 .prioExpTabActive{border-color:#39efb4!important;background:rgba(57,239,180,.1)!important;color:#39efb4!important}
-.prioExpTextarea{width:100%;box-sizing:border-box;background:#071510;border:1px solid #2a4038;border-radius:16px;color:#c8e6d8;font-size:45px;line-height:1.65;padding:42px 48px;resize:vertical;outline:none;min-height:300px;font-family:inherit;transition:.15s}
+.prioExpTextarea{width:100%;box-sizing:border-box;background:#071510;border:1px solid #2a4038;border-radius:10px;color:#c8e6d8;font-size:22px;line-height:1.65;padding:20px 22px;resize:vertical;outline:none;min-height:140px;font-family:inherit;transition:.15s}
 .prioExpTextarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(57,239,180,.1)}
 .prioExpTextareaEmpty{background:#050e0b;border-color:#1a2e26;color:#4a6a5a}
 .prioExpTextareaEmpty::placeholder{color:#3a5a4a;font-style:italic}
 .prioExpSave:disabled{opacity:.35;cursor:default}
-.prioExpPhrases{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
-.prioExpPhrase{display:flex;flex-direction:column;gap:14px;padding:24px 22px;border:2px solid #263d35;border-radius:16px;background:#071510;cursor:pointer;text-align:left;transition:.18s;position:relative}
+.prioExpPhrases{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.prioExpPhrase{display:flex;flex-direction:column;gap:10px;padding:20px 18px;border:1.5px solid #263d35;border-radius:10px;background:#071510;cursor:pointer;text-align:left;transition:.18s;position:relative}
 .prioExpPhrase:hover{border-color:#3b6556;background:#0c1e18}
 .prioExpPhraseActive{border-color:var(--teal)!important;background:#0d2219!important}
-.prioExpPhraseNum{font:700 36px var(--font-geist-mono);color:var(--teal);line-height:1;flex-shrink:0}
-.prioExpPhraseText{font-size:28px;color:#b8d8cc;line-height:1.55;flex:1}
-.prioExpPhraseCheck{position:absolute;top:14px;right:16px;font-size:32px;color:var(--teal)}
-.prioExpActions{display:flex;align-items:center;justify-content:space-between;gap:36px;margin-top:12px}
-.prioExpClear{background:none;border:1px solid #3a2a2a;border-radius:12px;color:#c07070;font-size:42px;padding:24px 48px;cursor:pointer;transition:.15s}
+.prioExpPhraseNum{font:700 22px var(--font-geist-mono);color:var(--teal);line-height:1;flex-shrink:0}
+.prioExpPhraseText{font-size:19px;color:#b8d8cc;line-height:1.55;flex:1}
+.prioExpPhraseCheck{position:absolute;top:12px;right:14px;font-size:22px;color:var(--teal)}
+.prioExpActions{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:4px}
+.prioExpClear{background:none;border:1px solid #3a2a2a;border-radius:10px;color:#c07070;font-size:20px;padding:14px 28px;cursor:pointer;transition:.15s}
 .prioExpClear:hover{border-color:#c07070;background:rgba(192,80,80,.08)}
-.prioExpSave{margin:0;min-width:420px;font-size:42px!important}
+.prioExpSave{margin:0;min-width:200px;font-size:20px!important}
 @media(max-width:1100px){.prioCardGrid{grid-template-columns:1fr 1fr}}
 @media(max-width:750px){.prioCardsLayout{grid-template-columns:1fr;height:auto}.prioCardsIntro{padding:32px 20px 12px}.prioCardsArea{padding:12px 20px 40px;height:auto}.prioCardGrid{grid-template-columns:1fr 1fr}}
 /* ── Page 7: priorityData ── */
@@ -643,6 +649,61 @@ body{font-size:18px}.eyebrow{font-size:22px}.brand{font-size:14px}.step,.mission
 @media(max-width:650px){.nextStepBody{padding:32px 20px 50px}.nextStepBody h1{font-size:42px}}
 
 .thankYouScreen{min-height:100vh;background:#07110e;padding:76px 0 0;display:grid;grid-template-rows:76px 1fr}
+/* ── Chapter 1 Summary ── */
+.c1sScreen{min-height:100vh;background:#07110e;display:grid;grid-template-rows:76px 1fr}
+.c1sBody{overflow-y:auto;padding:48px 5vw 80px;display:flex;flex-direction:column;gap:0;scroll-behavior:smooth}
+.c1sSlide{min-height:85vh;display:flex;flex-direction:column;justify-content:flex-start;padding:52px 0 40px;border-bottom:1px solid #1a3028;scroll-snap-align:start}
+.c1sSlide:last-of-type{border-bottom:none}
+.c1sSlideLabel{font:700 11px/1 var(--font-geist-mono);letter-spacing:.18em;color:#39efb4;text-transform:uppercase;margin-bottom:18px}
+.c1sSlideTitle{font-size:clamp(36px,4vw,56px);font-weight:700;color:#f2fff9;line-height:1.08;letter-spacing:-.03em;margin:0 0 32px}
+.c1sSlideSub{font-size:20px;color:#6a8e82;font-weight:400;margin:0 0 28px}
+/* ── slide 1 hero ── */
+.c1sSlideHero{justify-content:center;gap:40px}
+.c1sHeroTop{display:flex;flex-direction:column;gap:16px}
+.c1sHeroName{font-size:clamp(52px,6vw,88px);font-weight:800;color:#f2fff9;line-height:1;letter-spacing:-.04em}
+.c1sHeroTags{display:flex;flex-wrap:wrap;gap:10px}
+.c1sHeroTag{font:600 14px/1 var(--font-geist-mono);letter-spacing:.06em;color:#39efb4;background:rgba(57,239,180,.1);border:1px solid rgba(57,239,180,.25);border-radius:100px;padding:6px 14px}
+.c1sMaturityBlock{background:linear-gradient(135deg,rgba(57,239,180,.07) 0%,rgba(124,134,255,.07) 100%);border:1px solid rgba(57,239,180,.2);border-radius:16px;padding:28px 32px;display:flex;flex-direction:column;gap:10px}
+.c1sMaturityLabel{font:700 11px/1 var(--font-geist-mono);letter-spacing:.18em;color:#39efb4;text-transform:uppercase}
+.c1sMaturityTitle{font-size:clamp(20px,2.2vw,28px);font-weight:700;color:#e8f5ef;line-height:1.2}
+.c1sMaturityDesc{margin:0;font-size:17px;color:#9abfb0;line-height:1.65}
+/* ── info grid (kept for back-compat) ── */
+.c1sInfoGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-bottom:32px}
+.c1sInfoCell{background:#0c1e18;border:1px solid #1e3a2e;border-radius:12px;padding:16px 20px;display:flex;flex-direction:column;gap:6px}
+.c1sInfoCell small{font:700 11px/1 var(--font-geist-mono);letter-spacing:.12em;color:#4a8070;text-transform:uppercase}
+.c1sInfoCell strong{font-size:20px;color:#e8f5ef}
+.c1sCsrdBadge{display:flex;align-items:center;gap:16px;padding:18px 24px;border-radius:14px;border:1.5px solid rgba(57,239,180,.35);background:rgba(57,239,180,.06);margin-bottom:16px}
+.c1sCsrdBadgeOut{border-color:rgba(156,163,175,.3);background:rgba(156,163,175,.05)}
+.c1sCsrdIcon{font-size:28px;color:#39efb4;flex-shrink:0}
+.c1sCsrdBadgeOut .c1sCsrdIcon{color:#9ca3af}
+.c1sCsrdBadge div{display:flex;flex-direction:column;gap:4px}
+.c1sCsrdBadge strong{font-size:18px;color:#e8f5ef}
+.c1sCsrdBadge span{font-size:14px;color:#6a8e82}
+.c1sCsrdNote{display:flex;align-items:flex-start;gap:10px;padding:14px 18px;border-radius:10px;border:1px solid #2a4038;background:#071510;margin-top:8px}
+.c1sCsrdNote span{color:#39efb4;flex-shrink:0;margin-top:2px}
+.c1sCsrdNote p{margin:0;font-size:16px;color:#b8d8cc;line-height:1.55;font-style:italic}
+/* ── slide 2 obiettivi ── */
+.c1sPrioIntro{font-size:19px;color:#b8d8cc;line-height:1.7;margin:0 0 32px}
+.c1sPrioIntro strong{color:#f2fff9;font-weight:700}
+.c1sPrioIntro em{color:#39efb4;font-style:normal;font-weight:600}
+.c1sPrioList{display:flex;flex-direction:column;gap:16px;margin-bottom:24px}
+.c1sPrioItem{display:flex;align-items:flex-start;gap:20px;padding:24px 28px;border-radius:14px;border:1px solid #1e3a2e;background:#0c1e18}
+.c1sPrioRank{font:700 36px var(--font-geist-mono);line-height:1;flex-shrink:0;padding-top:2px}
+.c1sPrioContent{display:flex;flex-direction:column;gap:8px;flex:1}
+.c1sPrioContent strong{font-size:26px;line-height:1.2}
+.c1sPrioDetail{font-size:17px;color:#7a9e92;line-height:1.55}
+.c1sPrioNote{margin:8px 0 0;padding:12px 16px;background:#071510;border-left:3px solid #2a7a56;border-radius:6px;font-size:16px;color:#9cbcb0;font-style:italic;line-height:1.5}
+.c1sCritList{display:flex;flex-direction:column;gap:14px}
+.c1sCritItem{display:flex;align-items:flex-start;gap:18px;padding:18px 22px;border-radius:12px;border:1px solid #1e3a2e;background:#0c1e18}
+.c1sCritRank{font:700 30px var(--font-geist-mono);line-height:1;flex-shrink:0;padding-top:2px}
+.c1sCritBody{display:flex;flex-direction:column;gap:8px;flex:1}
+.c1sCritBody strong{font-size:20px;line-height:1.3;color:#e8f5ef}
+.c1sCritMeta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.c1sCritPrio{font-size:14px;font-weight:600}
+.c1sCritScore{font:600 14px var(--font-geist-mono);color:#4a8070;padding:3px 8px;border:1px solid #1e3a2e;border-radius:6px}
+.c1sCritTier{font:700 13px var(--font-geist-mono);letter-spacing:.1em;text-transform:uppercase}
+.c1sNavRow{display:flex;justify-content:flex-end;padding:32px 0 0}
+/* ── ESG Strategist ── */
 .esgStrategistScreen{min-height:100vh;display:grid;grid-template-rows:76px 1fr;background:radial-gradient(circle at 30% 60%,#0d2e22,transparent 55%),#07110e}
 .esgStrategistBody{display:grid;grid-template-columns:minmax(280px,.55fr) 1fr;align-items:stretch;overflow:hidden}
 .esgStrategistStage{position:relative;display:flex;align-items:flex-end;justify-content:center;background:radial-gradient(circle at 50% 85%,rgba(57,239,180,.09),transparent 60%);overflow:hidden}
@@ -804,7 +865,7 @@ body{font-size:18px}.eyebrow{font-size:22px}.brand{font-size:14px}.step,.mission
 .csBody{display:grid;grid-template-columns:minmax(280px,.38fr) minmax(480px,1.62fr);min-height:0;overflow:hidden}
 .csLeft{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 80%,#0e2a1e,transparent 60%),#07120f;border-right:1px solid #1a3028;overflow:hidden;min-height:calc(100vh - 76px)}
 .csProfileImg{width:100%;max-width:380px;object-fit:cover;object-position:center top;display:block;margin-top:-15%}
-.csProfileTag{position:absolute;bottom:24px;left:20px;display:flex;align-items:center;gap:10px;background:rgba(5,18,13,.88);border:1px solid rgba(57,239,180,.28);border-radius:10px;padding:10px 14px;backdrop-filter:blur(8px)}
+.csProfileTag{position:absolute;bottom:72px;left:20px;display:flex;align-items:center;gap:10px;background:rgba(5,18,13,.88);border:1px solid rgba(57,239,180,.28);border-radius:10px;padding:10px 14px;backdrop-filter:blur(8px)}
 .csProfileTag .statusDot{width:8px;height:8px;border-radius:50%;background:#39efb4;flex-shrink:0}
 .csProfileTag small{display:block;font:700 16px var(--font-geist-mono);letter-spacing:.16em;color:#72f7ca;margin-bottom:3px}
 .csProfileTag strong{display:block;font-size:22px;color:#f2fff9}
@@ -833,6 +894,8 @@ body{font-size:18px}.eyebrow{font-size:22px}.brand{font-size:14px}.step,.mission
 .csGeoRow{display:flex;align-items:center;gap:8px;background:#0a1a14;border:1px solid #1a3028;border-radius:8px;padding:10px 14px}
 .csGeoRowItalia{border-color:rgba(57,239,180,.35);background:rgba(57,239,180,.06)}
 .csGeoRowItalia .csDimInput{border-color:rgba(57,239,180,.4);color:var(--teal);background:#071510}
+.csGeoItalyInput{cursor:not-allowed!important;opacity:.7}
+.csGeoItalyHint{font-size:13px!important;color:#39efb4;opacity:.6;font-style:italic;flex-shrink:0;white-space:nowrap}
 .csGeoRowError{border-color:rgba(255,119,119,.5);background:rgba(255,119,119,.07)}
 .csGeoRowError .csDimInput{border-color:rgba(255,119,119,.5);color:#ff7777;background:#1a0a0a}
 .csGeoErrorMsg{margin:6px 0 0;font-size:22px;color:#ff7777}
