@@ -829,9 +829,9 @@ export default function Home(){
   useEffect(()=>()=>{document.getElementById("envizi-global-back")?.remove()},[]);
   useEffect(()=>{let badge=document.getElementById("envizi-bob-badge");if(!badge){badge=document.createElement("div");badge.id="envizi-bob-badge";badge.className="bobBadge";badge.innerHTML=`<img src="./ibm-bob-logo.svg" alt="IBM Bob"/><span>Sviluppato con IBM Bob</span>`;document.body.appendChild(badge)}return()=>{};},[]);
   useEffect(()=>()=>{document.getElementById("envizi-bob-badge")?.remove()},[]);
-  const NUMBERED_SCREENS:Screen[]=[];
-  const currentPageNum=screenHistory.length+1;
-  useEffect(()=>{let el=document.getElementById("envizi-page-num");if(!el){el=document.createElement("div");el.id="envizi-page-num";el.className="pageNum";document.body.appendChild(el)}const show=NUMBERED_SCREENS.includes(screen);el.textContent=show?String(currentPageNum).padStart(2,"0"):"";el.style.display=show?"flex":"none";},[screen,currentPageNum]);
+  const NUMBERED_SCREENS:Screen[]=["cover","welcome","onboarding","intro","approach","approachIntro","approachSteps","approachData","approachDecisions","approachRoadmap","approachTrust","approachReport","companySetup","company","priorities","priorityData","priorityMatrix","bridge","roadmapPreview","esgStrategist","missions","briefing","asis","missionIntro","compare","decision","tobe","trust","milestone","dataFoundation","dfConclusion","dfSummary","reportingFoundation","reportingConclusion","success","negative","summary","nextStep","thankYou"];
+  const currentPageNum=NUMBERED_SCREENS.indexOf(screen)+1;
+  useEffect(()=>{let el=document.getElementById("envizi-page-num");if(!el){el=document.createElement("div");el.id="envizi-page-num";el.className="pageNum";document.body.appendChild(el)}const show=currentPageNum>0;el.textContent=show?String(currentPageNum).padStart(2,"0"):"";el.style.display=show?"flex":"none";},[screen,currentPageNum]);
   useEffect(()=>()=>{document.getElementById("envizi-page-num")?.remove()},[]);
 
   const [saveBtnOpen,setSaveBtnOpen]=useState(false);
