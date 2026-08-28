@@ -110,10 +110,7 @@ const copy = {
     approachRoadmapExample:"Esempio · Abbiamo scelto un approccio alla soluzione. Ora individuiamo le capacità necessarie per rispondere alle esigenze emerse. Questa è la fase più analitica del percorso: confronteremo requisiti, priorità e stato attuale per identificare la soluzione più adeguata al contesto. IBM Envizi sarà utilizzato come soluzione di riferimento per valutare in che modo le sue capacità possano contribuire a rispondere alle esigenze individuate.",
     approachRoadmapCta:"Avanti →",
     approachTrustTitle:"5. Costruisci la fiducia degli stakeholder",
-    approachTrustBody:[
-      "Attraverso una dinamica di gamification, le tue decisioni costruiranno un percorso a punti verso la fiducia di banche, clienti, CdA e auditor.",
-      "Il punteggio ha un valore narrativo e indicativo: pur non rappresentando una valutazione scientifica, offre uno strumento per confrontare le possibili conseguenze delle diverse scelte.",
-    ],
+    approachTrustBody:[],
     approachTrustCta:"Avanti →",
     approachReportTitle:"6. Porta con te il risultato",
     approachReportBody:[
