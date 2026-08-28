@@ -1,4 +1,8 @@
 
+/* Slide lock badge — cerchio blu fisso in alto a destra, segnala slide congelata */
+.slideLockBadge{position:fixed;top:14px;right:14px;z-index:9999;width:36px;height:36px;border-radius:50%;background:#1d4ed8;border:2px solid #60a5fa;color:#fff;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:.85;line-height:1}
+
+
 /* Cover screen */
 .coverScreen{position:relative;width:100vw;height:100vh;overflow:hidden;background:#07110e;display:flex;align-items:center;justify-content:center}
 .coverImage{width:100%;height:100%;object-fit:cover;object-position:center;display:block}

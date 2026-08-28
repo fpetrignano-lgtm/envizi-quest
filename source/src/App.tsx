@@ -2323,7 +2323,8 @@ export default function Home(){
 
   if(screen==="priorityData"&&profile){
     const isIt=language==="it";
-    return <main className="priorityDataScreen">
+    return <main className="priorityDataScreen" style={{position:"relative"}}>
+      <div className="slideLockBadge" title="Slide bloccata — non modificare">✕</div>
       <header className="missionNav missionNavTrust">
         <button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button>
         <div className="missionProgress"><span className="activeDot"/> DATA NEEDS</div>
