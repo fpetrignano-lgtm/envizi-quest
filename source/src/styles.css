@@ -716,7 +716,7 @@ body{font-size:18px}.eyebrow{font-size:22px}.brand{font-size:14px}.step,.mission
 .esgStrPersonaTag small{font:700 10px var(--font-geist-mono);letter-spacing:.14em;color:#39efb4;text-transform:uppercase}
 .esgStrPersonaTag strong{font-size:15px;color:#f2fff9}
 .esgStrContent{display:flex;flex-direction:column;justify-content:center;gap:22px;padding:5vw 7vw 5vw 4vw}
-.esgStrBadgeImg{width:clamp(72px,8vw,120px);height:auto;display:block}
+.esgStrBadgeImg{width:clamp(216px,24vw,360px);height:auto;display:block}
 .esgStrBadgeLocked{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border:2px dashed rgba(156,163,175,.4);border-radius:14px;background:rgba(156,163,175,.05);font:700 22px var(--font-geist-mono);letter-spacing:.16em;color:#6a8e82;text-transform:uppercase;width:fit-content}
 .esgStrTitle{font-size:clamp(26px,3.2vw,52px);line-height:1.08;letter-spacing:-.03em;margin:0;color:#39efb4}
 .esgStrTitleLocked{color:#9db3aa}
