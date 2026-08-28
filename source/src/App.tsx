@@ -836,7 +836,7 @@ export default function Home(){
   useEffect(()=>()=>{document.getElementById("envizi-global-back")?.remove()},[]);
   useEffect(()=>{let badge=document.getElementById("envizi-bob-badge");if(!badge){badge=document.createElement("div");badge.id="envizi-bob-badge";badge.className="bobBadge";badge.innerHTML=`<img src="./ibm-bob-logo.svg" alt="IBM Bob"/><span>Sviluppato con IBM Bob</span>`;document.body.appendChild(badge)}return()=>{};},[]);
   useEffect(()=>()=>{document.getElementById("envizi-bob-badge")?.remove()},[]);
-  const NUMBERED_SCREENS:Screen[]=["cover","welcome","onboarding","intro","approach","questIntro","approachIntro","approachSteps","approachData","approachDecisions","approachRoadmap","approachTrust","approachReport","separatorNext","approachStepsCopy","companySetup","company","priorities","approachDataCopy","priorityData","priorityMatrix","chapterOneSummary","esgStrategist","introCopy","missions","briefing","introCopy2","asis","missionIntro","compare","decision","tobe","trust","milestone","approachDecisionsCopy2","dataFoundation","approachDecisionsCopy","dfConclusion","dfSummary","reportingFoundation","reportingConclusion","success","negative","summary","nextStep","thankYou"];
+  const NUMBERED_SCREENS:Screen[]=["cover","welcome","onboarding","intro","approach","questIntro","approachIntro","approachSteps","approachData","approachDecisions","approachRoadmap","approachTrust","approachReport","separatorNext","approachStepsCopy","companySetup","company","priorities","approachDataCopy","priorityData","priorityMatrix","chapterOneSummary","esgStrategist","introCopy","missions","approachDecisionsCopy2","briefing","introCopy2","asis","missionIntro","compare","decision","tobe","trust","milestone","dataFoundation","approachDecisionsCopy","dfConclusion","dfSummary","reportingFoundation","reportingConclusion","success","negative","summary","nextStep","thankYou"];
   const currentPageNum=NUMBERED_SCREENS.indexOf(screen)+1;
   useEffect(()=>{let el=document.getElementById("envizi-page-num");if(!el){el=document.createElement("div");el.id="envizi-page-num";el.className="pageNum";document.body.appendChild(el)}const show=currentPageNum>0;el.textContent=show?String(currentPageNum).padStart(2,"0"):"";el.style.display=show?"flex":"none";},[screen,currentPageNum]);
   useEffect(()=>()=>{document.getElementById("envizi-page-num")?.remove()},[]);
@@ -1222,7 +1222,7 @@ export default function Home(){
             </h1>
             <div style={{display:"flex",gap:"12px",flexWrap:"wrap"}}>
               <button className="secondaryAction" onClick={()=>goBack()}>{isIt?"\u2190 Indietro":"\u2190 Back"}</button>
-              <button className="actionButton" style={{width:"auto",marginTop:0,padding:"12px 16px"}} onClick={()=>setScreen("approachDecisionsCopy2")}>{isIt?"Approfondiamo perch\u00e9 Envizi \u2192":"Let\u2019s explore why Envizi \u2192"}</button>
+              <button className="actionButton" style={{width:"auto",marginTop:0,padding:"12px 16px"}} onClick={()=>setScreen("dataFoundation")}>{isIt?"Approfondiamo perch\u00e9 Envizi \u2192":"Let\u2019s explore why Envizi \u2192"}</button>
             </div>
             {renderSaveBtn(isIt)}
           </div>
