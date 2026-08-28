@@ -731,7 +731,7 @@ body{font-size:18px}.eyebrow{font-size:22px}.brand{font-size:14px}.step,.mission
 .approachIntroScreen{display:grid;grid-template-rows:auto 1fr;height:100dvh;overflow:hidden;background:var(--bg)}
 .approachIntroBody{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:clamp(40px,5vw,80px) clamp(40px,8vw,140px);gap:clamp(28px,3vw,48px);max-width:1000px}
 .approachIntroTitle{margin:0;font-size:clamp(42px,5vw,76px);font-weight:700;line-height:1.0;letter-spacing:-.03em;color:#f2fff9}
-.approachIntroText{display:flex;flex-direction:column;gap:clamp(16px,1.6vw,28px)}
+.approachIntroText{display:flex;flex-direction:column;gap:clamp(16px,1.6vw,28px);max-width:75%}
 .approachIntroText p{margin:0;font-size:clamp(20px,1.9vw,30px);line-height:1.65;color:#a8d5c0}
 .approachIntroCta{align-self:flex-start;font-size:clamp(16px,1.3vw,20px)!important;padding:14px 36px!important}
 .approachIntroBodyWithImg{flex-direction:row!important;align-items:center;gap:clamp(40px,5vw,80px);padding:clamp(28px,4vw,60px) clamp(40px,6vw,100px)!important;max-width:none!important;height:100%}
