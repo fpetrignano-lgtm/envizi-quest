@@ -377,6 +377,13 @@
 .asIsRatingBtnMedio.asIsRatingBtnActive{background:rgba(245,197,66,.12);border-color:#f5c542;color:#f5c542}
 .asIsRatingBtnBasso.asIsRatingBtnActive{background:rgba(57,239,180,.1);border-color:var(--teal);color:var(--teal)}
 .asisTotal{display:flex;align-items:center;gap:16px;margin-top:14px;padding:12px 18px;border-radius:12px;border:1px solid #1e3a30;background:rgba(8,20,15,.7);max-width:900px}
+.decisionCritWrap{display:flex;flex-direction:column;gap:0}
+.decisionCritBanner{display:flex;align-items:center;gap:14px;padding:10px 16px;border-radius:10px;border:1px solid;background:rgba(8,20,15,.8);margin-bottom:4px}
+.decisionCritLabel{font:700 11px var(--font-geist-mono);letter-spacing:.16em;text-transform:uppercase;flex:1}
+.decisionCritScore{font:700 clamp(22px,2.2vw,32px) var(--font-geist-mono);line-height:1}
+.decisionCritMax{font-size:.55em;color:#3d6052;margin-left:2px}
+.decisionCritBadge{font:700 11px var(--font-geist-mono);letter-spacing:.14em;padding:4px 10px;border-radius:999px;border:1px solid}
+.decisionCritSpacer{height:clamp(12px,1.2vh,18px)}
 .asisTotalLabel{font:11px var(--font-geist-mono);letter-spacing:.14em;text-transform:uppercase;color:#5a7a70;flex:1}
 .asisTotalScore{font:700 clamp(28px,3vw,42px) var(--font-geist-mono);line-height:1;transition:color .3s}
 .asisTotalMax{font-size:.55em;color:#3d6052;margin-left:2px}
