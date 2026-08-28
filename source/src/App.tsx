@@ -2468,7 +2468,8 @@ export default function Home(){
     const vbY=zoomF>1?toY(10):0;          // top invariato
     const vbW=zoomF>1?(PAD_L+MATRIX_W)-vbX:VW;
     const vbH=zoomF>1?(toY(zoomF)+PAD_B)-vbY:VH;
-    return <main className="pmScreen">
+    return <main className="pmScreen" style={{position:"relative"}}>
+      <div className="slideLockBadge" title="Slide bloccata — non modificare">✕</div>
       <header className="missionNav missionNavTrust">
         <button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button>
         <div className="missionProgress"><span className="activeDot"/> PRIORITY MATRIX</div>
