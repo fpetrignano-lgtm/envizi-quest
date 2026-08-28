@@ -690,7 +690,7 @@ body{font-size:18px}.eyebrow{font-size:22px}.brand{font-size:14px}.step,.mission
 .c1sPrioItem{display:flex;align-items:flex-start;gap:20px;padding:24px 28px;border-radius:14px;border:1px solid #1e3a2e;background:#0c1e18}
 .c1sPrioRank{font:700 36px var(--font-geist-mono);line-height:1;flex-shrink:0;padding-top:2px}
 .c1sPrioContent{display:flex;flex-direction:column;gap:8px;flex:1}
-.c1sPrioContent strong{font-size:26px;line-height:1.2}
+.c1sPrioContent strong{font-size:26px;line-height:1.2;color:#f2fff9}
 .c1sPrioDetail{font-size:19px;color:#7a9e92;line-height:1.55}
 .c1sPrioNote{margin:8px 0 0;padding:12px 16px;background:#071510;border-left:3px solid #2a7a56;border-radius:6px;font-size:18px;color:#9cbcb0;font-style:italic;line-height:1.5}
 .c1sCritList{display:flex;flex-direction:column;gap:14px}

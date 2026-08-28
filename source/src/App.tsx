@@ -1030,7 +1030,7 @@ export default function Home(){
             {includedPrios.map((p,i)=><div key={p} className="c1sPrioItem">
               <div className="c1sPrioRank" style={{color:priorityColors[p]}}>{String(i+1).padStart(2,"0")}</div>
               <div className="c1sPrioContent">
-                <strong style={{color:priorityColors[p]}}>{(t.priorityNames as Record<Priority,string>)[p]}</strong>
+                <strong>{(t.priorityNames as Record<Priority,string>)[p]}</strong>
                 <span className="c1sPrioDetail">{(t.priorityDetails as Record<Priority,string>)[p]}</span>
                 {prioExperience[p]&&<p className="c1sPrioNote">✎ {prioExperience[p]}</p>}
               </div>
