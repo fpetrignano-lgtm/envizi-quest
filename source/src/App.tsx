@@ -1232,6 +1232,9 @@ export default function Home(){
   }
 
 
+  if(screen==="approachDecisionsCopy2"&&profile)return <main className="approachIntroScreen"><header className="missionNav"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> IL PERCORSO</div><button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><section className="approachIntroBody approachIntroBodyWithImg"><div className="approachIntroLeft"><h1 className="approachIntroTitle">{t.approachDecisionsTitle}</h1><div className="approachIntroText">{(t.approachDecisionsBody as string[]).map((para,i)=><p key={i}>{para}</p>)}</div><button className="actionButton approachIntroCta" onClick={()=>setScreen("dataFoundation")}>{t.approachDecisionsCta}<b>→</b></button></div><div className="approachIntroRight"><img src="./step-3.svg" className="approachIntroStepBadge" alt="Step 3"/><img src="./logica-decisionali.png" className="approachIntroImg" alt="Sfide decisionali ESG"/><p className="approachIntroImgCaption approachIntroImgCaptionSm">{t.approachDecisionsExample as string}</p></div></section></main>;
+
+
   if(screen==="thankYou"&&profile)return <main className="thankYouScreen"><header className="missionNav"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> FINAL</div><button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><section className="thankYouBody"><h1>{t.thankYouTitle}</h1></section></main>;
 
 
