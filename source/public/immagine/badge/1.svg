@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0d2e22"/>
+      <stop offset="100%" stop-color="#071510"/>
+    </radialGradient>
+  </defs>
+  <!-- outer ring -->
+  <circle cx="60" cy="60" r="58" fill="url(#bg)" stroke="#39efb4" stroke-width="2"/>
+  <!-- inner ring -->
+  <circle cx="60" cy="60" r="50" fill="none" stroke="#39efb4" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <!-- star -->
+  <polygon points="60,22 67,44 91,44 72,57 79,80 60,67 41,80 48,57 29,44 53,44" fill="#39efb4" opacity="0.15"/>
+  <polygon points="60,26 66,44 88,44 71,56 77,77 60,65 43,77 49,56 32,44 54,44" fill="none" stroke="#39efb4" stroke-width="1.5" stroke-linejoin="round"/>
+  <!-- text -->
+  <text x="60" y="94" text-anchor="middle" font-family="Courier New, monospace" font-size="8" font-weight="700" fill="#39efb4" letter-spacing="2">ESG STRATEGIST</text>
+</svg>
