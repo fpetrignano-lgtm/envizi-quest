@@ -2865,7 +2865,7 @@ export default function Home(){
   </section></main>}
 
 
-  if(screen==="cover")return <main className="coverScreen"><img className="coverImage" src="./cover-marco.png" alt="Envizi Impact Quest"/><div className="coverCta"><button className="coverStartBtn" onClick={()=>setScreenState("welcome")}>START</button></div></main>;
+  if(screen==="cover")return <main className="coverScreen" style={{position:"relative"}}><div className="slideLockBadge" title="Slide bloccata — non modificare">✕</div><img className="coverImage" src="./cover-marco.png" alt="Envizi Impact Quest"/><div className="coverCta"><button className="coverStartBtn" onClick={()=>setScreenState("welcome")}>START</button></div></main>;
 
   if(screen==="welcome"){
     const isIt=language==="it";
