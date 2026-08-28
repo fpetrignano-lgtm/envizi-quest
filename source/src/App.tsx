@@ -1028,7 +1028,7 @@ export default function Home(){
           <p className="c1sPrioIntro" dangerouslySetInnerHTML={{__html:isIt?prioDescIt:prioDescEn}}/>
           <div className="c1sPrioList">
             {includedPrios.map((p,i)=><div key={p} className="c1sPrioItem">
-              <div className="c1sPrioRank" style={{color:priorityColors[p]}}>{String(i+1).padStart(2,"0")}</div>
+              <div className="c1sPrioRank">{String(i+1).padStart(2,"0")}</div>
               <div className="c1sPrioContent">
                 <strong>{(t.priorityNames as Record<Priority,string>)[p]}</strong>
                 <span className="c1sPrioDetail">{(t.priorityDetails as Record<Priority,string>)[p]}</span>
@@ -1043,15 +1043,14 @@ export default function Home(){
           <h2 className="c1sSlideSub">{isIt?"Ordinate per Rilevanza + Criticità":"Sorted by Relevance + Criticality"}</h2>
           <div className="c1sCritList">
             {top7.map((n,i)=>{
-              const tierColor=n.tier==="high"?"#ff4d4d":n.tier==="medium"?"#7dd3fc":"#9ca3af";
               return <div key={n.id} className="c1sCritItem">
-                <div className="c1sCritRank" style={{color:tierColor}}>{String(i+1).padStart(2,"0")}</div>
+                <div className="c1sCritRank">{String(i+1).padStart(2,"0")}</div>
                 <div className="c1sCritBody">
-                  <strong style={{color:tierColor}}>{n.label}</strong>
+                  <strong>{n.label}</strong>
                   <div className="c1sCritMeta">
-                    <span className="c1sCritPrio" style={{color:priorityColors[n.priority]}}>⬡ {(t.priorityNames as Record<Priority,string>)[n.priority]}</span>
+                    <span className="c1sCritPrio">⬡ {(t.priorityNames as Record<Priority,string>)[n.priority]}</span>
                     <span className="c1sCritScore">R{n.rel} · C{n.crit}</span>
-                    <span className="c1sCritTier" style={{color:tierColor}}>{n.tier==="high"?(isIt?"Alta":"High"):n.tier==="medium"?(isIt?"Media":"Medium"):(isIt?"Bassa":"Low")}</span>
+                    <span className="c1sCritTier">{n.tier==="high"?(isIt?"Alta":"High"):n.tier==="medium"?(isIt?"Media":"Medium"):(isIt?"Bassa":"Low")}</span>
                   </div>
                 </div>
               </div>;
