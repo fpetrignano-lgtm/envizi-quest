@@ -15,25 +15,25 @@
 /* Navbar sits above bg */
 .welcomeScreen>.missionNav{position:relative;z-index:3}
 /* Main panel: dark box centred-left, above bg */
-.welcomePanel{position:relative;z-index:2;display:grid;grid-template-columns:minmax(320px,420px) minmax(240px,340px);gap:0;align-self:center;margin:auto 0 auto 8vw;background:rgba(5,16,12,.88);border:1px solid rgba(57,239,180,.18);border-radius:20px;backdrop-filter:blur(18px);box-shadow:0 24px 64px rgba(0,0,0,.5);overflow:hidden}
-.welcomeLeft{padding:36px 32px 40px;border-right:1px solid rgba(57,239,180,.1)}
-.welcomeRight{padding:36px 28px 40px;overflow-y:auto;max-height:calc(100vh - 160px)}
+.welcomePanel{position:relative;z-index:2;display:grid;grid-template-columns:minmax(420px,560px) minmax(320px,440px);gap:0;align-self:center;margin:auto 0 auto 6vw;background:rgba(5,16,12,.88);border:1px solid rgba(57,239,180,.18);border-radius:20px;backdrop-filter:blur(18px);box-shadow:0 24px 64px rgba(0,0,0,.5);overflow:hidden}
+.welcomeLeft{padding:36px 36px 40px;border-right:1px solid rgba(57,239,180,.1)}
+.welcomeRight{padding:36px 32px 40px;overflow-y:auto;max-height:calc(100vh - 160px)}
 .welcomeTitle{font-size:clamp(28px,3vw,44px);line-height:1;letter-spacing:-.05em;margin:14px 0 10px;font-weight:520}
-.welcomeSubtitle{color:#9ab3aa;font-size:clamp(13px,1.1vw,16px);line-height:1.6;max-width:380px;margin:0 0 28px}
+.welcomeSubtitle{color:#39efb4;font-size:clamp(26px,2.2vw,32px);line-height:1.6;max-width:480px;margin:0 0 28px}
 .welcomeForm{display:flex;flex-direction:column;gap:16px}
 .welcomeField{display:flex;flex-direction:column;gap:6px}
-.welcomeLabel{font:700 11px var(--font-geist-mono,monospace);letter-spacing:.16em;text-transform:uppercase;color:#5a7a70}
+.welcomeLabel{font:700 22px var(--font-geist-mono,monospace);letter-spacing:.16em;text-transform:uppercase;color:#39efb4}
 .welcomeInput{background:rgba(8,22,17,.9);border:1px solid #2a4a3c;border-radius:10px;padding:12px 16px;color:#effbf6;font:inherit;font-size:16px;outline:none;transition:.15s}
 .welcomeInput:focus{border-color:#39efb4}
 .welcomeInput::placeholder{color:#3d6052}
 .welcomeStartBtn{margin-top:6px;align-self:flex-start}
-.welcomeSavedTitle{font:700 11px var(--font-geist-mono,monospace);letter-spacing:.16em;text-transform:uppercase;color:#5a7a70;margin:0 0 14px}
-.welcomeEmpty{color:#3d6052;font-size:13px;font-style:italic}
+.welcomeSavedTitle{font:700 22px var(--font-geist-mono,monospace);letter-spacing:.16em;text-transform:uppercase;color:#39efb4;margin:0 0 14px}
+.welcomeEmpty{color:#39efb4;font-size:22px;font-style:italic}
 .welcomeSavedList{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
 .welcomeSavedItem{display:flex;flex-direction:column;gap:8px;padding:12px 14px;border:1px solid #1e3a30;border-radius:10px;background:rgba(8,20,15,.6)}
 .welcomeSavedInfo{display:flex;flex-direction:column;gap:3px;min-width:0}
-.welcomeSavedInfo strong{font-size:14px;color:#effbf6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.welcomeSavedInfo small{font:11px var(--font-geist-mono,monospace);color:#5a7a70;letter-spacing:.1em}
+.welcomeSavedInfo strong{font-size:22px;color:#f2fff9;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.welcomeSavedInfo small{font:20px var(--font-geist-mono,monospace);color:#39efb4;letter-spacing:.1em}
 .welcomeSavedActions{display:flex;gap:6px;flex-shrink:0;align-self:flex-start}
 .welcomeLoadBtn{padding:6px 12px;border-radius:7px;border:1px solid #39efb4;background:transparent;color:#39efb4;font:600 12px inherit;cursor:pointer;transition:.15s;white-space:nowrap}
 .welcomeLoadBtn:hover{background:rgba(57,239,180,.1)}
