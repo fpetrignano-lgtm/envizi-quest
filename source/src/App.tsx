@@ -104,7 +104,7 @@ const copy = {
       "Per ciascuna sfida esaminerai i principali requisiti richiesti dalle aziende, indicando: la priorità del requisito nella tua roadmap; lo stato attuale della tua organizzazione; il divario da affrontare; il potenziale ruolo delle capacità di IBM Envizi.",
       "Tutte le sfide seguono la stessa struttura, così potrai confrontare le diverse aree utilizzando criteri coerenti.",
     ],
-    approachRoadmapExample:["Esempio · Abbiamo scelto un approccio alla soluzione. Ora individuiamo le capacità necessarie per rispondere alle esigenze emerse.","Questa è la fase più analitica del percorso: confronteremo requisiti, priorità e stato attuale per identificare la soluzione più adeguata al contesto.","IBM Envizi sarà utilizzato come soluzione di riferimento per valutare in che modo le sue capacità possano contribuire a rispondere alle esigenze individuate."],
+    approachRoadmapExample:"Esempio · Abbiamo scelto un approccio alla soluzione. Ora individuiamo le capacità necessarie per rispondere alle esigenze emerse. Questa è la fase più analitica del percorso: confronteremo requisiti, priorità e stato attuale per identificare la soluzione più adeguata al contesto. IBM Envizi sarà utilizzato come soluzione di riferimento per valutare in che modo le sue capacità possano contribuire a rispondere alle esigenze individuate.",
     approachRoadmapCta:"Avanti →",
     approachTrustTitle:"5. Costruisci la fiducia degli stakeholder",
     approachTrustBody:[
@@ -296,7 +296,7 @@ const copy = {
       "For each challenge you will review the main requirements companies typically face, indicating: the priority of the requirement in your roadmap; the current state of your organisation; the gap to address; the potential role of IBM Envizi capabilities.",
       "All challenges follow the same structure, so you can compare different areas using consistent criteria.",
     ],
-    approachRoadmapExample:["Example · We have chosen an approach to the solution. Now we identify the capabilities needed to address the needs that emerged.","This is the most analytical phase of the journey: we will compare requirements, priorities and current state to identify the most suitable solution for the context.","IBM Envizi will be used as the reference solution to assess how its capabilities can contribute to addressing the identified needs."], // TODO-EN
+    approachRoadmapExample:"Example · We have chosen an approach to the solution. Now we identify the capabilities needed to address the needs that emerged. This is the most analytical phase of the journey: we will compare requirements, priorities and current state to identify the most suitable solution for the context. IBM Envizi will be used as the reference solution to assess how its capabilities can contribute to addressing the identified needs.", // TODO-EN
     approachRoadmapCta:"Next →",
     approachTrustTitle:"5. Build stakeholder trust",
     approachTrustBody:[
