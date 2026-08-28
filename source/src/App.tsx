@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { generateSummaryPptx } from "./generateSummaryPptx";
 type Language = "it" | "en";
 type Profile = "marco" | "luisa";
-type Screen = "cover" | "welcome" | "onboarding" | "intro" | "approach" | "questIntro" | "approachIntro" | "approachSteps" | "approachData" | "approachDecisions" | "approachRoadmap" | "approachTrust" | "approachReport" | "separatorNext" | "approachStepsCopy" | "companySetup" | "missions" | "roadmapPreview" | "chapterOneSummary" | "esgStrategist" | "introCopy" | "introCopy2" | "company" | "priorities" | "approachDataCopy" | "priorityData" | "priorityMatrix" | "bridge" | "briefing" | "missionIntro" | "asis" | "dataFoundation" | "dfConclusion" | "dfSummary" | "decision" | "compare" | "tobe" | "trust" | "negative" | "success" | "milestone" | "reportingFoundation" | "reportingConclusion" | "energyFoundation" | "energyConclusion" | "supplyFoundation" | "supplyConclusion" | "planningFoundation" | "planningConclusion" | "frameworkFoundation" | "frameworkConclusion" | "summary" | "nextStep" | "thankYou";
+type Screen = "cover" | "welcome" | "onboarding" | "intro" | "approach" | "questIntro" | "approachIntro" | "approachSteps" | "approachData" | "approachDecisions" | "approachRoadmap" | "approachTrust" | "approachReport" | "separatorNext" | "approachStepsCopy" | "companySetup" | "missions" | "roadmapPreview" | "chapterOneSummary" | "esgStrategist" | "introCopy" | "introCopy2" | "company" | "priorities" | "approachDataCopy" | "priorityData" | "priorityMatrix" | "bridge" | "briefing" | "missionIntro" | "asis" | "dataFoundation" | "approachDecisionsCopy" | "dfConclusion" | "dfSummary" | "decision" | "compare" | "tobe" | "trust" | "negative" | "success" | "milestone" | "reportingFoundation" | "reportingConclusion" | "energyFoundation" | "energyConclusion" | "supplyFoundation" | "supplyConclusion" | "planningFoundation" | "planningConclusion" | "frameworkFoundation" | "frameworkConclusion" | "summary" | "nextStep" | "thankYou";
 type Market = "italia" | "europa" | "mondo";
 type EsgReadiness = "primi" | "consolidamento" | "decisioni";
 type SectorKey = "manifatturiero"|"bancario"|"assicurativo"|"utilities"|"distribuzione"|"farmaceutico"|"sanitario"|"logistico"|"alberghiero"|"telecomunicazioni"|"trasporti"|"costruzioni"|"immobiliare"|"media"|"tecnologico"|"pa"|"universitario"|"nonprofit";
@@ -836,7 +836,7 @@ export default function Home(){
   useEffect(()=>()=>{document.getElementById("envizi-global-back")?.remove()},[]);
   useEffect(()=>{let badge=document.getElementById("envizi-bob-badge");if(!badge){badge=document.createElement("div");badge.id="envizi-bob-badge";badge.className="bobBadge";badge.innerHTML=`<img src="./ibm-bob-logo.svg" alt="IBM Bob"/><span>Sviluppato con IBM Bob</span>`;document.body.appendChild(badge)}return()=>{};},[]);
   useEffect(()=>()=>{document.getElementById("envizi-bob-badge")?.remove()},[]);
-  const NUMBERED_SCREENS:Screen[]=["cover","welcome","onboarding","intro","approach","questIntro","approachIntro","approachSteps","approachData","approachDecisions","approachRoadmap","approachTrust","approachReport","separatorNext","approachStepsCopy","companySetup","company","priorities","approachDataCopy","priorityData","priorityMatrix","chapterOneSummary","esgStrategist","introCopy","missions","briefing","introCopy2","asis","missionIntro","compare","decision","tobe","trust","milestone","dataFoundation","dfConclusion","dfSummary","reportingFoundation","reportingConclusion","success","negative","summary","nextStep","thankYou"];
+  const NUMBERED_SCREENS:Screen[]=["cover","welcome","onboarding","intro","approach","questIntro","approachIntro","approachSteps","approachData","approachDecisions","approachRoadmap","approachTrust","approachReport","separatorNext","approachStepsCopy","companySetup","company","priorities","approachDataCopy","priorityData","priorityMatrix","chapterOneSummary","esgStrategist","introCopy","missions","briefing","introCopy2","asis","missionIntro","compare","decision","tobe","trust","milestone","dataFoundation","approachDecisionsCopy","dfConclusion","dfSummary","reportingFoundation","reportingConclusion","success","negative","summary","nextStep","thankYou"];
   const currentPageNum=NUMBERED_SCREENS.indexOf(screen)+1;
   useEffect(()=>{let el=document.getElementById("envizi-page-num");if(!el){el=document.createElement("div");el.id="envizi-page-num";el.className="pageNum";document.body.appendChild(el)}const show=currentPageNum>0;el.textContent=show?String(currentPageNum).padStart(2,"0"):"";el.style.display=show?"flex":"none";},[screen,currentPageNum]);
   useEffect(()=>()=>{document.getElementById("envizi-page-num")?.remove()},[]);
@@ -1865,7 +1865,7 @@ export default function Home(){
             <strong className={dfHighlight?"dfScoreHigh":""}>{dfScore}<em>/100</em></strong>
             <div className="dfScoreTrack"><span className="dfScoreFill" style={{width:`${dfPct}%`,background:dfHighVery?"#39efb4":"#ffc07c"}}/></div>
           </div>
-          <button className="actionButton dfContinueBtn" disabled={!allRated} onClick={()=>setScreen("dfConclusion")}>{isIt?"Continua →":"Continue →"}</button>
+          <button className="actionButton dfContinueBtn" disabled={!allRated} onClick={()=>setScreen("approachDecisionsCopy")}>{isIt?"Continua →":"Continue →"}</button>
           {!allRated&&<p className="dfHint">{isIt?"Valuta tutti i requisiti per continuare.":"Rate all requirements to continue."}</p>}
         </div>
       </div>
@@ -1901,6 +1901,8 @@ export default function Home(){
       </footer>
     </main>;
   }
+
+  if(screen==="approachDecisionsCopy"&&profile)return <main className="approachIntroScreen"><header className="missionNav"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> IL PERCORSO</div><button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><section className="approachIntroBody approachIntroBodyWithImg"><div className="approachIntroLeft"><h1 className="approachIntroTitle">{t.approachDecisionsTitle}</h1><div className="approachIntroText">{(t.approachDecisionsBody as string[]).map((para,i)=><p key={i}>{para}</p>)}</div><button className="actionButton approachIntroCta" onClick={()=>setScreen("dfConclusion")}>{t.approachDecisionsCta}<b>→</b></button></div><div className="approachIntroRight"><img src="./step-3.svg" className="approachIntroStepBadge" alt="Step 3"/><img src="./logica-decisionali.png" className="approachIntroImg" alt="Sfide decisionali ESG"/><p className="approachIntroImgCaption approachIntroImgCaptionSm">{t.approachDecisionsExample as string}</p></div></section></main>;
 
   if(screen==="dfConclusion"&&profile){
     const isIt=language==="it";
