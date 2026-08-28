@@ -2369,6 +2369,7 @@ export default function Home(){
                 <span className="pdGroupNum">{String(prioIdx+1).padStart(2,"0")}</span>
                 <strong className="pdGroupName"><span className="pdGroupObjLabel">{isIt?"Obiettivo:":"Objective:"}</span> <span className="pdGroupNameUnder">{t.priorityNames[p]}</span></strong>
               </div>
+              <div className="pdGroupSubheader">{isIt?"Esigenze di gestione dei dati ESG":"ESG data management needs"}</div>
               {colItems.map((item,posInGroup)=>{
                 const rankLabel=`${prioIdx+1}.${posInGroup+1}`;
                 const relMax=10;
