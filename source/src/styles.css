@@ -742,6 +742,18 @@ body{font-size:18px}.eyebrow{font-size:22px}.brand{font-size:14px}.step,.mission
 .approachIntroImgCaption{margin:16px 0 0;font-size:clamp(28px,2.3vw,36px);line-height:1.6;color:#7aaa8e;font-style:italic;width:100%}
 .approachIntroImgCaptionSm{font-size:clamp(22px,1.84vw,29px)!important}
 @media(max-width:900px){.approachIntroBodyWithImg{flex-direction:column!important;height:auto;overflow-y:auto}.approachIntroRight{width:100%}.approachIntroImg{max-width:100%}}
+/* ── questIntro screen ── */
+.questIntroScreen{display:grid;grid-template-rows:auto 1fr;height:100dvh;overflow:hidden;background:var(--bg)}
+.questIntroBody{display:grid;grid-template-columns:minmax(300px,38vw) 1fr;height:100%;overflow:hidden}
+.questIntroLeft{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:0 0 60px;position:relative;overflow:hidden;background:rgba(4,12,9,.6)}
+.questIntroProfileImg{width:clamp(240px,28vw,420px);height:auto;display:block;object-fit:contain;object-position:bottom center}
+.questIntroProfileTag{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:10px;background:rgba(5,18,13,.88);border:1px solid rgba(57,239,180,.22);border-radius:12px;padding:10px 18px;white-space:nowrap}
+.questIntroProfileTag small{font:700 11px var(--font-geist-mono);letter-spacing:.14em;text-transform:uppercase;color:#5a7a70}
+.questIntroProfileTag strong{font-size:clamp(15px,1.2vw,20px);color:#f2fff9;display:block}
+.questIntroRight{display:flex;flex-direction:column;justify-content:center;padding:clamp(40px,5vw,80px) clamp(48px,6vw,100px);gap:clamp(24px,2.5vw,40px)}
+.questIntroText{font-size:clamp(20px,1.8vw,28px);line-height:1.75;color:#a8d5c0;font-style:italic;margin:0;max-width:680px}
+.questIntroCta{align-self:flex-start}
+
 .approachBody{padding:28px 3.5vw 40px;max-width:none;width:100%;display:grid;grid-template-columns:minmax(540px,1.02fr) minmax(480px,.98fr);grid-template-rows:auto 1fr;gap:28px;align-items:stretch}
 .approachTopTitle{grid-column:1/-1;padding:0 2px 6px;display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
 .approachTopTitle h1{margin:0;font-size:clamp(42px,4.2vw,70px);line-height:.96;color:#f2fff9;max-width:none}
