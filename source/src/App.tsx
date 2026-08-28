@@ -2884,7 +2884,8 @@ export default function Home(){
     const userQuests=userName.trim()
       ? allSaved.filter(s=>s.userName.toLowerCase()===userName.trim().toLowerCase())
       : [];
-    return <main className="welcomeScreen">
+    return <main className="welcomeScreen" style={{position:"relative"}}>
+      <div className="slideLockBadge" title="Slide bloccata — non modificare">✕</div>
       <img src="./welcome-gen.png" alt="" className="welcomeBg" aria-hidden="true"/>
       <div className="welcomeBgOverlay"/>
       <header className="missionNav" style={{position:"relative",zIndex:3}}>
