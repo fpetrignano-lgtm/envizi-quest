@@ -606,6 +606,7 @@ export default function Home(){
   const isNeedIncluded=(id:string)=>needIncluded[id]??false;
   const [dfFocusId,setDfFocusId]=useState<string|null>(null);
   const [priorityIncluded,setPriorityIncluded]=useState<Record<Priority,boolean>>({credit:true,compliance:true,customers:true,efficiency:true,supply:true,reputation:true});
+  const [esgStrategistUnlocked,setEsgStrategistUnlocked]=useState(false);
   const togglePriorityIncluded=(p:Priority)=>setPriorityIncluded(prev=>({...prev,[p]:!prev[p]}));
   const [prioExperience,setPrioExperience]=useState<Record<Priority,string>>({credit:"",compliance:"",customers:"",efficiency:"",supply:"",reputation:""});
   const [prioExpModal,setPrioExpModal]=useState<Priority|null>(null);
@@ -1092,22 +1093,63 @@ export default function Home(){
 
   if(screen==="esgStrategist"&&profile){
     const isIt=language==="it";
-    return <main className="esgStrategistScreen">
-      <header className="missionNav">
+    // La matrice è stata compilata se almeno un need ha un valore di rilevanza o criticità impostato
+    const matrixDone=Object.keys(needRelevance).length>0||Object.keys(needCriticality).length>0;
+    // Al primo render con matrice compilata, sblocca e aggiungi +10 una sola volta
+    if(matrixDone&&!esgStrategistUnlocked){
+      setEsgStrategistUnlocked(true);
+      const next=Math.min(100,trustScore+10);
+      setTrustScore(next);
+      localStorage.setItem("envizi-quest-trust-score",String(next));
+    }
+    const trustColor=trustScore>=50?"#39efb4":trustScore>=20?"#ffc07c":"#ff7777";
+    return <main className="esgStrScreen">
+      <header className="missionNav missionNavTrust">
         <button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button>
         <div className="missionProgress"><span className="activeDot"/> ESG STRATEGIST</div>
+        {renderTrustBar()}
         <button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button>
       </header>
-      <section className="esgStrategistBody">
-        <div className="esgStrategistStage">
-          <img src={`./characters/${profile}-success.png`} alt={name} className="esgStrategistImg"/>
+      <section className="esgStrBody">
+        {/* colonna sinistra: foto profilo */}
+        <div className="esgStrStage">
+          <img src={`./characters/${profile}${matrixDone?"-success":"-neutral"}.png`} alt={name} className="esgStrProfileImg"/>
+          <div className="esgStrPersonaTag">
+            <span className="statusDot"/>
+            <div><small>ESG MANAGER</small><strong>{name}</strong></div>
+          </div>
         </div>
-        <div className="esgStrategistContent">
-          <p className="eyebrow">{isIt?"LIVELLO SBLOCCATO":"LEVEL UNLOCKED"}</p>
-          <div className="esgStrategistBadge">★ ESG STRATEGIST</div>
-          <h1 className="esgStrategistTitle">{isIt?"Complimenti, hai sbloccato il livello ESG Strategist!":"Congratulations, you have unlocked the ESG Strategist level!"}</h1>
-          <p className="esgStrategistSub">{isIt?"Hai identificato le esigenze di dati chiave e costruito la tua matrice di priorità. Ora è il momento di trasformare l'analisi in sfide decisionali concrete.":"You have identified key data needs and built your priority matrix. Now it's time to turn the analysis into concrete decision challenges."}</p>
-          <div className="esgStrategistActions">
+        {/* colonna destra: contenuto condizionale */}
+        <div className="esgStrContent">
+          {matrixDone?(
+            <>
+              <p className="eyebrow">{isIt?"LIVELLO SBLOCCATO":"LEVEL UNLOCKED"}</p>
+              <img src="./immagine/badge/1.svg" alt="ESG Strategist badge" className="esgStrBadgeImg"/>
+              <h1 className="esgStrTitle">{isIt?"Hai sbloccato il livello ESG Strategist!":"You've unlocked the ESG Strategist level!"}</h1>
+              <p className="esgStrSub">{isIt?"Hai identificato le esigenze di dati chiave e costruito la tua matrice di priorità. Ora è il momento di trasformare l'analisi in sfide decisionali concrete.":"You have identified key data needs and built your priority matrix. Now it's time to turn the analysis into concrete decision challenges."}</p>
+              <div className="esgStrTrustGain">
+                <span className="esgStrTrustGainLabel">{isIt?"Punti fiducia":"Trust score"}</span>
+                <div className="esgStrTrustBarWrap">
+                  <div className="trustBar"><span className="trustBarLabel">{t.trustLabel}</span><div className="trustBarTrack"><div className="trustBarFill" style={{width:`${trustScore}%`,background:trustColor}}/></div><span className="trustBarValue" style={{color:trustColor}}>{trustScore}<small>/100</small></span></div>
+                  <span className="esgStrTrustDelta">+10</span>
+                </div>
+              </div>
+            </>
+          ):(
+            <>
+              <p className="eyebrow">{isIt?"LIVELLO BLOCCATO":"LEVEL LOCKED"}</p>
+              <div className="esgStrBadgeLocked">★ ESG STRATEGIST</div>
+              <h1 className="esgStrTitle esgStrTitleLocked">{isIt?"Livello ESG Strategist non ancora sbloccato":"ESG Strategist level not yet unlocked"}</h1>
+              <p className="esgStrSub">{isIt?"Per sbloccare il livello completa l'analisi nella sezione Priority Matrix.":"To unlock this level, complete the analysis in the Priority Matrix section."}</p>
+              <div className="esgStrTrustGain">
+                <span className="esgStrTrustGainLabel">{isIt?"Punti fiducia":"Trust score"}</span>
+                <div className="esgStrTrustBarWrap">
+                  <div className="trustBar"><span className="trustBarLabel">{t.trustLabel}</span><div className="trustBarTrack"><div className="trustBarFill" style={{width:`${trustScore}%`,background:trustColor}}/></div><span className="trustBarValue" style={{color:trustColor}}>{trustScore}<small>/100</small></span></div>
+                </div>
+              </div>
+            </>
+          )}
+          <div className="esgStrActions">
             <button className="secondaryAction" onClick={()=>goBack()}>← {isIt?"Indietro":"Back"}</button>
             <button className="actionButton" onClick={()=>setScreen("introCopy")}>{isIt?"Inizia le sfide →":"Start challenges →"}</button>
           </div>
