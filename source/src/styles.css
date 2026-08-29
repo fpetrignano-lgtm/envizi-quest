@@ -709,7 +709,7 @@ body{font-size:18px}.eyebrow{font-size:22px}.brand{font-size:14px}.step,.mission
 .c1sNavRowHeader{padding:0;margin:0}
 .c1sDownloadBtn{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:10px;border:1.5px solid rgba(57,239,180,.45);background:rgba(57,239,180,.07);color:#f2fff9;font-size:13px!important;font-weight:600;cursor:pointer;transition:background .15s,border-color .15s;white-space:nowrap}
 .c1sDownloadBtn:hover{background:rgba(57,239,180,.14);border-color:rgba(57,239,180,.7)}
-.c1sNextBtn{padding:9px 16px!important;font-size:13px!important;white-space:nowrap}
+.c1sNextBtn{padding:18px 32px!important;font-size:26px!important;white-space:nowrap}
 /* ── ESG Strategist (nuova versione) ── */
 .esgStrScreen{min-height:100vh;display:grid;grid-template-rows:76px 1fr;background:radial-gradient(circle at 30% 60%,#0d2e22,transparent 55%),#07110e}
 .esgStrBody{display:grid;grid-template-columns:minmax(260px,.45fr) 1fr;align-items:stretch;overflow:hidden}
