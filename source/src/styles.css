@@ -705,9 +705,11 @@ body{font-size:18px}.eyebrow{font-size:22px}.brand{font-size:14px}.step,.mission
 .c1sCritPrio{font-size:19px;font-weight:600;color:#f2fff9}
 .c1sCritScore{font:600 19px var(--font-geist-mono);color:#f2fff9;padding:4px 10px;border:1px solid #3a5a4e;border-radius:6px}
 .c1sCritTier{font:700 18px var(--font-geist-mono);letter-spacing:.1em;text-transform:uppercase;color:#f2fff9}
-.c1sNavRow{display:flex;justify-content:flex-end;align-items:center;gap:16px;padding:32px 0 0}
-.c1sDownloadBtn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:10px;border:1.5px solid rgba(57,239,180,.45);background:rgba(57,239,180,.07);color:#f2fff9;font:600 15px/1 inherit;cursor:pointer;transition:background .15s,border-color .15s}
+.c1sNavRow{display:flex;justify-content:flex-end;align-items:center;gap:12px}
+.c1sNavRowHeader{padding:0;margin:0}
+.c1sDownloadBtn{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:10px;border:1.5px solid rgba(57,239,180,.45);background:rgba(57,239,180,.07);color:#f2fff9;font:600 13px/1 inherit;cursor:pointer;transition:background .15s,border-color .15s;white-space:nowrap}
 .c1sDownloadBtn:hover{background:rgba(57,239,180,.14);border-color:rgba(57,239,180,.7)}
+.c1sNextBtn{padding:9px 16px!important;font-size:13px!important;white-space:nowrap}
 /* ── ESG Strategist (nuova versione) ── */
 .esgStrScreen{min-height:100vh;display:grid;grid-template-rows:76px 1fr;background:radial-gradient(circle at 30% 60%,#0d2e22,transparent 55%),#07110e}
 .esgStrBody{display:grid;grid-template-columns:minmax(260px,.45fr) 1fr;align-items:stretch;overflow:hidden}
