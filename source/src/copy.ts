@@ -44,7 +44,7 @@ export const copy = {
       {icon:"📋",label:"Reporting e disclosure",detail:"Framework di rendicontazione, conformità normativa e comunicazione agli stakeholder."},
       {icon:"🎯",label:"Pianificazione e target",detail:"Scenari di decarbonizzazione, obiettivi Net Zero e monitoraggio dell'esecuzione nel tempo."}
     ],
-    approachDataTitle:"Il secondo filone è agire sulle sfide di dati.", approachDataBody:"La sfida è decidere come affrontare dati frammentati, processi manuali e tracciabilità assente. È qui che dovrai scegliere quale soluzione adottare per rendere misurabili, difendibili e scalabili le iniziative ESG.",
+    approachDataTitle:"Il secondo filone è agire sulle sfide di dati.",
     approachOptionsLabel:"Le opzioni che valuterai attraverso questo Quest", approachOptions:[
       {key:"asis",icon:"⏸",label:"Attendere con l'AS-IS",detail:"Nessun investimento immediato, ma i problemi restano e la pressione cresce: da banche, clienti, normativa."},
       {key:"simple",icon:"🔧",label:"Adottare una soluzione percepita come semplice",detail:"Un tool puntuale o un workflow digitale: abbassa la complessità percepita, ma spesso non scala e non integra."},
@@ -235,7 +235,7 @@ export const copy = {
       {icon:"📋",label:"Reporting and disclosure",detail:"Reporting frameworks, regulatory compliance and stakeholder communication."},
       {icon:"🎯",label:"Planning and targets",detail:"Decarbonisation scenarios, Net Zero objectives and execution monitoring over time."}
     ],
-    approachDataTitle:"The second track is acting on data challenges.", approachDataBody:"The challenge is deciding how to address fragmented data, manual processes and missing traceability. This is where you will choose which solution to adopt to make ESG initiatives measurable, defensible and scalable.",
+    approachDataTitle:"The second track is acting on data challenges.",
     approachOptionsLabel:"The options you will evaluate through this Quest", approachOptions:[
       {key:"asis",icon:"⏸",label:"Wait with the AS-IS",detail:"No immediate investment, but problems persist and pressure grows: from banks, clients, regulation."},
       {key:"simple",icon:"🔧",label:"A solution perceived as simple",detail:"A point tool or digital workflow: lowers perceived complexity, but often does not scale or integrate."},
