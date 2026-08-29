@@ -193,37 +193,51 @@ function addSlide3(
   });
 
   const startY = 1.0;
-  const rowH = 0.56;
+  const rowH   = 0.62;
+  const BAR_X  = 5.6;
+  const BAR_MAX_W = 4.0; // max width per bar (10/10)
+  const BAR_H  = 0.13;
+  const YELLOW = "f5c542";
+
   items.forEach((item, i) => {
-    const ry = startY + i * (rowH + 0.06);
-    const barW = (item.rel + item.crit) / 20 * 4.5; // max 20 → 4.5 inches
+    const ry = startY + i * (rowH + 0.05);
+    const relW  = (item.rel  / 10) * BAR_MAX_W;
+    const critW = (item.crit / 10) * BAR_MAX_W;
+
     // card bg
     slide.addShape("roundRect", { x: 0.35, y: ry, w: 9.3, h: rowH, fill: { color: CARD_BG }, line: { color: BORDER, width: 0.5 }, rectRadius: 0.08 });
+
     // rank
     slide.addText(String(item.rank).padStart(2, "0"), {
-      x: 0.44, y: ry + 0.06, w: 0.5, h: rowH - 0.1,
+      x: 0.44, y: ry + 0.08, w: 0.5, h: rowH - 0.12,
       fontSize: 18, bold: true, color: WHITE, fontFace: "Courier New", valign: "top",
     });
+
     // label
     slide.addText(item.label, {
-      x: 1.0, y: ry + 0.05, w: 4.6, h: 0.26,
+      x: 1.0, y: ry + 0.06, w: 4.45, h: 0.26,
       fontSize: 12, bold: true, color: WHITE, fontFace: "Arial",
     });
-    // meta row
-    const tierLabel = item.tier === "high" ? (isIt ? "Alta" : "High") : item.tier === "medium" ? (isIt ? "Media" : "Medium") : (isIt ? "Bassa" : "Low");
-    slide.addText(`${item.priority}   ·   R${item.rel} · C${item.crit}   ·   ${tierLabel}`, {
-      x: 1.0, y: ry + 0.3, w: 4.6, h: 0.2,
-      fontSize: 9, color: WHITE, fontFace: "Courier New",
+
+    // priority tag
+    slide.addText(item.priority, {
+      x: 1.0, y: ry + 0.34, w: 4.45, h: 0.18,
+      fontSize: 8.5, color: MUTED, fontFace: "Courier New",
     });
-    // score bar bg
-    slide.addShape("rect", { x: 5.75, y: ry + 0.16, w: 4.5, h: 0.22, fill: { color: "122018" }, line: { color: BORDER, width: 0.3 } });
-    // score bar fill
-    slide.addShape("rect", { x: 5.75, y: ry + 0.16, w: barW, h: 0.22, fill: { color: TEAL } });
-    // score value
-    slide.addText(`${item.rel + item.crit}`, {
-      x: 5.75 + barW + 0.08, y: ry + 0.16, w: 0.4, h: 0.22,
-      fontSize: 9, bold: true, color: WHITE, fontFace: "Courier New", valign: "middle",
-    });
+
+    // ── Rilevanza bar ──
+    const relLabel = isIt ? "RILEVANZA" : "RELEVANCE";
+    slide.addText(relLabel, { x: BAR_X, y: ry + 0.07, w: 1.1, h: 0.14, fontSize: 7, bold: true, color: TEAL,  fontFace: "Courier New", charSpacing: 1 });
+    slide.addShape("rect", { x: BAR_X,       y: ry + 0.22, w: BAR_MAX_W, h: BAR_H, fill: { color: "0d2018" }, line: { color: BORDER, width: 0.3 } });
+    if (relW > 0) slide.addShape("rect", { x: BAR_X, y: ry + 0.22, w: relW, h: BAR_H, fill: { color: TEAL } });
+    slide.addText(String(item.rel), { x: BAR_X + BAR_MAX_W + 0.06, y: ry + 0.20, w: 0.22, h: 0.17, fontSize: 8, bold: true, color: TEAL,   fontFace: "Courier New", valign: "middle" });
+
+    // ── Criticità bar ──
+    const critLabel = isIt ? "CRITICITÀ" : "CRITICALITY";
+    slide.addText(critLabel, { x: BAR_X, y: ry + 0.38, w: 1.1, h: 0.14, fontSize: 7, bold: true, color: YELLOW, fontFace: "Courier New", charSpacing: 1 });
+    slide.addShape("rect", { x: BAR_X,       y: ry + 0.44, w: BAR_MAX_W, h: BAR_H, fill: { color: "0d2018" }, line: { color: BORDER, width: 0.3 } });
+    if (critW > 0) slide.addShape("rect", { x: BAR_X, y: ry + 0.44, w: critW, h: BAR_H, fill: { color: YELLOW } });
+    slide.addText(String(item.crit), { x: BAR_X + BAR_MAX_W + 0.06, y: ry + 0.42, w: 0.22, h: 0.17, fontSize: 8, bold: true, color: YELLOW, fontFace: "Courier New", valign: "middle" });
   });
 
   slide.addText("IBM Envizi Impact Quest  ·  Executive Summary", {
