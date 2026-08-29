@@ -803,7 +803,7 @@ export default function Home(){
           </div>
           <div className="dfcActions">
             <button className="actionButton" onClick={()=>goBack()}>{isIt?"← Indietro":"← Back"}</button>
-            <button className="actionButton" style={{whiteSpace:"nowrap"}} onClick={()=>setScreen("challengeComplete2")}>{isIt?"Completa Sfida 2 →":"Complete Challenge 2 →"}</button>
+            <button className="actionButton" style={{whiteSpace:"nowrap"}} onClick={()=>setScreen("challengeComplete5")}>{isIt?"Completa Sfida 5 →":"Complete Challenge 5 →"}</button>
           </div>
         </div>
         <div className="dfcRight">
@@ -914,7 +914,7 @@ export default function Home(){
           </div>
           <div className="dfcActions">
             <button className="actionButton" onClick={()=>goBack()}>{isIt?"← Indietro":"← Back"}</button>
-            <button className="actionButton" style={{whiteSpace:"nowrap"}} onClick={()=>setScreen("challengeComplete3")}>{isIt?"Completa Sfida 3 →":"Complete Challenge 3 →"}</button>
+            <button className="actionButton" style={{whiteSpace:"nowrap"}} onClick={()=>setScreen("challengeComplete4")}>{isIt?"Completa Sfida 4 →":"Complete Challenge 4 →"}</button>
           </div>
         </div>
         <div className="dfcRight">
@@ -1025,7 +1025,7 @@ export default function Home(){
           </div>
           <div className="dfcActions">
             <button className="actionButton" onClick={()=>goBack()}>{isIt?"← Indietro":"← Back"}</button>
-            <button className="actionButton" style={{whiteSpace:"nowrap"}} onClick={()=>setScreen("challengeComplete5")}>{isIt?"Completa Sfida 5 →":"Complete Challenge 5 →"}</button>
+            <button className="actionButton" style={{whiteSpace:"nowrap"}} onClick={()=>setScreen("challengeComplete6")}>{isIt?"Completa Sfida 6 →":"Complete Challenge 6 →"}</button>
           </div>
         </div>
         <div className="dfcRight">
@@ -1136,7 +1136,7 @@ export default function Home(){
           </div>
           <div className="dfcActions">
             <button className="actionButton" onClick={()=>goBack()}>{isIt?"← Indietro":"← Back"}</button>
-            <button className="actionButton" style={{whiteSpace:"nowrap"}} onClick={()=>setScreen("challengeComplete4")}>{isIt?"Completa Sfida 4 →":"Complete Challenge 4 →"}</button>
+            <button className="actionButton" style={{whiteSpace:"nowrap"}} onClick={()=>setScreen("challengeComplete3")}>{isIt?"Completa Sfida 3 →":"Complete Challenge 3 →"}</button>
           </div>
         </div>
         <div className="dfcRight">
@@ -1269,7 +1269,7 @@ export default function Home(){
           </div>
           <div className="dfcActions">
             <button className="actionButton" onClick={()=>goBack()}>{isIt?"← Indietro":"← Back"}</button>
-            <button className="actionButton" style={{whiteSpace:"nowrap"}} onClick={()=>setScreen("challengeComplete6")}>{isIt?"Completa Sfida 6 →":"Complete Challenge 6 →"}</button>
+            <button className="actionButton" style={{whiteSpace:"nowrap"}} onClick={()=>setScreen("challengeComplete2")}>{isIt?"Completa Sfida 2 →":"Complete Challenge 2 →"}</button>
           </div>
         </div>
         <div className="dfcRight">
