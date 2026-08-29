@@ -112,11 +112,6 @@ function addSlide1(
     });
   }
 
-  // footer
-  slide.addText("IBM Envizi Impact Quest  ·  Executive Summary", {
-    x: 0, y: H - 0.18, w: W, h: 0.18,
-    fontSize: 7.5, color: MUTED, fontFace: "Courier New", align: "center", valign: "bottom",
-  });
 }
 
 // ── SLIDE 2: Priority objectives ─────────────────────────────────────────
@@ -170,10 +165,6 @@ function addSlide2(
     }
   });
 
-  slide.addText("IBM Envizi Impact Quest  ·  Executive Summary", {
-    x: 0, y: H - 0.18, w: W, h: 0.18,
-    fontSize: 7.5, color: MUTED, fontFace: "Courier New", align: "center", valign: "bottom",
-  });
 }
 
 // ── SLIDE 3: Top 7 critical areas ────────────────────────────────────────
@@ -246,10 +237,6 @@ function addSlide3(
     });
   });
 
-  slide.addText("IBM Envizi Impact Quest  ·  Executive Summary", {
-    x: 0, y: H - 0.18, w: W, h: 0.18,
-    fontSize: 7.5, color: MUTED, fontFace: "Courier New", align: "center", valign: "bottom",
-  });
 }
 
 // ── PUBLIC API ────────────────────────────────────────────────────────────
