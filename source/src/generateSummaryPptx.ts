@@ -114,7 +114,7 @@ function addSlide1(
 
   // footer
   slide.addText("IBM Envizi Impact Quest  ·  Executive Summary", {
-    x: 0, y: H - 0.26, w: W, h: 0.22,
+    x: 0, y: H - 0.18, w: W, h: 0.22,
     fontSize: 7.5, color: MUTED, fontFace: "Courier New", align: "center",
   });
 }
@@ -171,7 +171,7 @@ function addSlide2(
   });
 
   slide.addText("IBM Envizi Impact Quest  ·  Executive Summary", {
-    x: 0, y: H - 0.26, w: W, h: 0.22,
+    x: 0, y: H - 0.18, w: W, h: 0.22,
     fontSize: 7.5, color: MUTED, fontFace: "Courier New", align: "center",
   });
 }
@@ -247,7 +247,7 @@ function addSlide3(
   });
 
   slide.addText("IBM Envizi Impact Quest  ·  Executive Summary", {
-    x: 0, y: H - 0.26, w: W, h: 0.22,
+    x: 0, y: H - 0.18, w: W, h: 0.22,
     fontSize: 7.5, color: MUTED, fontFace: "Courier New", align: "center",
   });
 }
