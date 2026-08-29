@@ -1,4 +1,4 @@
-
+rre 
 /* Slide lock badge — cerchio blu fisso in alto a destra, segnala slide congelata */
 
 
@@ -696,7 +696,7 @@ body{font-size:18px}.eyebrow{font-size:22px}.brand{font-size:14px}.step,.mission
 .c1sPrioContent strong{font-size:26px;line-height:1.2;color:#f2fff9}
 .c1sPrioDetail{font-size:21px;color:#f2fff9;line-height:1.55}
 .c1sPrioNote{margin:8px 0 0;padding:12px 16px;background:#071510;border-left:3px solid #2a7a56;border-radius:6px;font-size:20px;color:#f2fff9;font-style:italic;line-height:1.5}
-.c1sCritList{display:flex;flex-direction:column;gap:14px}
+.c1sCritList{display:flex;flex-direction:column;gap:14px;flex:1;margin-top:48px;justify-content:space-between}
 .c1sCritItem{display:flex;align-items:flex-start;gap:18px;padding:20px 26px;border-radius:12px;border:1px solid #1e3a2e;background:#0c1e18}
 .c1sCritRank{font:700 34px var(--font-geist-mono);line-height:1;flex-shrink:0;padding-top:2px;color:#f2fff9}
 .c1sCritBody{display:flex;flex-direction:column;gap:8px;flex:1}
