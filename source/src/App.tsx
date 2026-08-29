@@ -283,7 +283,7 @@ export default function Home(){
   useEffect(()=>()=>{document.getElementById("envizi-global-back")?.remove()},[]);
   useEffect(()=>{let badge=document.getElementById("envizi-bob-badge");if(!badge){badge=document.createElement("div");badge.id="envizi-bob-badge";badge.className="bobBadge";badge.innerHTML=`<img src="./ibm-bob-logo.svg" alt="IBM Bob"/><span>Sviluppato con IBM Bob</span>`;document.body.appendChild(badge)}return()=>{};},[]);
   useEffect(()=>()=>{document.getElementById("envizi-bob-badge")?.remove()},[]);
-  const ALL_SCREENS:Screen[]=["cover","welcome","onboarding","intro","approach","questIntro","approachIntro","approachSteps","approachData","approachDecisions","approachRoadmap","approachTrust","approachReport","separatorNext","approachStepsCopy","companySetup","company","priorities","approachDataCopy","priorityData","priorityMatrix","chapterOneSummary","esgStrategist","introCopy","roadmapPreview","bridge","missions","briefing","missionIntro","introCopy2","asis","compare","trust","tobe","negative","success","milestone","dataFoundation","dfConclusion","dfSummary","energyFoundation","energyConclusion","supplyFoundation","supplyConclusion","reportingFoundation","reportingConclusion","planningFoundation","planningConclusion","frameworkFoundation","frameworkConclusion","summary","nextStep","thankYou"];
+  const ALL_SCREENS:Screen[]=["cover","welcome","onboarding","intro","approach","questIntro","approachIntro","approachSteps","approachData","approachDecisions","approachRoadmap","approachTrust","approachReport","separatorNext","approachStepsCopy","companySetup","company","priorities","approachDataCopy","priorityData","priorityMatrix","chapterOneSummary","esgStrategist","challengeSeparator1","introCopy","roadmapPreview","bridge","missions","briefing","missionIntro","introCopy2","asis","compare","trust","tobe","negative","success","milestone","dataFoundation","dfConclusion","dfSummary","energyFoundation","energyConclusion","supplyFoundation","supplyConclusion","reportingFoundation","reportingConclusion","planningFoundation","planningConclusion","frameworkFoundation","frameworkConclusion","summary","nextStep","thankYou"];
   const currentPageNum=ALL_SCREENS.indexOf(screen)+1||1;
   useEffect(()=>{let el=document.getElementById("envizi-page-num");if(!el){el=document.createElement("div");el.id="envizi-page-num";el.className="pageNum";document.body.appendChild(el)}el.textContent=String(currentPageNum).padStart(2,"0");el.style.display="flex";},[screen,currentPageNum]);
   useEffect(()=>()=>{document.getElementById("envizi-page-num")?.remove()},[]);
@@ -605,13 +605,16 @@ export default function Home(){
           )}
           <div className="esgStrActions">
             <button className="secondaryAction" onClick={()=>goBack()}>← {isIt?"Indietro":"Back"}</button>
-            <button className="actionButton" onClick={()=>setScreen("introCopy")}>{isIt?"Inizia le sfide →":"Start challenges →"}</button>
+            <button className="actionButton" onClick={()=>setScreen("challengeSeparator1")}>{isIt?"Inizia le sfide →":"Start challenges →"}</button>
           </div>
           {renderSaveBtn(isIt)}
         </div>
       </section>
     </main>;
   }
+
+  if(screen==="challengeSeparator1"&&profile)return <main style={{height:"100vh",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",background:"#07110e",position:"relative"}}><header className="missionNav" style={{position:"fixed",top:0,left:0,right:0}}><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> SFIDE</div><button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><h1 style={{fontSize:"clamp(72px,12vw,160px)",fontWeight:800,letterSpacing:"-.04em",color:"#f2fff9",margin:0,lineHeight:1}}>{language==="it"?"Sfida 1":"Challenge 1"}</h1><button className="actionButton" style={{marginTop:"48px"}} onClick={()=>setScreen("introCopy")}>{language==="it"?"Avanti →":"Next →"}</button></main>;
+
 
   if(screen==="introCopy"&&profile)return <main className="introScreen"><header className="missionNav"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> YOUR CHALLENGE</div><div className="introNavRight"><button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></div></header><section className="characterStage"><img src={`./characters/${profile}-neutral.png`} alt={name}/><div className="characterTag characterTagRaised"><span className="statusDot"/><div><small>ESG MANAGER</small><strong>{name}</strong></div></div></section><section className="introBody"><p className="eyebrow">{t.introKicker}</p><h1>{t.introTitle}</h1><p className="storyText">{t.introBody}</p><div className="introTrustBar"><p className="introScoreLabel">{t.introScoreLabel}</p>{renderTrustBar()}</div><div className="introCtaRow"><button className="actionButton questLaunchBtn" onClick={()=>setScreen("roadmapPreview")}>{t.introStart}<b>→</b></button></div></section></main>;
 
