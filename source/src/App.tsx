@@ -525,14 +525,14 @@ export default function Home(){
                   <strong>{n.label}</strong>
                   <div className="c1sCritBars">
                     <div className="c1sCritBarRow">
-                      <span className="c1sCritBarLabel">{isIt?"Rilevanza":"Relevance"}</span>
                       <div className="c1sCritBarTrack"><div className="c1sCritBarFill c1sCritBarRel" style={{width:`${n.rel*10}%`}}/></div>
-                      <span className="c1sCritBarVal">{n.rel}</span>
+                    </div>
+                    <div className="c1sCritBarFooter">
+                      <span className="c1sCritBarFooterRel"><span className="c1sCritBarDot c1sCritBarDotRel"/>  {isIt?"Rilevanza":"Relevance"} <b>{n.rel}</b></span>
+                      <span className="c1sCritBarFooterCrit"><span className="c1sCritBarDot c1sCritBarDotCrit"/>  {isIt?"Criticità":"Criticality"} <b>{n.crit}</b></span>
                     </div>
                     <div className="c1sCritBarRow">
-                      <span className="c1sCritBarLabel">{isIt?"Criticità":"Criticality"}</span>
                       <div className="c1sCritBarTrack"><div className="c1sCritBarFill c1sCritBarCrit" style={{width:`${n.crit*10}%`}}/></div>
-                      <span className="c1sCritBarVal">{n.crit}</span>
                     </div>
                   </div>
                 </div>

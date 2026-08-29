@@ -225,19 +225,25 @@ function addSlide3(
       fontSize: 8.5, color: MUTED, fontFace: "Courier New",
     });
 
-    // ── Rilevanza bar ──
-    const relLabel = isIt ? "RILEVANZA" : "RELEVANCE";
-    slide.addText(relLabel, { x: BAR_X, y: ry + 0.07, w: 1.1, h: 0.14, fontSize: 7, bold: true, color: TEAL,  fontFace: "Courier New", charSpacing: 1 });
-    slide.addShape("rect", { x: BAR_X,       y: ry + 0.22, w: BAR_MAX_W, h: BAR_H, fill: { color: "0d2018" }, line: { color: BORDER, width: 0.3 } });
-    if (relW > 0) slide.addShape("rect", { x: BAR_X, y: ry + 0.22, w: relW, h: BAR_H, fill: { color: TEAL } });
-    slide.addText(String(item.rel), { x: BAR_X + BAR_MAX_W + 0.06, y: ry + 0.20, w: 0.22, h: 0.17, fontSize: 8, bold: true, color: TEAL,   fontFace: "Courier New", valign: "middle" });
+    // ── Rilevanza bar + label sotto ──
+    slide.addShape("rect", { x: BAR_X, y: ry + 0.06, w: BAR_MAX_W, h: BAR_H, fill: { color: "0d2018" }, line: { color: BORDER, width: 0.3 } });
+    if (relW > 0) slide.addShape("rect", { x: BAR_X, y: ry + 0.06, w: relW, h: BAR_H, fill: { color: TEAL } });
 
-    // ── Criticità bar ──
-    const critLabel = isIt ? "CRITICITÀ" : "CRITICALITY";
-    slide.addText(critLabel, { x: BAR_X, y: ry + 0.38, w: 1.1, h: 0.14, fontSize: 7, bold: true, color: YELLOW, fontFace: "Courier New", charSpacing: 1 });
-    slide.addShape("rect", { x: BAR_X,       y: ry + 0.44, w: BAR_MAX_W, h: BAR_H, fill: { color: "0d2018" }, line: { color: BORDER, width: 0.3 } });
-    if (critW > 0) slide.addShape("rect", { x: BAR_X, y: ry + 0.44, w: critW, h: BAR_H, fill: { color: YELLOW } });
-    slide.addText(String(item.crit), { x: BAR_X + BAR_MAX_W + 0.06, y: ry + 0.42, w: 0.22, h: 0.17, fontSize: 8, bold: true, color: YELLOW, fontFace: "Courier New", valign: "middle" });
+    // ── Criticità bar + label sotto ──
+    slide.addShape("rect", { x: BAR_X, y: ry + 0.24, w: BAR_MAX_W, h: BAR_H, fill: { color: "0d2018" }, line: { color: BORDER, width: 0.3 } });
+    if (critW > 0) slide.addShape("rect", { x: BAR_X, y: ry + 0.24, w: critW, h: BAR_H, fill: { color: YELLOW } });
+
+    // ── legenda sotto le due barre ──
+    const relLabel  = isIt ? "● RILEVANZA" : "● RELEVANCE";
+    const critLabelText = isIt ? "● CRITICITÀ" : "● CRITICALITY";
+    slide.addText(`${relLabel} ${item.rel}`, {
+      x: BAR_X, y: ry + 0.40, w: BAR_MAX_W / 2, h: 0.14,
+      fontSize: 7, bold: true, color: TEAL, fontFace: "Courier New", charSpacing: 0.5,
+    });
+    slide.addText(`${critLabelText} ${item.crit}`, {
+      x: BAR_X + BAR_MAX_W / 2, y: ry + 0.40, w: BAR_MAX_W / 2, h: 0.14,
+      fontSize: 7, bold: true, color: YELLOW, fontFace: "Courier New", charSpacing: 0.5,
+    });
   });
 
   slide.addText("IBM Envizi Impact Quest  ·  Executive Summary", {
