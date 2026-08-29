@@ -1384,8 +1384,8 @@ export default function Home(){
 
         {/* COLONNA SX */}
         <div className="dfcLeft">
-          <p className="eyebrow" style={{letterSpacing:".18em",fontSize:"11px"}}>{isIt?"CONCLUSIONI · DATA FOUNDATION":"CONCLUSIONS · DATA FOUNDATION"}</p>
-          <h1 className="dfcTitle" style={{fontSize:"clamp(22px,2.2vw,32px)",fontWeight:800,lineHeight:1.1,marginBottom:4}}>{isIt?"La tua scelta per la gestione dei dati ESG":"Your ESG data management choice"}</h1>
+          <p className="eyebrow" style={{letterSpacing:".18em",fontSize:"22px"}}>{isIt?"CONCLUSIONI · DATA FOUNDATION":"CONCLUSIONS · DATA FOUNDATION"}</p>
+          <h1 className="dfcTitle" style={{fontSize:"clamp(44px,4.4vw,64px)",fontWeight:800,lineHeight:1.1,marginBottom:4}}>{isIt?"La tua scelta per la gestione dei dati ESG":"Your ESG data management choice"}</h1>
 
           {/* — score gauge — */}
           <div className="dfcGaugeWrap">
