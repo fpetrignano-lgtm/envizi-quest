@@ -686,7 +686,7 @@ body{font-size:18px}.eyebrow{font-size:22px}.brand{font-size:14px}.step,.mission
 .c1sCsrdNote span{color:#39efb4;flex-shrink:0;margin-top:2px}
 .c1sCsrdNote p{margin:0;font-size:18px;color:#b8d8cc;line-height:1.55;font-style:italic}
 /* ── slide 2 obiettivi ── */
-.c1sPrioIntro{font-size:21px;color:#f2fff9;line-height:1.7;margin:0 0 32px}
+.c1sPrioIntro{font-size:21px;color:#f2fff9;line-height:1.7;margin:48px 0 64px}
 .c1sPrioIntro strong{color:#f2fff9;font-weight:700}
 .c1sPrioIntro em{color:#f2fff9;font-style:normal;font-weight:600}
 .c1sPrioList{display:flex;flex-direction:column;gap:16px;margin-bottom:24px}
