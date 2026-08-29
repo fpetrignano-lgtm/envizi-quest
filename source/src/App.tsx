@@ -451,6 +451,7 @@ export default function Home(){
               sectorLabel,
               marketLabel:isIt?marketLabelsLocal[companyMarket].it:marketLabelsLocal[companyMarket].en,
               revenue:companyDims[0],
+              dimUnit:isIt?sec.dimUnit.it:sec.dimUnit.en,
               employees:companyDims[4],
               plants:companyDims[1],
               offices:companyDims[2],
@@ -478,7 +479,7 @@ export default function Home(){
             <div className="c1sHeroTags">
               <span className="c1sHeroTag">{sectorLabel}</span>
               <span className="c1sHeroTag">{isIt?marketLabels[companyMarket].it:marketLabels[companyMarket].en}</span>
-              <span className="c1sHeroTag">€{companyDims[0]}M</span>
+              <span className="c1sHeroTag">{companyDims[0]} {isIt?sec.dimUnit.it:sec.dimUnit.en}</span>
               <span className="c1sHeroTag">{companyDims[4].toLocaleString()} {isIt?"dipendenti":"employees"}</span>
               {companyDims[1]>0&&<span className="c1sHeroTag">{companyDims[1]} {isIt?`stabiliment${companyDims[1]===1?"o":"i"}`:`plant${companyDims[1]===1?"":"s"}`}</span>}
               {companyDims[2]>0&&<span className="c1sHeroTag">{companyDims[2]} {isIt?`uffic${companyDims[2]===1?"io":"i"}`:`office${companyDims[2]===1?"":"s"}`}</span>}

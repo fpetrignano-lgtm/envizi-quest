@@ -46,6 +46,7 @@ function addSlide1(
   sectorLabel: string,
   marketLabel: string,
   revenue: number,
+  dimUnit: string,
   employees: number,
   plants: number,
   offices: number,
@@ -71,7 +72,7 @@ function addSlide1(
   const tags = [
     sectorLabel,
     marketLabel,
-    `€${revenue}M`,
+    `${revenue} ${dimUnit}`,
     `${employees.toLocaleString()} ${isIt ? "dipendenti" : "employees"}`,
     ...(plants > 0 ? [`${plants} ${isIt ? "stabilimenti" : "plants"}`] : []),
     ...(offices > 0 ? [`${offices} ${isIt ? "uffici" : "offices"}`] : []),
@@ -245,6 +246,7 @@ export interface SummaryPptxData {
   sectorLabel: string;
   marketLabel: string;
   revenue: number;
+  dimUnit: string;
   employees: number;
   plants: number;
   offices: number;
@@ -265,7 +267,7 @@ export function generateSummaryPptx(data: SummaryPptxData) {
   prs.title = `Envizi Impact Quest — ${data.companyName}`;
   prs.author = "IBM Envizi Impact Quest";
 
-  addSlide1(prs, data.companyName, data.sectorLabel, data.marketLabel, data.revenue, data.employees, data.plants, data.offices, data.maturityTitle, data.maturityDesc, data.csrdLabel, data.csrdSub, data.csrdNote, data.isIt);
+  addSlide1(prs, data.companyName, data.sectorLabel, data.marketLabel, data.revenue, data.dimUnit, data.employees, data.plants, data.offices, data.maturityTitle, data.maturityDesc, data.csrdLabel, data.csrdSub, data.csrdNote, data.isIt);
   addSlide2(prs, data.companyName, data.prioIntroText, data.prioItems, data.isIt);
   addSlide3(prs, data.companyName, data.critItems, data.isIt);
 
