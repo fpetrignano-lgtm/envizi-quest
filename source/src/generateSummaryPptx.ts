@@ -131,7 +131,7 @@ function addSlide2(
   const plain = introText.replace(/<[^>]+>/g, "");
   slide.addText(plain, {
     x: 0.35, y: 0.65, w: 9.3, h: 0.65,
-    fontSize: 10.5, color: WHITE, fontFace: "Arial", lineSpacingMultiple: 1.25,
+    fontSize: 10.5, color: "FFFFFF", fontFace: "Arial", lineSpacingMultiple: 1.25,
   });
 
   // calcola altezza card dinamicamente per riempire lo spazio disponibile
@@ -156,24 +156,24 @@ function addSlide2(
     // rank
     slide.addText(String(item.rank).padStart(2, "0"), {
       x: 0.42, y: ry, w: 0.72, h: rowH,
-      fontSize: Math.round(rowH * 22), bold: true, color: WHITE, fontFace: "Courier New",
+      fontSize: Math.round(rowH * 22), bold: true, color: "FFFFFF", fontFace: "Courier New",
       valign: "middle", align: "left", wrap: false,
     });
     // name
     slide.addText(item.name, {
       x: 1.18, y: nameY, w: 8.22, h: nameH,
-      fontSize: 12, bold: true, color: WHITE, fontFace: "Arial", valign: "top",
+      fontSize: 12, bold: true, color: "FFFFFF", fontFace: "Arial", valign: "top",
     });
     // detail
     slide.addText(item.detail, {
       x: 1.18, y: detailY, w: 8.22, h: detailH,
-      fontSize: 9.5, color: WHITE, fontFace: "Arial", valign: "top",
+      fontSize: 9.5, color: "FFFFFF", fontFace: "Arial", valign: "top",
     });
     // note — se presente, sotto il detail
     if (item.note && hasAnyNote) {
       slide.addText(`✎  ${item.note}`, {
         x: 1.18, y: detailY + detailH + 0.01, w: 8.1, h: rowH - innerPad - nameH - detailH - 0.03,
-        fontSize: 8.5, color: MUTED, fontFace: "Arial", italic: true, valign: "top",
+        fontSize: 8.5, color: "AACCBB", fontFace: "Arial", italic: true, valign: "top",
       });
     }
   });
