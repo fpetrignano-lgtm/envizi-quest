@@ -15,18 +15,18 @@ function headerBar(slide: PptxGenJS.Slide, companyName: string, pageLabel: strin
   slide.addShape("rect", { x: 0, y: 0, w: W, h: 0.55, fill: { color: "061009" } });
   // teal brand mark
   slide.addText("e· Envizi Impact Quest", {
-    x: 0.25, y: 0.09, w: 3.5, h: 0.36,
+    x: 0.25, y: 0.09, w: 2.8, h: 0.36,
     fontSize: 10, bold: true, color: TEAL, fontFace: "Courier New",
   });
   // page badge centre
   slide.addText(pageLabel, {
-    x: 3.5, y: 0.09, w: 3, h: 0.36,
+    x: 3.05, y: 0.09, w: 4.2, h: 0.36,
     fontSize: 9, bold: true, color: TEAL, fontFace: "Courier New",
-    align: "center", charSpacing: 2,
+    align: "center", charSpacing: 1.5,
   });
   // company name right
   slide.addText(companyName.toUpperCase(), {
-    x: 6.5, y: 0.09, w: 3.25, h: 0.36,
+    x: 7.25, y: 0.09, w: 2.5, h: 0.36,
     fontSize: 9, bold: true, color: WHITE, fontFace: "Courier New",
     align: "right",
   });
