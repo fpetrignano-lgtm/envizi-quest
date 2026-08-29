@@ -283,7 +283,7 @@ export default function Home(){
   useEffect(()=>()=>{document.getElementById("envizi-global-back")?.remove()},[]);
   useEffect(()=>{let badge=document.getElementById("envizi-bob-badge");if(!badge){badge=document.createElement("div");badge.id="envizi-bob-badge";badge.className="bobBadge";badge.innerHTML=`<img src="./ibm-bob-logo.svg" alt="IBM Bob"/><span>Sviluppato con IBM Bob</span>`;document.body.appendChild(badge)}return()=>{};},[]);
   useEffect(()=>()=>{document.getElementById("envizi-bob-badge")?.remove()},[]);
-  const ALL_SCREENS:Screen[]=["cover","welcome","onboarding","intro","approach","questIntro","approachIntro","approachSteps","approachData","approachDecisions","approachRoadmap","approachTrust","approachReport","separatorNext","approachStepsCopy","companySetup","company","priorities","approachDataCopy","priorityData","priorityMatrix","chapterOneSummary","esgStrategist","challengeSeparator1","introCopy","roadmapPreview","bridge","missions","briefing","missionIntro","introCopy2","asis","compare","trust","tobe","negative","success","milestone","dataFoundation","dfConclusion","dfSummary","energyFoundation","energyConclusion","supplyFoundation","supplyConclusion","reportingFoundation","reportingConclusion","planningFoundation","planningConclusion","frameworkFoundation","frameworkConclusion","summary","nextStep","thankYou"];
+  const ALL_SCREENS:Screen[]=["cover","welcome","onboarding","intro","approach","questIntro","approachIntro","approachSteps","approachData","approachDecisions","approachRoadmap","approachTrust","approachReport","separatorNext","approachStepsCopy","companySetup","company","priorities","approachDataCopy","priorityData","priorityMatrix","chapterOneSummary","esgStrategist","challengeSeparator1","introCopy","roadmapPreview","bridge","missions","briefing","missionIntro","introCopy2","asis","compare","trust","tobe","negative","success","milestone","dataFoundation","dfConclusion","dfSummary","challengeComplete1","energyFoundation","energyConclusion","supplyFoundation","supplyConclusion","reportingFoundation","reportingConclusion","planningFoundation","planningConclusion","frameworkFoundation","frameworkConclusion","summary","nextStep","thankYou"];
   const currentPageNum=ALL_SCREENS.indexOf(screen)+1||1;
   useEffect(()=>{let el=document.getElementById("envizi-page-num");if(!el){el=document.createElement("div");el.id="envizi-page-num";el.className="pageNum";document.body.appendChild(el)}el.textContent=String(currentPageNum).padStart(2,"0");el.style.display="flex";},[screen,currentPageNum]);
   useEffect(()=>()=>{document.getElementById("envizi-page-num")?.remove()},[]);
@@ -693,6 +693,7 @@ export default function Home(){
 
 
   // ── ENERGIA E DECARBONIZZAZIONE — Foundation + Conclusion ──────────────────
+  if(screen==="challengeComplete1"&&profile){const isIt=language==="it";return <main style={{height:"100vh",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",background:"#07110e",position:"relative"}}><header className="missionNav" style={{position:"fixed",top:0,left:0,right:0}}><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> SFIDE</div><button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><div style={{textAlign:"center",display:"flex",flexDirection:"column",alignItems:"center",gap:"24px"}}><p style={{margin:0,font:`700 14px var(--font-geist-mono)`,letterSpacing:".2em",color:"#39efb4",textTransform:"uppercase"}}>{isIt?"Sfida 1 completata":"Challenge 1 completed"}</p><h1 style={{fontSize:"clamp(60px,10vw,140px)",fontWeight:800,letterSpacing:"-.04em",color:"#f2fff9",margin:0,lineHeight:1}}>{isIt?"Hai completato\nla Sfida 1":"You completed\nChallenge 1"}</h1><button className="actionButton" style={{marginTop:"16px"}} onClick={()=>{setSelectedMission(missionOrder[1]);localStorage.setItem("envizi-quest-mission",String(missionOrder[1]+1));setScreen("briefing");}}>{isIt?"Inizia la Sfida 2 →":"Start Challenge 2 →"}</button></div></main>;}
   if(screen==="energyFoundation"&&profile){
     const isIt=language==="it";
     const allRated=EF_REQUIREMENTS.every(r=>efRatings[r.id]);
@@ -1571,7 +1572,7 @@ export default function Home(){
 
           <div className="dfSummaryActions">
             <button className="actionButton dfcActionSecondary" onClick={()=>goBack()}>{isIt?"← Indietro":"← Back"}</button>
-            <button className="actionButton" style={{whiteSpace:"nowrap"}} onClick={()=>{setSelectedMission(missionOrder[1]);localStorage.setItem("envizi-quest-mission",String(missionOrder[1]+1));setScreen("briefing");}}>{isIt?"Prossima sfida →":"Next challenge →"}</button>
+            <button className="actionButton" style={{whiteSpace:"nowrap"}} onClick={()=>setScreen("challengeComplete1")}>{isIt?"Prossima sfida →":"Next challenge →"}</button>
           </div>
         </div>
 
