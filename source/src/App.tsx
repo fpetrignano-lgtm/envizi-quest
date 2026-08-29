@@ -515,7 +515,7 @@ export default function Home(){
         </section>
         {/* ── SLIDE 3: Top 7 aree critiche ── */}
         <section className="c1sSlide">
-          <div className="c1sSlideLabel">{isIt?"03 · Le 7 aree critiche principali":"03 · Top 7 critical areas"}</div>
+          <div className="c1sSlideLabel c1sSlideLabelLg">{isIt?"03 · Aree critiche principali":"03 · Top critical areas"}</div>
           <h2 className="c1sSlideSub">{isIt?"Ordinate per Rilevanza + Criticità":"Sorted by Relevance + Criticality"}</h2>
           <div className="c1sCritList">
             {top7.map((n,i)=>{
