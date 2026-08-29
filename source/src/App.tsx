@@ -418,7 +418,7 @@ export default function Home(){
       const restNames=names.slice(1);
       const company=displayCompanyName;
       const matLabel=activeReadiness.label.split("—")[0].trim();
-      let txt=`${company} ha definito ${names.length} obiettivo${names.length>1?"":"i"} prioritario${names.length>1?"":"i"} per la propria strategia ESG. `;
+      let txt=`${company} ha definito ${names.length} obiettiv${names.length>1?"i":"o"} prioritari${names.length>1?"":"o"} per la propria strategia ESG. `;
       txt+=`In particolare, la priorità principale è <strong>${topName}</strong>`;
       if(restNames.length>0)txt+=`, seguita da ${restNames.slice(0,-1).join(", ")}${restNames.length>1?" e ":""}<strong>${restNames[restNames.length-1]}</strong>`;
       txt+=`. Il livello di maturità attuale — <em>${matLabel}</em> — indica che ${activeReadiness.desc.charAt(0).toLowerCase()+activeReadiness.desc.slice(1)}`;
