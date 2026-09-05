@@ -649,7 +649,7 @@ export default function Home(){
     </main>;
   }
 
-  if(screen==="missionIntro"&&profile){const mid=t.missionIntroData[selectedMission]||t.missionIntroData[0];const mBody=(mid.body as string).replace("COMPANY_NAME",displayCompanyName);const activeMission=missionCatalog[selectedMission];return <main className="mission0IntroScreen"><header className="missionNav missionNavTrust"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress" style={{fontSize:"clamp(13px,1.3vw,16px)"}}><span className="activeDot"/> {mid.eyebrow}</div>{renderTrustBar()}<button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><section className="m0iStage"><img src={`./characters/${profile}-neutral.png`} alt={name} className="m0iProfileImg"/><div className="m0iPersonaTag"><span className="statusDot"/><div><small>ESG MANAGER</small><strong>{name}</strong></div></div></section><section className="m0iContent"><div className="m0iContentInner"><div className="m0iMissionBadge"><span>{activeMission.icon}</span><i>{mid.eyebrow}</i></div><h1 className="m0iTitle">{mid.title}</h1><p className="m0iKicker">{mid.kicker}</p><p className="m0iQuestion">{mid.question}</p><p className="m0iBody">{mBody}</p><button className="actionButton m0iCta" onClick={()=>setScreen("introCopy2")}>{mid.cta}<b>→</b></button></div></section></main>;}
+  if(screen==="missionIntro"&&profile){const mid=t.missionIntroData[selectedMission]||t.missionIntroData[0];const mBody=(mid.body as string).replace("COMPANY_NAME",displayCompanyName);const activeMission=missionCatalog[selectedMission];return <main className="mission0IntroScreen"><header className="missionNav missionNavTrust"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> {mid.eyebrow}</div>{renderTrustBar()}<button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header><section className="m0iStage"><img src={`./characters/${profile}-neutral.png`} alt={name} className="m0iProfileImg"/><div className="m0iPersonaTag"><span className="statusDot"/><div><small>ESG MANAGER</small><strong>{name}</strong></div></div></section><section className="m0iContent"><div className="m0iMissionBadge"><span>{activeMission.icon}</span><i>{mid.eyebrow}</i></div><h1 className="m0iTitle">{mid.title}</h1><p className="m0iKicker">{mid.kicker}</p><p className="m0iQuestion">{mid.question}</p><p className="m0iBody">{mBody}</p><button className="actionButton m0iCta" onClick={()=>setScreen("introCopy2")}>{mid.cta}<b>→</b></button></section></main>;}
 
 
 
@@ -1535,6 +1535,10 @@ export default function Home(){
     const pepUnit=isIt?"dipendenti":"employees";
     const companyStoryGen=isIt?`Un ${sectorLabel.toLowerCase()} da ${dimVal} ${dimUnit}, con ${opsVal} ${opsUnit} e ${officesVal} sedi operative.`:`A ${sectorLabel.toLowerCase()} with ${dimVal} ${dimUnit}, ${opsVal} ${opsUnit} and ${officesVal} operational locations.`;
     const evolvingGen=`${displayCompanyName} — ${activeReadiness.desc}`;
+    const geoKeys=["italia","europa","asia","nordamerica","sudamerica","africa","australia"];
+    const geoLabelsShort:Record<string,{it:string,en:string}>={italia:{it:"ITALIA",en:"ITALY"},europa:{it:"EUROPA",en:"EUROPE"},asia:{it:"ASIA",en:"ASIA"},nordamerica:{it:"N. AMERICA",en:"N. AMERICA"},sudamerica:{it:"S. AMERICA",en:"S. AMERICA"},africa:{it:"AFRICA",en:"AFRICA"},australia:{it:"AUSTRALIA",en:"AUSTRALIA"}};
+    const activeGeo=geoKeys.filter(k=>(geoDistrib[k]??0)>0&&(companyMarket==="mondo"||(companyMarket==="europa"&&(k==="italia"||k==="europa"))||companyMarket==="italia"&&k==="italia"));
+    const posMap:Record<string,{left:string,top:string}[]>={europa:[{left:"48%",top:"38%"},{left:"51%",top:"42%"},{left:"44%",top:"40%"},{left:"53%",top:"36%"}],asia:[{left:"72%",top:"42%"},{left:"75%",top:"46%"},{left:"68%",top:"44%"}],nordamerica:[{left:"18%",top:"40%"},{left:"22%",top:"36%"},{left:"15%",top:"44%"}],sudamerica:[{left:"28%",top:"64%"},{left:"24%",top:"68%"}],africa:[{left:"50%",top:"58%"},{left:"46%",top:"62%"}],australia:[{left:"78%",top:"66%"},{left:"82%",top:"62%"}]};
     return <main className="companyScreen">
       <header className="missionNav missionNavTrust"><button className="brand brandButton" onClick={reset}><span className="brandMark">e·</span><span>Envizi<br/>Impact Quest</span></button><div className="missionProgress"><span className="activeDot"/> COMPANY PROFILE</div>{renderTrustBar()}<button className="langMini" onClick={()=>setLanguage(language==="it"?"en":"it")}>{language==="it"?"EN":"IT"}</button></header>
       <section className="companyCopy">
@@ -1642,96 +1646,12 @@ export default function Home(){
         <blockquote>{evolvingGen}</blockquote>
         {csrdConfirmStep===2&&<button className="actionButton" onClick={()=>setScreen("priorities")}>{t.explore}<b>→</b></button>}
       </section>
-      <section className="worldMap svgMapSection" aria-label={`${displayCompanyName} footprint`}>
-        {companyMarket==="italia"&&(
-          <svg className="svgMap svgMapItaly" viewBox="0 0 220 340" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <title>Italy</title>
-            {/* Italian peninsula simplified path */}
-            <path className="svgLand" d="M80,10 L100,8 L118,14 L130,22 L138,30 L142,42 L148,50 L152,60 L150,72 L156,80 L162,88 L168,96 L172,106 L174,118 L178,128 L182,138 L188,148 L192,158 L196,168 L200,180 L202,194 L200,204 L194,212 L188,218 L182,224 L176,228 L170,230 L162,228 L156,222 L152,216 L148,208 L144,200 L140,192 L136,202 L132,212 L128,220 L122,228 L116,234 L110,238 L104,240 L98,238 L92,232 L88,224 L86,214 L84,204 L82,194 L80,184 L78,174 L76,164 L74,154 L72,144 L70,134 L68,124 L68,112 L70,100 L72,88 L74,78 L76,66 L78,54 L78,42 L78,30 L80,20 Z"/>
-            {/* Sicily */}
-            <path className="svgLand svgIsland" d="M96,268 L108,262 L124,260 L138,264 L148,272 L150,282 L144,290 L132,294 L118,294 L106,288 L98,280 Z"/>
-            {/* Sardinia */}
-            <path className="svgLand svgIsland" d="M38,170 L48,164 L58,166 L64,174 L64,186 L58,196 L48,200 L38,196 L32,186 L32,176 Z"/>
-            {/* HQ dot — Milano approx */}
-            <circle className="svgHqDot" cx="103" cy="62" r="7"/>
-            <text className="svgHqLabel" x="115" y="58">HQ · {displayCompanyName}</text>
-            <text className="svgHqSub" x="115" y="68">MILANO</text>
-          </svg>
-        )}
-        {companyMarket==="europa"&&(
-          <svg className="svgMap svgMapEurope" viewBox="0 0 400 380" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <title>Europe</title>
-            {/* Europe simplified outline */}
-            <path className="svgLand" d="M30,60 L50,40 L80,30 L110,28 L140,30 L160,24 L185,20 L210,22 L230,30 L240,42 L248,54 L255,65 L265,72 L280,76 L295,80 L310,84 L318,94 L320,106 L315,118 L310,128 L304,138 L300,150 L296,162 L290,172 L282,180 L274,188 L268,198 L262,210 L256,220 L250,228 L242,234 L232,238 L222,240 L212,244 L200,250 L188,256 L176,260 L164,262 L152,260 L140,256 L130,250 L118,244 L108,240 L96,236 L84,230 L72,222 L62,212 L52,202 L44,192 L36,180 L28,168 L22,156 L18,142 L16,128 L16,114 L18,100 L22,88 L28,76 Z"/>
-            {/* Scandinavia extension */}
-            <path className="svgLand" d="M210,22 L220,10 L235,4 L250,8 L260,18 L258,30 L248,38 L240,42 Z"/>
-            <path className="svgLand" d="M185,20 L192,8 L205,4 L215,10 L218,22 L210,22 L200,22 Z"/>
-            {/* UK outline */}
-            <path className="svgLand svgIsland" d="M120,60 L132,54 L144,56 L152,64 L152,78 L144,88 L132,92 L120,88 L112,78 L112,68 Z"/>
-            {/* Italy highlighted */}
-            <path className="svgLandHighlight" d="M196,170 L200,160 L204,152 L208,162 L212,172 L216,182 L218,192 L216,200 L210,206 L204,210 L198,208 L194,200 L192,190 Z"/>
-            {/* HQ dot — Milano */}
-            <circle className="svgHqDot" cx="198" cy="168" r="6"/>
-            <text className="svgHqLabel" x="210" y="164">HQ · {displayCompanyName}</text>
-            <text className="svgHqSub" x="210" y="174">MILANO</text>
-            {/* Europa distribution label */}
-            {(geoDistrib["europa"]??0)>0&&<>
-              <circle className="svgRegionDot" cx="185" cy="110" r="5"/>
-              <text className="svgRegionLabel" x="195" y="114">EUROPA · {geoDistrib["europa"]}%</text>
-            </>}
-          </svg>
-        )}
-        {companyMarket==="mondo"&&(
-          <svg className="svgMap svgMapWorld" viewBox="0 0 700 380" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <title>World</title>
-            {/* ── Europe ── */}
-            <path className="svgLand" d="M290,80 L305,72 L322,70 L338,74 L348,82 L352,94 L348,106 L340,114 L328,120 L314,122 L300,118 L290,110 L284,98 Z"/>
-            {/* Italy inside Europe */}
-            <path className={`svgLand${(geoDistrib["europa"]??0)>0||companyMarket==="mondo"?" svgLandHighlight":""}`} d="M318,110 L320,104 L324,108 L326,116 L324,122 L320,124 L316,120 Z"/>
-            {/* ── Africa ── */}
-            <path className={(geoDistrib["africa"]??0)>0?"svgLand svgLandActive":"svgLand"} d="M300,140 L320,132 L340,130 L360,136 L372,148 L376,164 L374,180 L368,196 L356,208 L340,216 L322,220 L306,218 L292,210 L282,196 L278,180 L280,162 L288,150 Z"/>
-            {/* ── North America ── */}
-            <path className={(geoDistrib["nordamerica"]??0)>0?"svgLand svgLandActive":"svgLand"} d="M80,60 L120,50 L158,52 L188,62 L204,78 L208,96 L202,114 L188,128 L168,136 L146,138 L124,134 L102,124 L82,108 L68,90 L68,74 Z"/>
-            {/* ── South America ── */}
-            <path className={(geoDistrib["sudamerica"]??0)>0?"svgLand svgLandActive":"svgLand"} d="M160,160 L180,152 L198,156 L210,170 L214,188 L210,210 L200,230 L184,248 L166,258 L150,256 L138,244 L132,228 L132,208 L138,188 L148,172 Z"/>
-            {/* ── Asia ── */}
-            <path className={(geoDistrib["asia"]??0)>0?"svgLand svgLandActive":"svgLand"} d="M420,60 L470,52 L520,56 L560,68 L590,84 L606,102 L608,122 L596,140 L576,152 L550,158 L520,158 L490,152 L462,140 L438,124 L420,106 L410,88 Z"/>
-            {/* ── Australia ── */}
-            <path className={(geoDistrib["australia"]??0)>0?"svgLand svgLandActive":"svgLand"} d="M520,220 L550,212 L576,216 L596,228 L606,246 L602,264 L588,276 L566,282 L544,278 L524,266 L512,250 L512,234 Z"/>
-            {/* HQ dot — Milano (inside Europe) */}
-            <circle className="svgHqDot" cx="316" cy="108" r="6"/>
-            <text className="svgHqLabel" x="326" y="104">HQ · {displayCompanyName}</text>
-            <text className="svgHqSub" x="326" y="114">MILANO</text>
-            {/* Region labels for active geos */}
-            {(geoDistrib["europa"]??0)>0&&<>
-              <circle className="svgRegionDot" cx="314" cy="94" r="4"/>
-              <text className="svgRegionLabel" x="322" y="97">EU · {geoDistrib["europa"]}%</text>
-            </>}
-            {(geoDistrib["nordamerica"]??0)>0&&<>
-              <circle className="svgRegionDot" cx="144" cy="94" r="4"/>
-              <text className="svgRegionLabel" x="152" y="97">N.AM · {geoDistrib["nordamerica"]}%</text>
-            </>}
-            {(geoDistrib["sudamerica"]??0)>0&&<>
-              <circle className="svgRegionDot" cx="174" cy="204" r="4"/>
-              <text className="svgRegionLabel" x="182" y="207">S.AM · {geoDistrib["sudamerica"]}%</text>
-            </>}
-            {(geoDistrib["asia"]??0)>0&&<>
-              <circle className="svgRegionDot" cx="510" cy="108" r="4"/>
-              <text className="svgRegionLabel" x="518" y="111">ASIA · {geoDistrib["asia"]}%</text>
-            </>}
-            {(geoDistrib["africa"]??0)>0&&<>
-              <circle className="svgRegionDot" cx="328" cy="176" r="4"/>
-              <text className="svgRegionLabel" x="336" y="179">AFR · {geoDistrib["africa"]}%</text>
-            </>}
-            {(geoDistrib["australia"]??0)>0&&<>
-              <circle className="svgRegionDot" cx="558" cy="248" r="4"/>
-              <text className="svgRegionLabel" x="566" y="251">AUS · {geoDistrib["australia"]}%</text>
-            </>}
-            {/* Italia label always */}
-            <text className="svgRegionLabel" x="326" y="124">ITA · {geoDistrib["italia"]??100}%</text>
-          </svg>
-        )}
-        <div className="mapLegend"><b><i className="officeDot"/> {isIt?"SEDE HQ · MILANO":"HQ OFFICE · MILAN"}</b></div>
+      <section className="worldMap" aria-label={`${displayCompanyName} footprint`}>
+        <div className="mapGrid"/>
+        <div className="region americas">AMERICAS</div><div className="region emea">EMEA</div><div className="region apac">APAC</div>
+        <div className="mapPoint office milan" title="Milano HQ"><i/><span style={{left:"24px",top:"-46px",bottom:"auto",lineHeight:"1.45"}}><b style={{display:"block",color:"#effff9"}}>HQ · {displayCompanyName}</b><small style={{display:"block",color:"#72f7ca",fontSize:"8px"}}>MILAN</small></span></div>
+        {activeGeo.filter(k=>k!=="italia").map(k=>{const pct=geoDistrib[k]??0;const count=Math.max(1,Math.round(pct/10));const positions=posMap[k]||[];return Array.from({length:Math.min(count,positions.length)}).map((_,idx)=><div key={`${k}-${idx}`} className="mapPoint office" style={{left:positions[idx].left,top:positions[idx].top}} title={isIt?geoLabelsShort[k].it:geoLabelsShort[k].en}><i/>{idx===0&&<span>{isIt?geoLabelsShort[k].it:geoLabelsShort[k].en} · {pct}%</span>}</div>);})}
+        <div className="mapLegend"><b><i className="officeDot"/> {isIt?"SEDE":"OFFICE"}</b></div>
       </section>
     </main>;
   }
